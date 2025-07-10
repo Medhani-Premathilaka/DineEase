@@ -1,0 +1,13 @@
+C:\Users\USER\Desktop\c#\DineEase\DineEase\bin\Debug\DineEase.exe.config
+C:\Users\USER\Desktop\c#\DineEase\DineEase\bin\Debug\DineEase.exe
+C:\Users\USER\Desktop\c#\DineEase\DineEase\bin\Debug\DineEase.pdb
+C:\Users\USER\Desktop\c#\DineEase\DineEase\bin\Debug\Guna.UI2.dll
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.Form1.resources
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.Properties.Resources.resources
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.csproj.GenerateResource.cache
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.csproj.Up2Date
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.exe
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.pdb
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.exe.config

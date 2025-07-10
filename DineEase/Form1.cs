@@ -1,17 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DineEase
 {
     public partial class Form1 : Form
     {
+        private Color HashToColor(string input)
+        {
+            // Get a hash code for the string
+            int hash = input.GetHashCode();
+
+            // Use the hash to generate RGB values
+            byte r = (byte)((hash & 0xFF0000) >> 16);
+            byte g = (byte)((hash & 0x00FF00) >> 8);
+            byte b = (byte)(hash & 0x0000FF);
+
+            return Color.FromArgb(r, g, b);
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +40,41 @@ namespace DineEase
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
 
         }
