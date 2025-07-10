@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -51,7 +52,16 @@ namespace DineEase
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            string connectionString;
+            SqlConnection cnn;
 
+            connectionString = @"medhani-pc\\sqlexpress.DineEase.dbo";
+
+            cnn = new SqlConnection(connectionString);
+            cnn.Open();
+            MessageBox.Show("Connection Open!");
+
+            cnn.Close();
         }
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
