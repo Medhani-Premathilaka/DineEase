@@ -55,11 +55,38 @@ namespace DineEase
             string connectionString;
             SqlConnection cnn;
 
-            connectionString = @"medhani-pc\\sqlexpress.DineEase.dbo";
+            connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
+            string enteredUsername = username.Text.Trim();
+            string enteredPassword = password.Text.Trim();
 
             cnn = new SqlConnection(connectionString);
             cnn.Open();
-            MessageBox.Show("Connection Open!");
+            string query = "SELECT Role FROM Users WHERE Username = @username AND Password = @password";
+            using (SqlCommand cmd = new SqlCommand(query, cnn))
+            {
+                cmd.Parameters.AddWithValue("@username", enteredUsername);
+                cmd.Parameters.AddWithValue("@password", enteredPassword);
+
+                var role = cmd.ExecuteScalar() as string;
+
+                if (role == "ADMIN")
+                {
+                    Admin adminForm = new Admin();
+                    adminForm.Show();
+                    this.Hide();
+                }
+                else if (role == "USER")
+                {
+                    User userForm = new User();
+                    userForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.");
+                }
+            }
+
 
             cnn.Close();
         }
