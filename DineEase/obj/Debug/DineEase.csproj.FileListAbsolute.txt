@@ -11,3 +11,6 @@ C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.csproj.Up2Date
 C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.exe
 C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.pdb
 C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.exe.config
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.AdminHomePage.resources
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.User.resources
+C:\Users\USER\Desktop\c#\DineEase\DineEase\obj\Debug\DineEase.Signup.resources

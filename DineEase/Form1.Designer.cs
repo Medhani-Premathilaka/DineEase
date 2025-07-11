@@ -4,7 +4,7 @@
     {
         /// <summary>
         /// Required designer variable.
-        /// </summary>
+        /// </summary>s
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -38,6 +38,7 @@
             this.signup = new Guna.UI2.WinForms.Guna2Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.signin = new Guna.UI2.WinForms.Guna2Button();
+            this.lblerror = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -173,12 +174,25 @@
             this.signin.Text = "SIGN IN";
             this.signin.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // lblerror
+            // 
+            this.lblerror.BackColor = System.Drawing.Color.Transparent;
+            this.lblerror.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lblerror.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblerror.ForeColor = System.Drawing.Color.Red;
+            this.lblerror.Location = new System.Drawing.Point(97, 338);
+            this.lblerror.Name = "lblerror";
+            this.lblerror.Size = new System.Drawing.Size(117, 20);
+            this.lblerror.TabIndex = 9;
+            this.lblerror.Text = "guna2HtmlLabel4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(412, 594);
+            this.Controls.Add(this.lblerror);
             this.Controls.Add(this.signin);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.signup);
@@ -207,6 +221,7 @@
         private Guna.UI2.WinForms.Guna2Button signup;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private Guna.UI2.WinForms.Guna2Button signin;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblerror;
     }
 }
 

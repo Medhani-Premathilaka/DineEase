@@ -6,7 +6,10 @@ using System.Windows.Forms;
 namespace DineEase
 {
     public partial class Form1 : Form
+
     {
+
+
         private Color HashToColor(string input)
         {
             // Get a hash code for the string
@@ -37,12 +40,12 @@ namespace DineEase
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("mailto:ruh.ac.lk@gmail.com?subject=Support%20Request&body=Hello");
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            lblerror.Visible = false;
         }
 
         private void signin_Click(object sender, EventArgs e)
@@ -50,10 +53,13 @@ namespace DineEase
 
         }
 
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            lblerror.Visible = false;
             string connectionString;
             SqlConnection cnn;
+
 
             connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
             string enteredUsername = username.Text.Trim();
@@ -71,7 +77,7 @@ namespace DineEase
 
                 if (role == "ADMIN")
                 {
-                    Admin adminForm = new Admin();
+                    AdminHomePage adminForm = new AdminHomePage();
                     adminForm.Show();
                     this.Hide();
                 }
@@ -83,7 +89,8 @@ namespace DineEase
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.");
+                    lblerror.Text = "Invalid username or password.";
+                    lblerror.Visible = true;
                 }
             }
 
@@ -113,6 +120,9 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            Signup signup = new Signup();
+            signup.Show();
+            this.Hide();
 
         }
     }
