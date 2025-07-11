@@ -249,6 +249,7 @@
             this.guna2ButtonReset.Size = new System.Drawing.Size(125, 41);
             this.guna2ButtonReset.TabIndex = 10;
             this.guna2ButtonReset.Text = "Reset";
+            this.guna2ButtonReset.Click += new System.EventHandler(this.guna2ButtonReset_Click);
             // 
             // guna2ButtonCreate
             // 

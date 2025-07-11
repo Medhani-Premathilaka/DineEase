@@ -89,6 +89,16 @@ namespace DineEase
                     }
                 }
             }
-        }   }
+        }
+
+        private void guna2ButtonReset_Click(object sender, EventArgs e)
+        {
+            guna2TextBoxName.Clear();
+            guna2TextBoxAddFor.Clear();
+            guna2TextBoxPrice.Clear();
+            guna2TextBoxDescription.Clear();
+
+        }
+    }
 }
 
