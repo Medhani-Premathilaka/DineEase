@@ -9,7 +9,8 @@ namespace DineEase
 
     {
 
-
+        private bool isUsernameHintVisible = true;
+        private bool isPasswordHintVisible = true;
         private Color HashToColor(string input)
         {
             // Get a hash code for the string
@@ -26,8 +27,56 @@ namespace DineEase
         public Form1()
         {
             InitializeComponent();
-        }
+            password.PasswordChar = '\0';
 
+            username.Text = "Enter username";
+            password.Text = "Enter password";
+            username.ForeColor = Color.Gray;
+            password.ForeColor = Color.Gray;
+
+            username.Enter += Username_Enter;
+            username.Leave += Username_Leave;
+            password.Enter += Password_Enter;
+            password.Leave += Password_Leave;
+        }
+        private void Username_Enter(object sender, EventArgs e)
+        {
+            if (isUsernameHintVisible)
+            {
+                username.Text = "";
+                username.ForeColor = Color.Gray;
+                isUsernameHintVisible = false;
+            }
+        }
+        private void Username_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(username.Text))
+            {
+                username.Text = "Enter username";
+                username.ForeColor = Color.Gray;
+                isUsernameHintVisible = true;
+            }
+        }
+        private void Password_Enter(object sender, EventArgs e)
+        {
+            if (isPasswordHintVisible)
+            {
+                password.Text = "";
+                password.ForeColor = Color.Gray;
+                password.PasswordChar = '●'; // Hide password
+                isPasswordHintVisible = false;
+            }
+        }
+        private void Password_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(password.Text))
+            {
+                password.PasswordChar = '\0'; // Show hint as plain text
+                password.Text = "Enter password";
+                password.ForeColor = Color.Gray;
+                isPasswordHintVisible = true;
+            }
+        }
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 

@@ -5,7 +5,7 @@ namespace DineEase
 {
     internal class Security
     {
-        private string HashPassword(string password)
+        public string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {

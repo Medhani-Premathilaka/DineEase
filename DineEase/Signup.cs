@@ -6,11 +6,34 @@ namespace DineEase
 {
     public partial class Signup : Form
     {
+        private bool isEmailHintVisible = true;
         public Signup()
         {
             InitializeComponent();
+            password.PasswordChar = '●';      // Displays dots for password input
+            confirmpwd.PasswordChar = '●';    // Displays dots for confirm password input
+
+            email.Text = "example@gmail.com";
+            email.Enter += Email_Enter;
+            email.Leave += Email_Leave;
+        }
+        private void Email_Enter(object sender, EventArgs e)
+        {
+            if (isEmailHintVisible)
+            {
+                email.Text = "";
+                isEmailHintVisible = false;
+            }
         }
 
+        public void Email_Leave(Object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(email.Text))
+            {
+                email.Text = "example@gmail.com";
+                isEmailHintVisible = true;
+            }
+        }
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -51,51 +74,66 @@ namespace DineEase
             string enteredName = name.Text.Trim();
             string enterdemail = email.Text.Trim();
             string role = "USER";
+
+            if (string.IsNullOrWhiteSpace(enteredUsername) ||
+        string.IsNullOrWhiteSpace(enteredPassword) ||
+        string.IsNullOrWhiteSpace(confirmPassword) ||
+        string.IsNullOrWhiteSpace(enteredName) ||
+        string.IsNullOrWhiteSpace(enterdemail))
+            {
+                lblError1.Text = "All fields are required.";
+                lblError1.Visible = true;
+                return;
+            }
+
             if (!IsValidEmail(enterdemail))
             {
                 lblError.Text = "Please enter a valid email address.";
                 lblError.Visible = true;
                 return;
             }
+            if (enteredPassword == confirmPassword)
+            {
+                Security security = new Security();
+                string hashedPassword = security.HashPassword(enteredPassword);
+                string connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
+                using (SqlConnection cnn = new SqlConnection(connectionString))
+                {
 
-            if (enteredUsername != enteredPassword)
+                    cnn.Open();
+                    string query = "INSERT INTO Users(Username, Password, Role, Email,Name) VALUES (@username, @password, @role, @email, @name)";
+                    using (SqlCommand cmd = new SqlCommand(query, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", enteredUsername);
+                        cmd.Parameters.AddWithValue("password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@role", role);
+                        cmd.Parameters.AddWithValue("@email", enterdemail);
+                        cmd.Parameters.AddWithValue("@name", enteredName);
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Registration successful!");
+                            Form1 loginForm = new Form1();
+                            loginForm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            lblError.Text = "Registration failed. Please try again.";
+                            lblError.Visible = true;
+                        }
+                    }
+
+                }
+
+            }
+            else
             {
                 lblError.Text = "Passwords do not match. Try Again";
                 lblError.Visible = true;
                 return;
             }
-            else
-            {
 
-            }
-            string connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
-            using (SqlConnection cnn = new SqlConnection(connectionString))
-            {
-                cnn.Open();
-                string query = "INSERT INTO Users(Username, Password, Role, Email,Name) VALUESE (@username, @password, @role, @email, @name)";
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
-                {
-                    cmd.Parameters.AddWithValue("@username", enteredUsername);
-                    cmd.Parameters.AddWithValue("password", enteredPassword);
-                    cmd.Parameters.AddWithValue("@role", role);
-                    cmd.Parameters.AddWithValue("@email", enterdemail);
-                    cmd.Parameters.AddWithValue("@name", enteredName);
-                    int result = cmd.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Registration successful!");
-                        Form1 loginForm = new Form1();
-                        loginForm.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        lblError.Text = "Registration failed. Please try again.";
-                        lblError.Visible = true;
-                    }
-                }
-
-            }
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -113,6 +151,7 @@ namespace DineEase
         private void Signup_Load(object sender, EventArgs e)
         {
             lblError.Visible = false;
+            lblError1.Visible = false;
         }
 
         private void lblError_Click(object sender, EventArgs e)
