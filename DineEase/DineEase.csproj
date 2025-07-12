@@ -52,15 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Compile Include="AddItemPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddItemPage.Designer.cs">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </Compile>
->>>>>>> 80f72299ed909f5987a9bb29173c4dcf8e39ff47
     <Compile Include="AdminHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,21 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-    <Compile Include="Security.cs" />
-    <Compile Include="Signup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Signup.Designer.cs">
-      <DependentUpon>Signup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
-    </Compile>
-=======
     <Compile Include="UpdateItemPagecs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,7 +81,6 @@
     <EmbeddedResource Include="AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> 80f72299ed909f5987a9bb29173c4dcf8e39ff47
     <EmbeddedResource Include="AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,16 +96,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Signup.resx">
-      <DependentUpon>Signup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User.resx">
-      <DependentUpon>User.cs</DependentUpon>
-=======
     <EmbeddedResource Include="UpdateItemPagecs.resx">
       <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
->>>>>>> 80f72299ed909f5987a9bb29173c4dcf8e39ff47
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
