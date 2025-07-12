@@ -1,1 +1,9 @@
 .vs/
+
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.pdb
+*.cache
+*.obj
+*.dll
