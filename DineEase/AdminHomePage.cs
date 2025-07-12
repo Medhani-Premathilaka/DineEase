@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace DineEase
         public AdminHomePage()
         {
             InitializeComponent();
+            this.Load += AdminHomePage_Load;
         }
 
         private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
@@ -23,6 +25,46 @@ namespace DineEase
             AddItemPage addItemPage = new AddItemPage(); // create instance of form2
             addItemPage.Show(); // open the AddItemPage
             this.Hide(); // optional: hide AdminHomePage
+        }
+
+        private void AdminHomePage_Load(object sender, EventArgs e)
+        {
+            LoadItemsIntoGrid();
+        }
+
+        private void LoadItemsIntoGrid()
+        {
+            guna2DataGridView1.Columns.Clear(); // 🔴 Clear existing columns first
+            guna2DataGridView1.DataSource = null; // 🔴 Clear existing data
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT name, addFor, price, description FROM menu";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    adapter.Fill(dt);
+                    guna2DataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message);
+                }
+            }
+        }
+
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

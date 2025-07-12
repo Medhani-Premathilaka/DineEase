@@ -99,6 +99,11 @@ namespace DineEase
             guna2TextBoxDescription.Clear();
 
         }
+
+        private void guna2Panel3_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
 
