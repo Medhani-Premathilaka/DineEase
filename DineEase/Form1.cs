@@ -130,23 +130,23 @@ namespace DineEase
                 var role = cmd.ExecuteScalar() as string;
 
 
-                //if (role == "ADMIN")
-                //{
-                //    AdminHomePage adminForm = new AdminHomePage();
-                //    adminForm.Show();
-                //    this.Hide();
-                //}
-                //else if (role == "USER")
-                //{
-                //    User userForm = new User();
-                //    userForm.Show();
-                //    this.Hide();
-                //}
-                //else
-                //{
-                //    lblerror.Text = "Invalid username or password.";
-                //    lblerror.Visible = true;
-                //}
+                if (role == "ADMIN")
+                {
+                    AdminHomePage adminForm = new AdminHomePage();
+                    adminForm.Show();
+                    this.Hide();
+                }
+                else if (role == "USER")
+                {
+                    User userForm = new User();
+                    userForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    lblerror.Text = "Invalid username or password.";
+                    lblerror.Visible = true;
+                }
             }
 
 
