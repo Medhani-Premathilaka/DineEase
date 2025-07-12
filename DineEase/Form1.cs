@@ -132,7 +132,7 @@ namespace DineEase
 
                 if (role == "ADMIN")
                 {
-                    AdminHomePage adminForm = new AdminHomePage();
+                    AdminHomepage adminForm = new AdminHomepage();
                     adminForm.Show();
                     this.Hide();
                 }

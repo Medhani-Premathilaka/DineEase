@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class AdminHomePage : Form
+    public partial class AdminHomepage : Form
     {
-        string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
-        public AdminHomePage()
+        public AdminHomepage()
         {
             InitializeComponent();
-        }
-
-        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage(); // create instance of form2
-            addItemPage.Show(); // open the AddItemPage
-            this.Hide(); // optional: hide AdminHomePage
         }
     }
 }
