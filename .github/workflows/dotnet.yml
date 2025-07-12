@@ -1,4 +1,3 @@
-# .github/workflows/dotnet-framework.yml
 name: Build .NET Framework 4.7.2
 
 on:
