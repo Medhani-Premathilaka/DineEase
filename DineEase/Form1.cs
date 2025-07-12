@@ -56,7 +56,7 @@ namespace DineEase
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            lblerror.Visible = false;
+
             string connectionString;
             SqlConnection cnn;
 
@@ -64,6 +64,10 @@ namespace DineEase
             connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
             string enteredUsername = username.Text.Trim();
             string enteredPassword = password.Text.Trim();
+            Security security = new Security();
+            string hashedPassword = security.HashPassword(enteredPassword);
+
+
 
             cnn = new SqlConnection(connectionString);
             cnn.Open();
@@ -71,9 +75,11 @@ namespace DineEase
             using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
                 cmd.Parameters.AddWithValue("@username", enteredUsername);
-                cmd.Parameters.AddWithValue("@password", enteredPassword);
+                cmd.Parameters.AddWithValue("@password", hashedPassword);
+
 
                 var role = cmd.ExecuteScalar() as string;
+
 
                 if (role == "ADMIN")
                 {

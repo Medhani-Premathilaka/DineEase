@@ -32,7 +32,7 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.name = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.stid = new Guna.UI2.WinForms.Guna2TextBox();
+            this.username = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.email = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,6 +43,7 @@
             this.register = new Guna.UI2.WinForms.Guna2Button();
             this.goback = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblError = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,25 +93,25 @@
             this.guna2HtmlLabel2.Text = "Name:";
             this.guna2HtmlLabel2.Click += new System.EventHandler(this.guna2HtmlLabel2_Click);
             // 
-            // stid
+            // username
             // 
-            this.stid.BorderRadius = 10;
-            this.stid.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.stid.DefaultText = "";
-            this.stid.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.stid.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.stid.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.stid.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.stid.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.stid.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.stid.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.stid.Location = new System.Drawing.Point(126, 237);
-            this.stid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.stid.Name = "stid";
-            this.stid.PlaceholderText = "";
-            this.stid.SelectedText = "";
-            this.stid.Size = new System.Drawing.Size(283, 38);
-            this.stid.TabIndex = 6;
+            this.username.BorderRadius = 10;
+            this.username.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.username.DefaultText = "";
+            this.username.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.username.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.username.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.username.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.username.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.username.Location = new System.Drawing.Point(126, 237);
+            this.username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.username.Name = "username";
+            this.username.PlaceholderText = "";
+            this.username.SelectedText = "";
+            this.username.Size = new System.Drawing.Size(283, 38);
+            this.username.TabIndex = 6;
             // 
             // guna2HtmlLabel3
             // 
@@ -207,6 +208,7 @@
             this.confirmpwd.SelectedText = "";
             this.confirmpwd.Size = new System.Drawing.Size(283, 38);
             this.confirmpwd.TabIndex = 12;
+            this.confirmpwd.TextChanged += new System.EventHandler(this.confirmpwd_TextChanged);
             // 
             // guna2HtmlLabel6
             // 
@@ -230,7 +232,7 @@
             this.register.FillColor = System.Drawing.Color.SlateBlue;
             this.register.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.register.ForeColor = System.Drawing.Color.White;
-            this.register.Location = new System.Drawing.Point(126, 525);
+            this.register.Location = new System.Drawing.Point(126, 566);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(283, 38);
             this.register.TabIndex = 13;
@@ -247,7 +249,7 @@
             this.goback.FillColor = System.Drawing.Color.SlateBlue;
             this.goback.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.goback.ForeColor = System.Drawing.Color.White;
-            this.goback.Location = new System.Drawing.Point(126, 587);
+            this.goback.Location = new System.Drawing.Point(126, 622);
             this.goback.Name = "goback";
             this.goback.Size = new System.Drawing.Size(283, 38);
             this.goback.TabIndex = 14;
@@ -267,11 +269,23 @@
             this.guna2HtmlLabel7.Text = "Sign Up Here";
             this.guna2HtmlLabel7.Click += new System.EventHandler(this.guna2HtmlLabel7_Click);
             // 
+            // lblError
+            // 
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(126, 528);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(108, 18);
+            this.lblError.TabIndex = 16;
+            this.lblError.Text = "guna2HtmlLabel1";
+            this.lblError.Click += new System.EventHandler(this.lblError_Click);
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 672);
+            this.ClientSize = new System.Drawing.Size(522, 691);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.goback);
             this.Controls.Add(this.register);
@@ -281,7 +295,7 @@
             this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.email);
             this.Controls.Add(this.guna2HtmlLabel4);
-            this.Controls.Add(this.stid);
+            this.Controls.Add(this.username);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.name);
             this.Controls.Add(this.guna2HtmlLabel2);
@@ -290,8 +304,10 @@
             this.MinimizeBox = false;
             this.Name = "Signup";
             this.Text = "Signup";
+            this.Load += new System.EventHandler(this.Signup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -300,7 +316,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2TextBox name;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2TextBox stid;
+        private Guna.UI2.WinForms.Guna2TextBox username;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2TextBox email;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
@@ -311,5 +327,6 @@
         private Guna.UI2.WinForms.Guna2Button register;
         private Guna.UI2.WinForms.Guna2Button goback;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblError;
     }
 }

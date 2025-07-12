@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -29,10 +30,72 @@ namespace DineEase
         {
 
         }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private void signin_Click(object sender, EventArgs e)
         {
+            string enteredUsername = username.Text.Trim();
+            string enteredPassword = password.Text;
+            string confirmPassword = confirmpwd.Text;
+            string enteredName = name.Text.Trim();
+            string enterdemail = email.Text.Trim();
+            string role = "USER";
+            if (!IsValidEmail(enterdemail))
+            {
+                lblError.Text = "Please enter a valid email address.";
+                lblError.Visible = true;
+                return;
+            }
 
+            if (enteredUsername != enteredPassword)
+            {
+                lblError.Text = "Passwords do not match. Try Again";
+                lblError.Visible = true;
+                return;
+            }
+            else
+            {
+
+            }
+            string connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
+            using (SqlConnection cnn = new SqlConnection(connectionString))
+            {
+                cnn.Open();
+                string query = "INSERT INTO Users(Username, Password, Role, Email,Name) VALUESE (@username, @password, @role, @email, @name)";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@username", enteredUsername);
+                    cmd.Parameters.AddWithValue("password", enteredPassword);
+                    cmd.Parameters.AddWithValue("@role", role);
+                    cmd.Parameters.AddWithValue("@email", enterdemail);
+                    cmd.Parameters.AddWithValue("@name", enteredName);
+                    int result = cmd.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Registration successful!");
+                        Form1 loginForm = new Form1();
+                        loginForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        lblError.Text = "Registration failed. Please try again.";
+                        lblError.Visible = true;
+                    }
+                }
+
+            }
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -43,6 +106,21 @@ namespace DineEase
         }
 
         private void guna2HtmlLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Signup_Load(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+        }
+
+        private void lblError_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void confirmpwd_TextChanged(object sender, EventArgs e)
         {
 
         }
