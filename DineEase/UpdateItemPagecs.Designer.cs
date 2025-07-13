@@ -30,9 +30,9 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ButtonUpdate = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ButtonImport = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxAddFor = new Guna.UI2.WinForms.Guna2TextBox();
@@ -44,7 +44,7 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -58,8 +58,9 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.pictureBoxItem);
+            this.guna2Panel3.Controls.Add(this.guna2ButtonImport);
             this.guna2Panel3.Controls.Add(this.guna2ButtonUpdate);
-            this.guna2Panel3.Controls.Add(this.guna2Panel4);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxPrice);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxAddFor);
@@ -72,6 +73,33 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(800, 386);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // pictureBoxItem
+            // 
+            this.pictureBoxItem.ImageRotate = 0F;
+            this.pictureBoxItem.Location = new System.Drawing.Point(522, 27);
+            this.pictureBoxItem.Name = "pictureBoxItem";
+            this.pictureBoxItem.Size = new System.Drawing.Size(222, 200);
+            this.pictureBoxItem.TabIndex = 22;
+            this.pictureBoxItem.TabStop = false;
+            this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click);
+            // 
+            // guna2ButtonImport
+            // 
+            this.guna2ButtonImport.BorderRadius = 10;
+            this.guna2ButtonImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2ButtonImport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonImport.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonImport.Location = new System.Drawing.Point(569, 233);
+            this.guna2ButtonImport.Name = "guna2ButtonImport";
+            this.guna2ButtonImport.Size = new System.Drawing.Size(117, 26);
+            this.guna2ButtonImport.TabIndex = 1;
+            this.guna2ButtonImport.Text = "Import";
+            this.guna2ButtonImport.Click += new System.EventHandler(this.guna2ButtonImport_Click);
             // 
             // guna2ButtonUpdate
             // 
@@ -89,32 +117,6 @@
             this.guna2ButtonUpdate.TabIndex = 21;
             this.guna2ButtonUpdate.Text = "Update";
             this.guna2ButtonUpdate.Click += new System.EventHandler(this.guna2ButtonUpdate_Click);
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BorderRadius = 10;
-            this.guna2Panel4.Controls.Add(this.guna2ButtonImport);
-            this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(541, 36);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(195, 191);
-            this.guna2Panel4.TabIndex = 20;
-            // 
-            // guna2ButtonImport
-            // 
-            this.guna2ButtonImport.BorderRadius = 10;
-            this.guna2ButtonImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2ButtonImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2ButtonImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2ButtonImport.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2ButtonImport.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonImport.Location = new System.Drawing.Point(41, 162);
-            this.guna2ButtonImport.Name = "guna2ButtonImport";
-            this.guna2ButtonImport.Size = new System.Drawing.Size(117, 26);
-            this.guna2ButtonImport.TabIndex = 1;
-            this.guna2ButtonImport.Text = "Import";
             // 
             // guna2TextBoxDescription
             // 
@@ -258,7 +260,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            this.guna2Panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,7 +271,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUpdate;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonImport;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxPrice;
@@ -279,5 +280,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxItem;
     }
 }
