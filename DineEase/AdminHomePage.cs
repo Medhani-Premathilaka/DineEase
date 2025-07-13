@@ -121,5 +121,24 @@ namespace DineEase
             }
         }
 
+        private void guna2ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            if (guna2DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an item to update.");
+                return;
+            }
+
+            DataGridViewRow row = guna2DataGridView1.SelectedRows[0];
+
+            string name = row.Cells["name"].Value.ToString();
+            string addFor = row.Cells["addFor"].Value.ToString();
+            string price = row.Cells["price"].Value.ToString();
+            string description = row.Cells["description"].Value.ToString();
+
+            UpdateItemPagecs updatePage = new UpdateItemPagecs(name, addFor, price, description);
+            updatePage.Show();
+            this.Hide(); // Optional
+        }
     }
 }
