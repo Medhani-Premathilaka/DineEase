@@ -66,5 +66,60 @@ namespace DineEase
         {
 
         }
+
+        private void guna2ButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (guna2DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an item to delete.");
+                return;
+            }
+
+            // Get the 'name' value of the selected row
+            int selectedRowIndex = guna2DataGridView1.SelectedRows[0].Index;
+            string itemName = guna2DataGridView1.Rows[selectedRowIndex].Cells["name"].Value.ToString();
+
+            // Confirm deletion
+            DialogResult dialogResult = MessageBox.Show(
+                $"Are you sure you want to delete '{itemName}'?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.No)
+                return;
+
+            // Delete the selected item from the database
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string deleteQuery = "DELETE FROM menu WHERE name = @name";
+
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", itemName);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Item deleted successfully.");
+                            LoadItemsIntoGrid(); // Refresh the table
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item not found or already deleted.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting item: " + ex.Message);
+                    }
+                }
+            }
+        }
+
     }
 }

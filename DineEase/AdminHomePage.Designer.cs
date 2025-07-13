@@ -40,6 +40,8 @@
             this.addFor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2ButtonDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -56,6 +58,8 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.guna2ButtonUpdate);
+            this.guna2Panel3.Controls.Add(this.guna2ButtonDelete);
             this.guna2Panel3.Controls.Add(this.guna2DataGridView1);
             this.guna2Panel3.Controls.Add(this.guna2ButtonAddNewItem);
             this.guna2Panel3.Location = new System.Drawing.Point(0, 68);
@@ -74,11 +78,11 @@
             this.guna2ButtonAddNewItem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2ButtonAddNewItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonAddNewItem.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonAddNewItem.Location = new System.Drawing.Point(607, 326);
+            this.guna2ButtonAddNewItem.Location = new System.Drawing.Point(88, 326);
             this.guna2ButtonAddNewItem.Name = "guna2ButtonAddNewItem";
             this.guna2ButtonAddNewItem.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonAddNewItem.TabIndex = 0;
-            this.guna2ButtonAddNewItem.Text = "+ New Item";
+            this.guna2ButtonAddNewItem.Text = "Add New Item";
             this.guna2ButtonAddNewItem.Click += new System.EventHandler(this.guna2ButtonAddNewItem_Click);
             // 
             // guna2Panel2
@@ -155,7 +159,7 @@
             // 
             // addFor
             // 
-            this.addFor.HeaderText = "AddFor";
+            this.addFor.HeaderText = "Add For";
             this.addFor.MinimumWidth = 6;
             this.addFor.Name = "addFor";
             // 
@@ -170,6 +174,39 @@
             this.description.HeaderText = "Description";
             this.description.MinimumWidth = 6;
             this.description.Name = "description";
+            // 
+            // guna2ButtonDelete
+            // 
+            this.guna2ButtonDelete.BorderRadius = 20;
+            this.guna2ButtonDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2ButtonDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonDelete.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonDelete.Location = new System.Drawing.Point(306, 326);
+            this.guna2ButtonDelete.Name = "guna2ButtonDelete";
+            this.guna2ButtonDelete.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonDelete.TabIndex = 2;
+            this.guna2ButtonDelete.Text = "Delete Item";
+            this.guna2ButtonDelete.Click += new System.EventHandler(this.guna2ButtonDelete_Click);
+            // 
+            // guna2ButtonUpdate
+            // 
+            this.guna2ButtonUpdate.BorderRadius = 20;
+            this.guna2ButtonUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2ButtonUpdate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonUpdate.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonUpdate.Location = new System.Drawing.Point(539, 326);
+            this.guna2ButtonUpdate.Name = "guna2ButtonUpdate";
+            this.guna2ButtonUpdate.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonUpdate.TabIndex = 3;
+            this.guna2ButtonUpdate.Text = "Update Item";
             // 
             // AdminHomePage
             // 
@@ -197,5 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addFor;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonUpdate;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonDelete;
     }
 }
