@@ -91,6 +91,12 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserViewProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserViewProducts.Designer.cs">
+      <DependentUpon>UserViewProducts.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateItemPagecs.resx">
       <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserViewProducts.resx">
+      <DependentUpon>UserViewProducts.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
