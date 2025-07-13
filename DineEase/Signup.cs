@@ -112,7 +112,9 @@ namespace DineEase
                         int result = cmd.ExecuteNonQuery();
                         if (result > 0)
                         {
-                            MessageBox.Show("Registration successful!");
+                            lblError.Text = "Registration Successfull!";
+                            lblError.Visible = true;
+
                             Form1 loginForm = new Form1();
                             loginForm.Show();
                             this.Hide();
