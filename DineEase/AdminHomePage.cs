@@ -181,5 +181,25 @@ namespace DineEase
         {
             // Optional: remove or customize if unused
         }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
