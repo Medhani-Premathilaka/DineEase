@@ -65,3 +65,5 @@ C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.CoreC
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.Up2Date
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.exe
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.pdb
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.Product.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.UserViewProducts.resources
