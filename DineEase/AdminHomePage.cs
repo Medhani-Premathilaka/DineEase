@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -14,40 +10,81 @@ namespace DineEase
     public partial class AdminHomePage : Form
     {
         string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
+
         public AdminHomePage()
         {
             InitializeComponent();
             this.Load += AdminHomePage_Load;
         }
 
-        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage(); // create instance of form2
-            addItemPage.Show(); // open the AddItemPage
-            this.Hide(); // optional: hide AdminHomePage
-        }
-
         private void AdminHomePage_Load(object sender, EventArgs e)
         {
+            //if (guna2DataGridView1.Columns.Contains("image"))
+            //{
+            //    DataGridViewImageColumn imgCol = (DataGridViewImageColumn)guna2DataGridView1.Columns["image"];
+            //    imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            //}
+
+
+            guna2DataGridView1.RowTemplate.Height = 100; // For image display
+            guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            guna2DataGridView1.MultiSelect = false;
+
             LoadItemsIntoGrid();
         }
 
         private void LoadItemsIntoGrid()
         {
-            guna2DataGridView1.Columns.Clear(); // 🔴 Clear existing columns first
-            guna2DataGridView1.DataSource = null; // 🔴 Clear existing data
+            guna2DataGridView1.Columns.Clear(); // Clear all columns
+            guna2DataGridView1.Rows.Clear();    // Clear existing rows
+            guna2DataGridView1.RowTemplate.Height = 100;
+
+            // 🔵 Manually add columns (match this order with .Rows.Add)
+            guna2DataGridView1.Columns.Add("name", "Name");
+
+            DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+            imgCol.Name = "image";
+            imgCol.HeaderText = "Image";
+            imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            guna2DataGridView1.Columns.Add(imgCol);
+
+            guna2DataGridView1.Columns.Add("addFor", "Add For");
+            guna2DataGridView1.Columns.Add("price", "Price");
+            guna2DataGridView1.Columns.Add("description", "Description");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT name, addFor, price, description FROM menu";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
+                string query = "SELECT name, addFor, price, description, imagePath FROM menu";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
                 try
                 {
                     conn.Open();
-                    adapter.Fill(dt);
-                    guna2DataGridView1.DataSource = dt;
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string name = reader["name"].ToString();
+                        string addFor = reader["addFor"].ToString();
+                        string price = reader["price"].ToString();
+                        string description = reader["description"].ToString();
+                        string imagePath = reader["imagePath"].ToString();
+
+                        // Load image safely
+                        Image img = null;
+                        if (File.Exists(imagePath))
+                        {
+                            using (var bmpTemp = new Bitmap(imagePath))
+                            {
+                                img = new Bitmap(bmpTemp); // clone to avoid locking
+                            }
+                        }
+
+                        // 🔵 Order must match the columns
+                        guna2DataGridView1.Rows.Add(name, img, addFor, price, description);
+                    }
+
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
@@ -57,14 +94,11 @@ namespace DineEase
         }
 
 
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            AddItemPage addItemPage = new AddItemPage();
+            addItemPage.Show();
+            this.Hide();
         }
 
         private void guna2ButtonDelete_Click(object sender, EventArgs e)
@@ -75,11 +109,9 @@ namespace DineEase
                 return;
             }
 
-            // Get the 'name' value of the selected row
             int selectedRowIndex = guna2DataGridView1.SelectedRows[0].Index;
             string itemName = guna2DataGridView1.Rows[selectedRowIndex].Cells["name"].Value.ToString();
 
-            // Confirm deletion
             DialogResult dialogResult = MessageBox.Show(
                 $"Are you sure you want to delete '{itemName}'?",
                 "Confirm Delete",
@@ -89,7 +121,6 @@ namespace DineEase
             if (dialogResult == DialogResult.No)
                 return;
 
-            // Delete the selected item from the database
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string deleteQuery = "DELETE FROM menu WHERE name = @name";
@@ -106,7 +137,7 @@ namespace DineEase
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Item deleted successfully.");
-                            LoadItemsIntoGrid(); // Refresh the table
+                            LoadItemsIntoGrid();
                         }
                         else
                         {
@@ -138,7 +169,37 @@ namespace DineEase
 
             UpdateItemPagecs updatePage = new UpdateItemPagecs(name, addFor, price, description);
             updatePage.Show();
-            this.Hide(); // Optional
+            this.Hide();
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Optional: handle image clicks or row interaction here
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+            // Optional: remove or customize if unused
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
