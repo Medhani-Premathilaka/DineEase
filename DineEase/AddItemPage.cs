@@ -28,9 +28,17 @@ namespace DineEase
 
         }
 
+        string imagePath = "";
+
         private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                imagePath = ofd.FileName;
+                pictureBoxItem.Image = Image.FromFile(imagePath);
+            }
         }
 
         private void guna2ButtonCreate_Click(object sender, EventArgs e)
@@ -47,7 +55,7 @@ namespace DineEase
                 return;
             }
 
-            string query = "INSERT INTO menu (name, addFor, price, description) VALUES (@itemName, @addFor, @price, @description)";
+            string query = "INSERT INTO menu (name, addFor, price, description ,imagePath) VALUES (@itemName, @addFor, @price, @description , @imagePath)";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -57,6 +65,7 @@ namespace DineEase
                     cmd.Parameters.AddWithValue("@addFor", addFor);
                     cmd.Parameters.AddWithValue("@price", price);
                     cmd.Parameters.AddWithValue("@description", description);
+                    cmd.Parameters.AddWithValue("@imagePath", imagePath);
 
                     try
                     {
@@ -95,6 +104,16 @@ namespace DineEase
         }
 
         private void guna2Panel3_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void pictureBoxItem_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
         {
 
         }
