@@ -48,3 +48,25 @@ C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.csproj.CoreCom
 C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.csproj.Up2Date
 C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.exe
 C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.pdb
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\bin\Debug\DineEase.exe.config
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\bin\Debug\DineEase.exe
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\bin\Debug\DineEase.pdb
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\bin\Debug\Guna.UI2.dll
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.exe.config
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.AddItemPage.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.AdminHomePage.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.Form1.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.Properties.Resources.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.Signup.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.UpdateItemPagecs.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.GenerateResource.cache
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.Up2Date
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.exe
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.pdb
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.Product.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.Description.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.UserViewProduct.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.addfood.resources
+C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.FoodDetailsForm.resources
