@@ -99,5 +99,35 @@ namespace DineEase
                 lblQuantity.Text = quantity.ToString();
             }
         }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDesc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblQuantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Closebtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }   
 }

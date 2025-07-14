@@ -40,26 +40,12 @@ namespace DineEase
                 {
                     Panel card = new Panel
                     {
-                        Width = 200,
-                        Height = 250,
+                        Width = 158,
+                        Height = 217,
                         BorderStyle = BorderStyle.FixedSingle,
                         Tag = reader["ProductID"] // Store ProductID
                     };
 
-                    PictureBox picture = new PictureBox
-                    {
-                        Width = 180,
-                        Height = 150,
-                        Top = 10,
-                        Left = 10,
-                        SizeMode = PictureBoxSizeMode.StretchImage
-                    };
-
-                    byte[] imageData = (byte[])reader["Image"];
-                    using (MemoryStream ms = new MemoryStream(imageData))
-                    {
-                        picture.Image = Image.FromStream(ms);
-                    }
 
                     Label nameLabel = new Label
                     {
@@ -69,6 +55,22 @@ namespace DineEase
                         Width = 180,
                         Font = new Font("Arial", 10, FontStyle.Bold)
                     };
+
+                    PictureBox picture = new PictureBox
+                    {
+                        Width = 150,
+                        Height = 150,
+                        Top = 10,
+                        Left = 4,
+                        SizeMode = PictureBoxSizeMode.Zoom
+                    };
+
+                    byte[] imageData = (byte[])reader["Image"];
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        picture.Image = Image.FromStream(ms);
+                    }
+
 
                     card.Controls.Add(picture);
                     card.Controls.Add(nameLabel);
