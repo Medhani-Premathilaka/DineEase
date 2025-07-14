@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DineEase
 {
     public partial class AddItemPage : Form
     {
-        string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
+        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com,1433;Database=dineEase;User Id=admin;Password=1234DineEase;";
         public AddItemPage()
         {
             InitializeComponent();
