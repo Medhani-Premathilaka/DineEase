@@ -7,3 +7,5 @@
 *.cache
 *.obj
 *.dll
+bin/
+obj/
