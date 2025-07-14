@@ -17,40 +17,9 @@ namespace DineEase
             this.Load += AdminHomePage_Load;
         }
 
-        private void AdminHomePage_Load(object sender, EventArgs e)
+        private void LoadMenuItemsAsCards()
         {
-            //if (guna2DataGridView1.Columns.Contains("image"))
-            //{
-            //    DataGridViewImageColumn imgCol = (DataGridViewImageColumn)guna2DataGridView1.Columns["image"];
-            //    imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            //}
-
-
-            guna2DataGridView1.RowTemplate.Height = 100; // For image display
-            guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            guna2DataGridView1.MultiSelect = false;
-
-            LoadItemsIntoGrid();
-        }
-
-        private void LoadItemsIntoGrid()
-        {
-            guna2DataGridView1.Columns.Clear(); // Clear all columns
-            guna2DataGridView1.Rows.Clear();    // Clear existing rows
-            guna2DataGridView1.RowTemplate.Height = 100;
-
-            // 🔵 Manually add columns (match this order with .Rows.Add)
-            guna2DataGridView1.Columns.Add("name", "Name");
-
-            DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
-            imgCol.Name = "image";
-            imgCol.HeaderText = "Image";
-            imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            guna2DataGridView1.Columns.Add(imgCol);
-
-            guna2DataGridView1.Columns.Add("addFor", "Add For");
-            guna2DataGridView1.Columns.Add("price", "Price");
-            guna2DataGridView1.Columns.Add("description", "Description");
+            flowLayoutPanel1.Controls.Clear();
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -70,28 +39,94 @@ namespace DineEase
                         string description = reader["description"].ToString();
                         string imagePath = reader["imagePath"].ToString();
 
-                        // Load image safely
-                        Image img = null;
+                        Panel card = new Panel
+                        {
+                            Width = 200,
+                            Height = 280,
+                            BorderStyle = BorderStyle.FixedSingle,
+                            BackColor = Color.White,
+                            Margin = new Padding(10)
+                        };
+
+                        PictureBox picture = new PictureBox
+                        {
+                            Width = 180,
+                            Height = 140,
+                            Top = 10,
+                            Left = 10,
+                            SizeMode = PictureBoxSizeMode.Zoom,
+                            BorderStyle = BorderStyle.FixedSingle
+                        };
+
                         if (File.Exists(imagePath))
                         {
                             using (var bmpTemp = new Bitmap(imagePath))
                             {
-                                img = new Bitmap(bmpTemp); // clone to avoid locking
+                                picture.Image = new Bitmap(bmpTemp);
                             }
                         }
 
-                        // 🔵 Order must match the columns
-                        guna2DataGridView1.Rows.Add(name, img, addFor, price, description);
+                        Label nameLabel = new Label
+                        {
+                            Text = "Name: " + name,
+                            Top = 160,
+                            Left = 10,
+                            Width = 180,
+                            Font = new Font("Segoe UI", 9, FontStyle.Bold)
+                        };
+
+                        Label priceLabel = new Label
+                        {
+                            Text = "Price: Rs. " + price,
+                            Top = 185,
+                            Left = 10,
+                            Width = 180
+                        };
+
+                        Label addForLabel = new Label
+                        {
+                            Text = "Add For: " + addFor,
+                            Top = 210,
+                            Left = 10,
+                            Width = 180
+                        };
+
+                        Label descLabel = new Label
+                        {
+                            Text = "Desc: " + description,
+                            Top = 235,
+                            Left = 10,
+                            Width = 180,
+                            Height = 40,
+                            AutoSize = false
+                        };
+
+                        card.Controls.Add(picture);
+                        card.Controls.Add(nameLabel);
+                        card.Controls.Add(priceLabel);
+                        card.Controls.Add(addForLabel);
+                        card.Controls.Add(descLabel);
+
+                        flowLayoutPanel1.Controls.Add(card);
                     }
 
                     reader.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error loading data: " + ex.Message);
+                    MessageBox.Show("Error loading menu items: " + ex.Message);
                 }
             }
         }
+
+
+        private void AdminHomePage_Load(object sender, EventArgs e)
+        {
+            LoadMenuItemsAsCards();
+
+        }
+
+
 
 
         private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
