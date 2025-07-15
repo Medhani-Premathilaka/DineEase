@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -108,20 +109,17 @@ namespace DineEase
 
         }
 
-<<<<<<< HEAD
+
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-=======
-        private void pictureBoxItem_Paint(object sender, PaintEventArgs e)
->>>>>>> e1513fef03c96e1b68df32086198e6b9107caddd
+
+
         {
 
         }
 
-<<<<<<< HEAD
+
         private void AddItemPage_Load(object sender, EventArgs e)
-=======
-        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
->>>>>>> e1513fef03c96e1b68df32086198e6b9107caddd
+
         {
 
         }

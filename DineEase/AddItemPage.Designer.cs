@@ -1,7 +1,13 @@
-﻿namespace DineEase
+﻿using System;
+
+namespace DineEase
 {
     partial class AddItemPage
     {
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
+        {
+            // Add your event handling code here
+        }
         /// <summary>
         /// Required designer variable.
         /// </summary>
