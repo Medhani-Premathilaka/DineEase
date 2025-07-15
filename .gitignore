@@ -7,3 +7,25 @@
 *.cache
 *.obj
 *.dll
+bin/
+obj/
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.pdb
+*.obj
+*.o
+*.lib
+*.exp
+*.exe
+*.dll
+*.ilk
+*.idb
+*.mdb
+*.orig
+*.log
+*.bak
+*.cache
+[Bb]in/
+[Oo]bj/
