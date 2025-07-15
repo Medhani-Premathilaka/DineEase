@@ -112,7 +112,8 @@ namespace DineEase
                         };
                         editButton.Click += (s, e) =>
                         {
-                            UpdateItemPagecs updatePage = new UpdateItemPagecs(name, addFor, price, description);
+                            UpdateItemPagecs updateItemPage = new UpdateItemPagecs(name, addFor, price, description);
+                            UpdateItemPagecs updatePage = updateItemPage;
                             updatePage.Show();
                             this.Hide();
                         };
