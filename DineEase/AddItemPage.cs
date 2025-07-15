@@ -4,12 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-<<<<<<< HEAD
-=======
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
->>>>>>> ceff7632017b11c3834f3e0bb181db4db6d09ece
 using System.Windows.Forms;
 
 namespace DineEase
@@ -107,24 +104,6 @@ namespace DineEase
         {
 
         }
-<<<<<<< HEAD
-
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-
-
-        {
-
-        }
-
-
-        private void AddItemPage_Load(object sender, EventArgs e)
-
-        {
-
-        }
-=======
->>>>>>> ceff7632017b11c3834f3e0bb181db4db6d09ece
     }
 }
 
