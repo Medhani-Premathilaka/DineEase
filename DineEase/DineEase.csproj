@@ -52,12 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addfood.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="addfood.Designer.cs">
-      <DependentUpon>addfood.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddItemPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,29 +64,11 @@
     <Compile Include="AdminHomePage.Designer.cs">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Description.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Description.Designer.cs">
-      <DependentUpon>Description.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FoodDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FoodDetailsForm.Designer.cs">
-      <DependentUpon>FoodDetailsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Product.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,32 +91,14 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserViewProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserViewProduct.Designer.cs">
-      <DependentUpon>UserViewProduct.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="addfood.resx">
-      <DependentUpon>addfood.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Description.resx">
-      <DependentUpon>Description.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FoodDetailsForm.resx">
-      <DependentUpon>FoodDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateItemPagecs.resx">
       <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserViewProduct.resx">
-      <DependentUpon>UserViewProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

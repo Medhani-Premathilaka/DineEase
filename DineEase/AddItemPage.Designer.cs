@@ -38,7 +38,8 @@ namespace DineEase
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ButtonCreate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonReset = new Guna.UI2.WinForms.Guna2Button();
-            this.btnImportImage = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ButtonImport = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxAddFor = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,15 +49,9 @@ namespace DineEase
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.homeButton = new Guna.UI2.WinForms.Guna2Button();
-            this.profileButton = new Guna.UI2.WinForms.Guna2Button();
-            this.historyButton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -70,10 +65,9 @@ namespace DineEase
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.Controls.Add(this.pictureBoxItem);
-            this.guna2Panel3.Controls.Add(this.btnImportImage);
             this.guna2Panel3.Controls.Add(this.guna2ButtonCreate);
             this.guna2Panel3.Controls.Add(this.guna2ButtonReset);
+            this.guna2Panel3.Controls.Add(this.guna2Panel4);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxPrice);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxAddFor);
@@ -124,22 +118,32 @@ namespace DineEase
             this.guna2ButtonReset.Text = "Reset";
             this.guna2ButtonReset.Click += new System.EventHandler(this.guna2ButtonReset_Click);
             // 
-            // btnImportImage
+            // guna2Panel4
             // 
-            this.btnImportImage.BorderRadius = 10;
-            this.btnImportImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnImportImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnImportImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnImportImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnImportImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnImportImage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnImportImage.ForeColor = System.Drawing.Color.White;
-            this.btnImportImage.Location = new System.Drawing.Point(583, 237);
-            this.btnImportImage.Name = "btnImportImage";
-            this.btnImportImage.Size = new System.Drawing.Size(117, 26);
-            this.btnImportImage.TabIndex = 1;
-            this.btnImportImage.Text = "Import";
-            this.btnImportImage.Click += new System.EventHandler(this.guna2ButtonAddNewItem_Click);
+            this.guna2Panel4.BorderRadius = 10;
+            this.guna2Panel4.Controls.Add(this.guna2ButtonImport);
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
+            this.guna2Panel4.Location = new System.Drawing.Point(546, 40);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(195, 191);
+            this.guna2Panel4.TabIndex = 8;
+            // 
+            // guna2ButtonImport
+            // 
+            this.guna2ButtonImport.BorderRadius = 10;
+            this.guna2ButtonImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2ButtonImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2ButtonImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2ButtonImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2ButtonImport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonImport.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonImport.Location = new System.Drawing.Point(41, 162);
+            this.guna2ButtonImport.Name = "guna2ButtonImport";
+            this.guna2ButtonImport.Size = new System.Drawing.Size(117, 26);
+            this.guna2ButtonImport.TabIndex = 1;
+            this.guna2ButtonImport.Text = "Import";
+            this.guna2ButtonImport.Click += new System.EventHandler(this.guna2ButtonAddNewItem_Click);
             // 
             // guna2TextBoxDescription
             // 
@@ -266,83 +270,11 @@ namespace DineEase
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Controls.Add(this.homeButton);
-            this.guna2Panel2.Controls.Add(this.profileButton);
-            this.guna2Panel2.Controls.Add(this.historyButton);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel5);
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(799, 71);
             this.guna2Panel2.TabIndex = 0;
-            // 
-            // pictureBoxItem
-            // 
-            this.pictureBoxItem.ImageRotate = 0F;
-            this.pictureBoxItem.Location = new System.Drawing.Point(525, 31);
-            this.pictureBoxItem.Name = "pictureBoxItem";
-            this.pictureBoxItem.Size = new System.Drawing.Size(222, 200);
-            this.pictureBoxItem.TabIndex = 12;
-            this.pictureBoxItem.TabStop = false;
-            // 
-            // homeButton
-            // 
-            this.homeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.homeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.homeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.homeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.homeButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.homeButton.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeButton.ForeColor = System.Drawing.Color.White;
-            this.homeButton.Location = new System.Drawing.Point(408, 13);
-            this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(137, 44);
-            this.homeButton.TabIndex = 8;
-            this.homeButton.Text = "Home";
-            // 
-            // profileButton
-            // 
-            this.profileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.profileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.profileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.profileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.profileButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.profileButton.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileButton.ForeColor = System.Drawing.Color.White;
-            this.profileButton.Location = new System.Drawing.Point(666, 13);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(125, 44);
-            this.profileButton.TabIndex = 7;
-            this.profileButton.Text = "Profile";
-            // 
-            // historyButton
-            // 
-            this.historyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.historyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.historyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.historyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.historyButton.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.historyButton.ForeColor = System.Drawing.Color.White;
-            this.historyButton.Location = new System.Drawing.Point(538, 13);
-            this.historyButton.Name = "historyButton";
-            this.historyButton.Size = new System.Drawing.Size(135, 44);
-            this.historyButton.TabIndex = 6;
-            this.historyButton.Text = "History";
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("MV Boli", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(5, 13);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Padding = new System.Windows.Forms.Padding(4);
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(126, 44);
-            this.guna2HtmlLabel5.TabIndex = 5;
-            this.guna2HtmlLabel5.Text = "DineEase";
-            this.guna2HtmlLabel5.Click += new System.EventHandler(this.guna2HtmlLabel5_Click);
             // 
             // AddItemPage
             // 
@@ -356,9 +288,7 @@ namespace DineEase
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -376,13 +306,9 @@ namespace DineEase
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxPrice;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxAddFor;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxName;
-        private Guna.UI2.WinForms.Guna2Button btnImportImage;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonImport;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonReset;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonCreate;
-        private Guna.UI2.WinForms.Guna2PictureBox pictureBoxItem;
-        private Guna.UI2.WinForms.Guna2Button homeButton;
-        private Guna.UI2.WinForms.Guna2Button profileButton;
-        private Guna.UI2.WinForms.Guna2Button historyButton;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }
