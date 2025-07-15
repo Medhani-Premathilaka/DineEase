@@ -98,6 +98,16 @@ namespace DineEase
         {
 
         }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AddItemPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

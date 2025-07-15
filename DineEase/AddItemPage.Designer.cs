@@ -75,6 +75,7 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(800, 386);
             this.guna2Panel3.TabIndex = 1;
+            this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             this.guna2Panel3.Validating += new System.ComponentModel.CancelEventHandler(this.guna2Panel3_Validating);
             // 
             // guna2ButtonCreate
@@ -277,6 +278,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "AddItemPage";
             this.Text = "AddItemPage";
+            this.Load += new System.EventHandler(this.AddItemPage_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
