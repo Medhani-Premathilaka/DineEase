@@ -28,13 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
+=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ButtonAddNewItem = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+<<<<<<< HEAD
+            this.homeButton = new Guna.UI2.WinForms.Guna2Button();
+            this.profileButton = new Guna.UI2.WinForms.Guna2Button();
+            this.historyButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ButtonAddNewItem = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+=======
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addFor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +58,7 @@
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -58,15 +72,102 @@
             // 
             // guna2Panel3
             // 
+<<<<<<< HEAD
+            this.guna2Panel3.Controls.Add(this.flowLayoutPanel1);
+=======
             this.guna2Panel3.Controls.Add(this.guna2ButtonUpdate);
             this.guna2Panel3.Controls.Add(this.guna2ButtonDelete);
             this.guna2Panel3.Controls.Add(this.guna2DataGridView1);
             this.guna2Panel3.Controls.Add(this.guna2ButtonAddNewItem);
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             this.guna2Panel3.Location = new System.Drawing.Point(0, 68);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(800, 386);
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 494);
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.homeButton);
+            this.guna2Panel2.Controls.Add(this.profileButton);
+            this.guna2Panel2.Controls.Add(this.historyButton);
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(799, 71);
+            this.guna2Panel2.TabIndex = 0;
+            // 
+            // homeButton
+            // 
+            this.homeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.homeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.homeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.homeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.homeButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.homeButton.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeButton.ForeColor = System.Drawing.Color.White;
+            this.homeButton.Location = new System.Drawing.Point(413, 13);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(137, 44);
+            this.homeButton.TabIndex = 4;
+            this.homeButton.Text = "Home";
+            // 
+            // profileButton
+            // 
+            this.profileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.profileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.profileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.profileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.profileButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.profileButton.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileButton.ForeColor = System.Drawing.Color.White;
+            this.profileButton.Location = new System.Drawing.Point(671, 13);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(125, 44);
+            this.profileButton.TabIndex = 3;
+            this.profileButton.Text = "Profile";
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
+            // 
+            // historyButton
+            // 
+            this.historyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.historyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.historyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.historyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.historyButton.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyButton.ForeColor = System.Drawing.Color.White;
+            this.historyButton.Location = new System.Drawing.Point(543, 13);
+            this.historyButton.Name = "historyButton";
+            this.historyButton.Size = new System.Drawing.Size(135, 44);
+            this.historyButton.TabIndex = 2;
+            this.historyButton.Text = "History";
+            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("MV Boli", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(0, 13);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Padding = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(126, 44);
+            this.guna2HtmlLabel1.TabIndex = 0;
+            this.guna2HtmlLabel1.Text = "DineEase";
+            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // guna2ButtonAddNewItem
             // 
@@ -85,6 +186,8 @@
             this.guna2ButtonAddNewItem.Text = "Add New Item";
             this.guna2ButtonAddNewItem.Click += new System.EventHandler(this.guna2ButtonAddNewItem_Click);
             // 
+<<<<<<< HEAD
+=======
             // guna2Panel2
             // 
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -209,17 +312,29 @@
             this.guna2ButtonUpdate.Text = "Update Item";
             this.guna2ButtonUpdate.Click += new System.EventHandler(this.guna2ButtonUpdate_Click);
             // 
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             // AdminHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(803, 573);
+            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2ButtonAddNewItem);
+=======
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2Panel1);
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             this.Name = "AdminHomePage";
             this.Text = "AdminHomePage";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
+<<<<<<< HEAD
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+=======
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             this.ResumeLayout(false);
 
         }
@@ -230,6 +345,13 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonAddNewItem;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+<<<<<<< HEAD
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2Button profileButton;
+        private Guna.UI2.WinForms.Guna2Button historyButton;
+        private Guna.UI2.WinForms.Guna2Button homeButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+=======
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn addFor;
@@ -237,5 +359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUpdate;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonDelete;
+>>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
     }
 }
