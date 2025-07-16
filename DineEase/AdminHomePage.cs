@@ -20,28 +20,9 @@ namespace DineEase
             this.Load += AdminHomePage_Load;
         }
 
-<<<<<<< HEAD
         private void LoadMenuItemsAsCards()
         {
             flowLayoutPanel1.Controls.Clear();
-=======
-        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage(); // create instance of form2
-            addItemPage.Show(); // open the AddItemPage
-            this.Hide(); // optional: hide AdminHomePage
-        }
-
-        private void AdminHomePage_Load(object sender, EventArgs e)
-        {
-            LoadItemsIntoGrid();
-        }
-
-        private void LoadItemsIntoGrid()
-        {
-            guna2DataGridView1.Columns.Clear(); // 🔴 Clear existing columns first
-            guna2DataGridView1.DataSource = null; // 🔴 Clear existing data
->>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -52,7 +33,6 @@ namespace DineEase
                 try
                 {
                     conn.Open();
-<<<<<<< HEAD
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -172,10 +152,6 @@ namespace DineEase
                 
 
                     reader.Close();
-=======
-                    adapter.Fill(dt);
-                    guna2DataGridView1.DataSource = dt;
->>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
                 }
                 catch (Exception ex)
                 {
@@ -184,35 +160,8 @@ namespace DineEase
             }
         }
 
-<<<<<<< HEAD
         private void DeleteMenuItem(string itemName)
         {
-=======
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void guna2ButtonDelete_Click(object sender, EventArgs e)
-        {
-            if (guna2DataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select an item to delete.");
-                return;
-            }
-
-            // Get the 'name' value of the selected row
-            int selectedRowIndex = guna2DataGridView1.SelectedRows[0].Index;
-            string itemName = guna2DataGridView1.Rows[selectedRowIndex].Cells["name"].Value.ToString();
-
-            // Confirm deletion
->>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
             DialogResult dialogResult = MessageBox.Show(
                 $"Are you sure you want to delete '{itemName}'?",
                 "Confirm Delete",
@@ -239,11 +188,7 @@ namespace DineEase
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Item deleted successfully.");
-<<<<<<< HEAD
                             LoadMenuItemsAsCards(); // Refresh UI
-=======
-                            LoadItemsIntoGrid(); // Refresh the table
->>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
                         }
                         else
                         {
@@ -267,7 +212,6 @@ namespace DineEase
         }
 
 
-<<<<<<< HEAD
 
 
         private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
@@ -301,11 +245,6 @@ namespace DineEase
         private void profileButton_Click(object sender, EventArgs e)
         {
 
-=======
-            UpdateItemPagecs updatePage = new UpdateItemPagecs(name, addFor, price, description);
-            updatePage.Show();
-            this.Hide(); // Optional
->>>>>>> 73cd2abff29f01b5c453785eb554b2e94d247ba4
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
