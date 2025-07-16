@@ -91,6 +91,12 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="userViewFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userViewFood.Designer.cs">
+      <DependentUpon>userViewFood.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateItemPagecs.resx">
       <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userViewFood.resx">
+      <DependentUpon>userViewFood.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
