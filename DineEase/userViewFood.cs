@@ -91,7 +91,7 @@ namespace DineEase
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
 
-            FoodDetailsForm detailsForm = new FoodDetailsForm(productId);
+            FoodDetails detailsForm = new FoodDetails(productId);
             detailsForm.ShowDialog();
         }
 
