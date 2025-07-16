@@ -97,6 +97,9 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
