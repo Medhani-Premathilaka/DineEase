@@ -1,7 +1,7 @@
 .vs/
 
-[Dd]ebug/
-[Rr]elease/
+Debug/
+Release/
 *.exe
 *.pdb
 *.cache
