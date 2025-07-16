@@ -27,3 +27,7 @@ obj/
 *.log
 *.bak
 *.cache
+# Ignore build folders
+DineEase/obj/
+DineEase/bin/
+*.cache
