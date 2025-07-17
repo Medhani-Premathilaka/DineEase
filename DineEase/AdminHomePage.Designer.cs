@@ -1,6 +1,6 @@
 ﻿namespace DineEase
 {
-    partial class AdminHome
+    partial class AdminHomePage
     {
         /// <summary>
         /// Required designer variable.

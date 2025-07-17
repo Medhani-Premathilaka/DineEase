@@ -13,12 +13,12 @@ using System.Xml.Linq;
 
 namespace DineEase
 {
-    public partial class UpdateItem : Form
+    public partial class UpdateItemPage : Form
     {
         private string imagePath = null;
         string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
         string originalName;
-        public UpdateItem(string name, string addFor, string price, string description)
+        public UpdateItemPage(string name, string addFor, string price, string description)
         {
             InitializeComponent();
             guna2TextBoxName.Text = name;
@@ -70,7 +70,7 @@ namespace DineEase
                     {
                         MessageBox.Show("Item updated successfully.");
                         this.Close();
-                        new AdminHome().Show(); // return to Admin page
+                        new AdminHomePage().Show(); // return to Admin page
                     }
                     else
                     {

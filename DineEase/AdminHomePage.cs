@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class AdminHome : Form
+    public partial class AdminHomePage : Form
     {
         string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
 
-        public AdminHome()
+        public AdminHomePage()
         {
             InitializeComponent();
             this.Load += AdminHomePage_Load;

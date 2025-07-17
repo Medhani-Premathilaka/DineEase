@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class AddItem : Form
+    public partial class AddItemPage : Form
     {
         string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
-        public AddItem()
+        public AddItemPage()
         {
             InitializeComponent();
         }

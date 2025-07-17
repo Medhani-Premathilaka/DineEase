@@ -52,17 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItem.cs">
+    <Compile Include="AddItemPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItem.Designer.cs">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <Compile Include="AddItemPage.Designer.cs">
+      <DependentUpon>AddItemPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminHome.cs">
+    <Compile Include="AdminHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminHome.Designer.cs">
-      <DependentUpon>AdminHome.cs</DependentUpon>
+    <Compile Include="AdminHomePage.Designer.cs">
+      <DependentUpon>AdminHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="FoodDetails.cs">
       <SubType>Form</SubType>
@@ -85,11 +85,11 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateItem.cs">
+    <Compile Include="UpdateItemPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateItem.Designer.cs">
-      <DependentUpon>UpdateItem.cs</DependentUpon>
+    <Compile Include="UpdateItemPage.Designer.cs">
+      <DependentUpon>UpdateItemPage.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
@@ -103,11 +103,11 @@
     <Compile Include="userViewFood.Designer.cs">
       <DependentUpon>userViewFood.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddItem.resx">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <EmbeddedResource Include="AddItemPage.resx">
+      <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminHome.resx">
-      <DependentUpon>AdminHome.cs</DependentUpon>
+    <EmbeddedResource Include="AdminHomePage.resx">
+      <DependentUpon>AdminHomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodDetails.resx">
       <DependentUpon>FoodDetails.cs</DependentUpon>
@@ -127,8 +127,8 @@
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateItem.resx">
-      <DependentUpon>UpdateItem.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateItemPage.resx">
+      <DependentUpon>UpdateItemPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userViewFood.resx">
       <DependentUpon>userViewFood.cs</DependentUpon>
