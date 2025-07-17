@@ -80,7 +80,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(799, 71);
             this.guna2Panel2.TabIndex = 0;
-            //this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // homeButton
             // 
@@ -156,15 +155,16 @@
             this.guna2ButtonAddNewItem.TabIndex = 2;
             this.guna2ButtonAddNewItem.Text = "Add New Item";
             // 
-            // AdminHome
+            // AdminHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 531);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2ButtonAddNewItem);
-            this.Name = "AdminHome";
+            this.Name = "AdminHomePage";
             this.Text = "AdminHome";
+            this.Load += new System.EventHandler(this.AdminHomePage_Load_1);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);

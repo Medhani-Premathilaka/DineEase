@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -112,7 +111,7 @@ namespace DineEase
                         };
                         editButton.Click += (s, e) =>
                         {
-                            UpdateItemPagecs updatePage = new UpdateItemPagecs(name, addFor, price, description);
+                            UpdateItemPage updatePage = new UpdateItemPage(name, addFor, price, description);
                             updatePage.Show();
                             this.Hide();
                         };
@@ -242,6 +241,11 @@ namespace DineEase
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AdminHomePage_Load_1(object sender, EventArgs e)
         {
 
         }
