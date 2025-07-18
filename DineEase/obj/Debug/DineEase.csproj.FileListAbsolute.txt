@@ -80,4 +80,7 @@ D:\DineEase\DineEase\obj\Debug\DineEase.exe
 D:\DineEase\DineEase\obj\Debug\DineEase.pdb
 D:\DineEase\DineEase\obj\Debug\DineEase.AdminProfile.resources
 D:\DineEase\DineEase\obj\Debug\DineEase.UserProfile.resources
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

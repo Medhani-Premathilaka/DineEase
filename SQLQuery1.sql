@@ -27,14 +27,17 @@ CREATE TABLE [dbo].[menu] (
     [imagePath]   NVARCHAR(500)
 );
 
--- OPTIONAL: Add Users table
-CREATE TABLE [dbo].[Users] (
-    [UserID]   INT IDENTITY(1,1) PRIMARY KEY,
-    [Username] NVARCHAR(50),
-    [Password] NVARCHAR(255),
-    [Email]    NVARCHAR(100),
-    [Role]     NVARCHAR(50) -- 'Admin' or 'User'
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100),
+    StudentId NVARCHAR(20) UNIQUE,
+    Password NVARCHAR(100)
 );
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 CREATE TABLE Admin (
     AdminID INT PRIMARY KEY IDENTITY,
     CanteenID NVARCHAR(50),
