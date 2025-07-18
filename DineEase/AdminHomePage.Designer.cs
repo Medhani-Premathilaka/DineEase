@@ -154,6 +154,7 @@
             this.guna2ButtonAddNewItem.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonAddNewItem.TabIndex = 2;
             this.guna2ButtonAddNewItem.Text = "Add New Item";
+            this.guna2ButtonAddNewItem.Click += new System.EventHandler(this.guna2ButtonAddNewItem_Click_1);
             // 
             // AdminHomePage
             // 

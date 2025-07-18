@@ -205,6 +205,7 @@
             this.btnAddToOrder.Size = new System.Drawing.Size(160, 36);
             this.btnAddToOrder.TabIndex = 18;
             this.btnAddToOrder.Text = "Order";
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click_1);
             // 
             // FoodDetails
             // 

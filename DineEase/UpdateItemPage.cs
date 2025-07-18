@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace DineEase
 {
     public partial class UpdateItemPage : Form
     {
         private string imagePath = null;
-        string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
+        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
         string originalName;
         public UpdateItemPage(string name, string addFor, string price, string description)
         {
@@ -34,12 +27,112 @@ namespace DineEase
 
         }
 
-        private void guna2ButtonUpdate_Click(object sender, EventArgs e)
+
+
+        private void guna2TextBoxAddFor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void guna2ButtonImport_Click(object sender, EventArgs e)
+        //{
+        //    using (OpenFileDialog openFileDialog = new OpenFileDialog())
+        //    {
+        //        openFileDialog.Title = "Select an image";
+        //        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+        //        string selectedFilePath;
+
+        //        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        //        {
+        //            selectedFilePath = openFileDialog.FileName;
+        //            Image selectedImage = Image.FromFile(selectedFilePath);
+        //            pictureBoxItem.Image = selectedImage;
+        //            imagePath = selectedFilePath; // store the path
+        //        }
+        //    }
+        //}
+
+        private byte[] imageBytes = null;  // store current image bytes
+
+        private byte[] ImageToByteArray(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private void pictureBoxItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBoxItem_Click_1(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"UPDATE menu 
-                 SET name = @name, addFor = @addFor, price = @price, description = @description, imagePath = @imagePath 
+
+                string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    PictureBox picture = new PictureBox
+                    {
+                        Width = 180,
+                        Height = 140,
+                        Top = 10,
+                        Left = 20,
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BorderStyle = BorderStyle.FixedSingle
+                    };
+
+                    if (reader["Image"] != DBNull.Value)
+                    {
+                        byte[] imageData = reader["Image"] as byte[];
+                        if (imageData != null && imageData.Length > 0)
+                        {
+                            using (var ms = new MemoryStream(imageData))
+                            {
+                                picture.Image = Image.FromStream(ms);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading menu items: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void guna2ButtonUpdate_Click_1(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE FoodProducts 
+                 SET ProductName = @name, Category = @addFor, Price = @price, Description = @description, Image = @imagePath 
                  WHERE name = @originalName";
 
 
@@ -85,56 +178,7 @@ namespace DineEase
 
         }
 
-        private void guna2TextBoxAddFor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2ButtonImport_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Select an image";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-                string selectedFilePath;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    selectedFilePath = openFileDialog.FileName;
-                    Image selectedImage = Image.FromFile(selectedFilePath);
-                    pictureBoxItem.Image = selectedImage;
-                    imagePath = selectedFilePath; // store the path
-                }
-            }
-        }
-
-        private byte[] imageBytes = null;  // store current image bytes
-
-        private byte[] ImageToByteArray(Image img)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, img.RawFormat);
-                return ms.ToArray();
-            }
-        }
-
-        private void pictureBoxItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

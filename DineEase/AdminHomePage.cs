@@ -36,7 +36,7 @@ namespace DineEase
                         string addFor = reader["Category"].ToString();
                         string price = reader["Price"].ToString();
                         string description = reader["Description"].ToString();
-                        string imagePath = reader["Image"].ToString();
+                        //string imagePath = reader["Image"].ToString();
 
 
 
@@ -212,16 +212,6 @@ namespace DineEase
         }
 
 
-
-
-        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage();
-            addItemPage.Show();
-            this.Hide();
-        }
-
-
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
         {
             // Optional: remove or customize if unused
@@ -254,6 +244,14 @@ namespace DineEase
 
         private void AdminHomePage_Load_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void guna2ButtonAddNewItem_Click_1(object sender, EventArgs e)
+        {
+            AddItemPage addItemPage = new AddItemPage();
+            addItemPage.Show();
+            this.Hide();
 
         }
     }

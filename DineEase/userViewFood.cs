@@ -86,6 +86,7 @@ namespace DineEase
             int productId = (int)panel.Tag;
 
             FoodDetails detailsForm = new FoodDetails(productId);
+            ShowFoodDetails(productId);
             detailsForm.ShowDialog();
         }
 
