@@ -62,3 +62,22 @@ C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.Gener
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.exe
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.pdb
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\bin\Debug\DineEase.exe.config
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\bin\Debug\DineEase.exe
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\bin\Debug\DineEase.pdb
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\bin\Debug\Guna.UI2.dll
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.exe.config
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.AddItemPage.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.AdminHomePage.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.FoodDetails.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.Form1.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.Properties.Resources.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.Signup.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.UpdateItemPage.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.userViewFood.resources
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.csproj.GenerateResource.cache
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.csproj.Up2Date
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.exe
+C:\Users\USER\Desktop\c#\New folder (2)\DineEase\DineEase\obj\Debug\DineEase.pdb

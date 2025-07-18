@@ -222,7 +222,7 @@ namespace DineEase
                 }
                 else if (role == "USER")
                 {
-                    User userForm = new User();
+                    userViewFood userForm = new userViewFood();
                     userForm.Show();
                     this.Hide();
                 }
