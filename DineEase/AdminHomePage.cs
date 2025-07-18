@@ -8,7 +8,7 @@ namespace DineEase
 {
     public partial class AdminHomePage : Form
     {
-        string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
+        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public AdminHomePage()
         {
@@ -22,7 +22,7 @@ namespace DineEase
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT name, addFor, price, description, imagePath FROM menu";
+                string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 try
@@ -32,11 +32,14 @@ namespace DineEase
 
                     while (reader.Read())
                     {
-                        string name = reader["name"].ToString();
-                        string addFor = reader["addFor"].ToString();
-                        string price = reader["price"].ToString();
-                        string description = reader["description"].ToString();
-                        string imagePath = reader["imagePath"].ToString();
+                        string name = reader["ProductName"].ToString();
+                        string addFor = reader["Category"].ToString();
+                        string price = reader["Price"].ToString();
+                        string description = reader["Description"].ToString();
+                        //string imagePath = reader["Image"].ToString();
+
+
+
 
                         Panel card = new Panel
                         {
@@ -57,11 +60,15 @@ namespace DineEase
                             BorderStyle = BorderStyle.FixedSingle
                         };
 
-                        if (File.Exists(imagePath))
+                        if (reader["Image"] != DBNull.Value)
                         {
-                            using (var bmpTemp = new Bitmap(imagePath))
+                            byte[] imageData = reader["Image"] as byte[];
+                            if (imageData != null && imageData.Length > 0)
                             {
-                                picture.Image = new Bitmap(bmpTemp);
+                                using (var ms = new MemoryStream(imageData))
+                                {
+                                    picture.Image = Image.FromStream(ms);
+                                }
                             }
                         }
 
@@ -205,16 +212,6 @@ namespace DineEase
         }
 
 
-
-
-        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage();
-            addItemPage.Show();
-            this.Hide();
-        }
-
-
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
         {
             // Optional: remove or customize if unused
@@ -247,6 +244,14 @@ namespace DineEase
 
         private void AdminHomePage_Load_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void guna2ButtonAddNewItem_Click_1(object sender, EventArgs e)
+        {
+            AddItemPage addItemPage = new AddItemPage();
+            addItemPage.Show();
+            this.Hide();
 
         }
     }

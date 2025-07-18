@@ -32,8 +32,8 @@
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnImportImage = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ButtonCreate = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ButtonReset = new Guna.UI2.WinForms.Guna2Button();
+            this.createbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.resetbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxAddFor = new Guna.UI2.WinForms.Guna2TextBox();
@@ -105,38 +105,41 @@
             this.btnImportImage.Size = new System.Drawing.Size(117, 26);
             this.btnImportImage.TabIndex = 1;
             this.btnImportImage.Text = "Import";
+            this.btnImportImage.Click += new System.EventHandler(this.btnImportImage_Click);
             // 
-            // guna2ButtonCreate
+            // createbtn
             // 
-            this.guna2ButtonCreate.BorderRadius = 10;
-            this.guna2ButtonCreate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonCreate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonCreate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2ButtonCreate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2ButtonCreate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2ButtonCreate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2ButtonCreate.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonCreate.Location = new System.Drawing.Point(493, 316);
-            this.guna2ButtonCreate.Name = "guna2ButtonCreate";
-            this.guna2ButtonCreate.Size = new System.Drawing.Size(125, 41);
-            this.guna2ButtonCreate.TabIndex = 11;
-            this.guna2ButtonCreate.Text = "Create";
+            this.createbtn.BorderRadius = 10;
+            this.createbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.createbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.createbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.createbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.createbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.createbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.createbtn.ForeColor = System.Drawing.Color.White;
+            this.createbtn.Location = new System.Drawing.Point(493, 316);
+            this.createbtn.Name = "createbtn";
+            this.createbtn.Size = new System.Drawing.Size(125, 41);
+            this.createbtn.TabIndex = 11;
+            this.createbtn.Text = "Create";
+            this.createbtn.Click += new System.EventHandler(this.guna2ButtonCreate_Click_1);
             // 
-            // guna2ButtonReset
+            // resetbtn
             // 
-            this.guna2ButtonReset.BorderRadius = 10;
-            this.guna2ButtonReset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonReset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonReset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2ButtonReset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2ButtonReset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2ButtonReset.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2ButtonReset.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonReset.Location = new System.Drawing.Point(639, 316);
-            this.guna2ButtonReset.Name = "guna2ButtonReset";
-            this.guna2ButtonReset.Size = new System.Drawing.Size(125, 41);
-            this.guna2ButtonReset.TabIndex = 10;
-            this.guna2ButtonReset.Text = "Reset";
+            this.resetbtn.BorderRadius = 10;
+            this.resetbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.resetbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.resetbtn.ForeColor = System.Drawing.Color.White;
+            this.resetbtn.Location = new System.Drawing.Point(639, 316);
+            this.resetbtn.Name = "resetbtn";
+            this.resetbtn.Size = new System.Drawing.Size(125, 41);
+            this.resetbtn.TabIndex = 10;
+            this.resetbtn.Text = "Reset";
+            this.resetbtn.Click += new System.EventHandler(this.guna2ButtonReset_Click_1);
             // 
             // guna2TextBoxDescription
             // 
@@ -295,8 +298,8 @@
             // 
             this.guna2Panel3.Controls.Add(this.pictureBoxItem);
             this.guna2Panel3.Controls.Add(this.btnImportImage);
-            this.guna2Panel3.Controls.Add(this.guna2ButtonCreate);
-            this.guna2Panel3.Controls.Add(this.guna2ButtonReset);
+            this.guna2Panel3.Controls.Add(this.createbtn);
+            this.guna2Panel3.Controls.Add(this.resetbtn);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxPrice);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxAddFor);
@@ -331,13 +334,13 @@
             this.guna2Panel1.Size = new System.Drawing.Size(800, 454);
             this.guna2Panel1.TabIndex = 2;
             // 
-            // AddItem
+            // AddItemPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "AddItem";
+            this.Name = "AddItemPage";
             this.Text = "AddItem";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
@@ -355,8 +358,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBoxItem;
         private Guna.UI2.WinForms.Guna2Button btnImportImage;
-        private Guna.UI2.WinForms.Guna2Button guna2ButtonCreate;
-        private Guna.UI2.WinForms.Guna2Button guna2ButtonReset;
+        private Guna.UI2.WinForms.Guna2Button createbtn;
+        private Guna.UI2.WinForms.Guna2Button resetbtn;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxPrice;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxAddFor;

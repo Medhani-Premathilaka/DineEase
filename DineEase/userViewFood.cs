@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -19,7 +13,7 @@ namespace DineEase
             InitializeComponent();
         }
 
-        string connectionString = @"Data Source=DESKTOP-U1Q76M8\SQLEXPRESS; Initial Catalog=res_db; Integrated Security=True";
+        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         private void UserViewProduct_Load(object sender, EventArgs e)
         {
@@ -29,7 +23,7 @@ namespace DineEase
 
         private void LoadFoodItems()
         {
-            string query = "SELECT * FROM FoodProduct";
+            string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -92,6 +86,7 @@ namespace DineEase
             int productId = (int)panel.Tag;
 
             FoodDetails detailsForm = new FoodDetails(productId);
+            ShowFoodDetails(productId);
             detailsForm.ShowDialog();
         }
 
@@ -170,6 +165,11 @@ namespace DineEase
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void userViewFood_Load(object sender, EventArgs e)
         {
 
         }

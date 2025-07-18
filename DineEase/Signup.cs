@@ -96,12 +96,12 @@ namespace DineEase
             {
                 Security security = new Security();
                 string hashedPassword = security.HashPassword(enteredPassword);
-                string connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
+                string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
                 using (SqlConnection cnn = new SqlConnection(connectionString))
                 {
 
                     cnn.Open();
-                    string query = "INSERT INTO Users(Username, Password, Role, Email,Name) VALUES (@username, @password, @role, @email, @name)";
+                    string query = "INSERT INTO Users(UserId, Password, Role, Email,Name) VALUES (@username, @password, @role, @email, @name)";
                     using (SqlCommand cmd = new SqlCommand(query, cnn))
                     {
                         cmd.Parameters.AddWithValue("@username", enteredUsername);
