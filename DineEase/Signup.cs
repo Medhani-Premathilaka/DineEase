@@ -101,7 +101,7 @@ namespace DineEase
                 {
 
                     cnn.Open();
-                    string query = "INSERT INTO Users(Username, Password, Role, Email,Name) VALUES (@username, @password, @role, @email, @name)";
+                    string query = "INSERT INTO Users(UserId, Password, Role, Email,Name) VALUES (@username, @password, @role, @email, @name)";
                     using (SqlCommand cmd = new SqlCommand(query, cnn))
                     {
                         cmd.Parameters.AddWithValue("@username", enteredUsername);

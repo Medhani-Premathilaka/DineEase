@@ -194,7 +194,7 @@ namespace DineEase
             SqlConnection cnn;
 
 
-            connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
+            connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
             string enteredUsername = username.Text.Trim();
             string enteredPassword = password.Text.Trim();
             Security security = new Security();
@@ -204,7 +204,7 @@ namespace DineEase
 
             cnn = new SqlConnection(connectionString);
             cnn.Open();
-            string query = "SELECT Role FROM Users WHERE Username = @username AND Password = @password";
+            string query = "SELECT Role FROM Users WHERE UserId = @username AND Password = @password";
             using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
                 cmd.Parameters.AddWithValue("@username", enteredUsername);
