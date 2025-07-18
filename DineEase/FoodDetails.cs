@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -19,7 +13,7 @@ namespace DineEase
         decimal price = 0;
         int quantity = 1;
 
-        string connectionString = @"Data Source=DESKTOP-U1Q76M8\SQLEXPRESS; Initial Catalog=res_db; Integrated Security=True";
+        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public FoodDetails(int id)
         {
@@ -126,6 +120,16 @@ namespace DineEase
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FoodDetails_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
