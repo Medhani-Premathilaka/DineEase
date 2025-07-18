@@ -48,8 +48,6 @@ C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.csproj.CoreCom
 C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.csproj.Up2Date
 C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.exe
 C:\Users\IMASHA THARUSHI\Desktop\RAD2\DineEase\obj\Debug\DineEase.pdb
-<<<<<<< Updated upstream
-=======
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.exe.config
 C:\Users\User\Desktop\EaseDine\DineEase\DineEase\obj\Debug\DineEase.AddItem.resources
@@ -80,7 +78,3 @@ D:\DineEase\DineEase\obj\Debug\DineEase.exe
 D:\DineEase\DineEase\obj\Debug\DineEase.pdb
 D:\DineEase\DineEase\obj\Debug\DineEase.AdminProfile.resources
 D:\DineEase\DineEase\obj\Debug\DineEase.UserProfile.resources
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
