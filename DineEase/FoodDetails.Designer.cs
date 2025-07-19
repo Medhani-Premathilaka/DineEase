@@ -114,7 +114,6 @@
             this.btnDecrease.Size = new System.Drawing.Size(57, 36);
             this.btnDecrease.TabIndex = 8;
             this.btnDecrease.Text = "-";
-            this.btnDecrease.Click += new System.EventHandler(this.btnDecrease_Click_1);
             // 
             // btnIncrease
             // 

@@ -131,11 +131,7 @@ namespace DineEase
 
         private void btnDecrease_Click_1(object sender, EventArgs e)
         {
-            if (quantity > 1)
-            {
-                quantity--;
-                lblQuantity.Text = quantity.ToString();
-            }
+
         }
     }
 }
