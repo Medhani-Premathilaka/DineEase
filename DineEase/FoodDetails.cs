@@ -21,37 +21,7 @@ namespace DineEase
             productId = id;
         }
 
-        private void btnAddToOrder_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            {
-                MessageBox.Show("Enter customer name.");
-                return;
-            }
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity) VALUES (@cust, @name, @price, @qty)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
-                cmd.Parameters.AddWithValue("@name", productName);
-                cmd.Parameters.AddWithValue("@price", price);
-                cmd.Parameters.AddWithValue("@qty", quantity);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Item added to order.");
-                this.Close();
-            }
-        }
-
-        private void FoodDetailsForm_Load(object sender, EventArgs e)
-        {
-            LoadDetails();
-            lblQuantity.Text = quantity.ToString();
-        }
 
         private void LoadDetails()
         {
@@ -79,21 +49,6 @@ namespace DineEase
             }
         }
 
-        private void btnIncrease_Click(object sender, EventArgs e)
-        {
-            quantity++;
-            lblQuantity.Text = quantity.ToString();
-        }
-
-        private void btnDecrease_Click(object sender, EventArgs e)
-        {
-            if (quantity > 1)
-            {
-                quantity--;
-                lblQuantity.Text = quantity.ToString();
-            }
-        }
-
         private void lblName_Click(object sender, EventArgs e)
         {
 
@@ -114,10 +69,7 @@ namespace DineEase
 
         }
 
-        private void Closebtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -126,7 +78,8 @@ namespace DineEase
 
         private void FoodDetails_Load(object sender, EventArgs e)
         {
-
+            LoadDetails();
+            lblQuantity.Text = quantity.ToString();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -136,7 +89,53 @@ namespace DineEase
 
         private void btnAddToOrder_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+            {
+                MessageBox.Show("Enter customer name.");
+                return;
+            }
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity) VALUES (@cust, @name, @price, @qty)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+                cmd.Parameters.AddWithValue("@name", productName);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@qty", quantity);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Item added to order.");
+                this.Close();
+            }
+        }
+
+        private void Closebtn_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2Panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnIncrease_Click_1(object sender, EventArgs e)
+        {
+            quantity++;
+            lblQuantity.Text = quantity.ToString();
+        }
+
+        private void btnDecrease_Click_1(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
         }
     }
 }

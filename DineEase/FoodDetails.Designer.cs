@@ -114,6 +114,7 @@
             this.btnDecrease.Size = new System.Drawing.Size(57, 36);
             this.btnDecrease.TabIndex = 8;
             this.btnDecrease.Text = "-";
+            this.btnDecrease.Click += new System.EventHandler(this.btnDecrease_Click_1);
             // 
             // btnIncrease
             // 
@@ -130,6 +131,7 @@
             this.btnIncrease.Size = new System.Drawing.Size(58, 36);
             this.btnIncrease.TabIndex = 7;
             this.btnIncrease.Text = "+";
+            this.btnIncrease.Click += new System.EventHandler(this.btnIncrease_Click_1);
             // 
             // Closebtn
             // 
@@ -147,6 +149,7 @@
             this.Closebtn.Size = new System.Drawing.Size(160, 36);
             this.Closebtn.TabIndex = 22;
             this.Closebtn.Text = "Close";
+            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click_1);
             // 
             // guna2Panel2
             // 
@@ -160,6 +163,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 39);
             this.guna2Panel2.TabIndex = 21;
+            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint_1);
             // 
             // guna2Panel1
             // 
@@ -182,7 +186,7 @@
             this.txtCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCustomer.Location = new System.Drawing.Point(557, 324);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.PlaceholderText = "";
             this.txtCustomer.SelectedText = "";

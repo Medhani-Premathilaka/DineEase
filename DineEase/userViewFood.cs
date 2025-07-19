@@ -15,11 +15,11 @@ namespace DineEase
 
         string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
-        private void UserViewProduct_Load(object sender, EventArgs e)
-        {
-            //test commit
-            LoadFoodItems();
-        }
+        //private void UserViewProduct_Load(object sender, EventArgs e)
+        //{
+        //    //test commit
+        //    LoadFoodItems();
+        //}
 
         private void LoadFoodItems()
         {
@@ -87,7 +87,7 @@ namespace DineEase
 
             FoodDetails detailsForm = new FoodDetails(productId);
             ShowFoodDetails(productId);
-            detailsForm.ShowDialog();
+            //detailsForm.ShowDialog();
         }
 
         private void ShowFoodDetails(int productId)
@@ -171,7 +171,7 @@ namespace DineEase
 
         private void userViewFood_Load(object sender, EventArgs e)
         {
-
+            LoadFoodItems();
         }
     }
 }
