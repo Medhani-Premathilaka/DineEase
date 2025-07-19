@@ -70,6 +70,12 @@
     <Compile Include="AdminProfile.Designer.cs">
       <DependentUpon>AdminProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="FoodDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodDetails.Designer.cs">
+      <DependentUpon>FoodDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,15 +95,17 @@
     <Compile Include="UpdateItemPagecs.Designer.cs">
       <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userViewFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userViewFood.Designer.cs">
+      <DependentUpon>userViewFood.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
