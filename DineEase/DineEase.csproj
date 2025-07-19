@@ -91,9 +91,9 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateItemPagecs.cs" />
-    <Compile Include="UpdateItemPagecs.Designer.cs">
-      <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
+    <Compile Include="UpdateItemPage.cs" />
+    <Compile Include="UpdateItemPage.Designer.cs">
+      <DependentUpon>UpdateItemPage.cs</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.cs">
       <SubType>Form</SubType>
@@ -128,9 +128,6 @@
     </Compile>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdateItemPagecs.resx">
-      <DependentUpon>UpdateItemPagecs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
