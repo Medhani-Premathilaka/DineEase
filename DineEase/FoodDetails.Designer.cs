@@ -48,19 +48,19 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(575, 178);
+            this.lblPrice.Location = new System.Drawing.Point(647, 222);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(75, 37);
+            this.lblPrice.Size = new System.Drawing.Size(90, 45);
             this.lblPrice.TabIndex = 17;
             this.lblPrice.Text = "price";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(575, 106);
+            this.lblName.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(647, 132);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(83, 37);
+            this.lblName.Size = new System.Drawing.Size(106, 38);
             this.lblName.TabIndex = 15;
             this.lblName.Text = "name";
             // 
@@ -69,23 +69,22 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.pictureBox1.ImageRotate = 0F;
-            this.pictureBox1.Location = new System.Drawing.Point(93, 92);
+            this.pictureBox1.Location = new System.Drawing.Point(105, 115);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(356, 316);
+            this.pictureBox1.Size = new System.Drawing.Size(400, 395);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseTransparentBackground = true;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(158, 0);
+            this.lblQuantity.Location = new System.Drawing.Point(178, 0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(55, 37);
+            this.lblQuantity.Size = new System.Drawing.Size(65, 45);
             this.lblQuantity.TabIndex = 4;
             this.lblQuantity.Text = "qty";
             // 
@@ -93,9 +92,9 @@
             // 
             this.lblDesc.AutoSize = true;
             this.lblDesc.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesc.Location = new System.Drawing.Point(585, 254);
+            this.lblDesc.Location = new System.Drawing.Point(658, 318);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(73, 37);
+            this.lblDesc.Size = new System.Drawing.Size(88, 45);
             this.lblDesc.TabIndex = 16;
             this.lblDesc.Text = "Desc";
             // 
@@ -111,9 +110,10 @@
             this.btnDecrease.Location = new System.Drawing.Point(3, 1);
             this.btnDecrease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDecrease.Name = "btnDecrease";
-            this.btnDecrease.Size = new System.Drawing.Size(57, 36);
+            this.btnDecrease.Size = new System.Drawing.Size(64, 45);
             this.btnDecrease.TabIndex = 8;
             this.btnDecrease.Text = "-";
+            this.btnDecrease.Click += new System.EventHandler(this.btnDecrease_Click_1);
             // 
             // btnIncrease
             // 
@@ -124,12 +124,13 @@
             this.btnIncrease.FillColor = System.Drawing.Color.MediumPurple;
             this.btnIncrease.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIncrease.ForeColor = System.Drawing.Color.White;
-            this.btnIncrease.Location = new System.Drawing.Point(317, 1);
+            this.btnIncrease.Location = new System.Drawing.Point(357, 1);
             this.btnIncrease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIncrease.Name = "btnIncrease";
-            this.btnIncrease.Size = new System.Drawing.Size(58, 36);
+            this.btnIncrease.Size = new System.Drawing.Size(65, 45);
             this.btnIncrease.TabIndex = 7;
             this.btnIncrease.Text = "+";
+            this.btnIncrease.Click += new System.EventHandler(this.btnIncrease_Click_1);
             // 
             // Closebtn
             // 
@@ -141,12 +142,13 @@
             this.Closebtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.Closebtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Closebtn.ForeColor = System.Drawing.Color.White;
-            this.Closebtn.Location = new System.Drawing.Point(392, 510);
+            this.Closebtn.Location = new System.Drawing.Point(441, 638);
             this.Closebtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Closebtn.Name = "Closebtn";
-            this.Closebtn.Size = new System.Drawing.Size(160, 36);
+            this.Closebtn.Size = new System.Drawing.Size(180, 45);
             this.Closebtn.TabIndex = 22;
             this.Closebtn.Text = "Close";
+            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click_1);
             // 
             // guna2Panel2
             // 
@@ -155,19 +157,19 @@
             this.guna2Panel2.Controls.Add(this.btnDecrease);
             this.guna2Panel2.Controls.Add(this.btnIncrease);
             this.guna2Panel2.Controls.Add(this.lblQuantity);
-            this.guna2Panel2.Location = new System.Drawing.Point(83, 438);
+            this.guna2Panel2.Location = new System.Drawing.Point(93, 548);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(378, 39);
+            this.guna2Panel2.Size = new System.Drawing.Size(425, 49);
             this.guna2Panel2.TabIndex = 21;
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(75)))), ((int)(((byte)(222)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(62, 8);
+            this.guna2Panel1.Location = new System.Drawing.Point(70, 10);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(829, 65);
+            this.guna2Panel1.Size = new System.Drawing.Size(933, 81);
             this.guna2Panel1.TabIndex = 20;
             // 
             // txtCustomer
@@ -181,12 +183,12 @@
             this.txtCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCustomer.Location = new System.Drawing.Point(557, 324);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomer.Location = new System.Drawing.Point(627, 405);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.PlaceholderText = "";
             this.txtCustomer.SelectedText = "";
-            this.txtCustomer.Size = new System.Drawing.Size(254, 48);
+            this.txtCustomer.Size = new System.Drawing.Size(286, 60);
             this.txtCustomer.TabIndex = 19;
             // 
             // btnAddToOrder
@@ -196,21 +198,22 @@
             this.btnAddToOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddToOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddToOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
-            this.btnAddToOrder.Location = new System.Drawing.Point(568, 438);
+            this.btnAddToOrder.Location = new System.Drawing.Point(639, 548);
             this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddToOrder.Name = "btnAddToOrder";
-            this.btnAddToOrder.Size = new System.Drawing.Size(160, 36);
+            this.btnAddToOrder.Size = new System.Drawing.Size(180, 45);
             this.btnAddToOrder.TabIndex = 18;
             this.btnAddToOrder.Text = "Order";
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click_1);
             // 
             // FoodDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 554);
+            this.ClientSize = new System.Drawing.Size(1072, 692);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.pictureBox1);
@@ -220,6 +223,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.btnAddToOrder);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FoodDetails";
             this.Text = "FoodDetails";
