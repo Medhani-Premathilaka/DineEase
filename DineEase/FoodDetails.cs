@@ -52,13 +52,13 @@ namespace DineEase
             this.Close();
         }
 
-        
+
         private void FoodDetails_Load(object sender, EventArgs e)
         {
             LoadDetails();
             lblQuantity.Text = quantity.ToString();
         }
-        
+
         private void btnAddToOrder_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCustomer.Text))
@@ -89,7 +89,7 @@ namespace DineEase
 
         private void Closebtn_Click_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnIncrease_Click_1(object sender, EventArgs e)
@@ -105,6 +105,11 @@ namespace DineEase
                 quantity--;
                 lblQuantity.Text = quantity.ToString();
             }
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
