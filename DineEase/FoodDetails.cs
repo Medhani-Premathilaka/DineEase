@@ -106,5 +106,40 @@ namespace DineEase
                 lblQuantity.Text = quantity.ToString();
             }
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2GradientCircleButton1_Click(object sender, EventArgs e)
+        {
+            quantity++;
+            lblQuantity.Text = quantity.ToString();
+        }
+
+        private void guna2GradientCircleButton2_Click(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

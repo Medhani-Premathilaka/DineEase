@@ -117,6 +117,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
@@ -140,6 +141,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\begin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\begin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

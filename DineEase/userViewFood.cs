@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace DineEase
 {
@@ -34,50 +35,59 @@ namespace DineEase
 
                 while (reader.Read())
                 {
-                    Panel card = new Panel
+
+                    //Panel card = new Panel
+                    Guna2ShadowPanel card = new Guna2ShadowPanel
                     {
-                        Width = 158,
-                        Height = 218,
-                        BorderStyle = BorderStyle.Fixed3D,
-                        BackColor = SystemColors.Window,
-                        Tag = reader["ProductID"] // Store ProductID
+                        Width = 176,
+                        Height = 240,
+                        BorderStyle = BorderStyle.None,
+                        BackColor = Color.White,
+                        Tag = reader["ProductID"], // Store ProductID
+                        //ShadowColor = Color.DarkBlue
+                        Radius = 5
                     };
 
+                    
 
                     Label nameLabel = new Label
                     {
                         Text = reader["ProductName"].ToString(),
-                        Top = 158,
-                        Left = 0,
-                        Width = 158,
+                        Top = 169,
+                        Left = 13,
+                        Width = 150,
                         Height=30,
                        // BackColor = Color.Brown,
                         Font = new Font("Verdana", 10, FontStyle.Bold ),
-                        TextAlign = ContentAlignment.MiddleCenter
+                        TextAlign = ContentAlignment.MiddleCenter,
+
                     };
 
                     //273F4F
                     Label priceLable = new Label
                     {
                         Text = "Rs." + reader["Price"].ToString(),
-                        Top = 188,
-                        Left = 0,
-                        Width = 158,
-                        Height=30,
-                        BackColor = Color.Orange,
+                        Top = 199,
+                        Left = 23,
+                        Width = 130,
+                        Height = 30,
+                        BackColor = Color.FromArgb(228, 244, 252),
+                        //(13,31,102)
                         Font = new Font("Verdana", 10, FontStyle.Bold),
-                        ForeColor = Color.White,
-                        
+                        ForeColor = Color.Black,
+
                         TextAlign = ContentAlignment.MiddleCenter
                     };
 
-                    PictureBox picture = new PictureBox
+                    //PictureBox picture = new PictureBox
+                    Guna2PictureBox picture = new Guna2PictureBox
                     {
-                        Width = 158,
+                        Width = 150,
                         Height = 158,
-                        Top = 0,
-                        Left = 0,
-                        SizeMode = PictureBoxSizeMode.StretchImage
+                        Top = 11,
+                        Left = 13,
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        BorderRadius = 5,
                     };
 
                     byte[] imageData = (byte[])reader["Image"];
@@ -92,7 +102,7 @@ namespace DineEase
                     card.Controls.Add(priceLable);
 
                     // Add click event to the whole card
-                    card.Click += Card_Click;
+                    card.Click +=  Card_Click;
                     picture.Click += Card_Click;
                     nameLabel.Click += Card_Click;
 
@@ -103,6 +113,7 @@ namespace DineEase
 
         private void Card_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Control clicked = sender as Control;
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
@@ -195,12 +206,66 @@ namespace DineEase
         {
             LoadFoodItems();
             flowLayoutPanel1.Width = this.ClientSize.Width;
+            guna2Panel1.Width = 70;
             
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private int panelExpandedWidth = 170;  // Width when expanded
+        private int panelCollapsedWidth = 70;  // Width when collapsed
+        private bool isCollapsed = true;
+
+        //private void guna2PictureBox1_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void guna2ImageButton1_Click(object sender, EventArgs e)
+        //{
+           
+
+
+        //}
+
+        private void guna2ImageButton1_Click_1(object sender, EventArgs e)
+        {
+            navTimer.Start();
+        }
+
+        private void navTimer_Tick_1(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                guna2Panel1.Width += 10;
+                if (guna2Panel1.Width >= panelExpandedWidth)
+                {
+                    navTimer.Stop();
+                    isCollapsed = false;
+                }
+            }
+            else
+            {
+                guna2Panel1.Width -= 10;
+                if (guna2Panel1.Width <= panelCollapsedWidth)
+                {
+                    navTimer.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
