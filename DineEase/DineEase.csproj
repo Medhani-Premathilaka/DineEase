@@ -91,7 +91,9 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateItemPage.cs" />
+    <Compile Include="UpdateItemPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UpdateItemPage.Designer.cs">
       <DependentUpon>UpdateItemPage.cs</DependentUpon>
     </Compile>
