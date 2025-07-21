@@ -13,7 +13,6 @@ namespace DineEase
         decimal price = 0;
         int quantity = 1;
 
-        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public FoodDetails(int id)
         {
@@ -23,25 +22,30 @@ namespace DineEase
 
         private void LoadDetails()
         {
-            string query = "SELECT * FROM FoodProduct WHERE ProductID = @id";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                cmd.Parameters.AddWithValue("@id", productId);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                cnn.Open();
+                string query = "SELECT * FROM FoodProduct WHERE ProductID = @id";
+                //using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
-                    productName = reader["ProductName"].ToString();
-                    price = Convert.ToDecimal(reader["Price"]);
-                    lblName.Text = productName;
-                    lblPrice.Text = "Price: Rs. " + price.ToString("0.00");
-                    lblDesc.Text = reader["Description"].ToString();
-
-                    byte[] imgData = (byte[])reader["Image"];
-                    using (MemoryStream ms = new MemoryStream(imgData))
+                    cmd.Parameters.AddWithValue("@id", productId);
+                    cnn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
                     {
-                        pictureBox1.Image = Image.FromStream(ms);
+                        productName = reader["ProductName"].ToString();
+                        price = Convert.ToDecimal(reader["Price"]);
+                        lblName.Text = productName;
+                        lblPrice.Text = "Price: Rs. " + price.ToString("0.00");
+                        lblDesc.Text = reader["Description"].ToString();
+
+                        byte[] imgData = (byte[])reader["Image"];
+                        using (MemoryStream ms = new MemoryStream(imgData))
+                        {
+                            pictureBox1.Image = Image.FromStream(ms);
+                        }
                     }
                 }
             }
@@ -59,33 +63,38 @@ namespace DineEase
             lblQuantity.Text = quantity.ToString();
         }
 
-        private void btnAddToOrder_Click_1(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            {
-                MessageBox.Show("Enter customer name.");
-                return;
-            }
+        //private void btnAddToOrder_Click_1(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+        //    {
+        //        MessageBox.Show("Enter customer name.");
+        //        return;
+        //    }
+        //    var db = dao.DBConnection.getInstance();
+        //    using (SqlConnection cnn = db.GetConnection())
+        //    {
+        //        cnn.Open();
+        //        string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
+        //        using SqlCommand cmd = new SqlCommand(query, conn))
+        //        {
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
-                cmd.Parameters.AddWithValue("@name", productName);
-                cmd.Parameters.AddWithValue("@price", price);
-                cmd.Parameters.AddWithValue("@qty", quantity);
-                cmd.Parameters.AddWithValue("@date", DateTime.Now);
-                cmd.Parameters.AddWithValue("@status", "Pending");
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
+        //            cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+        //            cmd.Parameters.AddWithValue("@name", productName);
+        //            cmd.Parameters.AddWithValue("@price", price);
+        //            cmd.Parameters.AddWithValue("@qty", quantity);
+        //            cmd.Parameters.AddWithValue("@date", DateTime.Now);
+        //            cmd.Parameters.AddWithValue("@status", "Pending");
 
-                MessageBox.Show("Item added to order.");
-                this.Close();
-            }
-        }
+        //            conn.Open();
+        //            cmd.ExecuteNonQuery();
+        //            conn.Close();
+
+        //            MessageBox.Show("Item added to order.");
+        //            this.Close();
+        //        }
+        //    }
+        //}
 
         private void Closebtn_Click_1(object sender, EventArgs e)
         {
