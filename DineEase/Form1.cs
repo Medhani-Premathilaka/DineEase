@@ -11,18 +11,7 @@ namespace DineEase
 
         private bool isUsernameHintVisible = true;
         private bool isPasswordHintVisible = true;
-        private Color HashToColor(string input)
-        {
-            // Get a hash code for the string
-            int hash = input.GetHashCode();
 
-            // Use the hash to generate RGB values
-            byte r = (byte)((hash & 0xFF0000) >> 16);
-            byte g = (byte)((hash & 0x00FF00) >> 8);
-            byte b = (byte)(hash & 0x0000FF);
-
-            return Color.FromArgb(r, g, b);
-        }
 
         public Form1()
         {
@@ -94,6 +83,7 @@ namespace DineEase
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             lblerror.Visible = false;
         }
 
@@ -101,57 +91,6 @@ namespace DineEase
         {
 
         }
-
-
-        //private void signin_Click_(object sender, EventArgs e)
-        //{
-
-        //    string connectionString;
-        //    SqlConnection cnn;
-
-
-        //    connectionString = @"Data Source=medhani-pc\sqlexpress;Initial Catalog=DineEase;Integrated Security=True";
-        //    string enteredUsername = username.Text.Trim();
-        //    string enteredPassword = password.Text.Trim();
-        //    Security security = new Security();
-        //    string hashedPassword = security.HashPassword(enteredPassword);
-
-
-
-        //    cnn = new SqlConnection(connectionString);
-        //    cnn.Open();
-        //    string query = "SELECT Role FROM Users WHERE Username = @username AND Password = @password";
-        //    using (SqlCommand cmd = new SqlCommand(query, cnn))
-        //    {
-        //        cmd.Parameters.AddWithValue("@username", enteredUsername);
-        //        cmd.Parameters.AddWithValue("@password", hashedPassword);
-
-
-        //        var role = cmd.ExecuteScalar() as string;
-
-
-        //        if (role == "ADMIN")
-        //        {
-        //            AdminHomePage adminForm = new AdminHomePage();
-        //            adminForm.Show();
-        //            this.Hide();
-        //        }
-        //        else if (role == "USER")
-        //        {
-        //            User userForm = new User();
-        //            userForm.Show();
-        //            this.Hide();
-        //        }
-        //        else
-        //        {
-        //            lblerror.Text = "Invalid username or password.";
-        //            lblerror.Visible = true;
-        //        }
-        //    }
-
-
-        //    cnn.Close();
-        //}
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
         {
@@ -190,11 +129,11 @@ namespace DineEase
         private void signin_Click_1(object sender, EventArgs e)
         {
 
-            string connectionString;
-            SqlConnection cnn;
+            //string connectionString;
+            //SqlConnection cnn;
 
 
-            connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
+            //connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
             string enteredUsername = username.Text.Trim();
             string enteredPassword = password.Text.Trim();
             Security security = new Security();
@@ -202,39 +141,45 @@ namespace DineEase
 
 
 
-            cnn = new SqlConnection(connectionString);
-            cnn.Open();
-            string query = "SELECT Role FROM Users WHERE UserId = @username AND Password = @password";
-            using (SqlCommand cmd = new SqlCommand(query, cnn))
+            //cnn = new SqlConnection(connectionString);
+            //cnn.Open();
+
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                cmd.Parameters.AddWithValue("@username", enteredUsername);
-                cmd.Parameters.AddWithValue("@password", hashedPassword);
-
-
-                var role = cmd.ExecuteScalar() as string;
-
-
-                if (role == "ADMIN")
+                cnn.Open();
+                string query = "SELECT Role FROM Users WHERE UserId = @username AND Password = @password";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
-                    AdminHomePage adminForm = new AdminHomePage();
-                    adminForm.Show();
-                    this.Hide();
+                    cmd.Parameters.AddWithValue("@username", enteredUsername);
+                    cmd.Parameters.AddWithValue("@password", hashedPassword);
+
+
+                    var role = cmd.ExecuteScalar() as string;
+
+
+                    if (role == "ADMIN")
+                    {
+                        AdminHomePage adminForm = new AdminHomePage();
+                        adminForm.Show();
+                        this.Hide();
+                    }
+                    else if (role == "USER")
+                    {
+                        userViewFood userForm = new userViewFood();
+                        userForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        lblerror.Text = "Invalid username or password.";
+                        lblerror.Visible = true;
+                    }
                 }
-                else if (role == "USER")
-                {
-                    userViewFood userForm = new userViewFood();
-                    userForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    lblerror.Text = "Invalid username or password.";
-                    lblerror.Visible = true;
-                }
+
+
+                cnn.Close();
             }
-
-
-            cnn.Close();
         }
     }
 }
