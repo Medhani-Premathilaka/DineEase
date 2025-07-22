@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class userViewFood : Form
+    public partial class userViewFood : Form, ShowPage
     {
         public userViewFood()
         {
@@ -130,6 +130,11 @@ namespace DineEase
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void showPage()
+        {
+            this.Show();
         }
     }
 }

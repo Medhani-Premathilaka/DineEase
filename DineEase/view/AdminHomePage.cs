@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class AdminHomePage : Form
+    public partial class AdminHomePage : Form, ShowPage
     {
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
@@ -260,6 +260,11 @@ namespace DineEase
             addItemPage.Show();
             this.Hide();
 
+        }
+
+        public void showPage()
+        {
+            this.Show();
         }
     }
 }
