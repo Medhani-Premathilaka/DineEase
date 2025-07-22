@@ -3,6 +3,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
+
 
 namespace DineEase
 {
@@ -37,19 +39,20 @@ namespace DineEase
                         string addFor = reader["Category"].ToString();
                         string price = reader["Price"].ToString();
                         string description = reader["Description"].ToString();
-                        //string imagePath = reader["Image"].ToString();
 
 
 
-
-                        Panel card = new Panel
+                        Guna2Panel card = new Guna2Panel
                         {
                             Width = 220,
                             Height = 340,
-                            BorderStyle = BorderStyle.FixedSingle,
-                            BackColor = Color.White,
-                            Margin = new Padding(10)
+                            BorderRadius = 15,
+                            FillColor = Color.White,
+                            ShadowDecoration = { Enabled = true, BorderRadius = 15, Shadow = new Padding(5) },
+                            Margin = new Padding(15),
+                            BackColor = Color.Transparent // Ensure shadow shows properly
                         };
+
 
                         PictureBox picture = new PictureBox
                         {
@@ -57,9 +60,13 @@ namespace DineEase
                             Height = 140,
                             Top = 10,
                             Left = 20,
-                            SizeMode = PictureBoxSizeMode.Zoom,
-                            BorderStyle = BorderStyle.FixedSingle
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            BackColor = Color.White, // Match card background
+                            BorderStyle = BorderStyle.None, // Remove old border
+                            Margin = new Padding(10),
+                            Padding = new Padding(5)
                         };
+
 
                         if (reader["Image"] != DBNull.Value)
                         {
@@ -75,11 +82,12 @@ namespace DineEase
 
                         Label nameLabel = new Label
                         {
-                            Text = "Name: " + name,
+                            Text =  name,
                             Top = 160,
                             Left = 10,
                             Width = 200,
-                            Font = new Font("Segoe UI", 9, FontStyle.Bold)
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                            ForeColor = Color.FromArgb(40, 40, 40) // Dark gray for readability
                         };
 
                         Label priceLabel = new Label
@@ -87,36 +95,47 @@ namespace DineEase
                             Text = "Price: Rs. " + price,
                             Top = 185,
                             Left = 10,
-                            Width = 200
+                            Width = 200,
+                            Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                            ForeColor = Color.FromArgb(70, 70, 70)
                         };
 
                         Label addForLabel = new Label
                         {
-                            Text = "Add For: " + addFor,
+                            Text = "Category: " + addFor,
                             Top = 210,
                             Left = 10,
-                            Width = 200
+                            Width = 200,
+                            Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                            ForeColor = Color.FromArgb(70, 70, 70)
                         };
 
                         Label descLabel = new Label
                         {
-                            Text = "Desc: " + description,
+                            Text = "Details: " + description,
                             Top = 235,
                             Left = 10,
                             Width = 200,
                             Height = 40,
-                            AutoSize = false
+                            AutoSize = false,
+                            Font = new Font("Segoe UI", 8, FontStyle.Italic),
+                            ForeColor = Color.FromArgb(100, 100, 100)
                         };
 
-                        Button editButton = new Button
+                        Guna2Button editButton = new Guna2Button
                         {
-                            Text = "Edit",
-                            Width = 80,
+                            Text = "✏️ Edit",
+                            Width = 90,
                             Height = 30,
                             Left = 10,
                             Top = 285,
-                            BackColor = Color.LightBlue
+                            BorderRadius = 10,
+                            FillColor = Color.FromArgb(0, 191, 255),
+                            Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                            ForeColor = Color.White,
+                            Cursor = Cursors.Hand
                         };
+
                         editButton.Click += (s, e) =>
                         {
                             UpdateItemPage updatePage = new UpdateItemPage(name);
@@ -124,20 +143,34 @@ namespace DineEase
                             this.Hide();
                         };
 
-                        Button deleteButton = new Button
+                        Guna2Button deleteButton = new Guna2Button
                         {
-                            Text = "Delete",
-                            Width = 80,
+                            Text = "🗑️ Delete",
+                            Width = 90,
                             Height = 30,
-                            Left = 110,
+                            Left = 115,
                             Top = 285,
-                            BackColor = Color.IndianRed,
-                            ForeColor = Color.White
+                            BorderRadius = 10,
+                            FillColor = Color.IndianRed,
+                            Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                            ForeColor = Color.White,
+                            Cursor = Cursors.Hand
                         };
+
                         deleteButton.Click += (s, e) =>
                         {
                             DeleteMenuItem(name);
                         };
+
+                        card.MouseEnter += (s, e) =>
+                        {
+                            card.FillColor = Color.FromArgb(245, 245, 245);
+                        };
+                        card.MouseLeave += (s, e) =>
+                        {
+                            card.FillColor = Color.White;
+                        };
+
 
                         card.Controls.Add(picture);
                         card.Controls.Add(nameLabel);
