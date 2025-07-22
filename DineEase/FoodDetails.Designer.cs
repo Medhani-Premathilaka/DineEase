@@ -113,7 +113,7 @@
             this.btnAddToOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddToOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddToOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddToOrder.FillColor = System.Drawing.Color.MediumOrchid;
+            this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
             this.btnAddToOrder.Location = new System.Drawing.Point(128, 569);

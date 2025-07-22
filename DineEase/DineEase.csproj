@@ -274,5 +274,8 @@
   <ItemGroup>
     <None Include="Resources\gg_profile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\iconoir_sidebar-collapse.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

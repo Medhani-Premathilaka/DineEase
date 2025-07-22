@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Resources;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 
@@ -19,7 +20,7 @@ namespace DineEase
         private void LoadFoodItems()
         {
             flowLayoutPanel1.Controls.Clear();
-
+            //flowLayoutPanel1.Padding = new Padding(20, 20, 20, 20);
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -29,19 +30,18 @@ namespace DineEase
 
                 while (reader.Read())
                 {
-
-                    //Panel card = new Panel
                     Guna2ShadowPanel card = new Guna2ShadowPanel
                     {
-                        Width = 180, //176
+                        Width = 180,
                         Height = 240,
                         BorderStyle = BorderStyle.None,
                         BackColor = Color.White,
-                        Tag = reader["ProductID"], // Store ProductID
-                        //ShadowColor = Color.DarkBlue
+                        Tag = reader["ProductID"], // Store ProductID                       
                         Radius = 5,
-                        //card.Margin = new Padding(5);
+                       
                     };
+
+                    
 
                     Label nameLabel = new Label
                     {
@@ -50,13 +50,11 @@ namespace DineEase
                         Left = 15,
                         Width = 150,
                         Height=30,
-                       // BackColor = Color.Brown,
                         Font = new Font("Verdana", 10, FontStyle.Bold ),
                         TextAlign = ContentAlignment.MiddleCenter,
-
                     };
 
-                    //273F4F
+                    
                     Label priceLable = new Label
                     {
                         Text = "Rs." + reader["Price"].ToString(),
@@ -64,8 +62,10 @@ namespace DineEase
                         Left = 25,
                         Width = 130,
                         Height = 30,
-                        BackColor = Color.FromArgb(121, 113, 234),
+                        //BackColor = Color.FromArgb(106, 77, 126),
+                        //BackColor = Color.FromArgb(213, 159, 252),
                         //BackColor = Color.FromArgb(147, 133, 227),
+                        BackColor = Color.FromArgb(159, 182, 252),
                         //(13,31,102)
                         Font = new Font("Verdana", 10, FontStyle.Bold),
                         ForeColor = Color.White,
@@ -73,13 +73,13 @@ namespace DineEase
                         TextAlign = ContentAlignment.MiddleCenter
                     };
 
-                    //PictureBox picture = new PictureBox
+                    
                     Guna2PictureBox picture = new Guna2PictureBox
                     {
-                        Width = 158,//150
+                        Width = 158,
                         Height = 158,
                         Top = 11,
-                        Left = 11,//13
+                        Left = 11,
                         SizeMode = PictureBoxSizeMode.StretchImage,
                         BorderRadius = 5,
                     };
@@ -118,7 +118,6 @@ namespace DineEase
             int productId = (int)panel.Tag;
 
             FoodDetails detailsForm = new FoodDetails(productId);
-            //ShowFoodDetails(productId);
             detailsForm.ShowDialog();
         }
 
@@ -127,7 +126,13 @@ namespace DineEase
             LoadFoodItems();
             flowLayoutPanel1.Width = this.ClientSize.Width;
             guna2Panel1.Width = 70;
-            
+
+            flowLayoutPanel1.Padding = new Padding(10);
+            foreach (Control card in flowLayoutPanel1.Controls)
+            {
+                card.Margin = new Padding(15); // 15px space between cards
+            }
+
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
@@ -160,6 +165,7 @@ namespace DineEase
                     historyLbl.Visible = true;
                     settingLbl.Visible = true;
                     profileLbl.Visible = true;
+                    guna2ImageButton1.Image = Image.FromFile(@"C:\\Users\\User\\Desktop\\New folder (3)\\DineEase\\DineEase\\Resources\\iconoir_sidebar-collapse.png");
 
                     AdjustControlPositions();
                 }
@@ -172,6 +178,7 @@ namespace DineEase
                 historyLbl.Visible = false;
                 settingLbl.Visible = false;
                 profileLbl.Visible = false;
+                guna2ImageButton1.Image = Image.FromFile(@"C:\\Users\\User\\Desktop\\New folder (3)\\DineEase\\DineEase\\Resources\\icon-park-outline_expand-left.png");
 
                 guna2Panel1.Width -= 10; // Decrease width step-by-step
                 if (guna2Panel1.Width <= panelCollapsedWidth)
