@@ -14,6 +14,7 @@ namespace DineEase
         {
             InitializeComponent();
             this.Load += AdminHomePage_Load;
+
         }
 
         private void LoadMenuItemsAsCards()
@@ -118,7 +119,7 @@ namespace DineEase
                         };
                         editButton.Click += (s, e) =>
                         {
-                            UpdateItemPage updatePage = new UpdateItemPage(name, addFor, price, description);
+                            UpdateItemPage updatePage = new UpdateItemPage(name);
                             updatePage.Show();
                             this.Hide();
                         };
@@ -252,6 +253,11 @@ namespace DineEase
             AddItemPage addItemPage = new AddItemPage();
             addItemPage.Show();
             this.Hide();
+
+        }
+
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -34,9 +34,7 @@
             this.btnImportImage = new Guna.UI2.WinForms.Guna2Button();
             this.createbtn = new Guna.UI2.WinForms.Guna2Button();
             this.resetbtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxPrice = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBoxAddFor = new Guna.UI2.WinForms.Guna2TextBox();
             this.homeButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.historyButton = new Guna.UI2.WinForms.Guna2Button();
@@ -45,8 +43,10 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -141,26 +141,6 @@
             this.resetbtn.Text = "Reset";
             this.resetbtn.Click += new System.EventHandler(this.guna2ButtonReset_Click_1);
             // 
-            // guna2TextBoxDescription
-            // 
-            this.guna2TextBoxDescription.BorderRadius = 10;
-            this.guna2TextBoxDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxDescription.DefaultText = "";
-            this.guna2TextBoxDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Location = new System.Drawing.Point(244, 186);
-            this.guna2TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBoxDescription.Name = "guna2TextBoxDescription";
-            this.guna2TextBoxDescription.PlaceholderText = "";
-            this.guna2TextBoxDescription.SelectedText = "";
-            this.guna2TextBoxDescription.Size = new System.Drawing.Size(222, 117);
-            this.guna2TextBoxDescription.TabIndex = 7;
-            // 
             // guna2TextBoxPrice
             // 
             this.guna2TextBoxPrice.BorderRadius = 10;
@@ -173,33 +153,13 @@
             this.guna2TextBoxPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxPrice.Location = new System.Drawing.Point(244, 136);
+            this.guna2TextBoxPrice.Location = new System.Drawing.Point(244, 138);
             this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBoxPrice.Name = "guna2TextBoxPrice";
             this.guna2TextBoxPrice.PlaceholderText = "";
             this.guna2TextBoxPrice.SelectedText = "";
             this.guna2TextBoxPrice.Size = new System.Drawing.Size(222, 24);
             this.guna2TextBoxPrice.TabIndex = 6;
-            // 
-            // guna2TextBoxAddFor
-            // 
-            this.guna2TextBoxAddFor.BorderRadius = 10;
-            this.guna2TextBoxAddFor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxAddFor.DefaultText = "";
-            this.guna2TextBoxAddFor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxAddFor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxAddFor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxAddFor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxAddFor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxAddFor.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBoxAddFor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxAddFor.Location = new System.Drawing.Point(244, 86);
-            this.guna2TextBoxAddFor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBoxAddFor.Name = "guna2TextBoxAddFor";
-            this.guna2TextBoxAddFor.PlaceholderText = "";
-            this.guna2TextBoxAddFor.SelectedText = "";
-            this.guna2TextBoxAddFor.Size = new System.Drawing.Size(222, 24);
-            this.guna2TextBoxAddFor.TabIndex = 5;
             // 
             // homeButton
             // 
@@ -296,13 +256,13 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
+            this.guna2Panel3.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel3.Controls.Add(this.pictureBoxItem);
             this.guna2Panel3.Controls.Add(this.btnImportImage);
             this.guna2Panel3.Controls.Add(this.createbtn);
             this.guna2Panel3.Controls.Add(this.resetbtn);
-            this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxPrice);
-            this.guna2Panel3.Controls.Add(this.guna2TextBoxAddFor);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxName);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel4);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel3);
@@ -314,6 +274,23 @@
             this.guna2Panel3.Size = new System.Drawing.Size(800, 386);
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 10;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(244, 88);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(222, 36);
+            this.guna2ComboBox1.TabIndex = 24;
+            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
             // guna2HtmlLabel3
             // 
@@ -333,6 +310,28 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(800, 454);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // guna2TextBoxDescription
+            // 
+            this.guna2TextBoxDescription.BorderRadius = 10;
+            this.guna2TextBoxDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBoxDescription.DefaultText = "";
+            this.guna2TextBoxDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBoxDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBoxDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxDescription.Location = new System.Drawing.Point(244, 188);
+            this.guna2TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBoxDescription.Multiline = true;
+            this.guna2TextBoxDescription.Name = "guna2TextBoxDescription";
+            this.guna2TextBoxDescription.PlaceholderText = "";
+            this.guna2TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.guna2TextBoxDescription.SelectedText = "";
+            this.guna2TextBoxDescription.Size = new System.Drawing.Size(231, 77);
+            this.guna2TextBoxDescription.TabIndex = 27;
             // 
             // AddItemPage
             // 
@@ -360,9 +359,7 @@
         private Guna.UI2.WinForms.Guna2Button btnImportImage;
         private Guna.UI2.WinForms.Guna2Button createbtn;
         private Guna.UI2.WinForms.Guna2Button resetbtn;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxPrice;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxAddFor;
         private Guna.UI2.WinForms.Guna2Button homeButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button historyButton;
@@ -373,5 +370,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
     }
 }
