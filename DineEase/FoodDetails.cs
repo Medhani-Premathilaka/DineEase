@@ -63,38 +63,39 @@ namespace DineEase
             lblQuantity.Text = quantity.ToString();
         }
 
-        //private void btnAddToOrder_Click_1(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-        //    {
-        //        MessageBox.Show("Enter customer name.");
-        //        return;
-        //    }
-        //    var db = dao.DBConnection.getInstance();
-        //    using (SqlConnection cnn = db.GetConnection())
-        //    {
-        //        cnn.Open();
-        //        string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
-        //        using SqlCommand cmd = new SqlCommand(query, conn))
-        //        {
+        private void btnAddToOrder_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+            {
+                MessageBox.Show("Enter customer name.");
+                return;
+            }
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            {
+                cnn.Open();
+                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
+                SqlCommand sqlCommand = new SqlCommand(query, cnn);
+                using (SqlCommand cmd = sqlCommand)
+                {
 
 
-        //            cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
-        //            cmd.Parameters.AddWithValue("@name", productName);
-        //            cmd.Parameters.AddWithValue("@price", price);
-        //            cmd.Parameters.AddWithValue("@qty", quantity);
-        //            cmd.Parameters.AddWithValue("@date", DateTime.Now);
-        //            cmd.Parameters.AddWithValue("@status", "Pending");
+                    cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+                    cmd.Parameters.AddWithValue("@name", productName);
+                    cmd.Parameters.AddWithValue("@price", price);
+                    cmd.Parameters.AddWithValue("@qty", quantity);
+                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@status", "Pending");
 
-        //            conn.Open();
-        //            cmd.ExecuteNonQuery();
-        //            conn.Close();
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+                    cnn.Close();
 
-        //            MessageBox.Show("Item added to order.");
-        //            this.Close();
-        //        }
-        //    }
-        //}
+                    MessageBox.Show("Item added to order.");
+                    this.Close();
+                }
+            }
+        }
 
         private void Closebtn_Click_1(object sender, EventArgs e)
         {
