@@ -8,7 +8,6 @@ namespace DineEase
 {
     public partial class AddItemPage : Form
     {
-        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
         public AddItemPage()
         {
             InitializeComponent();
@@ -81,12 +80,15 @@ namespace DineEase
             {
                 imageBytes = System.IO.File.ReadAllBytes(imagePath);
             }
-
-            string query = "INSERT INTO FoodProduct ( ProductName,Category, Price, Description ,Image) VALUES (@itemName, @addFor, @price, @description , @imageBytes)";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                //cnn.Open();
+                string query = "INSERT INTO FoodProduct ( ProductName,Category, Price, Description ,Image) VALUES (@itemName, @addFor, @price, @description , @imageBytes)";
+
+                //using (SqlConnection conn = new SqlConnection(connectionString))
+
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
                     cmd.Parameters.AddWithValue("@itemName", itemName);
                     cmd.Parameters.AddWithValue("@addFor", addFor);
@@ -96,7 +98,7 @@ namespace DineEase
 
                     try
                     {
-                        conn.Open();
+                        cnn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
@@ -122,6 +124,7 @@ namespace DineEase
                         MessageBox.Show("Error: " + ex.Message);
                     }
                 }
+
             }
         }
 
