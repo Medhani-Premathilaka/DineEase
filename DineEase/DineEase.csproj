@@ -253,5 +253,26 @@
   <ItemGroup>
     <None Include="Resources\icons8-history-481.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-park-outline_expand-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconamoon_home-fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-park-outline_history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material-symbols_draft-orders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material-symbols_draft-orders1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gg_profile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

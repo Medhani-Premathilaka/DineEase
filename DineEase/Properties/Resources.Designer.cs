@@ -133,6 +133,16 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gg_profile {
+            get {
+                object obj = ResourceManager.GetObject("gg_profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hamburger {
             get {
                 object obj = ResourceManager.GetObject("hamburger", resourceCulture);
@@ -176,6 +186,36 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap home__1_1 {
             get {
                 object obj = ResourceManager.GetObject("home (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_park_outline_expand_left {
+            get {
+                object obj = ResourceManager.GetObject("icon-park-outline_expand-left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_park_outline_history {
+            get {
+                object obj = ResourceManager.GetObject("icon-park-outline_history", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconamoon_home_fill {
+            get {
+                object obj = ResourceManager.GetObject("iconamoon_home-fill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +286,26 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap icons8_user_profile_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-profile-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap material_symbols_draft_orders {
+            get {
+                object obj = ResourceManager.GetObject("material-symbols_draft-orders", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap material_symbols_draft_orders1 {
+            get {
+                object obj = ResourceManager.GetObject("material-symbols_draft-orders1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -426,6 +486,16 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap shopping_list1 {
             get {
                 object obj = ResourceManager.GetObject("shopping-list1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vector {
+            get {
+                object obj = ResourceManager.GetObject("Vector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

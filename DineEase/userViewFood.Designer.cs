@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.profileLbl = new System.Windows.Forms.Label();
-            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.settingLbl = new System.Windows.Forms.Label();
             this.ordersLbl = new System.Windows.Forms.Label();
             this.historyLbl = new System.Windows.Forms.Label();
             this.homeLbl = new System.Windows.Forms.Label();
+            this.navTimer = new System.Windows.Forms.Timer(this.components);
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.navTimer = new System.Windows.Forms.Timer(this.components);
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -75,33 +75,19 @@
             this.profileLbl.AutoSize = true;
             this.profileLbl.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileLbl.ForeColor = System.Drawing.Color.White;
-            this.profileLbl.Location = new System.Drawing.Point(90, 648);
+            this.profileLbl.Location = new System.Drawing.Point(90, 667);
             this.profileLbl.Name = "profileLbl";
             this.profileLbl.Size = new System.Drawing.Size(125, 25);
             this.profileLbl.TabIndex = 11;
             this.profileLbl.Text = "My Profile";
             this.profileLbl.Visible = false;
             // 
-            // guna2ImageButton6
-            // 
-            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Image = global::DineEase.Properties.Resources.icons8_user_profile_24;
-            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton6.ImageRotate = 0F;
-            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(10, 629);
-            this.guna2ImageButton6.Name = "guna2ImageButton6";
-            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Size = new System.Drawing.Size(62, 63);
-            this.guna2ImageButton6.TabIndex = 10;
-            // 
             // settingLbl
             // 
             this.settingLbl.AutoSize = true;
             this.settingLbl.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingLbl.ForeColor = System.Drawing.Color.White;
-            this.settingLbl.Location = new System.Drawing.Point(90, 507);
+            this.settingLbl.Location = new System.Drawing.Point(90, 580);
             this.settingLbl.Name = "settingLbl";
             this.settingLbl.Size = new System.Drawing.Size(92, 25);
             this.settingLbl.TabIndex = 9;
@@ -113,20 +99,19 @@
             this.ordersLbl.AutoSize = true;
             this.ordersLbl.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ordersLbl.ForeColor = System.Drawing.Color.White;
-            this.ordersLbl.Location = new System.Drawing.Point(90, 265);
+            this.ordersLbl.Location = new System.Drawing.Point(103, 342);
             this.ordersLbl.Name = "ordersLbl";
             this.ordersLbl.Size = new System.Drawing.Size(88, 25);
             this.ordersLbl.TabIndex = 8;
             this.ordersLbl.Text = "Orders";
             this.ordersLbl.Visible = false;
-            //this.ordersLbl.Click += new System.EventHandler(this.label4_Click);
             // 
             // historyLbl
             // 
             this.historyLbl.AutoSize = true;
             this.historyLbl.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyLbl.ForeColor = System.Drawing.Color.White;
-            this.historyLbl.Location = new System.Drawing.Point(90, 384);
+            this.historyLbl.Location = new System.Drawing.Point(103, 439);
             this.historyLbl.Name = "historyLbl";
             this.historyLbl.Size = new System.Drawing.Size(94, 25);
             this.historyLbl.TabIndex = 7;
@@ -138,83 +123,12 @@
             this.homeLbl.AutoSize = true;
             this.homeLbl.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeLbl.ForeColor = System.Drawing.Color.White;
-            this.homeLbl.Location = new System.Drawing.Point(90, 151);
+            this.homeLbl.Location = new System.Drawing.Point(103, 249);
             this.homeLbl.Name = "homeLbl";
             this.homeLbl.Size = new System.Drawing.Size(77, 25);
             this.homeLbl.TabIndex = 5;
             this.homeLbl.Text = "Home";
             this.homeLbl.Visible = false;
-            // 
-            // guna2ImageButton5
-            // 
-            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Image = global::DineEase.Properties.Resources.icons8_setting_50;
-            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton5.ImageRotate = 0F;
-            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(10, 493);
-            this.guna2ImageButton5.Name = "guna2ImageButton5";
-            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Size = new System.Drawing.Size(62, 63);
-            this.guna2ImageButton5.TabIndex = 4;
-            // 
-            // guna2ImageButton4
-            // 
-            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.icons8_history_481;
-            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton4.ImageRotate = 0F;
-            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(10, 370);
-            this.guna2ImageButton4.Name = "guna2ImageButton4";
-            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Size = new System.Drawing.Size(62, 58);
-            this.guna2ImageButton4.TabIndex = 3;
-            // 
-            // guna2ImageButton3
-            // 
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Image = global::DineEase.Properties.Resources.icons8_order_completed_50;
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(10, 248);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(62, 59);
-            this.guna2ImageButton3.TabIndex = 2;
-            // 
-            // guna2ImageButton2
-            // 
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Image = global::DineEase.Properties.Resources.icons8_home_50;
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(10, 134);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(62, 58);
-            this.guna2ImageButton2.TabIndex = 1;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Image = global::DineEase.Properties.Resources.icons8_right_button_48;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(10, 37);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(62, 58);
-            this.guna2ImageButton1.TabIndex = 0;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click_1);
             // 
             // navTimer
             // 
@@ -230,16 +144,6 @@
             this.guna2Panel2.Size = new System.Drawing.Size(687, 36);
             this.guna2Panel2.TabIndex = 1;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(228, 36);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(687, 1070);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -250,6 +154,101 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 0;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click_1);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(228, 36);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(687, 1070);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // guna2ImageButton6
+            // 
+            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton6.Image = global::DineEase.Properties.Resources.gg_profile;
+            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton6.ImageRotate = 0F;
+            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(10, 652);
+            this.guna2ImageButton6.Name = "guna2ImageButton6";
+            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton6.Size = new System.Drawing.Size(62, 63);
+            this.guna2ImageButton6.TabIndex = 10;
+            // 
+            // guna2ImageButton5
+            // 
+            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton5.Image = global::DineEase.Properties.Resources.Vector;
+            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton5.ImageRotate = 0F;
+            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(10, 563);
+            this.guna2ImageButton5.Name = "guna2ImageButton5";
+            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(62, 63);
+            this.guna2ImageButton5.TabIndex = 4;
+            // 
+            // guna2ImageButton4
+            // 
+            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.icon_park_outline_history;
+            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton4.ImageRotate = 0F;
+            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(12, 425);
+            this.guna2ImageButton4.Name = "guna2ImageButton4";
+            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton4.Size = new System.Drawing.Size(62, 58);
+            this.guna2ImageButton4.TabIndex = 3;
+            // 
+            // guna2ImageButton3
+            // 
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton3.Image = global::DineEase.Properties.Resources.material_symbols_draft_orders;
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(12, 330);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(62, 59);
+            this.guna2ImageButton3.TabIndex = 2;
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton2.Image = global::DineEase.Properties.Resources.iconamoon_home_fill;
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(12, 216);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(62, 58);
+            this.guna2ImageButton2.TabIndex = 1;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton1.Image = global::DineEase.Properties.Resources.icon_park_outline_expand_left;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(10, 37);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(62, 58);
+            this.guna2ImageButton1.TabIndex = 0;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click_1);
             // 
             // userViewFood
             // 
