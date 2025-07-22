@@ -119,7 +119,7 @@
             this.ordersLbl.TabIndex = 8;
             this.ordersLbl.Text = "Orders";
             this.ordersLbl.Visible = false;
-            this.ordersLbl.Click += new System.EventHandler(this.label4_Click);
+            //this.ordersLbl.Click += new System.EventHandler(this.label4_Click);
             // 
             // historyLbl
             // 
