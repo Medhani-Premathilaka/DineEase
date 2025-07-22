@@ -39,14 +39,16 @@ namespace DineEase
                     //Panel card = new Panel
                     Guna2ShadowPanel card = new Guna2ShadowPanel
                     {
-                        Width = 176,
+                        Width = 180, //176
                         Height = 240,
                         BorderStyle = BorderStyle.None,
                         BackColor = Color.White,
                         Tag = reader["ProductID"], // Store ProductID
                         //ShadowColor = Color.DarkBlue
-                        Radius = 5
+                        Radius = 5,
+                        //card.Margin = new Padding(5);
                     };
+
 
                     
 
@@ -54,7 +56,7 @@ namespace DineEase
                     {
                         Text = reader["ProductName"].ToString(),
                         Top = 169,
-                        Left = 13,
+                        Left = 15,
                         Width = 150,
                         Height=30,
                        // BackColor = Color.Brown,
@@ -68,13 +70,14 @@ namespace DineEase
                     {
                         Text = "Rs." + reader["Price"].ToString(),
                         Top = 199,
-                        Left = 23,
+                        Left = 25,
                         Width = 130,
                         Height = 30,
-                        BackColor = Color.FromArgb(228, 244, 252),
+                        BackColor = Color.FromArgb(121, 113, 234),
+                        //BackColor = Color.FromArgb(147, 133, 227),
                         //(13,31,102)
                         Font = new Font("Verdana", 10, FontStyle.Bold),
-                        ForeColor = Color.Black,
+                        ForeColor = Color.White,
 
                         TextAlign = ContentAlignment.MiddleCenter
                     };
@@ -82,10 +85,10 @@ namespace DineEase
                     //PictureBox picture = new PictureBox
                     Guna2PictureBox picture = new Guna2PictureBox
                     {
-                        Width = 150,
+                        Width = 158,//150
                         Height = 158,
                         Top = 11,
-                        Left = 13,
+                        Left = 11,//13
                         SizeMode = PictureBoxSizeMode.StretchImage,
                         BorderRadius = 5,
                     };
@@ -107,6 +110,11 @@ namespace DineEase
                     nameLabel.Click += Card_Click;
 
                     flowLayoutPanel1.Controls.Add(card);
+
+                    foreach (Control c in flowLayoutPanel1.Controls)
+                    {
+                        c.Margin = new Padding(5,2,5,2);
+                    }
                 }
             }
         }
@@ -238,34 +246,92 @@ namespace DineEase
 
         private void guna2ImageButton1_Click_1(object sender, EventArgs e)
         {
-            navTimer.Start();
+            //navTimer.Start();
+
+            if (isCollapsed)
+            {
+                guna2Panel1.Width = 150;  // Expanded width
+                homeLbl.Visible = true;
+                ordersLbl.Visible = true;
+                historyLbl.Visible = true;
+                settingLbl.Visible = true;
+                profileLbl.Visible = true;
+                //guna2ImageButton1.Image = Properties.Resources.collapse_icon; 
+
+                foreach (Control ctrl in guna2Panel1.Controls)
+                {
+                    if (ctrl is Guna2ImageButton)
+                    {
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                    }
+                    else
+                    {
+                        ctrl.Location = new Point(10, ctrl.Location.Y);
+                    }
+
+                    
+                }
+
+
+
+                isCollapsed = false;
+            }
+            else
+            {
+                guna2Panel1.Width = 70;   // Collapsed width
+                homeLbl.Visible = false;
+                ordersLbl.Visible = false;
+                historyLbl.Visible = false;
+                settingLbl.Visible = false;
+                profileLbl.Visible = false;
+
+                //guna2ImageButton1.Image = Properties.Resources.expand_icon;
+
+                foreach (Control ctrl in guna2Panel1.Controls)
+                {
+                    if (ctrl is Guna2ImageButton)
+                        ctrl.Location = new Point(10, ctrl.Location.Y);
+                }
+
+                isCollapsed = true;
+            }
         }
 
         private void navTimer_Tick_1(object sender, EventArgs e)
         {
-            if (isCollapsed)
-            {
-                guna2Panel1.Width += 10;
-                if (guna2Panel1.Width >= panelExpandedWidth)
-                {
-                    navTimer.Stop();
-                    isCollapsed = false;
-                }
-            }
-            else
-            {
-                guna2Panel1.Width -= 10;
-                if (guna2Panel1.Width <= panelCollapsedWidth)
-                {
-                    navTimer.Stop();
-                    isCollapsed = true;
-                }
-            }
+            //if (isCollapsed)
+            //{
+            //    guna2Panel1.Width += 10;
+            //    if (guna2Panel1.Width >= panelExpandedWidth)
+            //    {
+            //        navTimer.Stop();
+            //        isCollapsed = false;
+            //    }
+            //}
+            //else
+            //{
+            //    guna2Panel1.Width -= 10;
+            //    if (guna2Panel1.Width <= panelCollapsedWidth)
+            //    {
+            //        navTimer.Stop();
+            //        isCollapsed = true;
+            //    }
+            //}
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
