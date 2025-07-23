@@ -21,8 +21,6 @@ namespace DineEase
             productId = id;
         }
 
-
-
         private void LoadDetails()
         {
             string query = "SELECT * FROM FoodProduct WHERE ProductID = @id";
@@ -49,44 +47,18 @@ namespace DineEase
             }
         }
 
-        private void lblName_Click(object sender, EventArgs e)
+        private void Closebtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void lblPrice_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDesc_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblQuantity_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void FoodDetails_Load(object sender, EventArgs e)
         {
             LoadDetails();
             lblQuantity.Text = quantity.ToString();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnAddToOrder_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCustomer.Text))
@@ -97,12 +69,14 @@ namespace DineEase
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity) VALUES (@cust, @name, @price, @qty)";
+                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
                 cmd.Parameters.AddWithValue("@name", productName);
                 cmd.Parameters.AddWithValue("@price", price);
                 cmd.Parameters.AddWithValue("@qty", quantity);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@status", "Pending");
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -115,12 +89,7 @@ namespace DineEase
 
         private void Closebtn_Click_1(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void guna2Panel2_Paint_1(object sender, PaintEventArgs e)
-        {
-
+           
         }
 
         private void btnIncrease_Click_1(object sender, EventArgs e)
@@ -131,7 +100,49 @@ namespace DineEase
 
         private void btnDecrease_Click_1(object sender, EventArgs e)
         {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
+        }
 
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2GradientCircleButton1_Click(object sender, EventArgs e)
+        {
+            quantity++;
+            lblQuantity.Text = quantity.ToString();
+        }
+
+        private void guna2GradientCircleButton2_Click(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            userViewFood frm = new userViewFood();
+            frm.ShowDialog();
+            
         }
     }
 }
