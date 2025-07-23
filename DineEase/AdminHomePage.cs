@@ -336,5 +336,32 @@ namespace DineEase
         {
 
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
+             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            
+        }
+
+        private void guna2ControlBox3_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                // Form is maximized
+                Console.WriteLine("Maximized!");
+            }
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                // Form is restored
+                Console.WriteLine("Restored!");
+            }
+        }
     }
 }

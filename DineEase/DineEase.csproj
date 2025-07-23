@@ -145,5 +145,8 @@
   <ItemGroup>
     <None Include="Resources\user_admin_img.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icon-park-outline_expand-left.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

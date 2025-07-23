@@ -43,10 +43,10 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -89,6 +89,7 @@
             this.pictureBoxItem.Size = new System.Drawing.Size(222, 200);
             this.pictureBoxItem.TabIndex = 12;
             this.pictureBoxItem.TabStop = false;
+            this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click);
             // 
             // btnImportImage
             // 
@@ -275,6 +276,28 @@
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             // 
+            // guna2TextBoxDescription
+            // 
+            this.guna2TextBoxDescription.BorderRadius = 10;
+            this.guna2TextBoxDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBoxDescription.DefaultText = "";
+            this.guna2TextBoxDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBoxDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBoxDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxDescription.Location = new System.Drawing.Point(244, 188);
+            this.guna2TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBoxDescription.Multiline = true;
+            this.guna2TextBoxDescription.Name = "guna2TextBoxDescription";
+            this.guna2TextBoxDescription.PlaceholderText = "";
+            this.guna2TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.guna2TextBoxDescription.SelectedText = "";
+            this.guna2TextBoxDescription.Size = new System.Drawing.Size(231, 77);
+            this.guna2TextBoxDescription.TabIndex = 27;
+            // 
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
@@ -310,28 +333,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(800, 454);
             this.guna2Panel1.TabIndex = 2;
-            // 
-            // guna2TextBoxDescription
-            // 
-            this.guna2TextBoxDescription.BorderRadius = 10;
-            this.guna2TextBoxDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxDescription.DefaultText = "";
-            this.guna2TextBoxDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Location = new System.Drawing.Point(244, 188);
-            this.guna2TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBoxDescription.Multiline = true;
-            this.guna2TextBoxDescription.Name = "guna2TextBoxDescription";
-            this.guna2TextBoxDescription.PlaceholderText = "";
-            this.guna2TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.guna2TextBoxDescription.SelectedText = "";
-            this.guna2TextBoxDescription.Size = new System.Drawing.Size(231, 77);
-            this.guna2TextBoxDescription.TabIndex = 27;
             // 
             // AddItemPage
             // 
