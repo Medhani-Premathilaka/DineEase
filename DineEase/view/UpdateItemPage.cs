@@ -23,15 +23,20 @@ namespace DineEase
 
         private void LoadItemData()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductName = @name";
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+
+            using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
-                string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductName = @name";
-                SqlCommand cmd = new SqlCommand(query, conn);
+                cnn.Open();
+
+                //SqlCommand cmd = new SqlCommand(query, cnn);
                 cmd.Parameters.AddWithValue("@name", originalName);
 
                 try
                 {
-                    conn.Open();
+                    cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
@@ -192,7 +197,7 @@ namespace DineEase
 
                 SqlCommand cmd = new SqlCommand(query, cnn);
                 cmd.Parameters.AddWithValue("@name", guna2TextBoxName.Text);
-                cmd.Parameters.AddWithValue("@addFor", guna2TextBoxAddFor.Text);
+                cmd.Parameters.AddWithValue("@addFor", guna2ComboBox1.Text);
                 cmd.Parameters.AddWithValue("@price", guna2TextBoxPrice.Text);
                 cmd.Parameters.AddWithValue("@description", guna2TextBoxDescription.Text);
                 cmd.Parameters.AddWithValue("@originalName", originalName);
