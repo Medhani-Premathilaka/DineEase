@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class AdminHomePage : Form
+    public partial class AdminHomePage : Form, ShowPage
     {
-        string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
+        //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public AdminHomePage()
         {
@@ -19,24 +19,30 @@ namespace DineEase
         private void LoadMenuItemsAsCards()
         {
             flowLayoutPanel1.Controls.Clear();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                string query = "SELECT name, addFor, price, description, imagePath FROM menu";
-                SqlCommand cmd = new SqlCommand(query, conn);
+                cnn.Open();
+
+
+                string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct";
+                SqlCommand cmd = new SqlCommand(query, cnn);
 
                 try
                 {
-                    conn.Open();
+                    cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        string name = reader["name"].ToString();
-                        string addFor = reader["addFor"].ToString();
-                        string price = reader["price"].ToString();
-                        string description = reader["description"].ToString();
-                        string imagePath = reader["imagePath"].ToString();
+                        string name = reader["ProductName"].ToString();
+                        string addFor = reader["Category"].ToString();
+                        string price = reader["Price"].ToString();
+                        string description = reader["Description"].ToString();
+                        //string imagePath = reader["Image"].ToString();
+
+
+
 
                         Panel card = new Panel
                         {
@@ -57,11 +63,15 @@ namespace DineEase
                             BorderStyle = BorderStyle.FixedSingle
                         };
 
-                        if (File.Exists(imagePath))
+                        if (reader["Image"] != DBNull.Value)
                         {
-                            using (var bmpTemp = new Bitmap(imagePath))
+                            byte[] imageData = reader["Image"] as byte[];
+                            if (imageData != null && imageData.Length > 0)
                             {
-                                picture.Image = new Bitmap(bmpTemp);
+                                using (var ms = new MemoryStream(imageData))
+                                {
+                                    picture.Image = Image.FromStream(ms);
+                                }
                             }
                         }
 
@@ -151,6 +161,7 @@ namespace DineEase
                 {
                     MessageBox.Show("Error loading menu items: " + ex.Message);
                 }
+                cnn.Close();
             }
         }
 
@@ -165,17 +176,19 @@ namespace DineEase
             if (dialogResult == DialogResult.No)
                 return;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
+                cnn.Open();
                 string deleteQuery = "DELETE FROM menu WHERE name = @name";
 
-                using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn))
                 {
                     cmd.Parameters.AddWithValue("@name", itemName);
 
                     try
                     {
-                        conn.Open();
+                        cnn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
@@ -193,6 +206,7 @@ namespace DineEase
                         MessageBox.Show("Error deleting item: " + ex.Message);
                     }
                 }
+                cnn.Close();
             }
         }
 
@@ -202,16 +216,6 @@ namespace DineEase
         {
             LoadMenuItemsAsCards();
 
-        }
-
-
-
-
-        private void guna2ButtonAddNewItem_Click(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage();
-            addItemPage.Show();
-            this.Hide();
         }
 
 
@@ -248,6 +252,19 @@ namespace DineEase
         private void AdminHomePage_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2ButtonAddNewItem_Click_1(object sender, EventArgs e)
+        {
+            AddItemPage addItemPage = new AddItemPage();
+            addItemPage.Show();
+            this.Hide();
+
+        }
+
+        public void showPage()
+        {
+            this.Show();
         }
     }
 }

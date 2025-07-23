@@ -5,6 +5,7 @@ namespace DineEase
 {
     internal class Security
     {
+        //test commit
         public string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())

@@ -75,6 +75,7 @@
             this.pictureBoxItem.Size = new System.Drawing.Size(222, 200);
             this.pictureBoxItem.TabIndex = 22;
             this.pictureBoxItem.TabStop = false;
+            this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click_1);
             // 
             // guna2ButtonImport
             // 
@@ -91,6 +92,7 @@
             this.guna2ButtonImport.Size = new System.Drawing.Size(117, 26);
             this.guna2ButtonImport.TabIndex = 1;
             this.guna2ButtonImport.Text = "Import";
+            this.guna2ButtonImport.Click += new System.EventHandler(this.guna2ButtonImport_Click);
             // 
             // guna2ButtonUpdate
             // 
@@ -107,6 +109,7 @@
             this.guna2ButtonUpdate.Size = new System.Drawing.Size(125, 41);
             this.guna2ButtonUpdate.TabIndex = 21;
             this.guna2ButtonUpdate.Text = "Update";
+            this.guna2ButtonUpdate.Click += new System.EventHandler(this.guna2ButtonUpdate_Click_1);
             // 
             // guna2TextBoxDescription
             // 
@@ -312,13 +315,13 @@
             this.guna2Panel1.Size = new System.Drawing.Size(800, 454);
             this.guna2Panel1.TabIndex = 4;
             // 
-            // UpdateItem
+            // UpdateItemPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "UpdateItem";
+            this.Name = "UpdateItemPage";
             this.Text = "UpdateItem";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
             this.guna2Panel2.ResumeLayout(false);

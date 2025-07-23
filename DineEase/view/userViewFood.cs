@@ -8,24 +8,25 @@ using Guna.UI2.WinForms;
 
 namespace DineEase
 {
-    public partial class userViewFood : Form
+    public partial class userViewFood : Form, ShowPage
     {
         public userViewFood()
         {
             InitializeComponent();
         }
 
-        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         private void LoadFoodItems()
         {
             flowLayoutPanel1.Controls.Clear();
             //flowLayoutPanel1.Padding = new Padding(20, 20, 20, 20);
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+
+            using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
-                conn.Open();
+                cnn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
