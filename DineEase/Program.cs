@@ -13,7 +13,7 @@ namespace DineEase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminHomePage());
+            Application.Run(new Form1());
         }
     }
 }

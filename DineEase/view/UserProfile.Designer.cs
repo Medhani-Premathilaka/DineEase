@@ -84,7 +84,7 @@
             this.guna2CirclePictureBox1.Image = global::DineEase.Properties.Resources.user_admin_img;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(131, 46);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(120, 91);
@@ -237,7 +237,7 @@
             this.guna2TileButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TileButton1.ForeColor = System.Drawing.Color.White;
             this.guna2TileButton1.Location = new System.Drawing.Point(45, 543);
-            this.guna2TileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TileButton1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TileButton1.Name = "guna2TileButton1";
             this.guna2TileButton1.Size = new System.Drawing.Size(313, 41);
             this.guna2TileButton1.TabIndex = 11;
@@ -248,40 +248,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< Updated upstream
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(420, 549);
             this.ControlBox = false;
-=======
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(420, 617);
-            this.ControlBox = false;
-            this.Controls.Add(this.guna2TileButton1);
-            this.Controls.Add(this.guna2TextBox4);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.guna2TextBox3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.guna2TextBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2CirclePictureBox1);
-            this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
->>>>>>> Stashed changes
             this.Name = "UserProfile";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "UserProfile";
+            this.Load += new System.EventHandler(this.UserProfile_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

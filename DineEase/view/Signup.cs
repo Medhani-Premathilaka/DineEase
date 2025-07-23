@@ -96,11 +96,12 @@ namespace DineEase
             {
                 Security security = new Security();
                 string hashedPassword = security.HashPassword(enteredPassword);
-                string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-                using (SqlConnection cnn = new SqlConnection(connectionString))
+                var db = dao.DBConnection.getInstance();
+                using (SqlConnection cnn = db.GetConnection())
                 {
-
                     cnn.Open();
+
+                    //cnn.Open();
                     string query = "INSERT INTO Users(UserId, Password, Role, Email,Name) VALUES (@username, @password, @role, @email, @name)";
                     using (SqlCommand cmd = new SqlCommand(query, cnn))
                     {
@@ -125,6 +126,7 @@ namespace DineEase
                             lblError.Visible = true;
                         }
                     }
+                    cnn.Close();
 
                 }
 

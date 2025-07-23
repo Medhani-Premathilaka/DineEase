@@ -9,7 +9,7 @@ namespace DineEase
     public partial class UpdateItemPage : Form
     {
         private string imagePath = null;
-        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
+        //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
         string originalName;
         public UpdateItemPage(string name)
         {
@@ -100,14 +100,14 @@ namespace DineEase
 
         private byte[] imageBytes = null;  // store current image bytes
 
-        private byte[] ImageToByteArray(Image img)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, img.RawFormat);
-                return ms.ToArray();
-            }
-        }
+        //private byte[] ImageToByteArray(Image img)
+        //{
+        //    using (MemoryStream ms = new MemoryStream())
+        //    {
+        //        img.Save(ms, img.RawFormat);
+        //        return ms.ToArray();
+        //    }
+        //}
 
         private void pictureBoxItem_Click(object sender, EventArgs e)
         {
@@ -131,16 +131,18 @@ namespace DineEase
 
         private void pictureBoxItem_Click_1(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
+                //cnn.Open();
 
                 string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct";
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, cnn);
 
 
                 try
                 {
-                    conn.Open();
+                    cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     PictureBox picture = new PictureBox
@@ -164,32 +166,35 @@ namespace DineEase
                             }
                         }
                     }
+                    cnn.Close();
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error loading menu items: " + ex.Message);
                 }
+
             }
 
         }
 
         private void guna2ButtonUpdate_Click_1(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                string query = @"UPDATE FoodProduct 
-                         SET ProductName = @name, 
-                             Category = @category, 
-                             Price = @price, 
-                             Description = @description, 
-                             Image = @image 
-                         WHERE ProductName = @originalName";
+                cnn.Open();
+                string query = @"UPDATE FoodProducts 
+                SET ProductName = @name, Category = @addFor, Price = @price, Description = @description, Image = @imagePath 
+                WHERE name = @originalName";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@name", guna2TextBoxName.Text.Trim());
-                cmd.Parameters.AddWithValue("@category", guna2ComboBox1.SelectedItem?.ToString() ?? "");
-                cmd.Parameters.AddWithValue("@price", guna2TextBoxPrice.Text.Trim());
-                cmd.Parameters.AddWithValue("@description", guna2TextBoxDescription.Text.Trim());
+
+
+                SqlCommand cmd = new SqlCommand(query, cnn);
+                cmd.Parameters.AddWithValue("@name", guna2TextBoxName.Text);
+                cmd.Parameters.AddWithValue("@addFor", guna2TextBoxAddFor.Text);
+                cmd.Parameters.AddWithValue("@price", guna2TextBoxPrice.Text);
+                cmd.Parameters.AddWithValue("@description", guna2TextBoxDescription.Text);
                 cmd.Parameters.AddWithValue("@originalName", originalName);
 
                 // Set image parameter
@@ -209,10 +214,9 @@ namespace DineEase
 
                 try
                 {
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
+                    cnn.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    if (rows > 0)
                     {
                         MessageBox.Show("Item updated successfully.");
                         this.Close();
@@ -222,6 +226,7 @@ namespace DineEase
                     {
                         MessageBox.Show("Update failed. No rows affected.");
                     }
+                    cnn.Close();
                 }
                 catch (Exception ex)
                 {

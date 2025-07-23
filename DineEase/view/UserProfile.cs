@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace DineEase
 {
     public partial class UserProfile : Form
     {
-        private string connectionString = "Data Source=localhost;Initial Catalog=YourDBName;Integrated Security=True";
+        private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
         private string currentStudentId; // set this from login or pass via constructor
 
         public UserProfile(string studentId)
@@ -41,7 +33,7 @@ namespace DineEase
                 }
                 reader.Close();
             }
-        
+
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
@@ -90,6 +82,11 @@ namespace DineEase
         }
 
         private void guna2TextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserProfile_Load(object sender, EventArgs e)
         {
 
         }
