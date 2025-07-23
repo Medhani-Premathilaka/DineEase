@@ -18,6 +18,9 @@ namespace DineEase
             InitializeComponent();
             this.Load += AdminHomePage_Load;
 
+            timer1.Tick += timer_Tick_1;
+            timer1.Interval = 10;
+
         }
 
         private void LoadMenuItemsAsCards()
@@ -299,10 +302,6 @@ namespace DineEase
 
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
@@ -316,7 +315,7 @@ namespace DineEase
 
         private void AdminHomePage_Load_1(object sender, EventArgs e)
         {
-
+            guna2Panel1.Width = 90;
         }
 
         private void guna2ButtonAddNewItem_Click_1(object sender, EventArgs e)
@@ -362,6 +361,116 @@ namespace DineEase
                 // Form is restored
                 Console.WriteLine("Restored!");
             }
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private int panelExpandedWidth = 200;  // Width when expanded
+        private int panelCollapsedWidth = 90;  // Width when collapsed
+        private bool isCollapsed = true;
+
+        private void guna2ImageButton1_Click_1(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer_Tick_1(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                guna2Panel1.Width += 60;  // Increase width step-by-step
+                if (guna2Panel1.Width >= panelExpandedWidth)
+                {
+                    timer1.Stop();
+                    isCollapsed = false;
+
+                    // Show labels after fully expanded
+                    addButton.Visible = true;
+                    viewOrderButton.Visible = true;
+                    historyButton.Visible = true;
+                    settingButton.Visible = true;
+                    profileButton.Visible = true;
+
+                    guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
+
+                    AdjustControlPositions();
+                }
+            }
+            else
+            {
+                // Hide labels first to avoid visual glitches
+                addButton.Visible = false;
+                viewOrderButton.Visible = false;
+                historyButton.Visible = false;
+                settingButton.Visible = false;
+                profileButton.Visible = false;
+
+                guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\icon-park-outline_expand-left.png");
+
+                guna2Panel1.Width -= 60; // Decrease width step-by-step
+                if (guna2Panel1.Width <= panelCollapsedWidth)
+                {
+                    timer1.Stop();
+                    isCollapsed = true;
+                    AdjustControlPositions();
+                }
+            }
+        }
+
+        private void AdjustControlPositions()
+        {
+            foreach (Control ctrl in guna2Panel1.Controls)
+            {
+                if (ctrl is Guna2ImageButton)
+                {
+                    if (isCollapsed)
+                        ctrl.Location = new Point(10, ctrl.Location.Y);
+                    else
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                }
+                else if (!isCollapsed)
+                {
+                    ctrl.Location = new Point(10, ctrl.Location.Y);
+                }
+            }
+        }
+
+        private void profileButton_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
