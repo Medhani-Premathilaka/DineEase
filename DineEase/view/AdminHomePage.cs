@@ -477,6 +477,7 @@ namespace DineEase
 
         private void profileButton_Click_1(object sender, EventArgs e)
         {
+        }
 
         public void showPage()
         {
