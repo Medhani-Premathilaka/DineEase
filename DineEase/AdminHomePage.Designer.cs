@@ -49,8 +49,10 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panelOverlay = new System.Windows.Forms.Panel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addButton
@@ -64,7 +66,7 @@
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(102, 154);
+            this.addButton.Location = new System.Drawing.Point(102, 223);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(126, 45);
             this.addButton.TabIndex = 2;
@@ -113,7 +115,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(30, 715);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(30, 751);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton6.Size = new System.Drawing.Size(64, 54);
@@ -127,7 +129,7 @@
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(30, 276);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(30, 345);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton5.Size = new System.Drawing.Size(51, 46);
@@ -144,7 +146,7 @@
             this.profileButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.profileButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.ForeColor = System.Drawing.Color.White;
-            this.profileButton.Location = new System.Drawing.Point(96, 724);
+            this.profileButton.Location = new System.Drawing.Point(96, 751);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(126, 45);
             this.profileButton.TabIndex = 11;
@@ -159,7 +161,7 @@
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(30, 648);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(30, 691);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton4.Size = new System.Drawing.Size(64, 54);
@@ -174,7 +176,7 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(30, 217);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(30, 286);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton3.Size = new System.Drawing.Size(51, 53);
@@ -189,7 +191,7 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(30, 161);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(30, 230);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton2.Size = new System.Drawing.Size(45, 38);
@@ -222,7 +224,7 @@
             this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.historyButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyButton.ForeColor = System.Drawing.Color.White;
-            this.historyButton.Location = new System.Drawing.Point(102, 277);
+            this.historyButton.Location = new System.Drawing.Point(102, 346);
             this.historyButton.Name = "historyButton";
             this.historyButton.Size = new System.Drawing.Size(126, 45);
             this.historyButton.TabIndex = 6;
@@ -239,7 +241,7 @@
             this.settingButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.settingButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingButton.ForeColor = System.Drawing.Color.White;
-            this.settingButton.Location = new System.Drawing.Point(96, 648);
+            this.settingButton.Location = new System.Drawing.Point(96, 691);
             this.settingButton.Name = "settingButton";
             this.settingButton.Size = new System.Drawing.Size(126, 45);
             this.settingButton.TabIndex = 5;
@@ -256,7 +258,7 @@
             this.viewOrderButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.viewOrderButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewOrderButton.ForeColor = System.Drawing.Color.White;
-            this.viewOrderButton.Location = new System.Drawing.Point(96, 217);
+            this.viewOrderButton.Location = new System.Drawing.Point(96, 286);
             this.viewOrderButton.Name = "viewOrderButton";
             this.viewOrderButton.Size = new System.Drawing.Size(126, 45);
             this.viewOrderButton.TabIndex = 3;
@@ -313,6 +315,7 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Controls.Add(this.panelOverlay);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(228, 29);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -323,6 +326,16 @@
             // timer1
             // 
             this.timer1.Interval = 1;
+            // 
+            // panelOverlay
+            // 
+            this.panelOverlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelOverlay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelOverlay.Location = new System.Drawing.Point(3, 3);
+            this.panelOverlay.Name = "panelOverlay";
+            this.panelOverlay.Size = new System.Drawing.Size(200, 0);
+            this.panelOverlay.TabIndex = 14;
+            this.panelOverlay.Visible = false;
             // 
             // AdminHomePage
             // 
@@ -340,6 +353,7 @@
             this.Load += new System.EventHandler(this.AdminHomePage_Load_1);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -364,5 +378,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panelOverlay;
     }
 }

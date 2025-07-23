@@ -10,8 +10,12 @@ using System.Windows.Forms;
 namespace DineEase
 {
     public partial class AdminHomePage : Form
+
     {
         string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
+
+        //private Panel panelOverlay;
+
 
         public AdminHomePage()
         {
@@ -21,7 +25,17 @@ namespace DineEase
             timer1.Tick += timer_Tick_1;
             timer1.Interval = 10;
 
+            panelOverlay.BackColor = Color.FromArgb(120, 0, 0, 0); // 120 = transparency
+            panelOverlay.Visible = false;
+            panelOverlay.BringToFront();
+
         }
+
+        public void RefreshMenuItems()
+        {
+            LoadMenuItemsAsCards(); // Or whatever method adds the cards
+        }
+
 
         private void LoadMenuItemsAsCards()
         {
@@ -67,12 +81,11 @@ namespace DineEase
                         {
                             Text = category,
                             Font = new Font("Segoe UI Semibold", 16, FontStyle.Bold),
-                            ForeColor = Color.White, // White text stands out on dark purple
-                            BackColor = Color.FromArgb(102, 51, 153), // Dark purple background
+                            ForeColor = Color.FromArgb(102, 51, 153),
                             AutoSize = false,
                             Width = flowLayoutPanel1.Width - 30,
                             Height = 45,
-                            TextAlign = ContentAlignment.MiddleCenter, // Center align text
+                            TextAlign = ContentAlignment.MiddleLeft, // Center align text
                             Margin = new Padding(10, 20, 10, 5),
                             Padding = new Padding(0),
                             BorderStyle = BorderStyle.None, // Optional: FixedSingle if you want a border
@@ -249,11 +262,11 @@ namespace DineEase
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string deleteQuery = "DELETE FROM menu WHERE name = @name";
+                string deleteQuery = "DELETE FROM FoodProduct WHERE ProductName = @ProductName";
 
                 using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@name", itemName);
+                    cmd.Parameters.AddWithValue("@ProductName", itemName);
 
                     try
                     {
@@ -320,9 +333,19 @@ namespace DineEase
 
         private void guna2ButtonAddNewItem_Click_1(object sender, EventArgs e)
         {
-            AddItemPage addItemPage = new AddItemPage();
-            addItemPage.Show();
-            this.Hide();
+            panelOverlay.BringToFront();
+            panelOverlay.Visible = true;
+
+            // Show AddItemPage as modal popup
+            using (AddItemPage addItemPage = new AddItemPage(this))
+            {
+                addItemPage.StartPosition = FormStartPosition.CenterParent;
+                addItemPage.ShowDialog();
+            }
+
+            // Hide the overlay after AddItemPage is closed
+            panelOverlay.Visible = false;
+
 
         }
 
@@ -365,7 +388,18 @@ namespace DineEase
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
+            panelOverlay.BringToFront();
+            panelOverlay.Visible = true;
 
+            // Show AddItemPage as modal popup
+            using (AddItemPage addItemPage = new AddItemPage(this))
+            {
+                addItemPage.StartPosition = FormStartPosition.CenterParent;
+                addItemPage.ShowDialog();
+            }
+
+            // Hide the overlay after AddItemPage is closed
+            panelOverlay.Visible = false;
         }
 
         private void guna2ImageButton3_Click(object sender, EventArgs e)

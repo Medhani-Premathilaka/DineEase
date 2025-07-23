@@ -9,16 +9,19 @@ namespace DineEase
     public partial class AddItemPage : Form
     {
         string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-        public AddItemPage()
+
+        AdminHomePage parentForm;
+        public AddItemPage(AdminHomePage parent)
         {
             InitializeComponent();
+            this.parentForm = parent;
             guna2ComboBox1.Items.AddRange(new object[]
             {
                 "Breakfast",
                 "Lunch",
                 "Dinner",
                 "Drinks",
-                "Dessert"
+                "Desserts"
             });
 
             guna2ComboBox1.SelectedIndex = 0;
@@ -116,6 +119,7 @@ namespace DineEase
                             guna2ComboBox1.Items.Clear();
                             guna2TextBoxPrice.Clear();
                             guna2TextBoxDescription.Clear();
+                            parentForm.RefreshMenuItems();
 
                             //// Show read form and load updated data
                             //read readForm = new read();
@@ -149,6 +153,21 @@ namespace DineEase
         }
 
         private void pictureBoxItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
