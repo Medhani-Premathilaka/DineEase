@@ -11,16 +11,67 @@ namespace DineEase
         private string imagePath = null;
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
         string originalName;
-        public UpdateItemPage(string name, string addFor, string price, string description)
+        public UpdateItemPage(string name)
         {
             InitializeComponent();
-            guna2TextBoxName.Text = name;
-            guna2TextBoxAddFor.Text = addFor;
-            guna2TextBoxPrice.Text = price;
-            guna2TextBoxDescription.Text = description;
-
             originalName = name;
+
+            guna2ComboBox1.Items.AddRange(new string[] { "Breakfast", "Lunch", "Dinner", "Drinks", "Dessert" });
+
+            LoadItemData(); // Call method to load from DB
         }
+
+        private void LoadItemData()
+        {
+            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductName = @name";
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+
+            using (SqlCommand cmd = new SqlCommand(query, cnn))
+            {
+                cnn.Open();
+
+                //SqlCommand cmd = new SqlCommand(query, cnn);
+                cmd.Parameters.AddWithValue("@name", originalName);
+
+                try
+                {
+                    cnn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        guna2TextBoxName.Text = reader["ProductName"].ToString();
+                        guna2TextBoxPrice.Text = reader["Price"].ToString();
+                        guna2TextBoxDescription.Text = reader["Description"].ToString();
+
+
+                        // Set selected category
+                        string category = reader["Category"].ToString();
+                        guna2ComboBox1.SelectedItem = category;
+
+                        // Load image from byte[]
+                        if (reader["Image"] != DBNull.Value)
+                        {
+                            byte[] imageData = (byte[])reader["Image"];
+                            using (MemoryStream ms = new MemoryStream(imageData))
+                            {
+                                pictureBoxItem.Image = Image.FromStream(ms);
+                                imageBytes = imageData; // Store current image bytes
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item not found.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading item: " + ex.Message);
+                }
+            }
+        }
+
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -139,28 +190,32 @@ namespace DineEase
             {
                 cnn.Open();
                 string query = @"UPDATE FoodProducts 
-                 SET ProductName = @name, Category = @addFor, Price = @price, Description = @description, Image = @imagePath 
-                 WHERE name = @originalName";
+                SET ProductName = @name, Category = @addFor, Price = @price, Description = @description, Image = @imagePath 
+                WHERE name = @originalName";
 
 
 
                 SqlCommand cmd = new SqlCommand(query, cnn);
                 cmd.Parameters.AddWithValue("@name", guna2TextBoxName.Text);
-                cmd.Parameters.AddWithValue("@addFor", guna2TextBoxAddFor.Text);
+                cmd.Parameters.AddWithValue("@addFor", guna2ComboBox1.Text);
                 cmd.Parameters.AddWithValue("@price", guna2TextBoxPrice.Text);
                 cmd.Parameters.AddWithValue("@description", guna2TextBoxDescription.Text);
                 cmd.Parameters.AddWithValue("@originalName", originalName);
 
+                // Set image parameter
                 if (!string.IsNullOrEmpty(imagePath))
                 {
-                    cmd.Parameters.AddWithValue("@imagePath", imagePath);
+                    byte[] imgBytes = File.ReadAllBytes(imagePath);
+                    cmd.Parameters.AddWithValue("@image", imgBytes);
+                }
+                else if (imageBytes != null)
+                {
+                    cmd.Parameters.AddWithValue("@image", imageBytes);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@imagePath", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@image", DBNull.Value);
                 }
-
-
 
                 try
                 {
@@ -170,23 +225,35 @@ namespace DineEase
                     {
                         MessageBox.Show("Item updated successfully.");
                         this.Close();
-                        new AdminHomePage().Show(); // return to Admin page
+                        new AdminHomePage().Show(); // Go back to admin
                     }
                     else
                     {
-                        MessageBox.Show("Update failed.");
+                        MessageBox.Show("Update failed. No rows affected.");
                     }
                     cnn.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error updating item: " + ex.Message);
                 }
             }
-
         }
 
+
+        //string imagePath = "";
         private void guna2ButtonImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                imagePath = ofd.FileName;
+                pictureBoxItem.Image = Image.FromFile(imagePath);
+            }
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

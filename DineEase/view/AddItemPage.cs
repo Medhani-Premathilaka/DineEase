@@ -11,6 +11,16 @@ namespace DineEase
         public AddItemPage()
         {
             InitializeComponent();
+            guna2ComboBox1.Items.AddRange(new object[]
+            {
+                "Breakfast",
+                "Lunch",
+                "Dinner",
+                "Drinks",
+                "Dessert"
+            });
+
+            guna2ComboBox1.SelectedIndex = 0;
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
@@ -64,7 +74,7 @@ namespace DineEase
         private void guna2ButtonCreate_Click_1(object sender, EventArgs e)
         {
             string itemName = guna2TextBoxName.Text;
-            string addFor = guna2TextBoxAddFor.Text;
+            string addFor = guna2ComboBox1.SelectedItem?.ToString() ?? "";
             decimal price;
             string description = guna2TextBoxDescription.Text;
 
@@ -105,7 +115,7 @@ namespace DineEase
                         {
                             MessageBox.Show("Menu item added successfully.");
                             guna2TextBoxName.Clear();
-                            guna2TextBoxAddFor.Clear();
+                            guna2ComboBox1.Items.Clear();
                             guna2TextBoxPrice.Clear();
                             guna2TextBoxDescription.Clear();
 
@@ -131,9 +141,19 @@ namespace DineEase
         private void guna2ButtonReset_Click_1(object sender, EventArgs e)
         {
             guna2TextBoxName.Clear();
-            guna2TextBoxAddFor.Clear();
+            guna2ComboBox1.Items.Clear();
             guna2TextBoxPrice.Clear();
             guna2TextBoxDescription.Clear();
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
