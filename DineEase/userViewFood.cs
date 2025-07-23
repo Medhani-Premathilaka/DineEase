@@ -166,7 +166,6 @@ namespace DineEase
                     historyLbl.Visible = true;
                     settingLbl.Visible = true;
                     profileLbl.Visible = true;
-                    //guna2ImageButton1.Image = Image.FromFile(@"C:\\Users\\User\\Desktop\\New folder (3)\\DineEase\\DineEase\\Resources\\iconoir_sidebar-collapse.png");
                     guna2ImageButton1.Image = Image.FromFile(@"C:\Users\User\Desktop\New folder (4)\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
                     AdjustControlPositions();
                 }
@@ -180,7 +179,6 @@ namespace DineEase
                 historyLbl.Visible = false;
                 settingLbl.Visible = false;
                 profileLbl.Visible = false;
-                //guna2ImageButton1.Image = Image.FromFile(@"C:\Users\User\Desktop\New folder (4)\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
                 guna2ImageButton1.Image = Image.FromFile(@"C:\Users\User\Desktop\New folder (4)\DineEase\DineEase\Resources\icon-park-outline_expand-left.png");
                 guna2Panel1.Width -= 10; // Decrease width step-by-step
                 if (guna2Panel1.Width <= panelCollapsedWidth)
