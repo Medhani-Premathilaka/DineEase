@@ -160,6 +160,7 @@ namespace DineEase
                     isCollapsed = false;
 
                     // Show labels after fully expanded
+                    guna2PictureBox1.Visible = true;
                     homeLbl.Visible = true;
                     ordersLbl.Visible = true;
                     historyLbl.Visible = true;
@@ -173,12 +174,14 @@ namespace DineEase
             else
             {
                 // Hide labels first to avoid visual glitches
+                guna2PictureBox1.Visible = false;
                 homeLbl.Visible = false;
                 ordersLbl.Visible = false;
                 historyLbl.Visible = false;
                 settingLbl.Visible = false;
                 profileLbl.Visible = false;
-                guna2ImageButton1.Image = Image.FromFile(@"C:\Users\User\Desktop\New folder (4)\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
+                //guna2ImageButton1.Image = Image.FromFile(@"C:\Users\User\Desktop\New folder (4)\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
+                guna2ImageButton1.Image = Image.FromFile(@"C:\Users\User\Desktop\New folder (4)\DineEase\DineEase\Resources\icon-park-outline_expand-left.png");
                 guna2Panel1.Width -= 10; // Decrease width step-by-step
                 if (guna2Panel1.Width <= panelCollapsedWidth)
                 {

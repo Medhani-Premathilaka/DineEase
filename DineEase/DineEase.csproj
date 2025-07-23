@@ -275,6 +275,7 @@
     <None Include="Resources\gg_profile.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\DineEase.png" />
     <Content Include="Resources\iconoir_sidebar-collapse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
