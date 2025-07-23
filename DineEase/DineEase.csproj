@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DineEase.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
@@ -52,80 +55,98 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItemPage.cs">
+    <Compile Include="ShowPage.cs" />
+    <Compile Include="ShowPageFactory.cs" />
+    <Compile Include="view\AddItemPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItemPage.Designer.cs">
+    <Compile Include="view\AddItemPage.Designer.cs">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminHomePage.cs">
+    <Compile Include="view\AdminHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminHomePage.Designer.cs">
+    <Compile Include="view\AdminHomePage.Designer.cs">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FoodDetails.cs">
+    <Compile Include="view\AdminProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FoodDetails.Designer.cs">
+    <Compile Include="view\AdminProfile.Designer.cs">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dao\DBConnection.cs" />
+    <Compile Include="view\FoodDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FoodDetails.Designer.cs">
       <DependentUpon>FoodDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="view\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="view\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security.cs" />
-    <Compile Include="Signup.cs">
+    <Compile Include="config\Security.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="view\Signup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Signup.Designer.cs">
+    <Compile Include="view\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateItemPage.cs">
+    <Compile Include="view\UpdateItemPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateItemPage.Designer.cs">
+    <Compile Include="view\UpdateItemPage.Designer.cs">
       <DependentUpon>UpdateItemPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="userViewFood.cs">
+    <Compile Include="view\UserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="userViewFood.Designer.cs">
+    <Compile Include="view\UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\userViewFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\userViewFood.Designer.cs">
       <DependentUpon>userViewFood.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddItemPage.resx">
+    <EmbeddedResource Include="view\AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminHomePage.resx">
+    <EmbeddedResource Include="view\AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FoodDetails.resx">
+    <EmbeddedResource Include="view\FoodDetails.resx">
       <DependentUpon>FoodDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="view\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Signup.resx">
+    <EmbeddedResource Include="view\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateItemPage.resx">
+    <EmbeddedResource Include="view\UpdateItemPage.resx">
       <DependentUpon>UpdateItemPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userViewFood.resx">
+    <EmbeddedResource Include="view\UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\userViewFood.resx">
       <DependentUpon>userViewFood.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

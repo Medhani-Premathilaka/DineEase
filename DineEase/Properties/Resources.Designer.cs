@@ -63,8 +63,9 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap begin {
+        internal static System.Drawing.Bitmap user_admin_img {
             get {
+<<<<<<< HEAD
                 object obj = ResourceManager.GetObject("begin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
@@ -506,6 +507,9 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap Vector {
             get {
                 object obj = ResourceManager.GetObject("Vector", resourceCulture);
+=======
+                object obj = ResourceManager.GetObject("user_admin_img", resourceCulture);
+>>>>>>> main
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
