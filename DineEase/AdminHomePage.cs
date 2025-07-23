@@ -7,6 +7,8 @@ using System.IO;
 using System.Windows.Forms;
 
 
+
+
 namespace DineEase
 {
     public partial class AdminHomePage : Form
@@ -20,13 +22,21 @@ namespace DineEase
         public AdminHomePage()
         {
             InitializeComponent();
+            
+
             this.Load += AdminHomePage_Load;
 
             timer1.Tick += timer_Tick_1;
             timer1.Interval = 10;
 
-            panelOverlay.BackColor = Color.FromArgb(120, 0, 0, 0); // 120 = transparency
+            panelOverlay = new Panel();
+            panelOverlay.Dock = DockStyle.Fill;
+            panelOverlay.BackColor = Color.FromArgb(120, 0, 0, 0); // semi-transparent black
             panelOverlay.Visible = false;
+            panelOverlay.BringToFront();  // Ensures it's on top
+            this.Controls.Add(panelOverlay);
+
+            this.Controls.Add(panelOverlay);
             panelOverlay.BringToFront();
 
         }
@@ -202,7 +212,7 @@ namespace DineEase
                 Left = 10,
                 Top = 285,
                 BorderRadius = 10,
-                FillColor = Color.FromArgb(0, 191, 255),
+                FillColor = Color.FromArgb(128, 128, 255),
                 Font = new Font("Segoe UI", 9, FontStyle.Bold),
                 ForeColor = Color.White,
                 Cursor = Cursors.Hand
@@ -210,8 +220,23 @@ namespace DineEase
 
             editButton.Click += (s, e) =>
             {
-                UpdateItemPage updatePage = new UpdateItemPage(name);
-                updatePage.Show();
+                //UpdateItemPage updatePage = new UpdateItemPage(name);
+                //updatePage.Show();
+
+                // Show blur
+                panelOverlay.BringToFront();
+                panelOverlay.Visible = true;
+
+                // Open modal update page
+                using (UpdateItemPage updatePage = new UpdateItemPage(name))
+                {
+                    updatePage.StartPosition = FormStartPosition.CenterParent;
+                    updatePage.ShowDialog(); // Blocks until closed
+                }
+
+                // Hide blur after update page is closed
+                panelOverlay.Visible = false;
+
             };
 
             Guna2Button deleteButton = new Guna2Button
@@ -457,6 +482,7 @@ namespace DineEase
                     historyButton.Visible = true;
                     settingButton.Visible = true;
                     profileButton.Visible = true;
+                    //DineEaseLabel.Visible = true;
 
                     guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
 
@@ -471,6 +497,7 @@ namespace DineEase
                 historyButton.Visible = false;
                 settingButton.Visible = false;
                 profileButton.Visible = false;
+                //DineEaseLabel.Visible = false;
 
                 guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\icon-park-outline_expand-left.png");
 

@@ -207,7 +207,7 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(12, 12);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(12, 26);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton1.Size = new System.Drawing.Size(67, 45);
