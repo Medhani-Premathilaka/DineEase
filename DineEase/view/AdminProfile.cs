@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace DineEase
 {
@@ -16,7 +9,7 @@ namespace DineEase
     public partial class AdminProfile : Form
     {
         // Moved the connectionString field inside the class to fix CS0116
-        private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DineEaseDb;Integrated Security=True;";
+        private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public AdminProfile()
         {

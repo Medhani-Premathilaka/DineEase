@@ -57,10 +57,10 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(575, 106);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(83, 37);
+            this.lblName.Size = new System.Drawing.Size(89, 32);
             this.lblName.TabIndex = 15;
             this.lblName.Text = "name";
             // 
@@ -77,7 +77,6 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseTransparentBackground = true;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblQuantity
             // 
@@ -114,6 +113,7 @@
             this.btnDecrease.Size = new System.Drawing.Size(57, 36);
             this.btnDecrease.TabIndex = 8;
             this.btnDecrease.Text = "-";
+            this.btnDecrease.Click += new System.EventHandler(this.btnDecrease_Click_1);
             // 
             // btnIncrease
             // 
@@ -162,7 +162,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 39);
             this.guna2Panel2.TabIndex = 21;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint_1);
+            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // guna2Panel1
             // 
@@ -185,7 +185,7 @@
             this.txtCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCustomer.Location = new System.Drawing.Point(557, 324);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.PlaceholderText = "";
             this.txtCustomer.SelectedText = "";
@@ -199,7 +199,7 @@
             this.btnAddToOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddToOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddToOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
             this.btnAddToOrder.Location = new System.Drawing.Point(568, 438);
@@ -208,7 +208,7 @@
             this.btnAddToOrder.Size = new System.Drawing.Size(160, 36);
             this.btnAddToOrder.TabIndex = 18;
             this.btnAddToOrder.Text = "Order";
-            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click_1);
+           // this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click_1);
             // 
             // FoodDetails
             // 
@@ -224,6 +224,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.btnAddToOrder);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FoodDetails";
             this.Text = "FoodDetails";

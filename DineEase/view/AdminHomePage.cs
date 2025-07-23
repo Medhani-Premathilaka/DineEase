@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace DineEase
 {
-    public partial class AdminHomePage : Form
+    public partial class AdminHomePage : Form, ShowPage
     {
-        string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
+        //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public AdminHomePage()
         {
@@ -19,15 +19,18 @@ namespace DineEase
         private void LoadMenuItemsAsCards()
         {
             flowLayoutPanel1.Controls.Clear();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
+                cnn.Open();
+
+
                 string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct";
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, cnn);
 
                 try
                 {
-                    conn.Open();
+                    cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -158,6 +161,7 @@ namespace DineEase
                 {
                     MessageBox.Show("Error loading menu items: " + ex.Message);
                 }
+                cnn.Close();
             }
         }
 
@@ -172,17 +176,19 @@ namespace DineEase
             if (dialogResult == DialogResult.No)
                 return;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
+                cnn.Open();
                 string deleteQuery = "DELETE FROM menu WHERE name = @name";
 
-                using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn))
                 {
                     cmd.Parameters.AddWithValue("@name", itemName);
 
                     try
                     {
-                        conn.Open();
+                        cnn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
@@ -200,6 +206,7 @@ namespace DineEase
                         MessageBox.Show("Error deleting item: " + ex.Message);
                     }
                 }
+                cnn.Close();
             }
         }
 
@@ -253,6 +260,11 @@ namespace DineEase
             addItemPage.Show();
             this.Hide();
 
+        }
+
+        public void showPage()
+        {
+            this.Show();
         }
     }
 }
