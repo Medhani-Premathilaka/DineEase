@@ -62,13 +62,13 @@
             this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.addButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.addButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(96, 154);
+            this.addButton.Location = new System.Drawing.Point(102, 154);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(126, 45);
             this.addButton.TabIndex = 2;
-            this.addButton.Text = "Add Item";
+            this.addButton.Text = "Add ";
             this.addButton.Click += new System.EventHandler(this.guna2ButtonAddNewItem_Click_1);
             // 
             // guna2HtmlLabel1
@@ -113,7 +113,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(16, 715);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(30, 715);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton6.Size = new System.Drawing.Size(64, 54);
@@ -127,10 +127,10 @@
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(16, 268);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(30, 276);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Size = new System.Drawing.Size(64, 54);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(51, 46);
             this.guna2ImageButton5.TabIndex = 12;
             this.guna2ImageButton5.Click += new System.EventHandler(this.guna2ImageButton5_Click);
             // 
@@ -144,7 +144,7 @@
             this.profileButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.profileButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.ForeColor = System.Drawing.Color.White;
-            this.profileButton.Location = new System.Drawing.Point(86, 724);
+            this.profileButton.Location = new System.Drawing.Point(96, 724);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(126, 45);
             this.profileButton.TabIndex = 11;
@@ -159,7 +159,7 @@
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(16, 639);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(30, 648);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton4.Size = new System.Drawing.Size(64, 54);
@@ -174,7 +174,7 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(22, 209);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(30, 217);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton3.Size = new System.Drawing.Size(51, 53);
@@ -189,7 +189,7 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(28, 154);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(30, 161);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton2.Size = new System.Drawing.Size(45, 38);
@@ -222,7 +222,7 @@
             this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.historyButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyButton.ForeColor = System.Drawing.Color.White;
-            this.historyButton.Location = new System.Drawing.Point(96, 277);
+            this.historyButton.Location = new System.Drawing.Point(102, 277);
             this.historyButton.Name = "historyButton";
             this.historyButton.Size = new System.Drawing.Size(126, 45);
             this.historyButton.TabIndex = 6;
