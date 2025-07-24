@@ -81,7 +81,7 @@
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2CirclePictureBox1.Image = global::DineEase.Properties.Resources.user_admin_img;
+            //this.guna2CirclePictureBox1.Image = global::DineEase.Properties.Resources.user_admin_img;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(131, 46);
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
