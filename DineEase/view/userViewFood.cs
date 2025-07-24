@@ -132,13 +132,24 @@ namespace DineEase
         {
             LoadFoodItems();
             flowLayoutPanel1.Width = this.ClientSize.Width;
+            guna2Panel1.Width = 70;
+
+            flowLayoutPanel1.Padding = new Padding(10);
+            foreach (Control card in flowLayoutPanel1.Controls)
+            {
+                card.Margin = new Padding(15); // 15px space between cards
+            }
 
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
+
+        private int panelExpandedWidth = 180;  // Width when expanded
+        private int panelCollapsedWidth = 70;  // Width when collapsed
+        private bool isCollapsed = true;
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -151,6 +162,87 @@ namespace DineEase
         }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            navTimer.Start();
+        }
+
+        private void navTimer_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                guna2Panel1.Width += 10;  // Increase width step-by-step
+                if (guna2Panel1.Width >= panelExpandedWidth)
+                {
+                    navTimer.Stop();
+                    isCollapsed = false;
+
+                    // Show labels after fully expanded
+                    homeBtn.Visible = true;
+                    ordersBtn.Visible = true;
+                    historyBtn.Visible = true;
+                    settingBtn.Visible = true;
+                    profileBtn.Visible = true;
+                    logo.Visible = true;
+                    guna2ImageButton1.Image = Image.FromFile("Resources\\collaps.png");
+
+                    AdjustControlPositions();
+                }
+            }
+            else
+            {
+                // Hide labels first to avoid visual glitches
+                logo.Visible = false;
+                homeBtn.Visible = false;
+                ordersBtn.Visible = false;
+                historyBtn.Visible = false;
+                settingBtn.Visible = false;
+                profileBtn.Visible = false;
+                guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
+
+                guna2Panel1.Width -= 10; // Decrease width step-by-step
+                if (guna2Panel1.Width <= panelCollapsedWidth)
+                {
+                    navTimer.Stop();
+                    isCollapsed = true;
+                    AdjustControlPositions();
+                }
+            }
+        }
+
+        private void AdjustControlPositions()
+        {
+            foreach (Control ctrl in guna2Panel1.Controls)
+            {
+                if (ctrl is Guna2ImageButton)
+                {
+                    if (isCollapsed)
+                        ctrl.Location = new Point(10, ctrl.Location.Y);
+                    else
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                }
+                else if (!isCollapsed)
+                {
+                    ctrl.Location = new Point(10, ctrl.Location.Y);
+                }
+            }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
         {
 
         }

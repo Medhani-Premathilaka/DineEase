@@ -170,11 +170,16 @@
     <None Include="Resources\material-symbols_draft-orders %281%29.png" />
     <None Include="Resources\icon-park-outline_history %281%29.png" />
     <None Include="Resources\gg_profile %281%29.png" />
+    <None Include="Resources\DineEase %281%29.png" />
     <Content Include="Resources\user_admin_img.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\icon-park-outline_expand-left.png" />
-    <Content Include="Resources\iconoir_sidebar-collapse.png" />
+    <Content Include="Resources\expand.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\collaps.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
