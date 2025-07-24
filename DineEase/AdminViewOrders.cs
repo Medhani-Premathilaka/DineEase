@@ -82,6 +82,8 @@ namespace DineEase
                     //};
                     //orderPanel.Controls.Add(lblTime);
 
+                    int orderId = Convert.ToInt32(reader["OrderID"]);
+
                     Button btnAccept = new Button
                     {
                         Text = "Accept",
@@ -90,6 +92,24 @@ namespace DineEase
                         FlatStyle = FlatStyle.Flat,
                         Size = new Size(70, 30),
                         Location = new Point(300, 30)
+                    };
+
+                    // Button click logic to update status
+                    btnAccept.Click += (s, e) =>
+                    {
+                        using (SqlConnection updateConn = new SqlConnection(connectionString))
+                        {
+                            string updateQuery = "UPDATE Orders SET OrderStatus = 'confirm' WHERE OrderID = @OrderID";
+                            SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
+                            updateCmd.Parameters.AddWithValue("@OrderID", orderId);
+
+                            updateConn.Open();
+                            updateCmd.ExecuteNonQuery();
+                            updateConn.Close();
+
+                            MessageBox.Show("Order accepted!");
+                            LoadOrders(); // Reload orders to reflect changes
+                        }
                     };
                     orderPanel.Controls.Add(btnAccept);
 
@@ -110,7 +130,12 @@ namespace DineEase
 
                 conn.Close();
             }
+
+
+
         }
+
+
 
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
