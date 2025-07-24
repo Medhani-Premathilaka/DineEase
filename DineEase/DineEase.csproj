@@ -164,6 +164,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Vector %281%29.png" />
+    <None Include="Resources\icon-park-outline_expand-left1.png" />
+    <None Include="Resources\iconamoon_home-fill %281%29.png" />
+    <None Include="Resources\material-symbols_draft-orders %281%29.png" />
+    <None Include="Resources\icon-park-outline_history %281%29.png" />
+    <None Include="Resources\gg_profile %281%29.png" />
     <Content Include="Resources\user_admin_img.png" />
   </ItemGroup>
   <ItemGroup>
