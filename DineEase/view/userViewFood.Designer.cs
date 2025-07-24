@@ -199,7 +199,7 @@
             this.settingBtn.FillColor = System.Drawing.Color.Transparent;
             this.settingBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingBtn.ForeColor = System.Drawing.Color.White;
-            this.settingBtn.Location = new System.Drawing.Point(142, 938);
+            this.settingBtn.Location = new System.Drawing.Point(142, 923);
             this.settingBtn.Name = "settingBtn";
             this.settingBtn.Size = new System.Drawing.Size(136, 45);
             this.settingBtn.TabIndex = 10;
@@ -216,7 +216,7 @@
             this.profileBtn.FillColor = System.Drawing.Color.Transparent;
             this.profileBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(142, 1018);
+            this.profileBtn.Location = new System.Drawing.Point(142, 1003);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(136, 45);
             this.profileBtn.TabIndex = 11;
@@ -242,7 +242,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(12, 1018);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(12, 1003);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton6.Size = new System.Drawing.Size(64, 54);
@@ -256,7 +256,7 @@
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(12, 938);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(12, 923);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton5.Size = new System.Drawing.Size(64, 54);
