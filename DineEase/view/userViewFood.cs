@@ -108,6 +108,7 @@ namespace DineEase
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
 
+            
             FoodDetails detailsForm = new FoodDetails(productId);
             //ShowFoodDetails(productId);
             detailsForm.ShowDialog();
@@ -124,7 +125,7 @@ namespace DineEase
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

@@ -31,7 +31,7 @@ namespace DineEase
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
                     cmd.Parameters.AddWithValue("@id", productId);
-                    cnn.Open();
+                    //cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
@@ -118,6 +118,43 @@ namespace DineEase
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            userViewFood userView = new userViewFood();
+            userView.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void increaseBtn_Click(object sender, EventArgs e)
+        {
+            quantity++;
+            lblQuantity.Text = quantity.ToString();
+        }
+
+        private void reduceBtn_Click(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
+        }
+
+        private void lblDesc_Click(object sender, EventArgs e)
         {
 
         }
