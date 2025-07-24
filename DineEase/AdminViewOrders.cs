@@ -122,7 +122,27 @@ namespace DineEase
                         Size = new Size(70, 30),
                         Location = new Point(380, 30)
                     };
+
+                    btnReject.Click += (s, e) =>
+                    {
+                        using (SqlConnection updateConn = new SqlConnection(connectionString))
+                        {
+                            string updateQuery = "UPDATE Orders SET OrderStatus = 'Rejected' WHERE OrderID = @OrderID";
+                            SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
+                            updateCmd.Parameters.AddWithValue("@OrderID", orderId);
+
+                            updateConn.Open();
+                            updateCmd.ExecuteNonQuery();
+                            updateConn.Close();
+
+                            MessageBox.Show("Order rejected.");
+                            LoadOrders(); // Refresh list
+                        }
+                    };
+
                     orderPanel.Controls.Add(btnReject);
+
+
 
                     flowLayoutPanel1.Controls.Add(orderPanel);
                     orderNumber++;
