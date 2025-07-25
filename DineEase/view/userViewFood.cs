@@ -14,6 +14,7 @@ namespace DineEase
             InitializeComponent();
         }
 
+        //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         //private void UserViewProduct_Load(object sender, EventArgs e)
         //{
@@ -23,11 +24,12 @@ namespace DineEase
 
         private void LoadFoodItems()
         {
-            flowLayoutPanel1.Controls.Clear();
+            //flowLayoutPanel1.Controls.Clear();
 
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
+            
 
             using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
@@ -36,6 +38,7 @@ namespace DineEase
 
                 while (reader.Read())
                 {
+                    
                     Guna2ShadowPanel card = new Guna2ShadowPanel
                     {
                         Width = 180,
@@ -117,7 +120,7 @@ namespace DineEase
 
         private void Card_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             Control clicked = sender as Control;
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
