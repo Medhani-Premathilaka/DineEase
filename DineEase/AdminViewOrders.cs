@@ -57,62 +57,122 @@ namespace DineEase
                         Margin = new Padding(5)
                     };
 
-                    
 
-                    DateTime outerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                    string outerFormattedDate = (outerOrderDateTime.Date == DateTime.Today)
-                        ? "Today " + outerOrderDateTime.ToString("h.mm tt").ToLower()
-                        : outerOrderDateTime.ToString("dd MMM yyyy h.mm tt").ToLower();
 
-                    Label outerLblTime = new Label
+                    // Prepare formatted date safely
+                    string formattedDate = "";
+                    if (!(reader["OrderDate"] is DBNull))
                     {
-                        Text = outerFormattedDate,
-                        Font = new Font("Segoe UI", 9, FontStyle.Italic),
-                        ForeColor = Color.Gray,
-                        AutoSize = true,
-                        Location = new Point(40, 35) // Adjust vertically if needed
-                    };
-                    orderPanel.Controls.Add(outerLblTime);
+                        DateTime orderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                        formattedDate = (orderDateTime.Date == DateTime.Today)
+                            ? "Today " + orderDateTime.ToString("h.mm tt").ToLower()
+                            : orderDateTime.ToString("dd MMM yyyy h.mm tt").ToLower();
+                    }
+
 
                     if (orderStatus.ToLower() == "done")
                     {
-                        // Show only "Done" button
-                        Button btnDone = new Button
                         {
-                            Text = "Done",
-                            BackColor = Color.Gray,
-                            ForeColor = Color.White,
-                            FlatStyle = FlatStyle.Flat,
-                            Size = new Size(70, 30),
-                            Location = new Point((orderPanel.Width - 70) / 2, (orderPanel.Height - 30) / 2)
-                        };
-
-                        btnDone.Click += (s, e) =>
-                        {
-                            using (SqlConnection deleteConn = new SqlConnection(connectionString))
+                            Label lblNumber = new Label
                             {
-                                string deleteQuery = "DELETE FROM Orders WHERE OrderID = @OrderID";
-                                SqlCommand deleteCmd = new SqlCommand(deleteQuery, deleteConn);
-                                deleteCmd.Parameters.AddWithValue("@OrderID", orderId);
+                                Text = orderNumber.ToString() + ".",
+                                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                                Location = new Point(10, 10),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblNumber);
 
-                                deleteConn.Open();
-                                int rowsAffected = deleteCmd.ExecuteNonQuery();
-                                deleteConn.Close();
+                            Label lblProduct = new Label
+                            {
+                                Text = reader["ProductName"] + " : " + reader["Qauntity"],
+                                Font = new Font("Segoe UI", 10),
+                                Location = new Point(40, 10),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblProduct);
 
-                                if (rowsAffected > 0)
+                            Label lblCustomer = new Label
+                            {
+                                Text = "Customer: " + reader["CustomerID"] + " - " + reader["CustomerName"],
+                                Font = new Font("Segoe UI", 9),
+                                Location = new Point(40, 30),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblCustomer);
+
+
+                            DateTime orderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                            formattedDate = (orderDateTime.Date == DateTime.Today)
+                            ? "Today " + orderDateTime.ToString("h:mm tt").ToLower()
+                            : orderDateTime.ToString("dd MMM yyyy h:mm tt").ToLower();
+
+
+                            Label lblTime = new Label
+                            {
+                                Text = formattedDate,
+                                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                                ForeColor = Color.Gray,
+                                AutoSize = true,
+                                Location = new Point(40, 50)
+                            };
+                            orderPanel.Controls.Add(lblTime);
+
+                            Label lblPrice = new Label
+                            {
+                                Text = "Price: Rs. " + reader["Price"],
+                                Font = new Font("Segoe UI", 9),
+                                Location = new Point(200, 30),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblPrice);
+
+                            Button btnDone = new Button
+                            {
+                                Text = "Done",
+                                BackColor = Color.Gray,
+                                ForeColor = Color.White,
+                                FlatStyle = FlatStyle.Flat,
+                                Size = new Size(70, 30),
+                                Location = new Point(orderPanel.Width - 90, 30)
+                            };
+
+                            btnDone.Click += (s, e) =>
+                            {
+                                using (SqlConnection deleteConn = new SqlConnection(connectionString))
                                 {
-                                    flowLayoutPanel1.Controls.Remove(orderPanel);
-                                    MessageBox.Show("Order marked as done and removed.");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Failed to remove order.");
-                                }
-                            }
-                        };
+                                    string deleteQuery = "DELETE FROM Orders WHERE OrderID = @OrderID";
+                                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, deleteConn);
+                                    deleteCmd.Parameters.AddWithValue("@OrderID", orderId);
 
-                        orderPanel.Controls.Add(btnDone);
+                                    deleteConn.Open();
+                                    int rowsAffected = deleteCmd.ExecuteNonQuery();
+                                    deleteConn.Close();
+
+                                    if (rowsAffected > 0)
+                                    {
+                                        flowLayoutPanel1.Controls.Remove(orderPanel);
+                                        MessageBox.Show("Order removed.");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Failed to remove order.");
+                                    }
+                                }
+                            };
+
+                            orderPanel.Controls.Add(btnDone);
+
+                            // Adjust position on resize
+                            orderPanel.Resize += (s, e) =>
+                            {
+                                btnDone.Location = new Point(orderPanel.Width - 90, 30);
+                            };
+
+                            flowLayoutPanel1.Controls.Add(orderPanel);
+                            orderNumber++;
+                        }
                     }
+
                     else
                     {
                         Label lblNumber = new Label
@@ -132,6 +192,16 @@ namespace DineEase
                             AutoSize = true
                         };
                         orderPanel.Controls.Add(lblDetails);
+
+                        Label lblCustomer = new Label
+                        {
+                            Text = "Customer: " + reader["CustomerID"].ToString() + " - " + reader["CustomerName"].ToString(),
+                            Font = new Font("Segoe UI", 9),
+                            Location = new Point(40, 55), // Below the date
+                            AutoSize = true
+                        };
+                        orderPanel.Controls.Add(lblCustomer);
+
 
                         // Date formatting logic
                         DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
