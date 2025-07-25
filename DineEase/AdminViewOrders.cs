@@ -48,13 +48,15 @@ namespace DineEase
                     string orderStatus = reader["OrderStatus"].ToString();
                     int orderId = Convert.ToInt32(reader["OrderID"]);
 
-                    Panel orderPanel = new Panel
+                    Guna.UI2.WinForms.Guna2Panel orderPanel = new Guna.UI2.WinForms.Guna2Panel
                     {
-                        Width = 700, // Make panel stretch across
-                        Height = 90,
-                        BackColor = Color.White,
-                        BorderStyle = BorderStyle.FixedSingle,
-                        Margin = new Padding(5)
+                        Width = 1300,
+                        Height = 110,
+                        BorderRadius = 15,
+                        FillColor = Color.FromArgb(231, 222, 240),
+                        ShadowDecoration = { Enabled = true, BorderRadius = 15, Color = Color.LightGray },
+                        Padding = new Padding(10),
+                        Margin = new Padding(10)
                     };
 
 
