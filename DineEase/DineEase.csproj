@@ -136,7 +136,6 @@
     <EmbeddedResource Include="AdminViewOrders.resx">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FoodDetails.resx">
     <EmbeddedResource Include="view\FoodDetails.resx">
       <DependentUpon>FoodDetails.cs</DependentUpon>
     </EmbeddedResource>
