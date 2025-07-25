@@ -96,8 +96,9 @@ namespace DineEase
 
                             Label lblCustomer = new Label
                             {
-                                Text = "Customer: " + reader["CustomerID"] + " - " + reader["CustomerName"],
-                                Font = new Font("Segoe UI", 9),
+                                Text = $"👤 Customer: {reader["CustomerID"]} - {reader["CustomerName"]}",
+                                Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                                ForeColor = Color.FromArgb(70, 70, 70),
                                 Location = new Point(40, 30),
                                 AutoSize = true
                             };
@@ -200,9 +201,10 @@ namespace DineEase
 
                         Label lblCustomer = new Label
                         {
-                            Text = "Customer: " + reader["CustomerID"].ToString() + " - " + reader["CustomerName"].ToString(),
-                            Font = new Font("Segoe UI", 9),
-                            Location = new Point(40, 55), // Below the date
+                            Text = $"👤 Customer: {reader["CustomerID"]} - {reader["CustomerName"]}",
+                            Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                            ForeColor = Color.FromArgb(70, 70, 70),
+                            Location = new Point(40, 30), // Below the date
                             AutoSize = true
                         };
                         orderPanel.Controls.Add(lblCustomer);
@@ -221,7 +223,7 @@ namespace DineEase
                             Font = new Font("Segoe UI", 9, FontStyle.Italic),
                             ForeColor = Color.Gray,
                             AutoSize = true,
-                            Location = new Point(40, 35) // adjust Y if needed
+                            Location = new Point(40, 50) // adjust Y if needed
                         };
                         orderPanel.Controls.Add(innerLblTime);
 
