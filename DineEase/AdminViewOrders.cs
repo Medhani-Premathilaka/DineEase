@@ -116,10 +116,11 @@ namespace DineEase
                             Label lblTime = new Label
                             {
                                 Text = formattedDate,
-                                Font = new Font("Segoe UI", 9, FontStyle.Italic),
-                                ForeColor = Color.Gray,
+                                Font = new Font("Segoe UI", 9.5f, FontStyle.Italic),
+                                ForeColor = Color.FromArgb(120, 120, 120), // Softer gray
                                 AutoSize = true,
-                                Location = new Point(40, 50)
+                                Location = new Point(40, 50),
+                                Margin = new Padding(0, 5, 0, 0)
                             };
                             orderPanel.Controls.Add(lblTime);
 
@@ -223,22 +224,26 @@ namespace DineEase
                         // Date label
                         Label innerLblTime = new Label
                         {
-                            Text = innerFormattedDate,
-                            Font = new Font("Segoe UI", 9, FontStyle.Italic),
-                            ForeColor = Color.Gray,
+                            Text = formattedDate,
+                            Font = new Font("Segoe UI", 9.5f, FontStyle.Italic),
+                            ForeColor = Color.FromArgb(120, 120, 120), // Softer gray
                             AutoSize = true,
-                            Location = new Point(40, 50) // adjust Y if needed
+                            Location = new Point(40, 50),
+                            Margin = new Padding(0, 5, 0, 0)
                         };
                         orderPanel.Controls.Add(innerLblTime);
 
-                        Button btnAccept = new Button
+                        Guna2Button btnAccept = new Guna2Button
                         {
                             Text = "Accept",
-                            BackColor = Color.Green,
+                            Size = new Size(90, 36),
+                            Location = new Point(orderPanel.Width - 200, 30),
+                            BorderRadius = 10,
+                            FillColor = Color.FromArgb(76, 175, 80), // Light green
                             ForeColor = Color.White,
-                            FlatStyle = FlatStyle.Flat,
-                            Size = new Size(70, 30),
-                            Location = new Point(orderPanel.Width - 160, 30)
+                            Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                            HoverState = { FillColor = Color.FromArgb(56, 142, 60) },
+                            Cursor = Cursors.Hand
                         };
 
                         btnAccept.Click += (s, e) =>
@@ -259,15 +264,19 @@ namespace DineEase
                         };
                         orderPanel.Controls.Add(btnAccept);
 
-                        Button btnReject = new Button
+                        Guna2Button btnReject = new Guna2Button
                         {
                             Text = "Reject",
-                            BackColor = Color.Red,
+                            Size = new Size(90, 36),
+                            Location = new Point(orderPanel.Width - 100, 30),
+                            BorderRadius = 10,
+                            FillColor = Color.FromArgb(244, 67, 54), // Light red
                             ForeColor = Color.White,
-                            FlatStyle = FlatStyle.Flat,
-                            Size = new Size(70, 30),
-                            Location = new Point(orderPanel.Width - 80, 30)
+                            Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                            HoverState = { FillColor = Color.FromArgb(211, 47, 47) },
+                            Cursor = Cursors.Hand
                         };
+
 
                         btnReject.Click += (s, e) =>
                         {
@@ -289,8 +298,8 @@ namespace DineEase
 
                         orderPanel.Resize += (s, e) =>
                         {
-                            btnAccept.Location = new Point(orderPanel.Width - 160, 30);
-                            btnReject.Location = new Point(orderPanel.Width - 80, 30);
+                            btnAccept.Location = new Point(orderPanel.Width - 200, 30);
+                            btnReject.Location = new Point(orderPanel.Width - 100, 30);
                         };
 
                         orderNumber++;
