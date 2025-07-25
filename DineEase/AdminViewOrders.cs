@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
+
 
 namespace DineEase
 {
@@ -130,14 +132,16 @@ namespace DineEase
                             };
                             orderPanel.Controls.Add(lblPrice);
 
-                            Button btnDone = new Button
+                            Guna2Button btnDone = new Guna2Button
                             {
                                 Text = "Done",
-                                BackColor = Color.Gray,
+                                Size = new Size(80, 35),
+                                Location = new Point(orderPanel.Width - 90, 30),
+                                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                                FillColor = Color.FromArgb(96, 125, 139),
                                 ForeColor = Color.White,
-                                FlatStyle = FlatStyle.Flat,
-                                Size = new Size(70, 30),
-                                Location = new Point(orderPanel.Width - 90, 30)
+                                BorderRadius = 10,
+                                Cursor = Cursors.Hand
                             };
 
                             btnDone.Click += (s, e) =>
