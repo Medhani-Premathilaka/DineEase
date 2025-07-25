@@ -47,6 +47,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "UserViewOrders";
             this.Text = "UserViewOrders";
+            this.Load += new System.EventHandler(this.UserViewOrders_Load);
             this.ResumeLayout(false);
 
         }
