@@ -75,7 +75,7 @@
     <Compile Include="AdminViewOrders.Designer.cs">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="FoodDetails.cs" />
+    <Compile Include="view\FoodDetails.cs" />
     <Compile Include="view\AdminProfile.cs">
       <SubType>Form</SubType>
     </Compile>
