@@ -146,12 +146,12 @@
             this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
-            this.btnAddToOrder.Location = new System.Drawing.Point(78, 616);
+            this.btnAddToOrder.Location = new System.Drawing.Point(97, 616);
             this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddToOrder.Name = "btnAddToOrder";
-            this.btnAddToOrder.Size = new System.Drawing.Size(262, 46);
+            this.btnAddToOrder.Size = new System.Drawing.Size(219, 46);
             this.btnAddToOrder.TabIndex = 18;
-            this.btnAddToOrder.Text = "Order Now    >";
+            this.btnAddToOrder.Text = "Order Now";
             // 
             // guna2ShadowPanel1
             // 

@@ -76,6 +76,12 @@
       <DependentUpon>AdminProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="dao\DBConnection.cs" />
+    <Compile Include="view\BlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\BlurForm.Designer.cs">
+      <DependentUpon>BlurForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FoodDetails.cs">
       <SubType>Form</SubType>
     </Compile>

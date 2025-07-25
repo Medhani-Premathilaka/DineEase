@@ -3,7 +3,9 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using DineEase.view;
 using Guna.UI2.WinForms;
+using Guna.UI2.WinForms.Suite;
 
 namespace DineEase
 {
@@ -125,8 +127,17 @@ namespace DineEase
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
 
+            BlurForm blur = new BlurForm();
+            blur.Size = this.Size;
+            blur.Location = this.Location;
+            blur.Owner = this;
+            blur.Show();
+
             FoodDetails detailsForm = new FoodDetails(productId);
+            detailsForm.StartPosition = FormStartPosition.CenterParent;
             detailsForm.ShowDialog();
+
+            blur.Close();
         }
 
 
