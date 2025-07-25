@@ -20,8 +20,23 @@ namespace DineEase
         public AdminViewOrders()
         {
             InitializeComponent();
-            this.Load += AdminViewOrder_Load; // Attach event handler
 
+            // Collapse immediately before rendering UI
+            guna2Panel1.Width = panelCollapsedWidth;
+            isCollapsed = true;
+
+            // Hide buttons manually
+            addButton.Visible = false;
+            viewOrderButton.Visible = false;
+            historyButton.Visible = false;
+            settingButton.Visible = false;
+            profileButton.Visible = false;
+
+            // Set correct image for collapsed state
+            guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\icon-park-outline_expand-left.png");
+
+            // Event handlers
+            this.Load += AdminViewOrder_Load;
             timer1.Tick += timer_Tick_1;
             timer1.Interval = 10;
 
@@ -30,9 +45,16 @@ namespace DineEase
             flowLayoutPanel1.AutoScroll = true;
         }
 
+
         private void AdminViewOrder_Load(object sender, EventArgs e)
         {
             LoadOrders();
+
+            // Trigger the collapse animation immediately
+            if (!isCollapsed)
+            {
+                guna2ImageButton1_Click(null, null);  // Simulate click to collapse sidebar
+            }
         }
 
         private void LoadOrders()
