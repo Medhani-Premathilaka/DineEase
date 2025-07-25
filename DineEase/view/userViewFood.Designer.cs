@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.userViewOrders = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
@@ -37,6 +38,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(75)))), ((int)(((byte)(222)))));
+            this.guna2Panel1.Controls.Add(this.userViewOrders);
             this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
@@ -44,6 +46,21 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(854, 65);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // userViewOrders
+            // 
+            this.userViewOrders.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.userViewOrders.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.userViewOrders.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.userViewOrders.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.userViewOrders.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.userViewOrders.ForeColor = System.Drawing.Color.White;
+            this.userViewOrders.Location = new System.Drawing.Point(29, 10);
+            this.userViewOrders.Name = "userViewOrders";
+            this.userViewOrders.Size = new System.Drawing.Size(160, 43);
+            this.userViewOrders.TabIndex = 1;
+            this.userViewOrders.Text = "userViewOrders";
+            this.userViewOrders.Click += new System.EventHandler(this.userViewOrders_Click);
             // 
             // guna2ControlBox1
             // 
@@ -92,5 +109,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2Button userViewOrders;
     }
 }

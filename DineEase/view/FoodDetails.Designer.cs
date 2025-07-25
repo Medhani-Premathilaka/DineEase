@@ -185,12 +185,13 @@
             this.txtCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCustomer.Location = new System.Drawing.Point(557, 324);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.PlaceholderText = "";
             this.txtCustomer.SelectedText = "";
             this.txtCustomer.Size = new System.Drawing.Size(254, 48);
             this.txtCustomer.TabIndex = 19;
+            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // btnAddToOrder
             // 
@@ -208,7 +209,7 @@
             this.btnAddToOrder.Size = new System.Drawing.Size(160, 36);
             this.btnAddToOrder.TabIndex = 18;
             this.btnAddToOrder.Text = "Order";
-           // this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click_1);
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
             // FoodDetails
             // 

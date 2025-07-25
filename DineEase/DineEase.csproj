@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\Order.cs" />
     <Compile Include="ShowPage.cs" />
     <Compile Include="ShowPageFactory.cs" />
     <Compile Include="view\AddItemPage.cs">
@@ -76,6 +77,7 @@
       <DependentUpon>AdminProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="dao\DBConnection.cs" />
+    <Compile Include="dao\CurrentUser.cs" />
     <Compile Include="view\FoodDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +122,12 @@
     <Compile Include="view\userViewFood.Designer.cs">
       <DependentUpon>userViewFood.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\UserViewOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UserViewOrders.Designer.cs">
+      <DependentUpon>UserViewOrders.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="view\AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\userViewFood.resx">
       <DependentUpon>userViewFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserViewOrders.resx">
+      <DependentUpon>UserViewOrders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

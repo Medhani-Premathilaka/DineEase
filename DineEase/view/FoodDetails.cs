@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
@@ -12,13 +13,17 @@ namespace DineEase
         string productName = "";
         decimal price = 0;
         int quantity = 1;
+        string userId;
+        private object dgvFoodItems;
 
-
-        public FoodDetails(int id)
+        public FoodDetails(int id, string userId)
         {
             InitializeComponent();
             productId = id;
+            this.userId = userId;
+            dgvFoodItems = new object();
         }
+
 
         private void LoadDetails()
         {
@@ -31,7 +36,7 @@ namespace DineEase
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
                     cmd.Parameters.AddWithValue("@id", productId);
-                    cnn.Open();
+                    //cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
@@ -47,7 +52,9 @@ namespace DineEase
                             pictureBox1.Image = Image.FromStream(ms);
                         }
                     }
+
                 }
+                cnn.Close();
             }
         }
 
@@ -63,8 +70,39 @@ namespace DineEase
             lblQuantity.Text = quantity.ToString();
         }
 
-        private void btnAddToOrder_Click_1(object sender, EventArgs e)
+
+        private void Closebtn_Click_1(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void btnIncrease_Click_1(object sender, EventArgs e)
+        {
+            quantity++;
+            lblQuantity.Text = quantity.ToString();
+        }
+
+        private void btnDecrease_Click_1(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+            string userId = CurrentUser.UserId; // Example: static property or passed from login
+
+            var foodDetailsForm = new FoodDetails(productId, userId);
+            //foodDetailsForm.ShowDialog();
+
             if (string.IsNullOrWhiteSpace(txtCustomer.Text))
             {
                 MessageBox.Show("Enter customer name.");
@@ -87,37 +125,18 @@ namespace DineEase
                     cmd.Parameters.AddWithValue("@date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@status", "Pending");
 
-                    cnn.Open();
+
                     cmd.ExecuteNonQuery();
-                    cnn.Close();
+                    //cnn.Close();
 
                     MessageBox.Show("Item added to order.");
                     this.Close();
                 }
+                cnn.Close();
             }
         }
 
-        private void Closebtn_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnIncrease_Click_1(object sender, EventArgs e)
-        {
-            quantity++;
-            lblQuantity.Text = quantity.ToString();
-        }
-
-        private void btnDecrease_Click_1(object sender, EventArgs e)
-        {
-            if (quantity > 1)
-            {
-                quantity--;
-                lblQuantity.Text = quantity.ToString();
-            }
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        private void txtCustomer_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
@@ -108,7 +109,8 @@ namespace DineEase
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
 
-            FoodDetails detailsForm = new FoodDetails(productId);
+            string userId = CurrentUser.UserId;
+            FoodDetails detailsForm = new FoodDetails(productId, userId);
             //ShowFoodDetails(productId);
             detailsForm.ShowDialog();
         }
@@ -135,6 +137,12 @@ namespace DineEase
         public void showPage()
         {
             this.Show();
+        }
+
+        private void userViewOrders_Click(object sender, EventArgs e)
+        {
+            var userOrdersView = new UserViewOrders();
+            userOrdersView.Show();
         }
     }
 }
