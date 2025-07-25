@@ -389,7 +389,7 @@ namespace DineEase
         }
 
         private int panelExpandedWidth = 200;  // Width when expanded
-        private int panelCollapsedWidth = 90;  // Width when collapsed
+        private int panelCollapsedWidth = 120;  // Width when collapsed
         private bool isCollapsed = true;
 
 
