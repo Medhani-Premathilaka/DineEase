@@ -19,6 +19,10 @@ namespace DineEase
         {
             InitializeComponent();
             this.Load += AdminViewOrder_Load; // Attach event handler
+
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.WrapContents = false;
+            flowLayoutPanel1.AutoScroll = true;
         }
 
         private void AdminViewOrder_Load(object sender, EventArgs e)
@@ -41,153 +45,181 @@ namespace DineEase
 
                 while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        string orderStatus = reader["OrderStatus"].ToString();
+                    string orderStatus = reader["OrderStatus"].ToString();
+                    int orderId = Convert.ToInt32(reader["OrderID"]);
 
-                        Panel orderPanel = new Panel
+                    Panel orderPanel = new Panel
+                    {
+                        Width = 600, // Make panel stretch across
+                        Height = 90,
+                        BackColor = Color.White,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(5)
+                    };
+
+                    
+
+                    DateTime outerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                    string outerFormattedDate = (outerOrderDateTime.Date == DateTime.Today)
+                        ? "Today " + outerOrderDateTime.ToString("h.mm tt").ToLower()
+                        : outerOrderDateTime.ToString("dd MMM yyyy h.mm tt").ToLower();
+
+                    Label outerLblTime = new Label
+                    {
+                        Text = outerFormattedDate,
+                        Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                        ForeColor = Color.Gray,
+                        AutoSize = true,
+                        Location = new Point(40, 35) // Adjust vertically if needed
+                    };
+                    orderPanel.Controls.Add(outerLblTime);
+
+                    if (orderStatus.ToLower() == "done")
+                    {
+                        // Show only "Done" button
+                        Button btnDone = new Button
                         {
-                            Width = 480,
-                            Height = 90,
-                            BackColor = Color.White,
-                            BorderStyle = BorderStyle.FixedSingle,
-                            Margin = new Padding(10),
+                            Text = "Done",
+                            BackColor = Color.Gray,
+                            ForeColor = Color.White,
+                            FlatStyle = FlatStyle.Flat,
+                            Size = new Size(70, 30),
+                            Location = new Point((orderPanel.Width - 70) / 2, (orderPanel.Height - 30) / 2)
                         };
 
-                        int orderId = Convert.ToInt32(reader["OrderID"]);
-
-                        if (orderStatus.ToLower() == "done")
+                        btnDone.Click += (s, e) =>
                         {
-
-                            // Show only "Done" button
-                            Button btnDone = new Button
+                            using (SqlConnection deleteConn = new SqlConnection(connectionString))
                             {
-                                Text = "Done",
-                                BackColor = Color.Gray,
-                                ForeColor = Color.White,
-                                FlatStyle = FlatStyle.Flat,
-                                Size = new Size(70, 30),
-                                Location = new Point((orderPanel.Width - 70) / 2, (orderPanel.Height - 30) / 2)
-                            };
+                                string deleteQuery = "DELETE FROM Orders WHERE OrderID = @OrderID";
+                                SqlCommand deleteCmd = new SqlCommand(deleteQuery, deleteConn);
+                                deleteCmd.Parameters.AddWithValue("@OrderID", orderId);
 
-                            btnDone.Click += (s, e) =>
-                            {
-                                using (SqlConnection deleteConn = new SqlConnection(connectionString))
+                                deleteConn.Open();
+                                int rowsAffected = deleteCmd.ExecuteNonQuery();
+                                deleteConn.Close();
+
+                                if (rowsAffected > 0)
                                 {
-                                    string deleteQuery = "DELETE FROM Orders WHERE OrderID = @OrderID";
-                                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, deleteConn);
-                                    deleteCmd.Parameters.AddWithValue("@OrderID", orderId);
-
-                                    deleteConn.Open();
-                                    int rowsAffected = deleteCmd.ExecuteNonQuery();
-                                    deleteConn.Close();
-
-                                    if (rowsAffected > 0)
-                                    {
-                                        flowLayoutPanel1.Controls.Remove(orderPanel);
-                                        MessageBox.Show("Order marked as done and removed.");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Failed to remove order.");
-                                    }
+                                    flowLayoutPanel1.Controls.Remove(orderPanel);
+                                    MessageBox.Show("Order marked as done and removed.");
                                 }
-                            };
+                                else
+                                {
+                                    MessageBox.Show("Failed to remove order.");
+                                }
+                            }
+                        };
 
-                            orderPanel.Controls.Add(btnDone);
-
-
-                        }
-                        else
+                        orderPanel.Controls.Add(btnDone);
+                    }
+                    else
+                    {
+                        Label lblNumber = new Label
                         {
-                            // Normal display for non-done orders
-                            Label lblNumber = new Label
+                            Text = orderNumber.ToString() + ".",
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                            Location = new Point(10, 10),
+                            AutoSize = true
+                        };
+                        orderPanel.Controls.Add(lblNumber);
+
+                        Label lblDetails = new Label
+                        {
+                            Text = reader["ProductName"] + " : " + reader["Qauntity"],
+                            Font = new Font("Segoe UI", 10),
+                            Location = new Point(40, 10),
+                            AutoSize = true
+                        };
+                        orderPanel.Controls.Add(lblDetails);
+
+                        // Date formatting logic
+                        DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                        string innerFormattedDate = (innerOrderDateTime.Date == DateTime.Today)
+                            ? "Today " + innerOrderDateTime.ToString("h:mm tt")
+                            : innerOrderDateTime.ToString("dd MMM yyyy h:mm tt");
+
+                        // Date label
+                        Label innerLblTime = new Label
+                        {
+                            Text = innerFormattedDate,
+                            Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                            ForeColor = Color.Gray,
+                            AutoSize = true,
+                            Location = new Point(40, 35) // adjust Y if needed
+                        };
+                        orderPanel.Controls.Add(innerLblTime);
+
+                        Button btnAccept = new Button
+                        {
+                            Text = "Accept",
+                            BackColor = Color.Green,
+                            ForeColor = Color.White,
+                            FlatStyle = FlatStyle.Flat,
+                            Size = new Size(70, 30),
+                            Location = new Point(orderPanel.Width - 160, 30)
+                        };
+
+                        btnAccept.Click += (s, e) =>
+                        {
+                            using (SqlConnection updateConn = new SqlConnection(connectionString))
                             {
-                                Text = orderNumber.ToString() + ".",
-                                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                                Location = new Point(10, 10),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblNumber);
+                                string updateQuery = "UPDATE Orders SET OrderStatus = 'confirm' WHERE OrderID = @OrderID";
+                                SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
+                                updateCmd.Parameters.AddWithValue("@OrderID", orderId);
 
-                            Label lblDetails = new Label
+                                updateConn.Open();
+                                updateCmd.ExecuteNonQuery();
+                                updateConn.Close();
+
+                                MessageBox.Show("Order accepted!");
+                                LoadOrders();
+                            }
+                        };
+                        orderPanel.Controls.Add(btnAccept);
+
+                        Button btnReject = new Button
+                        {
+                            Text = "Reject",
+                            BackColor = Color.Red,
+                            ForeColor = Color.White,
+                            FlatStyle = FlatStyle.Flat,
+                            Size = new Size(70, 30),
+                            Location = new Point(orderPanel.Width - 80, 30)
+                        };
+
+                        btnReject.Click += (s, e) =>
+                        {
+                            using (SqlConnection updateConn = new SqlConnection(connectionString))
                             {
-                                Text = reader["ProductName"] + " : " + reader["Qauntity"],
-                                Font = new Font("Segoe UI", 10),
-                                Location = new Point(40, 10),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblDetails);
+                                string updateQuery = "UPDATE Orders SET OrderStatus = 'Rejected' WHERE OrderID = @OrderID";
+                                SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
+                                updateCmd.Parameters.AddWithValue("@OrderID", orderId);
 
-                            Button btnAccept = new Button
-                            {
-                                Text = "Accept",
-                                BackColor = Color.Green,
-                                ForeColor = Color.White,
-                                FlatStyle = FlatStyle.Flat,
-                                Size = new Size(70, 30),
-                                Location = new Point(300, 30)
-                            };
+                                updateConn.Open();
+                                updateCmd.ExecuteNonQuery();
+                                updateConn.Close();
 
-                            btnAccept.Click += (s, e) =>
-                            {
-                                using (SqlConnection updateConn = new SqlConnection(connectionString))
-                                {
-                                    string updateQuery = "UPDATE Orders SET OrderStatus = 'confirm' WHERE OrderID = @OrderID";
-                                    SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
-                                    updateCmd.Parameters.AddWithValue("@OrderID", orderId);
+                                MessageBox.Show("Order rejected.");
+                                LoadOrders();
+                            }
+                        };
+                        orderPanel.Controls.Add(btnReject);
 
-                                    updateConn.Open();
-                                    updateCmd.ExecuteNonQuery();
-                                    updateConn.Close();
+                        orderPanel.Resize += (s, e) =>
+                        {
+                            btnAccept.Location = new Point(orderPanel.Width - 160, 30);
+                            btnReject.Location = new Point(orderPanel.Width - 80, 30);
+                        };
 
-                                    MessageBox.Show("Order accepted!");
-                                    LoadOrders();
-                                }
-                            };
-                            orderPanel.Controls.Add(btnAccept);
-
-                            Button btnReject = new Button
-                            {
-                                Text = "Reject",
-                                BackColor = Color.Red,
-                                ForeColor = Color.White,
-                                FlatStyle = FlatStyle.Flat,
-                                Size = new Size(70, 30),
-                                Location = new Point(380, 30)
-                            };
-
-                            btnReject.Click += (s, e) =>
-                            {
-                                using (SqlConnection updateConn = new SqlConnection(connectionString))
-                                {
-                                    string updateQuery = "UPDATE Orders SET OrderStatus = 'Rejected' WHERE OrderID = @OrderID";
-                                    SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
-                                    updateCmd.Parameters.AddWithValue("@OrderID", orderId);
-
-                                    updateConn.Open();
-                                    updateCmd.ExecuteNonQuery();
-                                    updateConn.Close();
-
-                                    MessageBox.Show("Order rejected.");
-                                    LoadOrders();
-                                }
-                            };
-                            orderPanel.Controls.Add(btnReject);
-
-                            orderNumber++;
-                        }
-
-                        flowLayoutPanel1.Controls.Add(orderPanel);
+                        orderNumber++;
                     }
 
+                    flowLayoutPanel1.Controls.Add(orderPanel);
                 }
 
                 conn.Close();
             }
-
-
-
         }
 
 
