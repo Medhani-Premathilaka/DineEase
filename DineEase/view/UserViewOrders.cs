@@ -84,6 +84,7 @@ namespace DineEase.view
                     cmd.Parameters.AddWithValue("@orderId", orderId);
                     cmd.ExecuteNonQuery();
                 }
+                cnn.Close();
             }
             LoadOrders();
         }

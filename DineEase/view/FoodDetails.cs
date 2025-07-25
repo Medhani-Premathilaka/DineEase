@@ -112,7 +112,7 @@ namespace DineEase
             using (SqlConnection cnn = db.GetConnection())
             {
                 cnn.Open();
-                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
+                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus,UserId, ProductID) VALUES (@cust, @name, @price, @qty ,@date ,@status, @userId, @productId)";
                 SqlCommand sqlCommand = new SqlCommand(query, cnn);
                 using (SqlCommand cmd = sqlCommand)
                 {
@@ -124,7 +124,8 @@ namespace DineEase
                     cmd.Parameters.AddWithValue("@qty", quantity);
                     cmd.Parameters.AddWithValue("@date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@status", "Pending");
-
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@productId", productId);
 
                     cmd.ExecuteNonQuery();
                     //cnn.Close();
