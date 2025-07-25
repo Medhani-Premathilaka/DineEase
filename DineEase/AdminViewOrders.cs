@@ -50,7 +50,7 @@ namespace DineEase
 
                     Panel orderPanel = new Panel
                     {
-                        Width = 600, // Make panel stretch across
+                        Width = 700, // Make panel stretch across
                         Height = 90,
                         BackColor = Color.White,
                         BorderStyle = BorderStyle.FixedSingle,
@@ -300,6 +300,99 @@ namespace DineEase
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelOverlay_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewOrderButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
