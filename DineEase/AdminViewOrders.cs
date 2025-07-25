@@ -86,8 +86,9 @@ namespace DineEase
 
                             Label lblProduct = new Label
                             {
-                                Text = reader["ProductName"] + " : " + reader["Qauntity"],
-                                Font = new Font("Segoe UI", 10),
+                                Text = $"{reader["ProductName"]}  ×  {reader["Qauntity"]}",
+                                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                                ForeColor = Color.FromArgb(40, 40, 40),
                                 Location = new Point(40, 10),
                                 AutoSize = true
                             };
@@ -188,8 +189,10 @@ namespace DineEase
 
                         Label lblDetails = new Label
                         {
-                            Text = reader["ProductName"] + " : " + reader["Qauntity"],
-                            Font = new Font("Segoe UI", 10),
+
+                            Text = $"{reader["ProductName"]}  ×  {reader["Qauntity"]}",
+                            Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                            ForeColor = Color.FromArgb(40, 40, 40),
                             Location = new Point(40, 10),
                             AutoSize = true
                         };
