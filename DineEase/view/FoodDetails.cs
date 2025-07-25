@@ -138,6 +138,39 @@ namespace DineEase
         }
 
         private void txtCustomer_TextChanged(object sender, EventArgs e)
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            userViewFood userView = new userViewFood();
+            userView.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void increaseBtn_Click(object sender, EventArgs e)
+        {
+            quantity++;
+            lblQuantity.Text = quantity.ToString();
+        }
+
+        private void reduceBtn_Click(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                lblQuantity.Text = quantity.ToString();
+            }
+        }
+
+        private void lblDesc_Click(object sender, EventArgs e)
         {
 
         }
