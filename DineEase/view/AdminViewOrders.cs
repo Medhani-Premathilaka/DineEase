@@ -27,7 +27,7 @@ namespace DineEase
         private void LoadOrders()
         {
             flowLayoutPanel1.Controls.Clear(); // Clear existing cards
-            string query = "SELECT * FROM Orders ORDER BY OrderDate DESC";
+            string query = "SELECT * FROM Orders WHERE Finished = 0 ORDER BY OrderDate DESC";
 
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
@@ -82,7 +82,7 @@ namespace DineEase
 
                                 Label lblProduct = new Label
                                 {
-                                    Text = reader["ProductName"] + " : " + reader["Qauntity"],
+                                    Text = reader["ProductName"] + " : " + reader["Quantity"],
                                     Font = new Font("Segoe UI", 10),
                                     Location = new Point(40, 10),
                                     AutoSize = true
@@ -91,7 +91,7 @@ namespace DineEase
 
                                 Label lblCustomer = new Label
                                 {
-                                    Text = "Customer: " + reader["CustomerID"] + " - " + reader["CustomerName"],
+                                    Text = "Customer: " + reader["UserId"] + " - " + reader["CustomerName"],
                                     Font = new Font("Segoe UI", 9),
                                     Location = new Point(40, 30),
                                     AutoSize = true
@@ -138,7 +138,7 @@ namespace DineEase
                                 {
                                     using (SqlConnection deleteConn = db.GetConnection())
                                     {
-                                        string deleteQuery = "DELETE FROM Orders WHERE OrderID = @OrderID";
+                                        string deleteQuery = "UPDATE Orders SET Finished = 1 WHERE OrderID = @OrderID";
                                         SqlCommand deleteCmd = new SqlCommand(deleteQuery, deleteConn);
                                         deleteCmd.Parameters.AddWithValue("@OrderID", orderId);
 
@@ -146,15 +146,15 @@ namespace DineEase
                                         int rowsAffected = deleteCmd.ExecuteNonQuery();
                                         deleteConn.Close();
 
-                                        if (rowsAffected > 0)
-                                        {
-                                            flowLayoutPanel1.Controls.Remove(orderPanel);
-                                            MessageBox.Show("Order removed.");
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Failed to remove order.");
-                                        }
+                                        //if (rowsAffected > 0)
+                                        //{
+                                        //    flowLayoutPanel1.Controls.Remove(orderPanel);
+                                        //    MessageBox.Show("Order removed.");
+                                        //}
+                                        //else
+                                        //{
+                                        //    MessageBox.Show("Failed to remove order.");
+                                        //}
                                     }
                                 };
 
@@ -252,6 +252,7 @@ namespace DineEase
                                     btnAccept.Visible = false;
                                     btnReject.Visible = false;
 
+                                    // Create Ongoing button
                                     Button btnOngoing = new Button
                                     {
                                         Text = "Ongoing",
@@ -260,11 +261,41 @@ namespace DineEase
                                         FlatStyle = FlatStyle.Flat,
                                         Size = new Size(90, 30),
                                         Location = new Point(orderPanel.Width - 120, 30),
-                                        Enabled = false // Ongoing is just an indicator
+                                        Enabled = true // Make it clickable
                                     };
+
+                                    btnOngoing.Click += (os, oe) =>
+                                    {
+                                        using (SqlConnection doneConn = db.GetConnection())
+                                        {
+                                            string doneQuery = "UPDATE Orders SET OrderStatus = 'Done' Finished = 1 WHERE OrderID = @OrderID";
+                                            SqlCommand doneCmd = new SqlCommand(doneQuery, doneConn);
+                                            doneCmd.Parameters.AddWithValue("@OrderID", orderId);
+
+                                            doneConn.Open();
+                                            doneCmd.ExecuteNonQuery();
+                                            doneConn.Close();
+                                        }
+
+                                        btnOngoing.Text = "Done";
+                                        btnOngoing.BackColor = Color.Gray;
+                                        btnOngoing.Enabled = false;
+
+                                        // Fade out (remove) the card after 5 seconds
+                                        Timer fadeTimer = new Timer();
+                                        fadeTimer.Interval = 5000; // 5 seconds
+                                        fadeTimer.Tick += (sender2, e2) =>
+                                        {
+                                            fadeTimer.Stop();
+                                            flowLayoutPanel1.Controls.Remove(orderPanel);
+                                            fadeTimer.Dispose();
+                                        };
+                                        fadeTimer.Start();
+                                    };
+
                                     orderPanel.Controls.Add(btnOngoing);
                                     MessageBox.Show("Order accepted!");
-                                    //LoadOrders();
+                                    // Optionally: LoadOrders();
                                 }
                             };
                             orderPanel.Controls.Add(btnAccept);
