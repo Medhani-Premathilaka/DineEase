@@ -41,6 +41,8 @@ namespace DineEase
 
                     int orderNumber = 1;
 
+
+
                     while (reader.Read())
                     {
                         string orderStatus = reader["OrderStatus"].ToString();
@@ -71,49 +73,7 @@ namespace DineEase
                         if (orderStatus.ToLower() == "done")
                         {
                             {
-                                Label lblNumber = new Label
-                                {
-                                    Text = orderNumber.ToString() + ".",
-                                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                                    Location = new Point(10, 10),
-                                    AutoSize = true
-                                };
-                                orderPanel.Controls.Add(lblNumber);
 
-                                Label lblProduct = new Label
-                                {
-                                    Text = reader["ProductName"] + " : " + reader["Quantity"],
-                                    Font = new Font("Segoe UI", 10),
-                                    Location = new Point(40, 10),
-                                    AutoSize = true
-                                };
-                                orderPanel.Controls.Add(lblProduct);
-
-                                Label lblCustomer = new Label
-                                {
-                                    Text = "Customer: " + reader["UserId"] + " - " + reader["CustomerName"],
-                                    Font = new Font("Segoe UI", 9),
-                                    Location = new Point(40, 30),
-                                    AutoSize = true
-                                };
-                                orderPanel.Controls.Add(lblCustomer);
-
-
-                                DateTime orderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                                formattedDate = (orderDateTime.Date == DateTime.Today)
-                                ? "Today " + orderDateTime.ToString("h:mm tt").ToLower()
-                                : orderDateTime.ToString("dd MMM yyyy h:mm tt").ToLower();
-
-
-                                Label lblTime = new Label
-                                {
-                                    Text = formattedDate,
-                                    Font = new Font("Segoe UI", 9, FontStyle.Italic),
-                                    ForeColor = Color.Gray,
-                                    AutoSize = true,
-                                    Location = new Point(40, 50)
-                                };
-                                orderPanel.Controls.Add(lblTime);
 
                                 Label lblPrice = new Label
                                 {
@@ -170,8 +130,7 @@ namespace DineEase
                                 orderNumber++;
                             }
                         }
-
-                        else
+                        else if (orderStatus.ToLower() == "ongoing" || orderStatus.ToLower() == "confirmed")
                         {
                             Label lblNumber = new Label
                             {
@@ -200,6 +159,122 @@ namespace DineEase
                             };
                             orderPanel.Controls.Add(lblCustomer);
 
+                            Label lblPrice = new Label
+                            {
+                                Text = "Price: Rs. " + reader["Price"],
+                                Font = new Font("Segoe UI", 9),
+                                Location = new Point(200, 30),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblPrice);
+
+                            // Date formatting logic
+                            DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                            string innerFormattedDate = (innerOrderDateTime.Date == DateTime.Today)
+                                ? "Today " + innerOrderDateTime.ToString("h:mm tt")
+                                : innerOrderDateTime.ToString("dd MMM yyyy h:mm tt");
+
+                            // Date label
+                            Label innerLblTime = new Label
+                            {
+                                Text = innerFormattedDate,
+                                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                                ForeColor = Color.Gray,
+                                AutoSize = true,
+                                Location = new Point(40, 35) // adjust Y if needed
+                            };
+                            orderPanel.Controls.Add(innerLblTime);
+
+                            Button btnOngoing = new Button
+                            {
+                                Text = "Ongoing",
+                                BackColor = Color.Orange,
+                                ForeColor = Color.White,
+                                FlatStyle = FlatStyle.Flat,
+                                Size = new Size(70, 30),
+                                Location = new Point(orderPanel.Width - 80, 30),
+                                Enabled = true // Not clickable
+                            };
+                            orderPanel.Controls.Add(btnOngoing);
+                            orderPanel.Resize += (sender2, e2) =>
+                            {
+                                btnOngoing.Location = new Point(orderPanel.Width - 80, 30);
+                            };
+                            btnOngoing.Click += (os, oe) =>
+                            {
+                                using (SqlConnection doneConn = db.GetConnection())
+                                {
+                                    string doneQuery = "UPDATE Orders SET OrderStatus = 'Done' , Finished = 1 WHERE OrderID = @OrderID";
+                                    SqlCommand doneCmd = new SqlCommand(doneQuery, doneConn);
+                                    doneCmd.Parameters.AddWithValue("@OrderID", orderId);
+
+                                    doneConn.Open();
+                                    doneCmd.ExecuteNonQuery();
+                                    doneConn.Close();
+                                }
+
+                                btnOngoing.Text = "Done";
+                                btnOngoing.BackColor = Color.Gray;
+                                btnOngoing.Enabled = false;
+
+                                // Fade out (remove) the card after 5 seconds
+                                Timer fadeTimer = new Timer();
+                                fadeTimer.Interval = 5000; // 5 seconds
+                                fadeTimer.Tick += (sender2, e2) =>
+                                {
+                                    fadeTimer.Stop();
+                                    flowLayoutPanel1.Controls.Remove(orderPanel);
+                                    fadeTimer.Dispose();
+                                };
+                                fadeTimer.Start();
+                            };
+
+                            //orderPanel.Resize += (s, e) =>
+                            //{
+                            //    btnOngoing.Location = new Point(orderPanel.Width - 80, 30);
+                            //};
+                        }
+                        // Inside the else block of while (reader.Read())
+
+
+                        else
+                        {
+                            // Existing Accept/Reject logic
+                            Label lblNumber = new Label
+                            {
+                                Text = orderNumber.ToString() + ".",
+                                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                                Location = new Point(10, 10),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblNumber);
+
+                            Label lblDetails = new Label
+                            {
+                                Text = reader["ProductName"] + " : " + reader["Quantity"],
+                                Font = new Font("Segoe UI", 10),
+                                Location = new Point(40, 10),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblDetails);
+
+                            Label lblCustomer = new Label
+                            {
+                                Text = "Customer: " + reader["UserId"].ToString() + " - " + reader["CustomerName"].ToString(),
+                                Font = new Font("Segoe UI", 9),
+                                Location = new Point(40, 55), // Below the date
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblCustomer);
+
+                            Label lblPrice = new Label
+                            {
+                                Text = "Price: Rs. " + reader["Price"],
+                                Font = new Font("Segoe UI", 9),
+                                Location = new Point(200, 30),
+                                AutoSize = true
+                            };
+                            orderPanel.Controls.Add(lblPrice);
 
                             // Date formatting logic
                             DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
@@ -240,6 +315,7 @@ namespace DineEase
                             {
                                 using (SqlConnection updateConn = db.GetConnection())
                                 {
+                                    // Set status to 'Ongoing'
                                     string updateQuery = "UPDATE Orders SET OrderStatus = 'Confirmed' WHERE OrderID = @OrderID";
                                     SqlCommand updateCmd = new SqlCommand(updateQuery, updateConn);
                                     updateCmd.Parameters.AddWithValue("@OrderID", orderId);
@@ -259,16 +335,20 @@ namespace DineEase
                                         BackColor = Color.Orange,
                                         ForeColor = Color.White,
                                         FlatStyle = FlatStyle.Flat,
-                                        Size = new Size(90, 30),
-                                        Location = new Point(orderPanel.Width - 120, 30),
-                                        Enabled = true // Make it clickable
+                                        Size = new Size(70, 30),
+                                        Location = new Point(orderPanel.Width - 80, 30),
+                                        Enabled = true // Not clickable
                                     };
-
+                                    orderPanel.Controls.Add(btnOngoing);
+                                    orderPanel.Resize += (sender2, e2) =>
+                                    {
+                                        btnOngoing.Location = new Point(orderPanel.Width - 80, 30);
+                                    };
                                     btnOngoing.Click += (os, oe) =>
                                     {
                                         using (SqlConnection doneConn = db.GetConnection())
                                         {
-                                            string doneQuery = "UPDATE Orders SET OrderStatus = 'Done' Finished = 1 WHERE OrderID = @OrderID";
+                                            string doneQuery = "UPDATE Orders SET OrderStatus = 'Done' , Finished = 1 WHERE OrderID = @OrderID";
                                             SqlCommand doneCmd = new SqlCommand(doneQuery, doneConn);
                                             doneCmd.Parameters.AddWithValue("@OrderID", orderId);
 
@@ -292,27 +372,24 @@ namespace DineEase
                                         };
                                         fadeTimer.Start();
                                     };
-
-                                    orderPanel.Controls.Add(btnOngoing);
-                                    MessageBox.Show("Order accepted!");
-                                    // Optionally: LoadOrders();
                                 }
+
+                                MessageBox.Show("Order accepted!");
+                                // Optionally: LoadOrders();
                             };
+
+
                             orderPanel.Controls.Add(btnAccept);
-
-
 
                             btnReject.Click += (s, e) =>
                             {
-                                //var db = dao.DBConnection.getInstance();
                                 using (SqlConnection updateCon = db.GetConnection())
                                 {
                                     updateCon.Open();
-                                    string updateQuery = "UPDATE Orders SET OrderStatus = 'Rejected' WHERE OrderID = @OrderID";
+                                    string updateQuery = "UPDATE Orders SET OrderStatus = 'Rejected' , Finished = 1 WHERE OrderID = @OrderID";
                                     SqlCommand updateCmd = new SqlCommand(updateQuery, updateCon);
                                     updateCmd.Parameters.AddWithValue("@OrderID", orderId);
 
-                                    //updateCon.Open();
                                     updateCmd.ExecuteNonQuery();
                                     updateCon.Close();
 
@@ -336,10 +413,12 @@ namespace DineEase
                                 btnReject.Location = new Point(orderPanel.Width - 80, 30);
                             };
 
-                            orderNumber++;
-                        }
 
+                        }
+                        orderNumber++;
                         flowLayoutPanel1.Controls.Add(orderPanel);
+
+                        //flowLayoutPanel1.Controls.Add(orderPanel);
                     }
 
                     cnn.Close();
