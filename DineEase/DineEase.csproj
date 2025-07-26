@@ -58,7 +58,6 @@
 
     <Compile Include="dao\Order.cs" />
 
-    <Compile Include="view\FoodDetails.cs" />
 
     <Compile Include="ShowPage.cs" />
     <Compile Include="ShowPageFactory.cs" />
