@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 
@@ -141,12 +135,19 @@ namespace DineEase.view
             blur.Location = this.Location;
             blur.Owner = this;
             blur.Show();
+            string userId = CurrentUser.UserId; // Example: static property or passed from login
 
-            FoodDetails detailsForm = new FoodDetails(productId);
-            detailsForm.StartPosition = FormStartPosition.CenterParent;
-            detailsForm.ShowDialog();
+            var foodDetailsForm = new FoodDetails(productId, userId);
+            //FoodDetails detailsForm = new FoodDetails(UserId, productId);
+            foodDetailsForm.StartPosition = FormStartPosition.CenterParent;
+            foodDetailsForm.ShowDialog();
 
             blur.Close();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
