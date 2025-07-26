@@ -5,7 +5,6 @@ using System.IO;
 using System.Windows.Forms;
 using DineEase.view;
 using Guna.UI2.WinForms;
-using Guna.UI2.WinForms.Suite;
 
 namespace DineEase
 {
@@ -138,7 +137,7 @@ namespace DineEase
             blur.Owner = this;
             blur.Show();
 
-            FoodDetails detailsForm = new FoodDetails(productId);
+            //FoodDetails detailsForm = new FoodDetails(productId);
             detailsForm.StartPosition = FormStartPosition.CenterParent;
 
             detailsForm.ShowDialog();
@@ -260,9 +259,9 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            
 
-            
+
+
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -278,13 +277,13 @@ namespace DineEase
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
-
+        }
         private void profileBtn_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
 
             AdminProfile prf = new AdminProfile();
-            prf.TopLevel =false;
+            prf.TopLevel = false;
             prf.FormBorderStyle = FormBorderStyle.None;
             prf.Dock = DockStyle.Fill;
 
