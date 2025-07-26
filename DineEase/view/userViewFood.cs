@@ -31,7 +31,7 @@ namespace DineEase
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
-            
+
 
             using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
@@ -40,7 +40,7 @@ namespace DineEase
 
                 while (reader.Read())
                 {
-                    
+
                     Guna2ShadowPanel card = new Guna2ShadowPanel
                     {
                         Width = 180,
@@ -122,10 +122,15 @@ namespace DineEase
 
         private void Card_Click(object sender, EventArgs e)
         {
-            
+
             Control clicked = sender as Control;
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
+
+
+            string userId = CurrentUser.UserId;
+            FoodDetails detailsForm = new FoodDetails(productId, userId);
+            //ShowFoodDetails(productId);
 
             BlurForm blur = new BlurForm();
             blur.Size = this.Size;
@@ -135,6 +140,7 @@ namespace DineEase
 
             FoodDetails detailsForm = new FoodDetails(productId);
             detailsForm.StartPosition = FormStartPosition.CenterParent;
+
             detailsForm.ShowDialog();
 
             blur.Close();
@@ -175,9 +181,15 @@ namespace DineEase
             this.Show();
         }
 
+        private void userViewOrders_Click(object sender, EventArgs e)
+        {
+            var userOrdersView = new UserViewOrders();
+            userOrdersView.Show();
+        }
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-
+            var userOrdersView = new UserViewOrders();
+            userOrdersView.Show();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -263,6 +275,10 @@ namespace DineEase
 
         }
 
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+
         private void profileBtn_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -274,6 +290,7 @@ namespace DineEase
 
             flowLayoutPanel1.Controls.Add(prf);
             prf.Show();
+
         }
     }
 }

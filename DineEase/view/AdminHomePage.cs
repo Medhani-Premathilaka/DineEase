@@ -1,10 +1,10 @@
-﻿using Guna.UI2.WinForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 
 namespace DineEase
@@ -37,7 +37,7 @@ namespace DineEase
 
                 try
                 {
-                    cnn.Open();
+                    //cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     var itemsByCategory = new Dictionary<string, List<Dictionary<string, object>>>();
@@ -255,7 +255,7 @@ namespace DineEase
             using (SqlConnection cnn = db.GetConnection())
             {
                 cnn.Open();
-                string deleteQuery = "DELETE FROM menu WHERE name = @name";
+                string deleteQuery = "DELETE FROM FoodProduct WHERE ProductName = @name";
 
                 using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn))
                 {
@@ -329,7 +329,7 @@ namespace DineEase
         {
             AddItemPage addItemPage = new AddItemPage();
             addItemPage.Show();
-            this.Hide();
+            //this.Hide();
 
         }
 
@@ -353,7 +353,7 @@ namespace DineEase
             DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            
+
         }
 
         private void guna2ControlBox3_Click(object sender, EventArgs e)
@@ -382,7 +382,9 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            var adminViewOrders = new AdminViewOrders();
+            adminViewOrders.Show();
+            this.Hide();
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
@@ -431,7 +433,7 @@ namespace DineEase
                     settingButton.Visible = true;
                     profileButton.Visible = true;
 
-                    guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
+                    guna2ImageButton1.Image = Image.FromFile(@"Resources\\collaps.png");
 
                     AdjustControlPositions();
                 }
@@ -445,7 +447,7 @@ namespace DineEase
                 settingButton.Visible = false;
                 profileButton.Visible = false;
 
-                guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\icon-park-outline_expand-left.png");
+                guna2ImageButton1.Image = Image.FromFile(@"Resources\\expand.png");
 
                 guna2Panel1.Width -= 60; // Decrease width step-by-step
                 if (guna2Panel1.Width <= panelCollapsedWidth)

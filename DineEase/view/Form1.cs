@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
@@ -148,39 +149,57 @@ namespace DineEase
             using (SqlConnection cnn = db.GetConnection())
             {
                 cnn.Open();
-                string query = "SELECT Role FROM Users WHERE UserId = @username AND Password = @password";
+                string query = "SELECT UserId , Role, Name FROM Users WHERE UserId = @username AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
                     cmd.Parameters.AddWithValue("@username", enteredUsername);
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
 
 
-                    var role = cmd.ExecuteScalar() as string;
+                    //var role = cmd.ExecuteScalar() as string;
 
 
-                    //if (role == "ADMIN")
+                    ////if (role == "ADMIN")
+                    ////{
+                    ////    AdminHomePage adminForm = new AdminHomePage();
+                    ////    adminForm.Show();
+                    ////    this.Hide();
+                    ////}
+                    ////else if (role == "USER")
+                    ////{
+                    ////    userViewFood userForm = new userViewFood();
+                    ////    userForm.Show();
+                    ////    this.Hide();
+                    ////}
+                    //if (role == "ADMIN" || role == "USER")
                     //{
-                    //    AdminHomePage adminForm = new AdminHomePage();
-                    //    adminForm.Show();
+                    //    var nextPage = PageFactory.CreatePage(role);
+                    //    nextPage.showPage();
                     //    this.Hide();
                     //}
-                    //else if (role == "USER")
-                    //{
-                    //    userViewFood userForm = new userViewFood();
-                    //    userForm.Show();
-                    //    this.Hide();
-                    //}
-                    if (role == "ADMIN" || role == "USER")
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        var nextPage = PageFactory.CreatePage(role);
-                        nextPage.showPage();
-                        this.Hide();
+                        if (reader.Read())
+                        {
+                            string userId = reader["UserId"].ToString();
+                            string role = reader["Role"].ToString();
+                            string name = reader["Name"].ToString();
+
+                            CurrentUser.UserId = userId;
+                            CurrentUser.Username = name;
+
+                            var nextPage = PageFactory.CreatePage(role);
+                            nextPage.showPage();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            lblerror.Text = "Invalid username or password.";
+                            lblerror.Visible = true;
+                        }
                     }
-                    else
-                    {
-                        lblerror.Text = "Invalid username or password.";
-                        lblerror.Visible = true;
-                    }
+
                 }
 
 

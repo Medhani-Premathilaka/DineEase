@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using DineEase.view;
 
 namespace DineEase
 {
@@ -15,19 +14,15 @@ namespace DineEase
         string productName = "";
         decimal price = 0;
         int quantity = 1;
-        string userId;
-        private object dgvFoodItems;
 
-        public FoodDetails(int id, string userId)
+
+        public FoodDetails(int id)
         {
             InitializeComponent();
             this.TopMost = true;
             this.ControlBox = false;
             productId = id;
-            this.userId = userId;
-            dgvFoodItems = new object();
         }
-
 
         private void LoadDetails()
         {
@@ -56,9 +51,7 @@ namespace DineEase
                             pictureBox1.Image = Image.FromStream(ms);
                         }
                     }
-
                 }
-                cnn.Close();
             }
         }
 
@@ -74,10 +67,43 @@ namespace DineEase
             lblQuantity.Text = quantity.ToString();
         }
 
+        private void btnAddToOrder_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+            {
+                MessageBox.Show("Enter customer name.");
+                return;
+            }
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            {
+                cnn.Open();
+                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus) VALUES (@cust, @name, @price, @qty ,@date ,@status)";
+                SqlCommand sqlCommand = new SqlCommand(query, cnn);
+                using (SqlCommand cmd = sqlCommand)
+                {
+
+
+                    cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+                    cmd.Parameters.AddWithValue("@name", productName);
+                    cmd.Parameters.AddWithValue("@price", price);
+                    cmd.Parameters.AddWithValue("@qty", quantity);
+                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@status", "Pending");
+
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+                    cnn.Close();
+
+                    MessageBox.Show("Item added to order.");
+                    this.Close();
+                }
+            }
+        }
 
         private void Closebtn_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
         private void btnIncrease_Click_1(object sender, EventArgs e)
@@ -100,51 +126,6 @@ namespace DineEase
 
         }
 
-        private void btnAddToOrder_Click_1(object sender, EventArgs e)
-        {
-            string userId = CurrentUser.UserId; // Example: static property or passed from login
-
-            var foodDetailsForm = new FoodDetails(productId, userId);
-            //foodDetailsForm.ShowDialog();
-
-            //if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            //{
-            //    MessageBox.Show("Enter customer name.");
-            //    return;
-            //}
-            var db = dao.DBConnection.getInstance();
-            using (SqlConnection cnn = db.GetConnection())
-            {
-                cnn.Open();
-                string query = "INSERT INTO Orders (CustomerName, ProductName, Price, Quantity , OrderDate , OrderStatus,UserId, ProductID) VALUES (@cust, @name, @price, @qty ,@date ,@status, @userId, @productId)";
-                SqlCommand sqlCommand = new SqlCommand(query, cnn);
-                using (SqlCommand cmd = sqlCommand)
-                {
-
-
-                    cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
-                    cmd.Parameters.AddWithValue("@name", productName);
-                    cmd.Parameters.AddWithValue("@price", price * quantity);
-                    cmd.Parameters.AddWithValue("@qty", quantity);
-                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@status", "Pending");
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@productId", productId);
-
-                    cmd.ExecuteNonQuery();
-                    //cnn.Close();
-
-                    MessageBox.Show("Item added to order.");
-                    this.Close();
-                }
-                cnn.Close();
-            }
-        }
-
-        private void txtCustomer_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void lblName_Click(object sender, EventArgs e)
         {
 
@@ -181,8 +162,9 @@ namespace DineEase
 
         }
 
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
