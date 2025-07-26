@@ -1,10 +1,10 @@
-﻿using Guna.UI2.WinForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 
 namespace DineEase
@@ -353,7 +353,7 @@ namespace DineEase
             DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            
+
         }
 
         private void guna2ControlBox3_Click(object sender, EventArgs e)
@@ -431,7 +431,7 @@ namespace DineEase
                     settingButton.Visible = true;
                     profileButton.Visible = true;
 
-                    guna2ImageButton1.Image = Image.FromFile(@"C:\Users\IMASHA THARUSHI\Desktop\rad3\DineEase\DineEase\Resources\iconoir_sidebar-collapse.png");
+                    guna2ImageButton1.Image = Image.FromFile(@"Resources\iconoir_sidebar-collapse.png");
 
                     AdjustControlPositions();
                 }

@@ -96,18 +96,18 @@ namespace DineEase
 
         }
 
-        private void btnAddToOrder_Click(object sender, EventArgs e)
+        private void btnAddToOrder_Click_1(object sender, EventArgs e)
         {
             string userId = CurrentUser.UserId; // Example: static property or passed from login
 
             var foodDetailsForm = new FoodDetails(productId, userId);
             //foodDetailsForm.ShowDialog();
 
-            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            {
-                MessageBox.Show("Enter customer name.");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+            //{
+            //    MessageBox.Show("Enter customer name.");
+            //    return;
+            //}
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
             {
@@ -138,6 +138,9 @@ namespace DineEase
         }
 
         private void txtCustomer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void lblName_Click(object sender, EventArgs e)
         {
 
@@ -174,5 +177,7 @@ namespace DineEase
         {
 
         }
+
+
     }
 }

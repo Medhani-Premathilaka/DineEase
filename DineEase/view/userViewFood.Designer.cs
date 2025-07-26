@@ -261,18 +261,18 @@
             // 
             // userViewOrders
             // 
-            this.userViewOrders.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.userViewOrders.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.userViewOrders.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.userViewOrders.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.userViewOrders.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.userViewOrders.ForeColor = System.Drawing.Color.White;
-            this.userViewOrders.Location = new System.Drawing.Point(29, 10);
-            this.userViewOrders.Name = "userViewOrders";
-            this.userViewOrders.Size = new System.Drawing.Size(160, 43);
-            this.userViewOrders.TabIndex = 1;
-            this.userViewOrders.Text = "userViewOrders";
-            this.userViewOrders.Click += new System.EventHandler(this.userViewOrders_Click);
+            //this.userViewOrders.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            //this.userViewOrders.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            //this.userViewOrders.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            //this.userViewOrders.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            //this.userViewOrders.Font = new System.Drawing.Font("Segoe UI", 9F);
+            //this.userViewOrders.ForeColor = System.Drawing.Color.White;
+            //this.userViewOrders.Location = new System.Drawing.Point(29, 10);
+            //this.userViewOrders.Name = "userViewOrders";
+            //this.userViewOrders.Size = new System.Drawing.Size(160, 43);
+            //this.userViewOrders.TabIndex = 1;
+            //this.userViewOrders.Text = "userViewOrders";
+            //this.userViewOrders.Click += new System.EventHandler(this.userViewOrders_Click);
             // 
             // guna2ControlBox1
             // 
