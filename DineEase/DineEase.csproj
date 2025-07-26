@@ -55,7 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="dao\Order.cs" />
+
+    <Compile Include="view\FoodDetails.cs" />
+
     <Compile Include="ShowPage.cs" />
     <Compile Include="ShowPageFactory.cs" />
     <Compile Include="view\AddItemPage.cs">
@@ -92,9 +96,6 @@
     </Compile>
     <Compile Include="view\BlurForm.Designer.cs">
       <DependentUpon>BlurForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\FoodDetails.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\FoodDetails.Designer.cs">
       <DependentUpon>FoodDetails.cs</DependentUpon>
