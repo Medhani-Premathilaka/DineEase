@@ -19,7 +19,7 @@ namespace DineEase.view
             this.StartPosition = FormStartPosition.Manual;
             this.WindowState = FormWindowState.Maximized;
             this.BackColor = Color.Black;
-            this.Opacity = 0.7;  // You can adjust the opacity
+            this.Opacity = 0.6;  // You can adjust the opacity
             this.ShowInTaskbar = false;
             this.TopMost = true;
         }

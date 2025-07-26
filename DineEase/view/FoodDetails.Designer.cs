@@ -152,6 +152,7 @@
             this.btnAddToOrder.Size = new System.Drawing.Size(219, 46);
             this.btnAddToOrder.TabIndex = 18;
             this.btnAddToOrder.Text = "Order Now";
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
             // guna2ShadowPanel1
             // 

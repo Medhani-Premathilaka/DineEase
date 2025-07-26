@@ -161,5 +161,10 @@ namespace DineEase
         {
 
         }
+
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
