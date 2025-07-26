@@ -87,6 +87,15 @@
     </Compile>
     <Compile Include="dao\DBConnection.cs" />
     <Compile Include="dao\CurrentUser.cs" />
+    <Compile Include="view\BlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\BlurForm.Designer.cs">
+      <DependentUpon>BlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FoodDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="view\FoodDetails.Designer.cs">
       <DependentUpon>FoodDetails.cs</DependentUpon>
     </Compile>
@@ -104,6 +113,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="view\navigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\navigationForm.Designer.cs">
+      <DependentUpon>navigationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +130,12 @@
     </Compile>
     <Compile Include="view\UpdateItemPage.Designer.cs">
       <DependentUpon>UpdateItemPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\UserHome.Designer.cs">
+      <DependentUpon>UserHome.cs</DependentUpon>
     </Compile>
     <Compile Include="view\UserProfile.cs">
       <SubType>Form</SubType>
@@ -154,11 +175,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\navigationForm.resx">
+      <DependentUpon>navigationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\UpdateItemPage.resx">
       <DependentUpon>UpdateItemPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserHome.resx">
+      <DependentUpon>UserHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>

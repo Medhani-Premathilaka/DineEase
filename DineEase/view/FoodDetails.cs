@@ -9,6 +9,8 @@ namespace DineEase
 {
     public partial class FoodDetails : Form
     {
+      
+
         int productId;
         string productName = "";
         decimal price = 0;
@@ -19,6 +21,8 @@ namespace DineEase
         public FoodDetails(int id, string userId)
         {
             InitializeComponent();
+            this.TopMost = true;
+            this.ControlBox = false;
             productId = id;
             this.userId = userId;
             dgvFoodItems = new object();
@@ -149,8 +153,7 @@ namespace DineEase
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            userViewFood userView = new userViewFood();
-            userView.Show();
+ 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -177,6 +180,8 @@ namespace DineEase
         {
 
         }
+
+
 
 
     }

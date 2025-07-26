@@ -1,6 +1,16 @@
 ﻿using System;
+
 using System.Data.SqlClient;
 using System.Drawing;
+
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -8,7 +18,7 @@ namespace DineEase
     public partial class AdminViewOrders : Form
     {
 
-        //string connectionString = @"Data Source=DESKTOP-TAR59NP\SQLEXPRESS;Initial Catalog=dineEase;Integrated Security=True";
+
         public AdminViewOrders()
         {
             InitializeComponent();
@@ -27,6 +37,7 @@ namespace DineEase
         private void LoadOrders()
         {
             flowLayoutPanel1.Controls.Clear(); // Clear existing cards
+
             string query = "SELECT * FROM Orders WHERE Finished = 0 ORDER BY OrderDate DESC";
 
             var db = dao.DBConnection.getInstance();
@@ -131,6 +142,7 @@ namespace DineEase
                             }
                         }
                         else if (orderStatus.ToLower() == "ongoing" || orderStatus.ToLower() == "confirmed")
+
                         {
                             Label lblNumber = new Label
                             {
@@ -144,10 +156,12 @@ namespace DineEase
                             Label lblDetails = new Label
                             {
                                 Text = reader["ProductName"] + " : " + reader["Quantity"],
+
                                 Font = new Font("Segoe UI", 10),
                                 Location = new Point(40, 10),
                                 AutoSize = true
                             };
+
                             orderPanel.Controls.Add(lblDetails);
 
                             Label lblCustomer = new Label
@@ -155,9 +169,11 @@ namespace DineEase
                                 Text = "Customer: " + reader["UserId"].ToString() + " - " + reader["CustomerName"].ToString(),
                                 Font = new Font("Segoe UI", 9),
                                 Location = new Point(40, 55), // Below the date
+
                                 AutoSize = true
                             };
                             orderPanel.Controls.Add(lblCustomer);
+
 
                             Label lblPrice = new Label
                             {
@@ -423,6 +439,7 @@ namespace DineEase
 
                     cnn.Close();
                 }
+
             }
         }
 

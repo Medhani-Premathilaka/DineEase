@@ -74,14 +74,13 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.Size = new System.Drawing.Size(103, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "User Profile";
             // 
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            //this.guna2CirclePictureBox1.Image = global::DineEase.Properties.Resources.user_admin_img;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(131, 46);
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -246,12 +245,13 @@
             // 
             // UserProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(420, 549);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.ClientSize = new System.Drawing.Size(472, 686);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UserProfile";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
