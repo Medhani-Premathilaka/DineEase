@@ -1,6 +1,6 @@
 ﻿namespace DineEase.view
 {
-    partial class navigationForm
+    partial class AdminNavigation
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.logoutBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.logo = new System.Windows.Forms.PictureBox();
             this.profileBtn = new Guna.UI2.WinForms.Guna2Button();
             this.settingBtn = new Guna.UI2.WinForms.Guna2Button();
             this.historyBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ordersBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.homeBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.viewBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -48,8 +50,6 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -58,14 +58,14 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
-            this.guna2Panel1.Controls.Add(this.guna2Button1);
+            this.guna2Panel1.Controls.Add(this.logoutBtn);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton7);
             this.guna2Panel1.Controls.Add(this.logo);
             this.guna2Panel1.Controls.Add(this.profileBtn);
             this.guna2Panel1.Controls.Add(this.settingBtn);
             this.guna2Panel1.Controls.Add(this.historyBtn);
-            this.guna2Panel1.Controls.Add(this.ordersBtn);
-            this.guna2Panel1.Controls.Add(this.homeBtn);
+            this.guna2Panel1.Controls.Add(this.viewBtn);
+            this.guna2Panel1.Controls.Add(this.addBtn);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton6);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton5);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton4);
@@ -76,7 +76,38 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(284, 1083);
-            this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.TabIndex = 1;
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.AutoRoundedCorners = true;
+            this.logoutBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.logoutBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.logoutBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.logoutBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.logoutBtn.FillColor = System.Drawing.Color.Transparent;
+            this.logoutBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutBtn.ForeColor = System.Drawing.Color.White;
+            this.logoutBtn.Location = new System.Drawing.Point(148, 1007);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(136, 45);
+            this.logoutBtn.TabIndex = 26;
+            this.logoutBtn.Text = "Logout";
+            this.logoutBtn.Visible = false;
+            // 
+            // guna2ImageButton7
+            // 
+            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2ImageButton7.Image = global::DineEase.Properties.Resources.gg_profile__1_;
+            this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton7.ImageRotate = 0F;
+            this.guna2ImageButton7.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton7.Location = new System.Drawing.Point(12, 1007);
+            this.guna2ImageButton7.Name = "guna2ImageButton7";
+            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton7.Size = new System.Drawing.Size(64, 54);
+            this.guna2ImageButton7.TabIndex = 25;
             // 
             // logo
             // 
@@ -99,13 +130,12 @@
             this.profileBtn.FillColor = System.Drawing.Color.Transparent;
             this.profileBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(142, 854);
+            this.profileBtn.Location = new System.Drawing.Point(145, 854);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(136, 45);
             this.profileBtn.TabIndex = 23;
             this.profileBtn.Text = "Profile";
             this.profileBtn.Visible = false;
-            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // settingBtn
             // 
@@ -117,7 +147,7 @@
             this.settingBtn.FillColor = System.Drawing.Color.Transparent;
             this.settingBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingBtn.ForeColor = System.Drawing.Color.White;
-            this.settingBtn.Location = new System.Drawing.Point(142, 774);
+            this.settingBtn.Location = new System.Drawing.Point(148, 774);
             this.settingBtn.Name = "settingBtn";
             this.settingBtn.Size = new System.Drawing.Size(136, 45);
             this.settingBtn.TabIndex = 22;
@@ -134,48 +164,47 @@
             this.historyBtn.FillColor = System.Drawing.Color.Transparent;
             this.historyBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyBtn.ForeColor = System.Drawing.Color.White;
-            this.historyBtn.Location = new System.Drawing.Point(141, 612);
+            this.historyBtn.Location = new System.Drawing.Point(145, 603);
             this.historyBtn.Name = "historyBtn";
             this.historyBtn.Size = new System.Drawing.Size(136, 45);
             this.historyBtn.TabIndex = 21;
             this.historyBtn.Text = "History";
             this.historyBtn.Visible = false;
             // 
-            // ordersBtn
+            // viewBtn
             // 
-            this.ordersBtn.AutoRoundedCorners = true;
-            this.ordersBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ordersBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ordersBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ordersBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ordersBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ordersBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ordersBtn.ForeColor = System.Drawing.Color.White;
-            this.ordersBtn.Location = new System.Drawing.Point(141, 520);
-            this.ordersBtn.Name = "ordersBtn";
-            this.ordersBtn.Size = new System.Drawing.Size(136, 45);
-            this.ordersBtn.TabIndex = 20;
-            this.ordersBtn.Text = "Orders";
-            this.ordersBtn.Visible = false;
-            this.ordersBtn.Click += new System.EventHandler(this.ordersBtn_Click);
+            this.viewBtn.AutoRoundedCorners = true;
+            this.viewBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.viewBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.viewBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.viewBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.viewBtn.FillColor = System.Drawing.Color.Transparent;
+            this.viewBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewBtn.ForeColor = System.Drawing.Color.White;
+            this.viewBtn.Location = new System.Drawing.Point(88, 520);
+            this.viewBtn.Name = "viewBtn";
+            this.viewBtn.Size = new System.Drawing.Size(196, 45);
+            this.viewBtn.TabIndex = 20;
+            this.viewBtn.Text = "View Orders";
+            this.viewBtn.Visible = false;
             // 
-            // homeBtn
+            // addBtn
             // 
-            this.homeBtn.AutoRoundedCorners = true;
-            this.homeBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.homeBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.homeBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.homeBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.homeBtn.FillColor = System.Drawing.Color.Transparent;
-            this.homeBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeBtn.ForeColor = System.Drawing.Color.White;
-            this.homeBtn.Location = new System.Drawing.Point(141, 431);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(136, 45);
-            this.homeBtn.TabIndex = 19;
-            this.homeBtn.Text = "Home";
-            this.homeBtn.Visible = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            this.addBtn.AutoRoundedCorners = true;
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.FillColor = System.Drawing.Color.Transparent;
+            this.addBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Location = new System.Drawing.Point(121, 431);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(163, 45);
+            this.addBtn.TabIndex = 19;
+            this.addBtn.Text = "Add items";
+            this.addBtn.Visible = false;
+            this.addBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
             // guna2ImageButton6
             // 
@@ -190,7 +219,6 @@
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton6.Size = new System.Drawing.Size(64, 54);
             this.guna2ImageButton6.TabIndex = 18;
-            this.guna2ImageButton6.Click += new System.EventHandler(this.guna2ImageButton6_Click);
             // 
             // guna2ImageButton5
             // 
@@ -219,7 +247,6 @@
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton4.Size = new System.Drawing.Size(64, 54);
             this.guna2ImageButton4.TabIndex = 16;
-            this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton4_Click);
             // 
             // guna2ImageButton3
             // 
@@ -234,7 +261,6 @@
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton3.Size = new System.Drawing.Size(64, 54);
             this.guna2ImageButton3.TabIndex = 15;
-            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton3_Click);
             // 
             // guna2ImageButton2
             // 
@@ -272,34 +298,33 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
             this.guna2Panel2.Controls.Add(this.guna2ControlBox3);
             this.guna2Panel2.Controls.Add(this.guna2ControlBox2);
             this.guna2Panel2.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel2.Location = new System.Drawing.Point(284, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(677, 40);
-            this.guna2Panel2.TabIndex = 1;
+            this.guna2Panel2.Size = new System.Drawing.Size(677, 41);
+            this.guna2Panel2.TabIndex = 2;
             // 
             // guna2ControlBox3
             // 
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2ControlBox3.Location = new System.Drawing.Point(578, 6);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(629, 3);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox3.TabIndex = 2;
+            this.guna2ControlBox3.Click += new System.EventHandler(this.guna2ControlBox3_Click);
             // 
             // guna2ControlBox2
             // 
             this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2ControlBox2.Location = new System.Drawing.Point(527, 6);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(578, 3);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox2.TabIndex = 1;
@@ -307,69 +332,36 @@
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2ControlBox1.Location = new System.Drawing.Point(629, 6);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(527, 3);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 0;
-            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.White;
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel3.Location = new System.Drawing.Point(284, 40);
+            this.guna2Panel3.Location = new System.Drawing.Point(284, 41);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(677, 1043);
-            this.guna2Panel3.TabIndex = 2;
+            this.guna2Panel3.Size = new System.Drawing.Size(677, 1042);
+            this.guna2Panel3.TabIndex = 3;
             // 
-            // guna2Button1
+            // AdminNavigation
             // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(142, 1007);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(136, 45);
-            this.guna2Button1.TabIndex = 26;
-            this.guna2Button1.Text = "Logout";
-            this.guna2Button1.Visible = false;
-            // 
-            // guna2ImageButton7
-            // 
-            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton7.Image = global::DineEase.Properties.Resources.gg_profile__1_;
-            this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton7.ImageRotate = 0F;
-            this.guna2ImageButton7.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton7.Location = new System.Drawing.Point(12, 1007);
-            this.guna2ImageButton7.Name = "guna2ImageButton7";
-            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton7.Size = new System.Drawing.Size(64, 54);
-            this.guna2ImageButton7.TabIndex = 25;
-            // 
-            // navigationForm
-            // 
-            this.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(961, 1083);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "navigationForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "navigationForm";
+            this.Name = "AdminNavigation";
+            this.Text = "AdminNavigation";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.navigationForm_Load);
+            this.Load += new System.EventHandler(this.AdminNavigation_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
@@ -380,12 +372,14 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button logoutBtn;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
         private System.Windows.Forms.PictureBox logo;
         private Guna.UI2.WinForms.Guna2Button profileBtn;
         private Guna.UI2.WinForms.Guna2Button settingBtn;
         private Guna.UI2.WinForms.Guna2Button historyBtn;
-        private Guna.UI2.WinForms.Guna2Button ordersBtn;
-        private Guna.UI2.WinForms.Guna2Button homeBtn;
+        private Guna.UI2.WinForms.Guna2Button viewBtn;
+        private Guna.UI2.WinForms.Guna2Button addBtn;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
@@ -398,7 +392,5 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
     }
 }

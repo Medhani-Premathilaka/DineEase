@@ -11,26 +11,24 @@ using Guna.UI2.WinForms;
 
 namespace DineEase.view
 {
-    public partial class navigationForm : Form
+    public partial class AdminNavigation : Form
     {
-        public navigationForm()
+        public AdminNavigation()
         {
             InitializeComponent();
         }
 
-
         private int panelExpandedWidth = 180;  // Width when expanded
         private int panelCollapsedWidth = 70;  // Width when collapsed
         private bool isCollapsed = true;
-
-
-        private void navigationForm_Load(object sender, EventArgs e)
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
-            guna2Panel1.Width = 70;
+            navTimer.Start();
         }
 
         private void navTimer_Tick(object sender, EventArgs e)
         {
+            
             if (isCollapsed)
             {
                 guna2Panel1.Width += 10;  // Increase width step-by-step
@@ -40,8 +38,8 @@ namespace DineEase.view
                     isCollapsed = false;
 
                     // Show labels after fully expanded
-                    homeBtn.Visible = true;
-                    ordersBtn.Visible = true;
+                    addBtn.Visible = true;
+                    viewBtn.Visible = true;
                     historyBtn.Visible = true;
                     settingBtn.Visible = true;
                     profileBtn.Visible = true;
@@ -55,8 +53,8 @@ namespace DineEase.view
             {
                 // Hide labels first to avoid visual glitches
                 logo.Visible = false;
-                homeBtn.Visible = false;
-                ordersBtn.Visible = false;
+                addBtn.Visible = false;
+                viewBtn.Visible = false;
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
                 profileBtn.Visible = false;
@@ -90,92 +88,28 @@ namespace DineEase.view
             }
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        private void AdminNavigation_Load(object sender, EventArgs e)
         {
-            navTimer.Start();
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            guna2Panel1.Width = 70;
         }
 
         private void homeBtn_Click(object sender, EventArgs e)
         {
             guna2Panel3.Controls.Clear();
 
-            UserHome home = new UserHome();
-            home.TopLevel = false;
+            AddItemPage add = new AddItemPage();
+            add.TopLevel = false;
             // home.FormBorderStyle = FormBorderStyle.None;
-            home.Dock = DockStyle.Fill;
+            add.Dock = DockStyle.Fill;
 
-            guna2Panel3.Controls.Add(home);
-            home.Show();
+            guna2Panel3.Controls.Add(add);
+            add.Show();
         }
 
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        private void guna2ControlBox3_Click(object sender, EventArgs e)
         {
-            guna2Panel3.Controls.Clear();
-
-            UserHome home = new UserHome();
-            home.TopLevel = false;
-            // home.FormBorderStyle = FormBorderStyle.None;
-            home.Dock = DockStyle.Fill;
-
-            guna2Panel3.Controls.Add(home);
-            home.Show();
-        }
-
-        private void ordersBtn_Click(object sender, EventArgs e)
-        {
-            guna2Panel3.Controls.Clear();
-
-            UserViewOrders orders = new UserViewOrders();
-            orders.TopLevel = false;
-            // home.FormBorderStyle = FormBorderStyle.None;
-            orders.Dock = DockStyle.Fill;
-
-            guna2Panel3.Controls.Add(orders);
-            orders.Show();
-        }
-
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
-        {
-            guna2Panel3.Controls.Clear();
-
-            UserViewOrders orders = new UserViewOrders();
-            orders.TopLevel = false;
-            // home.FormBorderStyle = FormBorderStyle.None;
-            orders.Dock = DockStyle.Fill;
-
-            guna2Panel3.Controls.Add(orders);
-            orders.Show();
-        }
-
-        private void profileBtn_Click(object sender, EventArgs e)
-        {
-            guna2Panel3.Controls.Clear();
-
-            //UserProfile prf = new UserProfile();
-            //prf.TopLevel = false;
-            //// home.FormBorderStyle = FormBorderStyle.None;
-            //prf.Dock = DockStyle.Fill;
-
-            //guna2Panel3.Controls.Add(prf);
-            //prf.Show();
-        }
-
-        private void guna2ImageButton6_Click(object sender, EventArgs e)
-        {
-            guna2Panel3.Controls.Clear();
-
-            //UserProfile prf = new UserProfile();
-            //prf.TopLevel = false;
-            //// home.FormBorderStyle = FormBorderStyle.None;
-            //prf.Dock = DockStyle.Fill;
-
-            //guna2Panel3.Controls.Add(prf);
-            //prf.Show();
+            Application.Exit();
         }
     }
+    
 }

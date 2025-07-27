@@ -55,10 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="dao\Order.cs" />
-
-
     <Compile Include="ShowPage.cs" />
     <Compile Include="ShowPageFactory.cs" />
     <Compile Include="view\AddItemPage.cs">
@@ -72,6 +69,12 @@
     </Compile>
     <Compile Include="view\AdminHomePage.Designer.cs">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminNavigation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AdminNavigation.Designer.cs">
+      <DependentUpon>AdminNavigation.cs</DependentUpon>
     </Compile>
     <Compile Include="view\AdminViewOrders.cs">
       <SubType>Form</SubType>
@@ -160,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AdminNavigation.resx">
+      <DependentUpon>AdminNavigation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminViewOrders.resx">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>

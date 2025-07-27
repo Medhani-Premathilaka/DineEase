@@ -155,6 +155,16 @@ namespace DineEase
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBoxPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
