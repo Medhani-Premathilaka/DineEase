@@ -11,7 +11,7 @@ using Guna.UI2.WinForms;
 
 namespace DineEase.view
 {
-    public partial class navigationForm : Form, ShowPage
+    public partial class navigationForm : Form
     {
         public navigationForm()
         {
