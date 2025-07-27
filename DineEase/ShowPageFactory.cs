@@ -1,4 +1,5 @@
 ﻿using DineEase;
+using DineEase.view;
 
 public static class PageFactory
 {
@@ -9,7 +10,7 @@ public static class PageFactory
             case "ADMIN":
                 return (ShowPage)new AdminHomePage();
             case "USER":
-                return (ShowPage)new userViewFood();
+                return (ShowPage)new navigationForm();
 
             // Add more cases as needed
             default:
