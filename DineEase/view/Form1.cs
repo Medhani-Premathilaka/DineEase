@@ -206,5 +206,15 @@ namespace DineEase
                 cnn.Close();
             }
         }
+
+        private void username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
