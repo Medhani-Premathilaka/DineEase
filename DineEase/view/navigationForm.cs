@@ -138,5 +138,18 @@ namespace DineEase.view
             guna2Panel3.Controls.Add(home);
             home.Show();
         }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+            guna2Panel3.Controls.Clear();
+
+            UserViewOrders home = new UserViewOrders();
+            home.TopLevel = false;
+            // home.FormBorderStyle = FormBorderStyle.None;
+            home.Dock = DockStyle.Fill;
+
+            guna2Panel3.Controls.Add(home);
+            home.Show();
+        }
     }
 }
