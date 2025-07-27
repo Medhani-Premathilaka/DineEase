@@ -168,7 +168,14 @@ namespace DineEase
 
         }
 
+        private void guna2HtmlLabel2_Click_1(object sender, EventArgs e)
+        {
 
+        }
 
+        private void guna2PictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
