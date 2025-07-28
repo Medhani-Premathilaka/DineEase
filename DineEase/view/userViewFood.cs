@@ -169,6 +169,7 @@ namespace DineEase
         private int panelExpandedWidth = 180;  // Width when expanded
         private int panelCollapsedWidth = 70;  // Width when collapsed
         private bool isCollapsed = true;
+        private string studentId;
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -282,7 +283,7 @@ namespace DineEase
         {
             flowLayoutPanel1.Controls.Clear();
 
-            AdminProfile prf = new AdminProfile();
+            UserProfile prf = new UserProfile(studentId);
             prf.TopLevel = false;
             prf.FormBorderStyle = FormBorderStyle.None;
             prf.Dock = DockStyle.Fill;

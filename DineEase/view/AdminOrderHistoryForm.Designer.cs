@@ -69,7 +69,7 @@
             this.Controls.Add(this.dgvOrders);
             this.Name = "AdminOrderHistoryForm";
             this.Text = "AdminOrderHistoryForm";
-         
+            this.Load += new System.EventHandler(this.AdminOrderHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 
