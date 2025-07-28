@@ -55,10 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
+    <Compile Include="AdminOrderHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminOrderHistoryForm.Designer.cs">
+      <DependentUpon>AdminOrderHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dao\Order.cs" />
-
-
+    <Compile Include="Order.cs" />
     <Compile Include="ShowPage.cs" />
     <Compile Include="ShowPageFactory.cs" />
     <Compile Include="view\AddItemPage.cs">
@@ -155,6 +159,9 @@
     <Compile Include="view\UserViewOrders.Designer.cs">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminOrderHistoryForm.resx">
+      <DependentUpon>AdminOrderHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
