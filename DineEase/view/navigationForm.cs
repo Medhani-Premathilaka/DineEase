@@ -11,13 +11,17 @@ using Guna.UI2.WinForms;
 
 namespace DineEase.view
 {
-    public partial class navigationForm : Form
+    public partial class navigationForm : Form, ShowPage
     {
         public navigationForm()
         {
             InitializeComponent();
         }
 
+        public void showPage()
+        {
+            this.Show();
+        }
 
         private int panelExpandedWidth = 180;  // Width when expanded
         private int panelCollapsedWidth = 70;  // Width when collapsed

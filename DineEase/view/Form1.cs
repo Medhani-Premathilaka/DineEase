@@ -148,6 +148,7 @@ namespace DineEase
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
             {
+                
                 cnn.Open();
                 string query = "SELECT UserId , Role, Name FROM Users WHERE UserId = @username AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
