@@ -167,6 +167,9 @@
     <EmbeddedResource Include="view\AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\AdminProfile.resx">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\AdminViewOrders.resx">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>
     </EmbeddedResource>
