@@ -13,6 +13,7 @@ namespace DineEase
         public userViewFood()
         {
             InitializeComponent();
+            profileBtn.Click += profileBtn_Click;
         }
 
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
@@ -282,14 +283,23 @@ namespace DineEase
         private void profileBtn_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
+            string studentId = CurrentUser.UserId;
 
-            UserProfile prf = new UserProfile(studentId);
-            prf.TopLevel = false;
-            prf.FormBorderStyle = FormBorderStyle.None;
-            prf.Dock = DockStyle.Fill;
+            try
+            {
+                UserProfile prf = new UserProfile(studentId);
+                prf.TopLevel = false;
+                prf.FormBorderStyle = FormBorderStyle.None;
+                prf.Dock = DockStyle.Fill;
 
-            flowLayoutPanel1.Controls.Add(prf);
-            prf.Show();
+                flowLayoutPanel1.Controls.Add(prf);
+                prf.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying profile: " + ex.Message);
+            }
+
 
         }
     }

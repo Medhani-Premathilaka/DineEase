@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
     public partial class UserProfile : Form
     {
 
-        private string currentStudentId; // set this from login or pass via constructor
+        private string currentStudentId = CurrentUser.UserId;// set this from login or pass via constructor
+                                                             // Example after login
 
         public UserProfile(string studentId)
         {
