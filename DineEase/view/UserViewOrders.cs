@@ -32,41 +32,102 @@ namespace DineEase.view
                     {
                         while (reader.Read())
                         {
-                            var panel = new System.Windows.Forms.Panel { Width = 500, Height = 80, Margin = new Padding(10), BackColor = Color.Yellow };
+                            var panel = new Panel {
+                                //Width = 500, Height = 80, Margin = new Padding(10), BackColor = Color.Yellow 
+                                Height = 100,
+                                Width = flowLayoutPanel1.ClientSize.Width - 25, // Fill available width
+                                BackColor = Color.FromArgb(228, 244, 252),
+                                Margin = new Padding(10, 5, 10, 5),
+                                BorderStyle = BorderStyle.FixedSingle
+
+                            };
+
+                            flowLayoutPanel1.Resize += (s, e) =>
+                            {
+                                panel.Width = flowLayoutPanel1.ClientSize.Width - 25;
+                            };
+
+
+
                             var lblItems = new System.Windows.Forms.Label // Specify the full namespace
                             {
                                 Text = $"{reader["ProductName"]}: {reader["Quantity"]}",
                                 AutoSize = true,
-                                Font = new Font("Segoe UI", 10)
+                                //Font = new Font("verdana", 20)
+
+                               
+                                Font = new Font("Verdana", 12, FontStyle.Bold),
+                                Location = new Point(10, 10),
+                            
                             };
                             var lblDate = new System.Windows.Forms.Label // Specify the full namespace
                             {
                                 Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
                                 AutoSize = true,
-                                Top = 30
+                                //Top = 30
+
+                                
+                                Font = new Font("Verdana", 10),
+                                Location = new Point(10, 40),
+                                
+
                             };
                             var btnStatus = new System.Windows.Forms.Button
                             {
                                 Text = reader["OrderStatus"].ToString(),
-                                BackColor = reader["OrderStatus"].ToString() == "Pending" ? Color.Gold : Color.LightGreen,
-                                Left = 300
+                                //BackColor = reader["OrderStatus"].ToString() == "Pending" ? Color.Gold : Color.LightGreen,
+                                //Left = 300
+
+                               
+                                BackColor = reader["OrderStatus"].ToString() == "Pending" ? Color.Goldenrod : Color.LightGreen,
+                                ForeColor = Color.Black,
+                                Font = new Font("Verdana", 10, FontStyle.Bold),
+                                Size = new Size(80, 30),
+                                Location = new Point(panel.Width - 180, 30),
+                                Anchor = AnchorStyles.Top | AnchorStyles.Right
+
+
                             };
-                            panel.Controls.Add(lblItems);
-                            panel.Controls.Add(lblDate);
-                            panel.Controls.Add(btnStatus);
+
+
+                            
+
+
+
 
                             if (reader["OrderStatus"].ToString() == "Pending")
                             {
-                                var btnCancel = new System.Windows.Forms.Button
+                                //var btnCancel = new System.Windows.Forms.Button
+                                //{
+                                //    Text = "Cancel",
+                                //    BackColor = Color.Red,
+                                //    Left = 380
+                                //};
+                                //int orderId = Convert.ToInt32(reader["OrderId"]);
+                                //btnCancel.Click += (s, e) => CancelOrder(orderId, panel);
+                                //panel.Controls.Add(btnCancel);
+
+                                var btnCancel = new Button
                                 {
                                     Text = "Cancel",
-                                    BackColor = Color.Red,
-                                    Left = 380
+                                    BackColor = Color.IndianRed,
+                                    ForeColor = Color.White,
+                                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                                    Size = new Size(80, 30),
+                                    Location = new Point(panel.Width - 90, 30),
+                                    Anchor = AnchorStyles.Top | AnchorStyles.Right
                                 };
+
                                 int orderId = Convert.ToInt32(reader["OrderId"]);
                                 btnCancel.Click += (s, e) => CancelOrder(orderId, panel);
+
                                 panel.Controls.Add(btnCancel);
+
+
                             }
+                            panel.Controls.Add(lblItems);
+                            panel.Controls.Add(lblDate);
+                            panel.Controls.Add(btnStatus);
                             flowLayoutPanel1.Controls.Add(panel);
                         }
                     }
