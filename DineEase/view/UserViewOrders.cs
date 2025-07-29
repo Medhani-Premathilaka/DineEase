@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace DineEase.view
 {
@@ -32,6 +33,18 @@ namespace DineEase.view
                     {
                         while (reader.Read())
                         {
+                            Guna2ShadowPanel p = new Guna2ShadowPanel
+                            {
+                                Width = flowLayoutPanel1.ClientSize.Width - 25, // Fill available width
+                                Height = 100,
+                                FillColor = Color.FromArgb(228, 244, 252),
+                                Margin = new Padding(10, 5, 10, 5),
+                                BorderStyle = BorderStyle.None,
+                                ShadowColor = Color.FromArgb(0, 0, 0, 0),
+                                ShadowDepth = 10,
+                                ShadowShift = 5
+                            };
+                            /*
                             var panel = new Panel {
                                 //Width = 500, Height = 80, Margin = new Padding(10), BackColor = Color.Yellow 
                                 Height = 100,
@@ -41,10 +54,10 @@ namespace DineEase.view
                                 BorderStyle = BorderStyle.FixedSingle
 
                             };
-
+                            */
                             flowLayoutPanel1.Resize += (s, e) =>
                             {
-                                panel.Width = flowLayoutPanel1.ClientSize.Width - 25;
+                                p.Width = flowLayoutPanel1.ClientSize.Width - 25;
                             };
 
 
@@ -83,7 +96,7 @@ namespace DineEase.view
                                 ForeColor = Color.Black,
                                 Font = new Font("Verdana", 10, FontStyle.Bold),
                                 Size = new Size(80, 30),
-                                Location = new Point(panel.Width - 180, 30),
+                                Location = new Point(p.Width - 180, 30),
                                 Anchor = AnchorStyles.Top | AnchorStyles.Right
 
 
@@ -114,21 +127,21 @@ namespace DineEase.view
                                     ForeColor = Color.White,
                                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
                                     Size = new Size(80, 30),
-                                    Location = new Point(panel.Width - 90, 30),
+                                    Location = new Point(p.Width - 90, 30),
                                     Anchor = AnchorStyles.Top | AnchorStyles.Right
                                 };
 
                                 int orderId = Convert.ToInt32(reader["OrderId"]);
-                                btnCancel.Click += (s, e) => CancelOrder(orderId, panel);
+                                btnCancel.Click += (s, e) => CancelOrder(orderId, p);
 
-                                panel.Controls.Add(btnCancel);
+                                p.Controls.Add(btnCancel);
 
 
                             }
-                            panel.Controls.Add(lblItems);
-                            panel.Controls.Add(lblDate);
-                            panel.Controls.Add(btnStatus);
-                            flowLayoutPanel1.Controls.Add(panel);
+                            p.Controls.Add(lblItems);
+                            p.Controls.Add(lblDate);
+                            p.Controls.Add(btnStatus);
+                            flowLayoutPanel1.Controls.Add(p);
                         }
                     }
                 }
