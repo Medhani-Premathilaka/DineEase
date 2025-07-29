@@ -389,7 +389,8 @@ namespace DineEase
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-
+            AdminOrderHistoryForm adminViewOrders = new AdminOrderHistoryForm();
+            adminViewOrders.Show();
         }
 
         private void guna2ImageButton5_Click(object sender, EventArgs e)
