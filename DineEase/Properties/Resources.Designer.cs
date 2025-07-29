@@ -113,6 +113,26 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_down_left_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-down-left-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_logout_rounded_left_50__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-logout-rounded-left-50 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap material_symbols_draft_orders__1_ {
             get {
                 object obj = ResourceManager.GetObject("material-symbols_draft-orders (1)", resourceCulture);

@@ -50,6 +50,7 @@ namespace DineEase.view
                     settingBtn.Visible = true;
                     profileBtn.Visible = true;
                     logo.Visible = true;
+                    logoutbtn.Visible = true;
                     guna2ImageButton1.Image = Image.FromFile("Resources\\collaps.png");
 
                     AdjustControlPositions();
@@ -64,6 +65,7 @@ namespace DineEase.view
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
                 profileBtn.Visible = false;
+                logoutbtn.Visible = false;
                 guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
 
                 guna2Panel1.Width -= 10; // Decrease width step-by-step
@@ -136,9 +138,8 @@ namespace DineEase.view
 
             UserViewOrders orders = new UserViewOrders();
             orders.TopLevel = false;
-            // home.FormBorderStyle = FormBorderStyle.None;
+            orders.FormBorderStyle = FormBorderStyle.None;
             orders.Dock = DockStyle.Fill;
-
             guna2Panel3.Controls.Add(orders);
             orders.Show();
         }
@@ -167,6 +168,9 @@ namespace DineEase.view
 
             //guna2Panel3.Controls.Add(prf);
             //prf.Show();
+
+
+
         }
 
         private void guna2ImageButton6_Click(object sender, EventArgs e)
@@ -180,6 +184,20 @@ namespace DineEase.view
 
             //guna2Panel3.Controls.Add(prf);
             //prf.Show();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
+
+        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 f1 = new Form1();
+            f1.Show();
         }
     }
 }

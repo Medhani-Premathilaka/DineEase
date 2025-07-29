@@ -48,7 +48,7 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblPrice.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(70, 507);
+            this.lblPrice.Location = new System.Drawing.Point(44, 535);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(80, 29);
             this.lblPrice.TabIndex = 17;
@@ -62,7 +62,7 @@
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblName.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(69, 375);
+            this.lblName.Location = new System.Drawing.Point(43, 394);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(103, 34);
             this.lblName.TabIndex = 15;
@@ -77,10 +77,10 @@
             this.pictureBox1.BorderRadius = 20;
             this.pictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.pictureBox1.ImageRotate = 0F;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(49, 23);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(374, 291);
+            this.pictureBox1.Size = new System.Drawing.Size(374, 350);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -93,7 +93,7 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantity.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(184, 583);
+            this.lblQuantity.Location = new System.Drawing.Point(136, 608);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(30, 29);
             this.lblQuantity.TabIndex = 4;
@@ -107,7 +107,7 @@
             this.lblDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblDesc.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesc.ForeColor = System.Drawing.Color.Gray;
-            this.lblDesc.Location = new System.Drawing.Point(70, 443);
+            this.lblDesc.Location = new System.Drawing.Point(44, 465);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(77, 29);
             this.lblDesc.TabIndex = 16;
@@ -118,15 +118,17 @@
             // btnAddToOrder
             // 
             this.btnAddToOrder.AutoRoundedCorners = true;
+            this.btnAddToOrder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnAddToOrder.BorderRadius = 20;
+            this.btnAddToOrder.BorderThickness = 1;
             this.btnAddToOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddToOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddToOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddToOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAddToOrder.FillColor = System.Drawing.Color.SlateBlue;
             this.btnAddToOrder.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
-            this.btnAddToOrder.Location = new System.Drawing.Point(75, 684);
+            this.btnAddToOrder.Location = new System.Drawing.Point(113, 701);
             this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(246, 43);
@@ -146,11 +148,11 @@
             this.reduceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
             this.reduceBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.reduceBtn.ForeColor = System.Drawing.Color.White;
-            this.reduceBtn.Location = new System.Drawing.Point(285, 564);
+            this.reduceBtn.Location = new System.Drawing.Point(49, 595);
             this.reduceBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reduceBtn.Name = "reduceBtn";
             this.reduceBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.reduceBtn.Size = new System.Drawing.Size(56, 62);
+            this.reduceBtn.Size = new System.Drawing.Size(60, 60);
             this.reduceBtn.TabIndex = 22;
             this.reduceBtn.Text = "-";
             this.reduceBtn.Click += new System.EventHandler(this.reduceBtn_Click);
@@ -166,11 +168,11 @@
             this.increaseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
             this.increaseBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.increaseBtn.ForeColor = System.Drawing.Color.White;
-            this.increaseBtn.Location = new System.Drawing.Point(75, 566);
+            this.increaseBtn.Location = new System.Drawing.Point(193, 595);
             this.increaseBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.increaseBtn.Name = "increaseBtn";
             this.increaseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.increaseBtn.Size = new System.Drawing.Size(56, 62);
+            this.increaseBtn.Size = new System.Drawing.Size(60, 60);
             this.increaseBtn.TabIndex = 21;
             this.increaseBtn.Text = "+";
             this.increaseBtn.Click += new System.EventHandler(this.increaseBtn_Click);

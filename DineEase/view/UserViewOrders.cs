@@ -32,7 +32,7 @@ namespace DineEase.view
                     {
                         while (reader.Read())
                         {
-                            var panel = new System.Windows.Forms.Panel { Width = 500, Height = 80, Margin = new Padding(10) };
+                            var panel = new System.Windows.Forms.Panel { Width = 500, Height = 80, Margin = new Padding(10), BackColor = Color.Yellow };
                             var lblItems = new System.Windows.Forms.Label // Specify the full namespace
                             {
                                 Text = $"{reader["ProductName"]}: {reader["Quantity"]}",

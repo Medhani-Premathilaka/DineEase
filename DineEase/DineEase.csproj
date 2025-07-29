@@ -224,6 +224,8 @@
     <None Include="Resources\icon-park-outline_history %281%29.png" />
     <None Include="Resources\gg_profile %281%29.png" />
     <None Include="Resources\DineEase %281%29.png" />
+    <None Include="Resources\icons8-down-left-50.png" />
+    <None Include="Resources\icons8-logout-rounded-left-50 %282%29.png" />
     <Content Include="Resources\user_admin_img.png" />
   </ItemGroup>
   <ItemGroup>

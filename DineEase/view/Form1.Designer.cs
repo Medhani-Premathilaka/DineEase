@@ -53,9 +53,9 @@
             // 
             this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(72, 90);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(72, 72);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(213, 68);
@@ -69,7 +69,7 @@
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(37, 196);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(93, 198);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(169, 79);
@@ -89,12 +89,12 @@
             this.username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username.Font = new System.Drawing.Font("Verdana", 9F);
             this.username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.username.Location = new System.Drawing.Point(36, 229);
+            this.username.Location = new System.Drawing.Point(88, 229);
             this.username.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.username.Name = "username";
             this.username.PlaceholderText = "";
             this.username.SelectedText = "";
-            this.username.Size = new System.Drawing.Size(401, 48);
+            this.username.Size = new System.Drawing.Size(296, 48);
             this.username.TabIndex = 2;
             this.username.TextChanged += new System.EventHandler(this.username_TextChanged);
             // 
@@ -111,12 +111,12 @@
             this.password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password.Font = new System.Drawing.Font("Verdana", 9F);
             this.password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.password.Location = new System.Drawing.Point(36, 351);
+            this.password.Location = new System.Drawing.Point(88, 351);
             this.password.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.password.Name = "password";
             this.password.PlaceholderText = "";
             this.password.SelectedText = "";
-            this.password.Size = new System.Drawing.Size(401, 48);
+            this.password.Size = new System.Drawing.Size(296, 48);
             this.password.TabIndex = 4;
             this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
@@ -125,7 +125,7 @@
             this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(40, 319);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(93, 322);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(169, 94);
@@ -134,8 +134,7 @@
             // 
             // signin
             // 
-            this.signin.AutoRoundedCorners = true;
-            this.signin.BorderRadius = 20;
+            this.signin.BorderRadius = 10;
             this.signin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.signin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.signin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -153,8 +152,7 @@
             // 
             // guna2Button1
             // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BorderRadius = 20;
+            this.guna2Button1.BorderRadius = 10;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
