@@ -100,5 +100,30 @@ namespace DineEase
         {
 
         }
+
+        private void guna2TextBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox5_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
