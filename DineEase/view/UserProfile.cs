@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using DineEase.view;
 
 namespace DineEase
 {
     public partial class UserProfile : Form
     {
 
-        private string currentStudentId = CurrentUser.UserId;// set this from login or pass via constructor
-                                                             // Example after login
+        //private string currentStudentId = CurrentUser.UserId;// set this from login or pass via constructor
+        private string userId;
+        // Example after login
 
         public UserProfile(string studentId)
         {
             InitializeComponent();
-            currentStudentId = studentId;
+            this.userId = userId;
             LoadUserProfile();
         }
 
@@ -26,7 +26,7 @@ namespace DineEase
                 cnn.Open();
                 string query = "SELECT Name, UserId FROM Users WHERE UserId = @StudentId";
                 SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.Parameters.AddWithValue("@StudentId", currentStudentId);
+                cmd.Parameters.AddWithValue("@StudentId", userId);
                 //cnn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -72,7 +72,7 @@ namespace DineEase
                 SqlCommand cmd = new SqlCommand(updateQuery, cnn);
                 cmd.Parameters.AddWithValue("@Name", guna2TextBox1.Text);
                 cmd.Parameters.AddWithValue("@Password", guna2TextBox3.Text);
-                cmd.Parameters.AddWithValue("@StudentId", currentStudentId);
+                cmd.Parameters.AddWithValue("@StudentId", userId);
 
                 //conn.Open();
                 int rows = cmd.ExecuteNonQuery();
