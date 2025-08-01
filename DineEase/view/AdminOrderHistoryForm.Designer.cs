@@ -37,11 +37,11 @@
             // 
             this.dgvOrders.AllowUserToOrderColumns = true;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(497, 260);
+            this.dgvOrders.Location = new System.Drawing.Point(40, 68);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowHeadersWidth = 51;
             this.dgvOrders.RowTemplate.Height = 24;
-            this.dgvOrders.Size = new System.Drawing.Size(240, 150);
+            this.dgvOrders.Size = new System.Drawing.Size(697, 342);
             this.dgvOrders.TabIndex = 5;
             // 
             // cmbFilter
@@ -54,7 +54,7 @@
             "Rejected",
             "Recent",
             "Last Month"});
-            this.cmbFilter.Location = new System.Drawing.Point(94, 287);
+            this.cmbFilter.Location = new System.Drawing.Point(40, 30);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(121, 24);
             this.cmbFilter.TabIndex = 6;
@@ -69,7 +69,7 @@
             this.Controls.Add(this.dgvOrders);
             this.Name = "AdminOrderHistoryForm";
             this.Text = "AdminOrderHistoryForm";
-         
+            this.Load += new System.EventHandler(this.AdminOrderHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 

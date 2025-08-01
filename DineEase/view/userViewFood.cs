@@ -13,6 +13,7 @@ namespace DineEase
         public userViewFood()
         {
             InitializeComponent();
+            profileBtn.Click += profileBtn_Click;
         }
 
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
@@ -116,6 +117,8 @@ namespace DineEase
                         c.Margin = new Padding(5, 2, 5, 2);
                     }
                 }
+                cnn.Close();
+
             }
         }
 
@@ -169,6 +172,7 @@ namespace DineEase
         private int panelExpandedWidth = 180;  // Width when expanded
         private int panelCollapsedWidth = 70;  // Width when collapsed
         private bool isCollapsed = true;
+        private string studentId;
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -281,14 +285,23 @@ namespace DineEase
         private void profileBtn_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
+            string studentId = CurrentUser.UserId;
 
-            AdminProfile prf = new AdminProfile();
-            prf.TopLevel = false;
-            prf.FormBorderStyle = FormBorderStyle.None;
-            prf.Dock = DockStyle.Fill;
+            try
+            {
+                UserProfile prf = new UserProfile(studentId);
+                prf.TopLevel = false;
+                prf.FormBorderStyle = FormBorderStyle.None;
+                prf.Dock = DockStyle.Fill;
 
-            flowLayoutPanel1.Controls.Add(prf);
-            prf.Show();
+                flowLayoutPanel1.Controls.Add(prf);
+                prf.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying profile: " + ex.Message);
+            }
+
 
         }
     }

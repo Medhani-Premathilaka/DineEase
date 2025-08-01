@@ -156,27 +156,6 @@ namespace DineEase
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
 
 
-                    //var role = cmd.ExecuteScalar() as string;
-
-
-                    ////if (role == "ADMIN")
-                    ////{
-                    ////    AdminHomePage adminForm = new AdminHomePage();
-                    ////    adminForm.Show();
-                    ////    this.Hide();
-                    ////}
-                    ////else if (role == "USER")
-                    ////{
-                    ////    userViewFood userForm = new userViewFood();
-                    ////    userForm.Show();
-                    ////    this.Hide();
-                    ////}
-                    //if (role == "ADMIN" || role == "USER")
-                    //{
-                    //    var nextPage = PageFactory.CreatePage(role);
-                    //    nextPage.showPage();
-                    //    this.Hide();
-                    //}
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

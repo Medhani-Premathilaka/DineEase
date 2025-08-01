@@ -7,7 +7,7 @@ namespace DineEase
 {
     public partial class AdminOrderHistoryForm : Form
     {
-        private string connectionString = @"Data Source=LAPTOP-M18U5G4F\SQLEXPRESS;Initial Catalog=DineEase;Integrated Security=True";
+        //private string connectionString = @"Data Source=LAPTOP-M18U5G4F\SQLEXPRESS;Initial Catalog=DineEase;Integrated Security=True";
 
         public AdminOrderHistoryForm()
         {
@@ -21,10 +21,12 @@ namespace DineEase
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                var db = dao.DBConnection.getInstance();
+                using (SqlConnection cnn = db.GetConnection())
                 {
-                    conn.Open();
+                    cnn.Open();
                     MessageBox.Show("Database connection successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cnn.Close();
                 }
             }
             catch (Exception ex)
@@ -52,26 +54,27 @@ namespace DineEase
             switch (filter)
             {
                 case "Confirmed":
-                    query = "SELECT * FROM ORDERS WHERE Status = 'Confirmed'";
+                    query = "SELECT * FROM Orders WHERE OrderStatus = 'Confirmed'";
                     break;
                 case "Rejected":
-                    query = "SELECT * FROM ORDERS WHERE Status = 'Rejected'";
+                    query = "SELECT * FROM Orders WHERE OrderStatus = 'Rejected'";
                     break;
                 case "Recent":
-                    query = "SELECT * FROM ORDERS WHERE OrderDate >= DATEADD(DAY, -7, GETDATE())";
+                    query = "SELECT * FROM Orders WHERE OrderDate >= DATEADD(DAY, -7, GETDATE())";
                     break;
                 case "Last Month":
-                    query = @"SELECT * FROM ORDERS 
+                    query = @"SELECT * FROM Orders 
                               WHERE MONTH(OrderDate) = MONTH(DATEADD(MONTH, -1, GETDATE()))
                               AND YEAR(OrderDate) = YEAR(DATEADD(MONTH, -1, GETDATE()))";
                     break;
                 default:
-                    query = "SELECT * FROM ORDERS";
+                    query = "SELECT * FROM Orders";
                     break;
             }
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, cnn))
             {
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -82,7 +85,7 @@ namespace DineEase
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    string status = row["Status"].ToString();
+                    string status = row["OrderStatus"].ToString();
                     row["Action"] = status == "Pending" ? "Accept" : status;
                 }
 
@@ -129,16 +132,20 @@ namespace DineEase
 
         private void UpdateOrderStatus(int orderId, string newStatus)
         {
-            string query = "UPDATE ORDERS SET Status = @status WHERE OrderID = @id";
+            string query = "UPDATE Orders SET OrderStatus = @status WHERE OrderID = @id";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, cnn))
             {
                 cmd.Parameters.AddWithValue("@status", newStatus);
                 cmd.Parameters.AddWithValue("@id", orderId);
-                conn.Open();
+                cnn.Open();
                 cmd.ExecuteNonQuery();
+                cnn.Close();
             }
         }
+
+
     }
 }

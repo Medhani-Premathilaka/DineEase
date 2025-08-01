@@ -1,38 +1,47 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
     public partial class UserProfile : Form
     {
-        private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-        private string currentStudentId; // set this from login or pass via constructor
+
+        //private string currentStudentId = CurrentUser.UserId;// set this from login or pass via constructor
+        private string userId;
+        // Example after login
 
         public UserProfile(string studentId)
         {
             InitializeComponent();
-            currentStudentId = studentId;
+            this.userId = userId;
             LoadUserProfile();
         }
 
         private void LoadUserProfile()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                string query = "SELECT Name, StudentId FROM Users WHERE StudentId = @StudentId";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@StudentId", currentStudentId);
-                conn.Open();
+                cnn.Open();
+                var profileForm = new UserProfile(CurrentUser.UserId);
+                profileForm.Show();
+                string query = "SELECT Name, UserId FROM Users WHERE UserId = @StudentId";
+                SqlCommand cmd = new SqlCommand(query, cnn);
+                cmd.Parameters.AddWithValue("@StudentId", userId);
+                //cnn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    guna2TextBox1.Text = reader["Name"].ToString();
-                    guna2TextBox2.Text = reader["StudentId"].ToString();
-                    guna2TextBox2.Enabled = false; // prevent editing
+                    username.Text = reader["Name"].ToString();
+                    Password.Text = reader["UserId"].ToString();
+                    Password.Enabled = false; // prevent editing
                 }
                 reader.Close();
+                cnn.Close();
             }
+
 
         }
 
@@ -59,20 +68,25 @@ namespace DineEase
                 return;
             }
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
             {
-                string updateQuery = "UPDATE Users SET Name = @Name, Password = @Password WHERE StudentId = @StudentId";
-                SqlCommand cmd = new SqlCommand(updateQuery, conn);
+                cnn.Open();
+                string updateQuery = "UPDATE Users SET Name = @Name, Password = @Password WHERE UserId = @StudentId";
+                SqlCommand cmd = new SqlCommand(updateQuery, cnn);
                 cmd.Parameters.AddWithValue("@Name", guna2TextBox1.Text);
                 cmd.Parameters.AddWithValue("@Password", guna2TextBox3.Text);
-                cmd.Parameters.AddWithValue("@StudentId", currentStudentId);
+                cmd.Parameters.AddWithValue("@StudentId", userId);
 
-                conn.Open();
+                //conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
                     MessageBox.Show("Profile updated successfully!");
                 else
                     MessageBox.Show("Update failed.");
+
+                cnn.Close();
+
             }
         }
 
@@ -87,6 +101,31 @@ namespace DineEase
         }
 
         private void UserProfile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox5_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void username_TextChanged(object sender, EventArgs e)
         {
 
         }

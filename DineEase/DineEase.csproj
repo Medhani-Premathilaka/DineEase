@@ -55,14 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminOrderHistoryForm.cs">
+    <Compile Include="view\AdminOrderHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminOrderHistoryForm.Designer.cs">
+    <Compile Include="view\AdminOrderHistoryForm.Designer.cs">
       <DependentUpon>AdminOrderHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="dao\Order.cs" />
-    <Compile Include="Order.cs" />
     <Compile Include="ShowPage.cs" />
     <Compile Include="ShowPageFactory.cs" />
     <Compile Include="view\AddItemPage.cs">
@@ -159,7 +158,7 @@
     <Compile Include="view\UserViewOrders.Designer.cs">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminOrderHistoryForm.resx">
+    <EmbeddedResource Include="view\AdminOrderHistoryForm.resx">
       <DependentUpon>AdminOrderHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AddItemPage.resx">
@@ -167,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminHomePage.resx">
       <DependentUpon>AdminHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AdminProfile.resx">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminViewOrders.resx">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>
