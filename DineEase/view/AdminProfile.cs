@@ -9,7 +9,7 @@ namespace DineEase
     public partial class AdminProfile : Form
     {
         // Moved the connectionString field inside the class to fix CS0116
-        private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
+        //private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
         public AdminProfile()
         {
@@ -60,11 +60,13 @@ namespace DineEase
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                var db = dao.DBConnection.getInstance();
+                using (SqlConnection cnn = db.GetConnection())
                 {
-                    conn.Open();
+                    cnn.Open();
+                    //conn.Open();
                     string query = "SELECT TOP 1 * FROM Admin"; // adjust WHERE clause as needed
-                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlCommand cmd = new SqlCommand(query, cnn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
@@ -77,6 +79,7 @@ namespace DineEase
                         // Load more fields if you have them
                     }
                     reader.Close();
+                    cnn.Close();
                 }
             }
             catch (Exception ex)
