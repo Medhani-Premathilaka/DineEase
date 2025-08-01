@@ -117,6 +117,8 @@ namespace DineEase
                         c.Margin = new Padding(5, 2, 5, 2);
                     }
                 }
+                cnn.Close();
+
             }
         }
 

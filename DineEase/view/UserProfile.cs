@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
@@ -24,6 +25,8 @@ namespace DineEase
             using (SqlConnection cnn = db.GetConnection())
             {
                 cnn.Open();
+                var profileForm = new UserProfile(CurrentUser.UserId);
+                profileForm.Show();
                 string query = "SELECT Name, UserId FROM Users WHERE UserId = @StudentId";
                 SqlCommand cmd = new SqlCommand(query, cnn);
                 cmd.Parameters.AddWithValue("@StudentId", userId);
@@ -31,13 +34,14 @@ namespace DineEase
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    guna2TextBox1.Text = reader["Name"].ToString();
-                    guna2TextBox2.Text = reader["UserId"].ToString();
-                    guna2TextBox2.Enabled = false; // prevent editing
+                    username.Text = reader["Name"].ToString();
+                    Password.Text = reader["UserId"].ToString();
+                    Password.Enabled = false; // prevent editing
                 }
                 reader.Close();
                 cnn.Close();
             }
+
 
         }
 
