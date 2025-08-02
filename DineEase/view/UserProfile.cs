@@ -83,6 +83,7 @@ namespace DineEase
             update.Visible = false;
             guna2HtmlLabel4.Visible = false;
             guna2HtmlLabel3.Visible = false;
+            lblError.Visible = false;
         }
 
 
@@ -105,7 +106,7 @@ namespace DineEase
 
         private void moreinfo_Click(object sender, EventArgs e)
         {
-            //this.Visible = false;
+
             guna2TextBox6.Visible = true;
             guna2TextBox5.Visible = true;
             update.Visible = true;
@@ -116,29 +117,39 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (guna2TextBox3.Text != guna2TextBox4.Text)
+            string newpassword = guna2TextBox6.Text.Trim();
+            string confrimpassword = guna2TextBox5.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(newpassword) || string.IsNullOrWhiteSpace(confrimpassword))
+            {
+                lblError.Text = "Required both feilds";
+                lblError.Visible = true;
+            }
+
+            if (guna2TextBox6.Text == guna2TextBox5.Text)
+            {
+                Security security = new Security();
+                string hashedpassword = security.HashPassword(newpassword);
+
+                var db = dao.DBConnection.getInstance();
+                using (SqlConnection cnn = db.GetConnection())
+                {
+                    cnn.Open();
+                    string update = "UPDATE Users set Password = @password where UserId = @StudentId";
+                    SqlCommand cmd = new SqlCommand(update, cnn);
+                    cmd.Parameters.AddWithValue("@password", hashedpassword);
+                    int rows = cmd.ExecuteNonQuery();
+                    MessageBox.Show(rows > 0 ? "Profile updated successfully!" : "Update failed.");
+
+                    cnn.Close();
+                }
+            }
+            else
             {
                 MessageBox.Show("Passwords do not match!");
                 return;
             }
 
-            var db = dao.DBConnection.getInstance();
-            using (SqlConnection cnn = db.GetConnection())
-            {
-
-                // cnn.Open();
-                // string updateQuery = "UPDATE Users SET Password = @Password WHERE UserId = @StudentId";
-                // SqlCommand cmd = new SqlCommand(updateQuery, cnn);
-                //// cmd.Parameters.AddWithValue("@Name", username.Text);
-                // cmd.Parameters.AddWithValue("@Password", password.Text); // Should hash this in production!
-                // //cmd.Parameters.AddWithValue("@StudentId", userId);
-
-                // int rows = cmd.ExecuteNonQuery();
-                // MessageBox.Show(rows > 0 ? "Profile updated successfully!" : "Update failed.");
-
-                // cnn.Close();
-
-            }
         }
 
         private void guna2TextBox6_TextChanged_1(object sender, EventArgs e)

@@ -53,6 +53,7 @@
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
             this.update = new Guna.UI2.WinForms.Guna2Button();
+            this.lblError = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -402,6 +403,15 @@
             this.update.Text = "Update";
             this.update.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // lblError
+            // 
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.Location = new System.Drawing.Point(43, 481);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(108, 18);
+            this.lblError.TabIndex = 11;
+            this.lblError.Text = "guna2HtmlLabel5";
+            // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -409,6 +419,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(420, 627);
             this.ControlBox = false;
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.update);
             this.Controls.Add(this.guna2TextBox5);
             this.Controls.Add(this.guna2TextBox6);
@@ -459,5 +470,6 @@
         private Guna.UI2.WinForms.Guna2Button update;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblError;
     }
 }
