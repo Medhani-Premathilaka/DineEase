@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -16,7 +17,8 @@ namespace DineEase
             //Console.WriteLine($"Profile loading for: {studentId}"); // Debug
             InitializeComponent();
             this.userId = studentId;
-            // lblDebug.Text = $"Debug: UserID = {userId}";
+            guna2TextBox5.PasswordChar = '●'; // Confirm password
+            guna2TextBox6.PasswordChar = '●';
             LoadUserProfile();
 
         }
@@ -119,14 +121,21 @@ namespace DineEase
         {
             string newpassword = guna2TextBox6.Text.Trim();
             string confrimpassword = guna2TextBox5.Text.Trim();
-
+            string strongPasswordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
             if (string.IsNullOrWhiteSpace(newpassword) || string.IsNullOrWhiteSpace(confrimpassword))
             {
                 lblError.Text = "Required both feilds";
                 lblError.Visible = true;
-            }
 
-            if (guna2TextBox6.Text == guna2TextBox5.Text)
+                return;
+            }
+            if (!Regex.IsMatch(newpassword, strongPasswordPattern))
+            {
+                lblError.Text = "Password must be at least 8 characters and include uppercase, lowercase, digit, and special character.";
+                lblError.Visible = true;
+                return;
+            }
+            if (newpassword == confrimpassword)
             {
                 Security security = new Security();
                 string hashedpassword = security.HashPassword(newpassword);
@@ -138,6 +147,7 @@ namespace DineEase
                     string update = "UPDATE Users set Password = @password where UserId = @StudentId";
                     SqlCommand cmd = new SqlCommand(update, cnn);
                     cmd.Parameters.AddWithValue("@password", hashedpassword);
+                    cmd.Parameters.AddWithValue("@StudentId", userId);
                     int rows = cmd.ExecuteNonQuery();
                     MessageBox.Show(rows > 0 ? "Profile updated successfully!" : "Update failed.");
 
