@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-
 namespace DineEase
 {
     internal static class Program
@@ -9,14 +8,15 @@ namespace DineEase
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
         static void Main()
         {
+            // loads from .env in root directory
+            DotNetEnv.Env.Load();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new UserProfile("sc12841"));
-
-
+            Application.Run(new Form1());
         }
     }
 }
