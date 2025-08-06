@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.IO;
 namespace DineEase.dao
 {
     public class DBConnection
@@ -12,11 +11,7 @@ namespace DineEase.dao
         private DBConnection()
         {
             // Load environment variables from .env file
-            string envPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.env");
-            envPath = Path.GetFullPath(envPath);
-
-            // Load environment variables from .env file
-            DotNetEnv.Env.Load(envPath);
+            DotNetEnv.Env.Load("C:\\Users\\USER\\Desktop\\c#\\New folder (2)\\DineEase\\.env");
             connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 
             // Check if the connection string is loaded correctly
