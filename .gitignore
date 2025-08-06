@@ -29,7 +29,7 @@ obj/
 *.cache
 bin/
 obj/
- 
+ .env
  # NuGet packages
 *.nupkg
 packages/
