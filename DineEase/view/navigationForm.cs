@@ -161,13 +161,13 @@ namespace DineEase.view
         {
             guna2Panel3.Controls.Clear();
 
-            //UserProfile prf = new UserProfile();
-            //prf.TopLevel = false;
-            //// home.FormBorderStyle = FormBorderStyle.None;
-            //prf.Dock = DockStyle.Fill;
+            UserProfile prf = new UserProfile(CurrentUser.UserId);
+            prf.TopLevel = false;
+            // home.FormBorderStyle = FormBorderStyle.None;
+            prf.Dock = DockStyle.Fill;
 
-            //guna2Panel3.Controls.Add(prf);
-            //prf.Show();
+            guna2Panel3.Controls.Add(prf);
+            prf.Show();
 
 
 

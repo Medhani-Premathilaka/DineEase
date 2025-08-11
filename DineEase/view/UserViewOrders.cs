@@ -35,14 +35,14 @@ namespace DineEase.view
                         {
                             Guna2ShadowPanel p = new Guna2ShadowPanel
                             {
-                                Width = flowLayoutPanel1.ClientSize.Width - 25, // Fill available width
+                                Width = flowLayoutPanel1.ClientSize.Width - 30, // Fill available width
                                 Height = 100,
                                 FillColor = Color.FromArgb(228, 244, 252),
                                 Margin = new Padding(10, 5, 10, 5),
                                 BorderStyle = BorderStyle.None,
                                 ShadowColor = Color.FromArgb(0, 0, 0, 0),
-                                ShadowDepth = 10,
-                                ShadowShift = 5
+                                Radius = 10,
+                                
                             };
                             /*
                             var panel = new Panel {
@@ -57,7 +57,7 @@ namespace DineEase.view
                             */
                             flowLayoutPanel1.Resize += (s, e) =>
                             {
-                                p.Width = flowLayoutPanel1.ClientSize.Width - 25;
+                                p.Width = flowLayoutPanel1.ClientSize.Width - 30;
                             };
 
 
@@ -70,8 +70,9 @@ namespace DineEase.view
 
                                
                                 Font = new Font("Verdana", 12, FontStyle.Bold),
-                                Location = new Point(10, 10),
-                            
+                                Location = new Point(18, 13),
+                                
+
                             };
                             var lblDate = new System.Windows.Forms.Label // Specify the full namespace
                             {
@@ -79,34 +80,29 @@ namespace DineEase.view
                                 AutoSize = true,
                                 //Top = 30
 
-                                
+                                ForeColor = Color.Gray,
                                 Font = new Font("Verdana", 10),
-                                Location = new Point(10, 40),
+                                Location = new Point(18, 43),
                                 
 
                             };
-                            var btnStatus = new System.Windows.Forms.Button
+                            var btnStatus = new Guna2Button
                             {
                                 Text = reader["OrderStatus"].ToString(),
                                 //BackColor = reader["OrderStatus"].ToString() == "Pending" ? Color.Gold : Color.LightGreen,
                                 //Left = 300
 
-                               
-                                BackColor = reader["OrderStatus"].ToString() == "Pending" ? Color.Goldenrod : Color.LightGreen,
-                                ForeColor = Color.Black,
+
+                                FillColor = reader["OrderStatus"].ToString() == "Pending" ? Color.LimeGreen : Color.LightGreen,
+                                ForeColor = Color.White,
                                 Font = new Font("Verdana", 10, FontStyle.Bold),
-                                Size = new Size(80, 30),
-                                Location = new Point(p.Width - 180, 30),
-                                Anchor = AnchorStyles.Top | AnchorStyles.Right
-
-
+                                BorderRadius = 10,
+                                BorderThickness = 0,
+                                Size = new Size(100, 30),
+                                Location = new Point(p.Width - 230, 30),
+                                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                                
                             };
-
-
-                            
-
-
-
 
                             if (reader["OrderStatus"].ToString() == "Pending")
                             {
@@ -120,14 +116,16 @@ namespace DineEase.view
                                 //btnCancel.Click += (s, e) => CancelOrder(orderId, panel);
                                 //panel.Controls.Add(btnCancel);
 
-                                var btnCancel = new Button
+                                var btnCancel = new Guna2Button
                                 {
                                     Text = "Cancel",
-                                    BackColor = Color.IndianRed,
+                                    FillColor = Color.IndianRed,
                                     ForeColor = Color.White,
-                                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                                    Size = new Size(80, 30),
-                                    Location = new Point(p.Width - 90, 30),
+                                    BorderThickness = 0,
+                                    BorderRadius = 10,
+                                    Font = new Font("Verdana", 10, FontStyle.Bold),
+                                    Size = new Size(100, 30),
+                                    Location = new Point(p.Width - 120, 30),
                                     Anchor = AnchorStyles.Top | AnchorStyles.Right
                                 };
 
@@ -142,6 +140,11 @@ namespace DineEase.view
                             p.Controls.Add(lblDate);
                             p.Controls.Add(btnStatus);
                             flowLayoutPanel1.Controls.Add(p);
+
+                            foreach (Control c in flowLayoutPanel1.Controls)
+                            {
+                                c.Margin = new Padding(10);
+                            }
                         }
                     }
                 }

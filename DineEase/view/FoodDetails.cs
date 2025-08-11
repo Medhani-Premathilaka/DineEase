@@ -122,7 +122,7 @@ namespace DineEase
                 {
 
 
-                    //cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+                    cmd.Parameters.AddWithValue("@cust", CurrentUser.Username);
                     cmd.Parameters.AddWithValue("@name", productName);
                     cmd.Parameters.AddWithValue("@price", price * quantity);
                     cmd.Parameters.AddWithValue("@qty", quantity);
