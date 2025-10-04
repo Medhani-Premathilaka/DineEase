@@ -12,6 +12,9 @@ namespace DineEase.dao
         {
             // Load environment variables from .env file
             DotNetEnv.Env.Load("C:\\Users\\USER\\Desktop\\c#\\New folder (2)\\DineEase\\.env");
+            //string DB_CONNECTION_STRING = "Server=localhost\\SQLEXPRESS;Database=dineease;Trusted_Connection=True;";
+
+
             connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 
             // Check if the connection string is loaded correctly
