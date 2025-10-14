@@ -50,6 +50,7 @@
             this.viewOrderButton = new Guna.UI2.WinForms.Guna2Button();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtnone = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -65,12 +66,11 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Controls.Add(this.panelOverlay);
+            this.flowLayoutPanel1.Controls.Add(this.txtnone);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(228, 29);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-
             this.flowLayoutPanel1.Size = new System.Drawing.Size(690, 816);
-
             this.flowLayoutPanel1.TabIndex = 9;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
@@ -80,7 +80,7 @@
             this.panelOverlay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOverlay.Location = new System.Drawing.Point(3, 3);
             this.panelOverlay.Name = "panelOverlay";
-            this.panelOverlay.Size = new System.Drawing.Size(200, 0);
+            this.panelOverlay.Size = new System.Drawing.Size(200, 104);
             this.panelOverlay.TabIndex = 14;
             this.panelOverlay.Visible = false;
             this.panelOverlay.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOverlay_Paint);
@@ -293,7 +293,6 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(228, 845);
-
             this.guna2Panel1.TabIndex = 7;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -346,13 +345,30 @@
             this.guna2HtmlLabel1.Text = "DineEase";
             this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
+            // txtnone
+            // 
+            this.txtnone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtnone.DefaultText = "No Items found.";
+            this.txtnone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtnone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtnone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtnone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtnone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtnone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtnone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtnone.Location = new System.Drawing.Point(209, 4);
+            this.txtnone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtnone.Name = "txtnone";
+            this.txtnone.PlaceholderText = "";
+            this.txtnone.SelectedText = "";
+            this.txtnone.Size = new System.Drawing.Size(222, 102);
+            this.txtnone.TabIndex = 15;
+            // 
             // AdminViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.ClientSize = new System.Drawing.Size(918, 845);
-
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
@@ -390,5 +406,6 @@
         private Guna.UI2.WinForms.Guna2Button viewOrderButton;
         private Guna.UI2.WinForms.Guna2Button addButton;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtnone;
     }
 }
