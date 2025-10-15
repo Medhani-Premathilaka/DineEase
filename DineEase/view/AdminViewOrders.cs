@@ -24,24 +24,44 @@ namespace DineEase
         {
             LoadOrders();
         }
+        private void PositionTxtNone()
+        {
+            int left = Math.Max(0, (flowLayoutPanel1.ClientSize.Width - txtnone.Width) / 2);
+            txtnone.Margin = new Padding(left, 20, 0, 0); // adjust top as needed
+        }
 
+        private void FlowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+            if (txtnone.Visible && flowLayoutPanel1.Controls.Contains(txtnone))
+                PositionTxtNone();
+        }
         private void LoadOrders()
         {
             flowLayoutPanel1.Controls.Clear(); // Clear existing cards
-
+            txtnone.Visible = false; // hide by default
             string query = "SELECT * FROM Orders WHERE Finished = 0 ORDER BY OrderDate DESC";
-            if{
 
 
-                var db = dao.DBConnection.getInstance();
-                using (SqlConnection cnn = db.GetConnection())
+
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            {
+                try
                 {
                     cnn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, cnn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        if (!reader.HasRows)
+                        {
+                            if (!flowLayoutPanel1.Controls.Contains(txtnone))
+                                flowLayoutPanel1.Controls.Add(txtnone);
 
-                        SqlCommand cmd = new SqlCommand(query, cnn);
-
-                        SqlDataReader reader = cmd.ExecuteReader();
+                            txtnone.AutoSize = true; // let FlowLayoutPanel size around it
+                            PositionTxtNone();       // set margin for placement
+                            txtnone.Visible = true;
+                            return;
+                        }
 
                         int orderNumber = 1;
 
@@ -434,11 +454,12 @@ namespace DineEase
                     }
 
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading orders: " + ex.Message);
+                }
             }
-            else
-            {
 
-            }
         }
 
 
