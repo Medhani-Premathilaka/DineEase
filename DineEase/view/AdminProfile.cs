@@ -8,13 +8,15 @@ namespace DineEase
 
     public partial class AdminProfile : Form
     {
+        private string userId;
+
         // Moved the connectionString field inside the class to fix CS0116
         //private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
-        public AdminProfile()
+        public AdminProfile(string adminId = "sc12842")
         {
             InitializeComponent();
-
+            this.userId = adminId;
             this.ControlBox = true;
             this.MinimizeBox = true;
             this.MaximizeBox = true;

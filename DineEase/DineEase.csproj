@@ -214,11 +214,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="view\AdminHomePagenew.cs">
+    <Compile Include="view\AdminViewOrdersnew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\AdminHomePagenew.Designer.cs">
-      <DependentUpon>AdminHomePagenew.cs</DependentUpon>
+    <Compile Include="view\AdminViewOrdersnew.Designer.cs">
+      <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
     </Compile>
     <Compile Include="view\AdminOrderHistoryForm.cs">
       <SubType>Form</SubType>
@@ -247,11 +247,11 @@
     <Compile Include="view\AdminViewOrders.Designer.cs">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\AdminViewOrdersnew.cs">
+    <Compile Include="view\AdminHomePagenew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\AdminViewOrdersnew.Designer.cs">
-      <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
+    <Compile Include="view\AdminHomePagenew.Designer.cs">
+      <DependentUpon>AdminHomePagenew.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FoodDetails.cs">
       <SubType>Form</SubType>
@@ -323,8 +323,8 @@
     <Compile Include="view\UserViewOrders.Designer.cs">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\AdminHomePagenew.resx">
-      <DependentUpon>AdminHomePagenew.cs</DependentUpon>
+    <EmbeddedResource Include="view\AdminViewOrdersnew.resx">
+      <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminOrderHistoryForm.resx">
       <DependentUpon>AdminOrderHistoryForm.cs</DependentUpon>
@@ -341,8 +341,8 @@
     <EmbeddedResource Include="view\AdminViewOrders.resx">
       <DependentUpon>AdminViewOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\AdminViewOrdersnew.resx">
-      <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
+    <EmbeddedResource Include="view\AdminHomePagenew.resx">
+      <DependentUpon>AdminHomePagenew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FoodDetails.resx">
       <DependentUpon>FoodDetails.cs</DependentUpon>

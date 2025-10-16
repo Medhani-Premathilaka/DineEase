@@ -26,7 +26,12 @@ namespace DineEase.view
         private void AdminHomePagenew_Load(object sender, EventArgs e)
         {
             LoadMenuItemsAsCards();
-
+            flowLayoutPanel1.Width = this.ClientSize.Width;
+            flowLayoutPanel1.Padding = new Padding(10);
+            foreach (Control card in flowLayoutPanel1.Controls)
+            {
+                card.Margin = new Padding(15); // 15px space between cards
+            }
         }
         private void LoadMenuItemsAsCards()
         {
@@ -290,6 +295,11 @@ namespace DineEase.view
         public void showPage()
         {
             this.Show();
+        }
+
+        private void AdminHomePagenew_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

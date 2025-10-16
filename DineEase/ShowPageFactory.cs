@@ -8,7 +8,7 @@ public static class PageFactory
         switch (role)
         {
             case "ADMIN":
-                return (ShowPage)new AdminHomePagenew();
+                return (ShowPage)new AdminViewOrdersnew();
             case "USER":
                 return (ShowPage)new userViewFood();
 

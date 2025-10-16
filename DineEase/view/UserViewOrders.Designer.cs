@@ -33,9 +33,9 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 50);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(67, 54);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(761, 380);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1022, 468);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
@@ -43,8 +43,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1119, 1325);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Enabled = false;
             this.Name = "UserViewOrders";
             this.Text = "UserViewOrders";
             this.Load += new System.EventHandler(this.UserViewOrders_Load);

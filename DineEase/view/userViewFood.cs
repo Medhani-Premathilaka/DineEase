@@ -16,7 +16,8 @@ namespace DineEase
             this.ControlBox = true;
             this.MinimizeBox = true;
             this.MaximizeBox = true;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //ordersBtn.Click += ordersBtn_Click;// or FormBorderStyle.Sizable
             // profileBtn.Click += profileBtn_Click;
         }
 
@@ -30,7 +31,7 @@ namespace DineEase
 
         private void LoadFoodItems()
         {
-            //flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
 
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             var db = dao.DBConnection.getInstance();
@@ -188,15 +189,11 @@ namespace DineEase
             this.Show();
         }
 
-        private void userViewOrders_Click(object sender, EventArgs e)
-        {
-            var userOrdersView = new UserViewOrders();
-            userOrdersView.Show();
-        }
+
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            var userOrdersView = new UserViewOrders();
-            userOrdersView.Show();
+            //var userOrdersView = new UserViewOrders();
+            //userOrdersView.LoadOrders();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -267,7 +264,7 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            LoadFoodItems();
 
 
         }
@@ -332,6 +329,41 @@ namespace DineEase
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void ShowInFlow(Form child)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            child.TopLevel = false;
+            child.FormBorderStyle = FormBorderStyle.None;
+            child.Visible = true;
+            child.Size = flowLayoutPanel1.ClientSize;
+            flowLayoutPanel1.Controls.Add(child);
+            child.Show();
+        }
+
+
+
+
+        private void ordersBtn_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Orders button clicked!");
+            var ordersView = new UserViewOrders();
+            ShowInFlow(ordersView);
         }
     }
 }

@@ -2,39 +2,50 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace DineEase.view
 {
-    public partial class AdminViewOrdersnew : Form
+    public partial class AdminViewOrdersnew : Form, ShowPage
     {
+        private int panelExpandedWidth = 180;  // Width when expanded
+        private int panelCollapsedWidth = 70;  // Width when collapsed
+        private bool isCollapsed = true;
+        private string studentId;
+
         public AdminViewOrdersnew()
         {
             InitializeComponent();
             this.Load += AdminViewOrder_Load; // Attach event handler
 
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.WrapContents = false;
-            flowLayoutPanel1.AutoScroll = true;
+            //flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            //flowLayoutPanel1.WrapContents = false;
+            //flowLayoutPanel1.AutoScroll = true;
+            //InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void AdminViewOrder_Load(object sender, EventArgs e)
         {
             LoadOrders();
         }
-        private void PositionTxtNone()
-        {
-            int left = Math.Max(0, (flowLayoutPanel1.ClientSize.Width - txtnone.Width) / 2);
-            txtnone.Margin = new Padding(left, 20, 0, 0); // adjust top as needed
-        }
-        private void FlowLayoutPanel1_SizeChanged(object sender, EventArgs e)
-        {
-            if (txtnone.Visible && flowLayoutPanel1.Controls.Contains(txtnone))
-                PositionTxtNone();
-        }
+        //private void PositionTxtNone()
+        //{
+        //    int left = Math.Max(0, (flowLayoutPanel1.ClientSize.Width - txtnone.Width) / 2);
+        //    txtnone.Margin = new Padding(left, 20, 0, 0); // adjust top as needed
+        //}
+        //private void FlowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        //{
+        //    if (txtnone.Visible && flowLayoutPanel1.Controls.Contains(txtnone))
+        //        PositionTxtNone();
+        //}
         private void LoadOrders()
         {
             flowLayoutPanel1.Controls.Clear(); // Clear existing cards
-            txtnone.Visible = false; // hide by default
+            //txtnone.Visible = false; // hide by default
             string query = "SELECT * FROM Orders WHERE Finished = 0 ORDER BY OrderDate DESC";
 
 
@@ -47,16 +58,16 @@ namespace DineEase.view
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    if (!reader.HasRows)
-                    {
-                        if (!flowLayoutPanel1.Controls.Contains(txtnone))
-                            flowLayoutPanel1.Controls.Add(txtnone);
+                    //if (!reader.HasRows)
+                    //{
+                    //    if (!flowLayoutPanel1.Controls.Contains(txtnone))
+                    //        flowLayoutPanel1.Controls.Add(txtnone);
 
-                        txtnone.AutoSize = true; // let FlowLayoutPanel size around it
-                        PositionTxtNone();       // set margin for placement
-                        txtnone.Visible = true;
-                        return;
-                    }
+                    //    txtnone.AutoSize = true; // let FlowLayoutPanel size around it
+                    //    PositionTxtNone();       // set margin for placement
+                    //    txtnone.Visible = true;
+                    //    return;
+                    //}
 
                     int orderNumber = 1;
 
@@ -451,6 +462,179 @@ namespace DineEase.view
 
             }
 
+        }
+        private void ShowInFlow(Form child)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            child.TopLevel = false;
+            child.FormBorderStyle = FormBorderStyle.None;
+            child.Visible = true;
+            child.Size = flowLayoutPanel1.ClientSize;
+            flowLayoutPanel1.Controls.Add(child);
+            child.Show();
+        }
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void showPage()
+        {
+            this.Show();
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ordersBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Orders button clicked!");
+            var adminHomePagenew = new AdminHomePagenew();
+            ShowInFlow(adminHomePagenew);
+
+        }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            navTimer.Start();
+        }
+        private void navTimer_Tick_1(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                guna2Panel1.Width += 10;  // Increase width step-by-step
+                if (guna2Panel1.Width >= panelExpandedWidth)
+                {
+                    navTimer.Stop();
+                    isCollapsed = false;
+
+                    // Show labels after fully expanded
+                    homeBtn.Visible = true;
+                    ordersBtn.Visible = true;
+                    historyBtn.Visible = true;
+                    settingBtn.Visible = true;
+                    profileBtn.Visible = true;
+                    logo.Visible = true;
+                    guna2ImageButton1.Image = Image.FromFile("Resources\\collaps.png");
+
+                    AdjustControlPositions();
+                }
+            }
+            else
+            {
+                // Hide labels first to avoid visual glitches
+                logo.Visible = false;
+                homeBtn.Visible = false;
+                ordersBtn.Visible = false;
+                historyBtn.Visible = false;
+                settingBtn.Visible = false;
+                profileBtn.Visible = false;
+                guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
+
+                guna2Panel1.Width -= 10; // Decrease width step-by-step
+                if (guna2Panel1.Width <= panelCollapsedWidth)
+                {
+                    navTimer.Stop();
+                    isCollapsed = true;
+                    AdjustControlPositions();
+                }
+            }
+        }
+        private void AdjustControlPositions()
+        {
+            foreach (Control ctrl in guna2Panel1.Controls)
+            {
+                if (ctrl is Guna2ImageButton)
+                {
+                    if (isCollapsed)
+                        ctrl.Location = new Point(10, ctrl.Location.Y);
+                    else
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                }
+                else if (!isCollapsed)
+                {
+                    ctrl.Location = new Point(10, ctrl.Location.Y);
+                }
+            }
+        }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            string adminId = CurrentUser.UserId;
+
+            try
+            {
+                AdminProfile prf = new AdminProfile(adminId);
+                //prf.TopLevel = false;
+                //prf.FormBorderStyle = FormBorderStyle.None;
+                //prf.Dock = DockStyle.Fill;
+
+                //flowLayoutPanel1.Controls.Add(prf);
+                prf.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying profile: " + ex.Message);
+            }
+        }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+            LoadOrders();
+        }
+        //private void ShowInContent(Form child)
+        //{
+        //    flowLayoutPanel1.SuspendLayout();
+        //    try
+        //    {
+        //        flowLayoutPanel1.Controls.Clear();
+
+        //        child.TopLevel = false;
+        //        child.FormBorderStyle = FormBorderStyle.None;
+        //        child.ControlBox = false;
+        //        child.Margin = new Padding(0);
+        //        child.Width = flowLayoutPanel1.ClientSize.Width;
+        //        child.Height = flowLayoutPanel1.ClientSize.Height;
+        //        child.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+
+        //        flowLayoutPanel1.Controls.Add(child);
+        //        child.Show();
+
+        //        // keep child sized with the container
+        //        flowLayoutPanel1.Resize -= FlowHost_Resize;
+        //        flowLayoutPanel1.Resize += FlowHost_Resize;
+        //    }
+        //    finally
+        //    {
+        //        flowLayoutPanel1.ResumeLayout();
+        //    }
+        //}
+
+        private void FlowHost_Resize(object sender, EventArgs e)
+        {
+            if (flowLayoutPanel1.Controls.Count > 0)
+            {
+                var c = flowLayoutPanel1.Controls[0];
+                c.Size = flowLayoutPanel1.ClientSize;
+            }
         }
     }
 }
