@@ -14,6 +14,11 @@ namespace DineEase
         public AdminProfile()
         {
             InitializeComponent();
+
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -92,6 +97,11 @@ namespace DineEase
         {
             AdminProfile detailsForm = new AdminProfile();
             detailsForm.ShowDialog(); // or Show()
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

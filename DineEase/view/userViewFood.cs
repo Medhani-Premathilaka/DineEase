@@ -13,6 +13,10 @@ namespace DineEase
         public userViewFood()
         {
             InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             // profileBtn.Click += profileBtn_Click;
         }
 
@@ -302,6 +306,11 @@ namespace DineEase
                 MessageBox.Show("Error displaying profile: " + ex.Message);
             }
 
+
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

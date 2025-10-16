@@ -16,6 +16,11 @@ namespace DineEase
         public AdminHomePage()
         {
             InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable();
+
             this.Load += AdminHomePage_Load;
 
             timer1.Tick += timer_Tick_1;
@@ -485,6 +490,11 @@ namespace DineEase
         public void showPage()
         {
             this.Show();
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

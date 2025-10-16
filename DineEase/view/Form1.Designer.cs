@@ -194,8 +194,8 @@
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HelpButton = true;
             this.Name = "Form1";
-            this.Opacity = 0.89D;
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -11,6 +11,11 @@ namespace DineEase.view
         {
             InitializeComponent();
             LoadOrders();
+            InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
         }
         private void LoadOrders()
         {

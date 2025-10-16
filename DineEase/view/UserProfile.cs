@@ -16,6 +16,11 @@ namespace DineEase
         {
             //Console.WriteLine($"Profile loading for: {studentId}"); // Debug
             InitializeComponent();
+            InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             this.userId = studentId;
             guna2TextBox5.PasswordChar = '●'; // Confirm password
             guna2TextBox6.PasswordChar = '●';

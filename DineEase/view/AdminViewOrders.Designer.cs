@@ -33,6 +33,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOverlay = new System.Windows.Forms.Panel();
+            this.txtnone = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -50,7 +51,6 @@
             this.viewOrderButton = new Guna.UI2.WinForms.Guna2Button();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtnone = new Guna.UI2.WinForms.Guna2TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -84,6 +84,26 @@
             this.panelOverlay.TabIndex = 14;
             this.panelOverlay.Visible = false;
             this.panelOverlay.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOverlay_Paint);
+            // 
+            // txtnone
+            // 
+            this.txtnone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtnone.DefaultText = "No Items found.";
+            this.txtnone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtnone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtnone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtnone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtnone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtnone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtnone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtnone.Location = new System.Drawing.Point(209, 4);
+            this.txtnone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtnone.Name = "txtnone";
+            this.txtnone.PlaceholderText = "";
+            this.txtnone.SelectedText = "";
+            this.txtnone.Size = new System.Drawing.Size(222, 102);
+            this.txtnone.TabIndex = 15;
+            this.txtnone.TextChanged += new System.EventHandler(this.txtnone_TextChanged);
             // 
             // guna2ControlBox1
             // 
@@ -344,25 +364,6 @@
             this.guna2HtmlLabel1.TabIndex = 6;
             this.guna2HtmlLabel1.Text = "DineEase";
             this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
-            // 
-            // txtnone
-            // 
-            this.txtnone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtnone.DefaultText = "No Items found.";
-            this.txtnone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtnone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtnone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtnone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtnone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtnone.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtnone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtnone.Location = new System.Drawing.Point(209, 4);
-            this.txtnone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtnone.Name = "txtnone";
-            this.txtnone.PlaceholderText = "";
-            this.txtnone.SelectedText = "";
-            this.txtnone.Size = new System.Drawing.Size(222, 102);
-            this.txtnone.TabIndex = 15;
             // 
             // AdminViewOrders
             // 

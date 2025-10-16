@@ -15,7 +15,11 @@ namespace DineEase
         {
             InitializeComponent();
             originalName = name;
-
+            //InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             guna2ComboBox1.Items.AddRange(new string[] { "Breakfast", "Lunch", "Dinner", "Drinks", "Dessert" });
 
             LoadItemData(); // Call method to load from DB
@@ -254,6 +258,11 @@ namespace DineEase
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

@@ -9,7 +9,7 @@ namespace DineEase
 {
     public partial class FoodDetails : Form
     {
-      
+
 
         int productId;
         string productName = "";
@@ -21,8 +21,13 @@ namespace DineEase
         public FoodDetails(int id, string userId)
         {
             InitializeComponent();
+            InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             this.TopMost = true;
-            this.ControlBox = false;
+            //this.ControlBox = false;
             productId = id;
             this.userId = userId;
             dgvFoodItems = new object();
@@ -153,7 +158,7 @@ namespace DineEase
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             this.Close();
- 
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

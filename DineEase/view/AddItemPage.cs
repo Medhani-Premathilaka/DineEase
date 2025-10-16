@@ -11,6 +11,11 @@ namespace DineEase
         public AddItemPage()
         {
             InitializeComponent();
+
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             guna2ComboBox1.Items.AddRange(new object[]
             {
                 "Breakfast",
@@ -152,6 +157,11 @@ namespace DineEase
         }
 
         private void pictureBoxItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddItemPage_Load(object sender, EventArgs e)
         {
 
         }
