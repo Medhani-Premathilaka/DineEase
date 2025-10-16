@@ -1,4 +1,5 @@
 ﻿using DineEase;
+using DineEase.view;
 
 public static class PageFactory
 {
@@ -7,7 +8,7 @@ public static class PageFactory
         switch (role)
         {
             case "ADMIN":
-                return (ShowPage)new AdminHomePage();
+                return (ShowPage)new AdminHomePagenew();
             case "USER":
                 return (ShowPage)new userViewFood();
 
