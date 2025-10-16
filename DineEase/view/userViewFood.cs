@@ -309,7 +309,27 @@ namespace DineEase
 
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        private void logo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
 
         }
