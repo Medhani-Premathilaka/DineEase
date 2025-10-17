@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using DineEase.view;
 namespace DineEase
 {
     public partial class UpdateItemPage : Form
@@ -225,7 +225,7 @@ namespace DineEase
                     {
                         MessageBox.Show("Item updated successfully.");
                         this.Close();
-                        new AdminHomePage().Show(); // Go back to admin
+                        new AdminHomePagenew().Show(); // Go back to admin
                     }
                     else
                     {

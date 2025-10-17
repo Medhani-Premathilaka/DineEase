@@ -119,7 +119,7 @@
             this.guna2TextBoxName.SelectedText = "";
             this.guna2TextBoxName.Size = new System.Drawing.Size(222, 24);
             this.guna2TextBoxName.TabIndex = 16;
-            this.guna2TextBoxName.TextChanged += new System.EventHandler(this.guna2TextBoxName_TextChanged);
+//            this.guna2TextBoxName.TextChanged += new System.EventHandler(this.guna2TextBoxName_TextChanged);
             // 
             // guna2HtmlLabel4
             // 
@@ -238,7 +238,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(800, 454);
             this.guna2Panel1.TabIndex = 4;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+//            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // UpdateItemPage
             // 
