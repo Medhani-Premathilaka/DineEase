@@ -13,6 +13,11 @@ namespace DineEase
         public userViewFood()
         {
             InitializeComponent();
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //ordersBtn.Click += ordersBtn_Click;// or FormBorderStyle.Sizable
             // profileBtn.Click += profileBtn_Click;
         }
 
@@ -26,7 +31,7 @@ namespace DineEase
 
         private void LoadFoodItems()
         {
-            //flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
 
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             var db = dao.DBConnection.getInstance();
@@ -46,6 +51,7 @@ namespace DineEase
                         Width = 180,
                         Height = 240,
                         BorderStyle = BorderStyle.None,
+
                         BackColor = Color.White,
                         Tag = reader["ProductID"], // Store ProductID                       
                         Radius = 5,
@@ -164,10 +170,7 @@ namespace DineEase
 
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private int panelExpandedWidth = 180;  // Width when expanded
         private int panelCollapsedWidth = 70;  // Width when collapsed
@@ -184,15 +187,11 @@ namespace DineEase
             this.Show();
         }
 
-        private void userViewOrders_Click(object sender, EventArgs e)
-        {
-            var userOrdersView = new UserViewOrders();
-            userOrdersView.Show();
-        }
+
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            var userOrdersView = new UserViewOrders();
-            userOrdersView.Show();
+            //var userOrdersView = new UserViewOrders();
+            //userOrdersView.LoadOrders();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -252,7 +251,7 @@ namespace DineEase
                     if (isCollapsed)
                         ctrl.Location = new Point(10, ctrl.Location.Y);
                     else
-                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 5, ctrl.Location.Y);
                 }
                 else if (!isCollapsed)
                 {
@@ -263,7 +262,7 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            LoadFoodItems();
 
 
         }
@@ -303,6 +302,66 @@ namespace DineEase
             }
 
 
+        }
+
+        private void logo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void ShowInFlow(Form child)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            child.TopLevel = false;
+            child.FormBorderStyle = FormBorderStyle.None;
+            child.Visible = true;
+            child.Size = flowLayoutPanel1.ClientSize;
+            flowLayoutPanel1.Controls.Add(child);
+            child.Show();
+        }
+
+
+
+
+        private void ordersBtn_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Orders button clicked!");
+            var ordersView = new UserViewOrders();
+            ShowInFlow(ordersView);
         }
     }
 }

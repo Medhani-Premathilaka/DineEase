@@ -342,6 +342,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "AddItemPage";
             this.Text = "AddItem";
+            this.Load += new System.EventHandler(this.AddItemPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

@@ -6,23 +6,33 @@ using System.IO;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 
-
-namespace DineEase
+namespace DineEase.view
 {
-    public partial class AdminHomePage : Form, ShowPage
+    public partial class AdminHomePagenew : Form, ShowPage
     {
-        //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-
-        public AdminHomePage()
+        public AdminHomePagenew()
         {
             InitializeComponent();
-            this.Load += AdminHomePage_Load;
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable();
 
-            timer1.Tick += timer_Tick_1;
-            timer1.Interval = 10;
+            this.Load += AdminHomePagenew_Load;
 
+            //timer1.Tick += timer_Tick_1;
+            //timer1.Interval = 10;
         }
-
+        private void AdminHomePagenew_Load(object sender, EventArgs e)
+        {
+            LoadMenuItemsAsCards();
+            flowLayoutPanel1.Width = this.ClientSize.Width;
+            flowLayoutPanel1.Padding = new Padding(10);
+            foreach (Control card in flowLayoutPanel1.Controls)
+            {
+                card.Margin = new Padding(15); // 15px space between cards
+            }
+        }
         private void LoadMenuItemsAsCards()
         {
             flowLayoutPanel1.Controls.Clear();
@@ -105,10 +115,6 @@ namespace DineEase
                 cnn.Close();
             }
         }
-
-
-
-
         private Guna2Panel CreateCard(string name, string addFor, string price, string description, byte[] imageData)
         {
             Guna2Panel card = new Guna2Panel
@@ -237,9 +243,6 @@ namespace DineEase
 
             return card;
         }
-
-
-
         private void DeleteMenuItem(string itemName)
         {
             DialogResult dialogResult = MessageBox.Show(
@@ -284,207 +287,19 @@ namespace DineEase
                 cnn.Close();
             }
         }
-
-
-
-        private void AdminHomePage_Load(object sender, EventArgs e)
-        {
-            LoadMenuItemsAsCards();
-
-        }
-
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-            // Optional: remove or customize if unused
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void historyButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void profileButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void AdminHomePage_Load_1(object sender, EventArgs e)
-        {
-            guna2Panel1.Width = 90;
-        }
-
-        private void guna2ButtonAddNewItem_Click_1(object sender, EventArgs e)
-        {
-            AddItemPage addItemPage = new AddItemPage();
-            addItemPage.Show();
-            //this.Hide();
-
-        }
-
-        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
-             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-
-        }
-
-        private void guna2ControlBox3_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                // Form is maximized
-                Console.WriteLine("Maximized!");
-            }
-            else if (this.WindowState == FormWindowState.Normal)
-            {
-                // Form is restored
-                Console.WriteLine("Restored!");
-            }
-        }
-
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            var adminViewOrders = new AdminViewOrders();
-            adminViewOrders.Show();
-            this.Hide();
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            AdminOrderHistoryForm adminViewOrders = new AdminOrderHistoryForm();
-            adminViewOrders.Show();
-        }
-
-        private void guna2ImageButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint_2(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private int panelExpandedWidth = 200;  // Width when expanded
-        private int panelCollapsedWidth = 90;  // Width when collapsed
-        private bool isCollapsed = true;
-
-        private void guna2ImageButton1_Click_1(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
-
-        private void timer_Tick_1(object sender, EventArgs e)
-        {
-            if (isCollapsed)
-            {
-                guna2Panel1.Width += 60;  // Increase width step-by-step
-                if (guna2Panel1.Width >= panelExpandedWidth)
-                {
-                    timer1.Stop();
-                    isCollapsed = false;
-
-                    // Show labels after fully expanded
-                    addButton.Visible = true;
-                    viewOrderButton.Visible = true;
-                    historyButton.Visible = true;
-                    settingButton.Visible = true;
-                    profileButton.Visible = true;
-
-                    guna2ImageButton1.Image = Image.FromFile(@"Resources\\collaps.png");
-
-                    AdjustControlPositions();
-                }
-            }
-            else
-            {
-                // Hide labels first to avoid visual glitches
-                addButton.Visible = false;
-                viewOrderButton.Visible = false;
-                historyButton.Visible = false;
-                settingButton.Visible = false;
-                profileButton.Visible = false;
-
-                guna2ImageButton1.Image = Image.FromFile(@"Resources\\expand.png");
-
-                guna2Panel1.Width -= 60; // Decrease width step-by-step
-                if (guna2Panel1.Width <= panelCollapsedWidth)
-                {
-                    timer1.Stop();
-                    isCollapsed = true;
-                    AdjustControlPositions();
-                }
-            }
-        }
-
-        private void AdjustControlPositions()
-        {
-            foreach (Control ctrl in guna2Panel1.Controls)
-            {
-                if (ctrl is Guna2ImageButton)
-                {
-                    if (isCollapsed)
-                        ctrl.Location = new Point(10, ctrl.Location.Y);
-                    else
-                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
-                }
-                else if (!isCollapsed)
-                {
-                    ctrl.Location = new Point(10, ctrl.Location.Y);
-                }
-            }
-        }
-
-        private void profileButton_Click_1(object sender, EventArgs e)
-        {
-        }
-
         public void showPage()
         {
             this.Show();
+        }
+
+        private void AdminHomePagenew_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

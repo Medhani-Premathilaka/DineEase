@@ -12,6 +12,11 @@ namespace DineEase
         public AdminOrderHistoryForm()
         {
             InitializeComponent();
+
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             this.Load += AdminOrderHistoryForm_Load;
             cmbFilter.SelectedIndexChanged += cmbFilter_SelectedIndexChanged;
             dgvOrders.CellClick += dgvOrders_CellClick;

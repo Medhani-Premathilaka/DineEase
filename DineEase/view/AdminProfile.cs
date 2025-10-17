@@ -8,12 +8,19 @@ namespace DineEase
 
     public partial class AdminProfile : Form
     {
+        private string userId;
+
         // Moved the connectionString field inside the class to fix CS0116
         //private string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
 
-        public AdminProfile()
+        public AdminProfile(string adminId = "sc12842")
         {
             InitializeComponent();
+            this.userId = adminId;
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -92,6 +99,11 @@ namespace DineEase
         {
             AdminProfile detailsForm = new AdminProfile();
             detailsForm.ShowDialog(); // or Show()
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

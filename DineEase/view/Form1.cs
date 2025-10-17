@@ -17,6 +17,11 @@ namespace DineEase
         public Form1()
         {
             InitializeComponent();
+            //InitializeComponent();
+            //this.ControlBox = true;
+            //this.MinimizeBox = true;
+            //this.MaximizeBox = false;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
             password.PasswordChar = '\0';
 
             username.Text = "Enter username";

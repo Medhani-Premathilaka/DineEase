@@ -214,6 +214,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="view\AdminViewOrdersnew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AdminViewOrdersnew.Designer.cs">
+      <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\AdminOrderHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,17 +235,11 @@
     <Compile Include="view\AddItemPage.Designer.cs">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\AdminHomePage.cs">
+    <Compile Include="view\AdminHomePagenew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\AdminHomePage.Designer.cs">
-      <DependentUpon>AdminHomePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\AdminViewOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\AdminViewOrders.Designer.cs">
-      <DependentUpon>AdminViewOrders.cs</DependentUpon>
+    <Compile Include="view\AdminHomePagenew.Designer.cs">
+      <DependentUpon>AdminHomePagenew.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FoodDetails.cs">
       <SubType>Form</SubType>
@@ -274,12 +274,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="view\navigationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\navigationForm.Designer.cs">
-      <DependentUpon>navigationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Signup.cs">
       <SubType>Form</SubType>
@@ -317,20 +311,20 @@
     <Compile Include="view\UserViewOrders.Designer.cs">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\AdminViewOrdersnew.resx">
+      <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\AdminOrderHistoryForm.resx">
       <DependentUpon>AdminOrderHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\AdminHomePage.resx">
-      <DependentUpon>AdminHomePage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="view\AdminProfile.resx">
       <DependentUpon>AdminProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\AdminViewOrders.resx">
-      <DependentUpon>AdminViewOrders.cs</DependentUpon>
+    <EmbeddedResource Include="view\AdminHomePagenew.resx">
+      <DependentUpon>AdminHomePagenew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FoodDetails.resx">
       <DependentUpon>FoodDetails.cs</DependentUpon>
@@ -342,9 +336,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\navigationForm.resx">
-      <DependentUpon>navigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
