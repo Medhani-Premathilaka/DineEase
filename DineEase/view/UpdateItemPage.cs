@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using DineEase.view;
 
 namespace DineEase
 {
@@ -11,17 +10,12 @@ namespace DineEase
     {
         private string imagePath = null;
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-        //string originalName;
-        int productId;
+        string originalName;
         public UpdateItemPage(string name)
         {
             InitializeComponent();
             originalName = name;
-            //InitializeComponent();
-            this.ControlBox = true;
-            this.MinimizeBox = true;
-            this.MaximizeBox = true;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
+
             guna2ComboBox1.Items.AddRange(new string[] { "Breakfast", "Lunch", "Dinner", "Drinks", "Dessert" });
 
             LoadItemData(); // Call method to load from DB
@@ -29,7 +23,7 @@ namespace DineEase
 
         private void LoadItemData()
         {
-            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductID = @id";
+            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductName = @name";
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
 
@@ -38,7 +32,7 @@ namespace DineEase
                 cnn.Open();
 
                 //SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.Parameters.AddWithValue("@id", productId);
+                cmd.Parameters.AddWithValue("@name", originalName);
 
                 try
                 {
@@ -231,7 +225,7 @@ namespace DineEase
                     {
                         MessageBox.Show("Item updated successfully.");
                         this.Close();
-                        new AdminHomePagenew().Show(); // Go back to admin
+                        new AdminHomePage().Show(); // Go back to admin
                     }
                     else
                     {
@@ -260,21 +254,6 @@ namespace DineEase
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2TextBoxName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
