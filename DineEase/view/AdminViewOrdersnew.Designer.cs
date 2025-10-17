@@ -106,6 +106,7 @@
             this.historyBtn.TabIndex = 9;
             this.historyBtn.Text = "History";
             this.historyBtn.Visible = false;
+            this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
             // ordersBtn
             // 

@@ -632,7 +632,11 @@ namespace DineEase.view
             LoadOrders();
         }
 
-
-
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+            var adminOrderHistoryForm = new AdminOrderHistoryForm();
+            //adminOrderHistoryForm.Show();
+            ShowInFlow(adminOrderHistoryForm);
+        }
     }
 }

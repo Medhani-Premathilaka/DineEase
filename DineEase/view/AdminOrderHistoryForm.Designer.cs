@@ -28,21 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvOrders
+            // flowLayoutPanel2
             // 
-            this.dgvOrders.AllowUserToOrderColumns = true;
-            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(40, 68);
-            this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.RowHeadersWidth = 51;
-            this.dgvOrders.RowTemplate.Height = 24;
-            this.dgvOrders.Size = new System.Drawing.Size(697, 342);
-            this.dgvOrders.TabIndex = 5;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(160, 121);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1055, 469);
+            this.flowLayoutPanel2.TabIndex = 7;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // cmbFilter
             // 
@@ -54,7 +50,7 @@
             "Rejected",
             "Recent",
             "Last Month"});
-            this.cmbFilter.Location = new System.Drawing.Point(40, 30);
+            this.cmbFilter.Location = new System.Drawing.Point(31, 12);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(121, 24);
             this.cmbFilter.TabIndex = 6;
@@ -64,19 +60,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1270, 627);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.cmbFilter);
-            this.Controls.Add(this.dgvOrders);
             this.Name = "AdminOrderHistoryForm";
             this.Text = "AdminOrderHistoryForm";
             this.Load += new System.EventHandler(this.AdminOrderHistoryForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.ComboBox cmbFilter;
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvOrders;
-        private System.Windows.Forms.ComboBox cmbFilter;
+        //private System.Windows.Forms.ComboBox cmbFilter;
     }
 }
