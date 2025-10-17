@@ -183,10 +183,10 @@
             // logo
             // 
             this.logo.Image = global::DineEase.Properties.Resources.DineEase__1_;
-            this.logo.Location = new System.Drawing.Point(8, 11);
+            this.logo.Location = new System.Drawing.Point(87, -9);
             this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(266, 77);
+            this.logo.Size = new System.Drawing.Size(165, 51);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.logo.TabIndex = 12;
             this.logo.TabStop = false;
@@ -278,11 +278,11 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(11, 80);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(3, 33);
             this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(57, 43);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(57, 46);
             this.guna2ImageButton1.TabIndex = 0;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 

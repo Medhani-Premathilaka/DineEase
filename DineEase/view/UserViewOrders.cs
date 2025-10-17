@@ -54,13 +54,16 @@ namespace DineEase.view
                             {
                                 any = true;
 
-                                var row = new Panel
+                                Panel row = new Panel
                                 {
-                                    Height = 80,
+                                    Width = 700, // Make panel stretch across
+                                    Height = 90,
                                     BackColor = Color.White,
-                                    Margin = new Padding(10),
-                                    BorderStyle = BorderStyle.FixedSingle
+                                    BorderStyle = BorderStyle.FixedSingle,
+                                    Margin = new Padding(10)
                                 };
+
+
 
                                 var lblItems = new Label
                                 {
@@ -73,13 +76,22 @@ namespace DineEase.view
 
                                 var lblDate = new Label
                                 {
+
                                     Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
                                     AutoSize = true,
                                     Left = 10,
                                     Top = 35,
                                     ForeColor = Color.Gray
                                 };
+                                var lblnewDate = new Label
+                                {
 
+                                    Text = Convert.ToDateTime(reader["OrderDate"]).AddMinutes(30).ToString("f"),
+                                    AutoSize = true,
+                                    Left = 10,
+                                    Top = 35,
+                                    ForeColor = Color.Gray
+                                };
                                 var btnStatus = new Button
                                 {
                                     Text = reader["OrderStatus"].ToString(),
@@ -91,37 +103,44 @@ namespace DineEase.view
                                     Anchor = AnchorStyles.Top | AnchorStyles.Right
                                 };
 
-                                row.Controls.Add(lblItems);
-                                row.Controls.Add(lblDate);
-                                row.Controls.Add(btnStatus);
-
-
-
+                                // Inside while (reader.Read()) just after creating btnStatus
                                 if (reader["OrderStatus"].ToString() == "Pending")
                                 {
                                     int orderId = Convert.ToInt32(reader["OrderId"]);
-                                    var btnCancel = new Button
+                                    Button btnCancel = new Button
                                     {
                                         Text = "Cancel",
                                         BackColor = Color.IndianRed,
                                         ForeColor = Color.White,
-                                        Width = 80,
+                                        Width = 90,
                                         Height = 28,
-                                        Top = 26,
-                                        Anchor = AnchorStyles.Top | AnchorStyles.Right
+                                        Top = 26
                                     };
-                                    btnCancel.Click += (s, e) => CancelOrder(orderId, row);
-                                    row.Controls.Add(btnCancel);
 
-                                    // position buttons on resize
-                                    row.Resize += (s, e) =>
+                                    // Fixed: Properly wire up the click event with orderId and panel reference
+                                    btnCancel.Click += (s, e) => CancelOrder(orderId, row);
+
+                                    // Add content first so the button isn't hidden under labels
+                                    row.Controls.Add(lblItems);
+                                    row.Controls.Add(lblDate);
+                                    row.Controls.Add(btnStatus);
+                                    row.Controls.Add(btnCancel);
+                                    btnCancel.BringToFront();
+
+                                    // Position buttons now and on resize
+                                    Action position = () =>
                                     {
                                         btnCancel.Left = row.ClientSize.Width - btnCancel.Width - 10;
                                         btnStatus.Left = btnCancel.Left - btnStatus.Width - 10;
                                     };
+                                    row.Resize += (s, e) => position();
+                                    position();
                                 }
                                 else
                                 {
+                                    row.Controls.Add(lblItems);
+                                    row.Controls.Add(lblDate);
+                                    row.Controls.Add(btnStatus);
                                     row.Resize += (s, e) =>
                                     {
                                         btnStatus.Left = row.ClientSize.Width - btnStatus.Width - 10;
@@ -129,7 +148,6 @@ namespace DineEase.view
                                 }
 
                                 flowLayoutPanel1.Controls.Add(row);
-                                // initial width/position
                                 FitRowWidth(row);
                             }
 
@@ -176,26 +194,45 @@ namespace DineEase.view
         private void CancelOrder(int orderId, Panel panel)
         {
             var result = MessageBox.Show("Do you really want to cancel this order?",
-                "Confirm Cancellation.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (result != DialogResult.Yes) return;
-
-            var db = dao.DBConnection.getInstance();
-            using (SqlConnection cnn = db.GetConnection())
+            // Fixed: Changed condition to check for Yes instead of No
+            if (result == DialogResult.Yes)
             {
-                cnn.Open();
-                string query = "UPDATE Orders SET OrderStatus = 'Cancelled' , Finished = 1 WHERE OrderId = @orderId";
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@orderId", orderId);
-                    cmd.ExecuteNonQuery();
+                    var db = dao.DBConnection.getInstance();
+                    using (SqlConnection cnn = db.GetConnection())
+                    {
+                        cnn.Open();
+                        string query = "UPDATE Orders SET OrderStatus = 'Cancelled', Finished = 1 WHERE OrderId = @orderId";
+                        using (SqlCommand cmd = new SqlCommand(query, cnn))
+                        {
+                            cmd.Parameters.AddWithValue("@orderId", orderId);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Order cancelled successfully!", "Success",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                StartFadeOut(panel);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to cancel order. Please try again.", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
                 }
-                cnn.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error cancelling order: {ex.Message}", "Database Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            StartFadeOut(panel);
-
-
         }
+
         private void StartFadeOut(Panel row)
         {
             // Smooth collapse animation (works reliably in WinForms)
@@ -224,6 +261,7 @@ namespace DineEase.view
 
             t.Start();
         }
+
         private void EnableDoubleBuffering(Panel panel)
         {
             var prop = typeof(Control).GetProperty("DoubleBuffered",

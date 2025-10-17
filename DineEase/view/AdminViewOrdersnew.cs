@@ -17,7 +17,7 @@ namespace DineEase.view
         {
             InitializeComponent();
             this.Load += AdminViewOrder_Load; // Attach event handler
-
+            this.Resize += AdminViewOrdersnew_Resize;
             //flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             //flowLayoutPanel1.WrapContents = false;
             //flowLayoutPanel1.AutoScroll = true;
@@ -26,10 +26,20 @@ namespace DineEase.view
             this.MinimizeBox = true;
             this.MaximizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            // Configure flow panel
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.WrapContents = false;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.BackColor = Color.FromArgb(240, 240, 240); // Light gray background
+
+            LoadOrders();
         }
 
         private void AdminViewOrder_Load(object sender, EventArgs e)
         {
+            guna2Panel1.Width = panelCollapsedWidth; // ensure collapsed at start
             LoadOrders();
         }
         //private void PositionTxtNone()
@@ -84,20 +94,29 @@ namespace DineEase.view
                             Height = 90,
                             BackColor = Color.White,
                             BorderStyle = BorderStyle.FixedSingle,
-                            Margin = new Padding(5)
+                            Margin = new Padding(10)
                         };
 
 
 
                         // Prepare formatted date safely
-                        string formattedDate = "";
-                        if (!(reader["OrderDate"] is DBNull))
-                        {
-                            DateTime orderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                            formattedDate = (orderDateTime.Date == DateTime.Today)
-                                ? "Today " + orderDateTime.ToString("h.mm tt").ToLower()
-                                : orderDateTime.ToString("dd MMM yyyy h.mm tt").ToLower();
-                        }
+                        //string formattedDate = "";
+                        //if (!(reader["OrderDate"] is DBNull))
+                        //{
+                        //    DateTime orderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                        //    formattedDate = (orderDateTime.Date == DateTime.Today)
+                        //        ? "Today " + orderDateTime.ToString("h.mm tt").ToLower()
+                        //        : orderDateTime.ToString("dd MMM yyyy h.mm tt").ToLower();
+                        //}
+                        //var lblDate = new Label
+                        //{
+
+                        //    Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
+                        //    AutoSize = true,
+                        //    Left = 10,
+                        //    Top = 35,
+                        //    ForeColor = Color.Gray
+                        //};
 
 
                         if (orderStatus.ToLower() == "done")
@@ -109,7 +128,7 @@ namespace DineEase.view
                                 {
                                     Text = "Price: Rs. " + reader["Price"],
                                     Font = new Font("Segoe UI", 9),
-                                    Location = new Point(200, 30),
+                                    Location = new Point(300, 30),
                                     AutoSize = true
                                 };
                                 orderPanel.Controls.Add(lblPrice);
@@ -198,21 +217,21 @@ namespace DineEase.view
                             {
                                 Text = "Price: Rs. " + reader["Price"],
                                 Font = new Font("Segoe UI", 9),
-                                Location = new Point(200, 30),
+                                Location = new Point(300, 30),
                                 AutoSize = true
                             };
                             orderPanel.Controls.Add(lblPrice);
 
                             // Date formatting logic
-                            DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                            string innerFormattedDate = (innerOrderDateTime.Date == DateTime.Today)
-                                ? "Today " + innerOrderDateTime.ToString("h:mm tt")
-                                : innerOrderDateTime.ToString("dd MMM yyyy h:mm tt");
+                            //DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
+                            //string innerFormattedDate = (innerOrderDateTime.Date == DateTime.Today)
+                            //    ? "Today " + innerOrderDateTime.ToString("h:mm tt")
+                            //    : innerOrderDateTime.ToString("dd MMM yyyy h:mm tt");
 
                             // Date label
                             Label innerLblTime = new Label
                             {
-                                Text = innerFormattedDate,
+                                Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
                                 Font = new Font("Segoe UI", 9, FontStyle.Italic),
                                 ForeColor = Color.Gray,
                                 AutoSize = true,
@@ -306,21 +325,17 @@ namespace DineEase.view
                             {
                                 Text = "Price: Rs. " + reader["Price"],
                                 Font = new Font("Segoe UI", 9),
-                                Location = new Point(200, 30),
+                                Location = new Point(300, 30),
                                 AutoSize = true
                             };
                             orderPanel.Controls.Add(lblPrice);
 
                             // Date formatting logic
-                            DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                            string innerFormattedDate = (innerOrderDateTime.Date == DateTime.Today)
-                                ? "Today " + innerOrderDateTime.ToString("h:mm tt")
-                                : innerOrderDateTime.ToString("dd MMM yyyy h:mm tt");
 
                             // Date label
                             Label innerLblTime = new Label
                             {
-                                Text = innerFormattedDate,
+                                Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
                                 Font = new Font("Segoe UI", 9, FontStyle.Italic),
                                 ForeColor = Color.Gray,
                                 AutoSize = true,
@@ -463,6 +478,22 @@ namespace DineEase.view
             }
 
         }
+        private void AdminViewOrdersnew_Resize(object sender, EventArgs e)
+        {
+            // Resize the flowLayoutPanel to fill the form's client area
+            // You may need to adjust margins/paddings as needed
+            flowLayoutPanel1.Width = this.ClientSize.Width - flowLayoutPanel1.Left - 20;
+            flowLayoutPanel1.Height = this.ClientSize.Height - flowLayoutPanel1.Top - 20;
+
+            // Resize any child form that's in the flowLayoutPanel
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Form)
+                {
+                    control.Size = flowLayoutPanel1.ClientSize;
+                }
+            }
+        }
         private void ShowInFlow(Form child)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -490,7 +521,7 @@ namespace DineEase.view
 
         private void ordersBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Orders button clicked!");
+            //MessageBox.Show("Orders button clicked!");
             var adminHomePagenew = new AdminHomePagenew();
             ShowInFlow(adminHomePagenew);
 
@@ -600,41 +631,8 @@ namespace DineEase.view
         {
             LoadOrders();
         }
-        //private void ShowInContent(Form child)
-        //{
-        //    flowLayoutPanel1.SuspendLayout();
-        //    try
-        //    {
-        //        flowLayoutPanel1.Controls.Clear();
 
-        //        child.TopLevel = false;
-        //        child.FormBorderStyle = FormBorderStyle.None;
-        //        child.ControlBox = false;
-        //        child.Margin = new Padding(0);
-        //        child.Width = flowLayoutPanel1.ClientSize.Width;
-        //        child.Height = flowLayoutPanel1.ClientSize.Height;
-        //        child.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
 
-        //        flowLayoutPanel1.Controls.Add(child);
-        //        child.Show();
 
-        //        // keep child sized with the container
-        //        flowLayoutPanel1.Resize -= FlowHost_Resize;
-        //        flowLayoutPanel1.Resize += FlowHost_Resize;
-        //    }
-        //    finally
-        //    {
-        //        flowLayoutPanel1.ResumeLayout();
-        //    }
-        //}
-
-        private void FlowHost_Resize(object sender, EventArgs e)
-        {
-            if (flowLayoutPanel1.Controls.Count > 0)
-            {
-                var c = flowLayoutPanel1.Controls[0];
-                c.Size = flowLayoutPanel1.ClientSize;
-            }
-        }
     }
 }

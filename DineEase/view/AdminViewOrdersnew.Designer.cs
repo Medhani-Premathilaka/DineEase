@@ -151,7 +151,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(795, 837);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 870);
             this.flowLayoutPanel1.TabIndex = 6;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
@@ -174,17 +174,17 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(252, 837);
+            this.guna2Panel1.Size = new System.Drawing.Size(252, 870);
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // logo
             // 
             this.logo.Image = global::DineEase.Properties.Resources.DineEase__1_;
-            this.logo.Location = new System.Drawing.Point(8, 11);
+            this.logo.Location = new System.Drawing.Point(105, -13);
             this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(266, 77);
+            this.logo.Size = new System.Drawing.Size(156, 77);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.logo.TabIndex = 12;
             this.logo.TabStop = false;
@@ -277,7 +277,7 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(11, 80);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(11, 48);
             this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -289,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 837);
+            this.ClientSize = new System.Drawing.Size(982, 870);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "AdminViewOrdersnew";

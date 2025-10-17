@@ -51,6 +51,7 @@ namespace DineEase
                         Width = 180,
                         Height = 240,
                         BorderStyle = BorderStyle.None,
+
                         BackColor = Color.White,
                         Tag = reader["ProductID"], // Store ProductID                       
                         Radius = 5,
@@ -169,10 +170,7 @@ namespace DineEase
 
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private int panelExpandedWidth = 180;  // Width when expanded
         private int panelCollapsedWidth = 70;  // Width when collapsed
@@ -253,7 +251,7 @@ namespace DineEase
                     if (isCollapsed)
                         ctrl.Location = new Point(10, ctrl.Location.Y);
                     else
-                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 5, ctrl.Location.Y);
                 }
                 else if (!isCollapsed)
                 {

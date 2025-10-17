@@ -11,7 +11,8 @@ namespace DineEase
     {
         private string imagePath = null;
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-        string originalName;
+        //string originalName;
+        int productId;
         public UpdateItemPage(string name)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace DineEase
 
         private void LoadItemData()
         {
-            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductName = @name";
+            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductID = @id";
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
 
@@ -37,7 +38,7 @@ namespace DineEase
                 cnn.Open();
 
                 //SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.Parameters.AddWithValue("@name", originalName);
+                cmd.Parameters.AddWithValue("@id", productId);
 
                 try
                 {
@@ -264,6 +265,16 @@ namespace DineEase
         }
 
         private void guna2Panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2TextBoxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
