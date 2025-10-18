@@ -16,7 +16,7 @@ namespace DineEase
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new ViewUserHistory());
+            Application.Run(new Form1());
         }
     }
 }
