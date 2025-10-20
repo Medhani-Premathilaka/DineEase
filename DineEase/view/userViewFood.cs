@@ -331,7 +331,9 @@ namespace DineEase
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
-
+            string studentId = CurrentUser.UserId;
+            var viewUserHistory = new ViewUserHistory(studentId);
+            viewUserHistory.Show();
         }
 
         private void guna2ImageButton5_Click_1(object sender, EventArgs e)

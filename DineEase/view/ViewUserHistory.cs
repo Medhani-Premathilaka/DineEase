@@ -7,11 +7,9 @@ namespace DineEase
 {
     public partial class ViewUserHistory : Form
     {
-        private readonly int _userId;
+        private readonly string _userId;
 
-        //private readonly string _connectionString = @"Data Source=LAPTOP-M18U5G4F\SQLEXPRESS;Initial Catalog=DINEASE;Integrated Security=True;";
-
-        public ViewUserHistory(int userId)
+        public ViewUserHistory(string userId)
         {
             InitializeComponent();
             _userId = userId;
@@ -30,7 +28,7 @@ namespace DineEase
             cmbFilter.Items.Clear();
             cmbFilter.Items.Add("All");
             cmbFilter.Items.Add("Confirmed");
-            cmbFilter.Items.Add("Rejected");
+            cmbFilter.Items.Add("Cancelled");
             cmbFilter.Items.Add("Recent");      // last 7 days
             cmbFilter.Items.Add("Last Month");  // last 30 days
             cmbFilter.SelectedIndex = 0;
@@ -42,56 +40,68 @@ namespace DineEase
             dgvOrders.Columns.Clear();
 
             // OrderID (hidden)
-            var colId = new DataGridViewTextBoxColumn();
-            colId.DataPropertyName = "OrderID";
-            colId.Name = "OrderID";
-            colId.Visible = false;
+            var colId = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "OrderID",
+                Name = "OrderID",
+                Visible = false
+            };
             dgvOrders.Columns.Add(colId);
 
             // OrderDate
-            var colDate = new DataGridViewTextBoxColumn();
-            colDate.DataPropertyName = "OrderDate";
-            colDate.HeaderText = "Order Date";
-            colDate.Name = "OrderDate";
-            colDate.ReadOnly = true;
+            var colDate = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "OrderDate",
+                HeaderText = "Order Date",
+                Name = "OrderDate",
+                ReadOnly = true
+            };
             dgvOrders.Columns.Add(colDate);
 
             // Total
-            var colTotal = new DataGridViewTextBoxColumn();
-            colTotal.DataPropertyName = "Total";
-            colTotal.HeaderText = "Total (LKR)";
-            colTotal.Name = "Total";
-            colTotal.ReadOnly = true;
+            var colTotal = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Total",
+                HeaderText = "Total (LKR)",
+                Name = "Total",
+                ReadOnly = true
+            };
             dgvOrders.Columns.Add(colTotal);
 
             // Status
-            var colStatus = new DataGridViewTextBoxColumn();
-            colStatus.DataPropertyName = "Status";
-            colStatus.HeaderText = "Status";
-            colStatus.Name = "Status";
-            colStatus.ReadOnly = true;
+            var colStatus = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Status",
+                HeaderText = "Status",
+                Name = "Status",
+                ReadOnly = true
+            };
             dgvOrders.Columns.Add(colStatus);
 
             // Items (short)
-            var colItems = new DataGridViewTextBoxColumn();
-            colItems.DataPropertyName = "Items";
-            colItems.HeaderText = "Items";
-            colItems.Name = "Items";
-            colItems.ReadOnly = true;
+            var colItems = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Items",
+                HeaderText = "Items",
+                Name = "Items",
+                ReadOnly = true
+            };
             dgvOrders.Columns.Add(colItems);
 
             // Action button (Details)
-            var btnCol = new DataGridViewButtonColumn();
-            btnCol.HeaderText = "Action";
-            btnCol.Name = "Action";
-            btnCol.Text = "Details";
-            btnCol.UseColumnTextForButtonValue = true;
+            var btnCol = new DataGridViewButtonColumn
+            {
+                HeaderText = "Action",
+                Name = "Action",
+                Text = "Details",
+                UseColumnTextForButtonValue = true
+            };
             dgvOrders.Columns.Add(btnCol);
 
             dgvOrders.CellClick += DgvOrders_CellClick;
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvOrders.AllowUserToAddRows = false;
-            dgvOrders.ReadOnly = false; // button column needs editable false per-row handling
+            dgvOrders.ReadOnly = false; // keep as-is for button column behavior
         }
 
         private void DgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -100,7 +110,6 @@ namespace DineEase
 
             if (dgvOrders.Columns[e.ColumnIndex].Name == "Action")
             {
-                // Show details of the selected order
                 var row = dgvOrders.Rows[e.RowIndex];
                 var orderId = row.Cells["OrderID"].Value;
                 var orderDate = row.Cells["OrderDate"].Value;
@@ -132,28 +141,25 @@ namespace DineEase
                     cmd.CommandType = CommandType.Text;
 
                     // Base query: filter by user id always
-                    string sql = "SELECT OrderID, OrderDate, Total, Status, Items FROM dbo.ORDERS WHERE UserID = @UserID";
+                    string sql = "SELECT OrderID, OrderDate, Price, OrderStatus, Quantity FROM dbo.Orders WHERE UserId = @UserID AND OrderStatus IN ('Confirmed', 'Cancelled')";
 
-                    // Apply filter
+                    // Apply filter (use OrderStatus consistently)
                     if (selectedFilter == "Confirmed")
                     {
-                        sql += " AND Status = 'Confirmed'";
+                        sql += " AND OrderStatus = 'Confirmed'";
                     }
-                    else if (selectedFilter == "Rejected")
+                    else if (selectedFilter == "Cancelled")
                     {
-                        sql += " AND Status = 'Rejected'";
+                        sql += " AND OrderStatus = 'Cancelled'";
                     }
                     else if (selectedFilter == "Recent")
                     {
-                        // last 7 days
                         sql += " AND OrderDate >= DATEADD(day, -7, GETDATE())";
                     }
                     else if (selectedFilter == "Last Month")
                     {
-                        // last 30 days
                         sql += " AND OrderDate >= DATEADD(day, -30, GETDATE())";
                     }
-                    // else All -> no extra condition
 
                     sql += " ORDER BY OrderDate DESC";
 
@@ -175,7 +181,7 @@ namespace DineEase
                         r["OrderDateFormatted"] = dtValue.ToString("yyyy-MM-dd HH:mm");
                     }
 
-                    // We will bind to a copy table with formatted date column to show friendly date
+                    // Display table with friendly columns
                     var dtDisplay = new DataTable();
                     dtDisplay.Columns.Add("OrderID", typeof(int));
                     dtDisplay.Columns.Add("OrderDate", typeof(string));
@@ -185,12 +191,17 @@ namespace DineEase
 
                     foreach (DataRow r in dt.Rows)
                     {
+                        var price = r["Price"] == DBNull.Value ? 0m : Convert.ToDecimal(r["Price"]);
+                        var qty = r["Quantity"] == DBNull.Value ? 0m : Convert.ToDecimal(r["Quantity"]);
+                        var total = price * qty;
+
+                        // Items: left empty until product names are fetched via a join or separate query
                         dtDisplay.Rows.Add(
                             r["OrderID"],
                             r["OrderDateFormatted"],
-                            r["Total"],
-                            r["Status"],
-                            r["Items"]
+                            total,
+                            r["OrderStatus"],
+                            string.Empty
                         );
                     }
 
@@ -198,7 +209,10 @@ namespace DineEase
                 }
             }
         }
+
+        private void btnRefresh_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-
-
