@@ -66,6 +66,7 @@
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(121, 24);
             this.cmbFilter.TabIndex = 4;
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
             // 
             // ViewUserHistory
             // 

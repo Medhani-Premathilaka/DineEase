@@ -26,24 +26,11 @@ namespace DineEase
                 Padding = new Padding(10)
             };
 
-            Label lblFilter = new Label
-            {
-                Text = "Filter Orders:",
-                AutoSize = true,
-                Location = new Point(10, 20),
-                Font = new Font("Segoe UI", 10)
-            };
-            headerPanel.Controls.Add(lblFilter);
 
-            ComboBox cmbFilter = new ComboBox
-            {
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Width = 150,
-                Location = new Point(110, 18)
-            };
-            headerPanel.Controls.Add(cmbFilter);
 
             this.Controls.Add(headerPanel);
+
+
 
             flowLayoutPanel1 = new FlowLayoutPanel
             {
@@ -62,13 +49,34 @@ namespace DineEase
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.Text = "Order History";
             this.Load += AdminOrderHistoryForm_Load;
-            cmbFilter.SelectedIndexChanged += cmbFilter_SelectedIndexChanged;
-        }
 
+            cmbFilter.SelectedIndexChanged += cmbFilter_SelectedIndexChanged;
+
+            flowLayoutPanel2.BackColor = Color.White; // light bluish shade
+            flowLayoutPanel2.AutoSize = true;
+            //flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            //flowLayoutPanel2.WrapContents = true;          // vertical list
+            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+
+            flowLayoutPanel1.Resize += (s, e) =>
+            {
+                int w = GetCardWidth(flowLayoutPanel2);
+                foreach (Control c in flowLayoutPanel2.Controls)
+                {
+                    c.Width = w;
+                }
+            };
+        }
+        private static int GetCardWidth(FlowLayoutPanel host)
+        {
+            int scrollAdjust = host.VerticalScroll.Visible ? SystemInformation.VerticalScrollBarWidth : 0;
+            return host.ClientSize.Width - host.Padding.Horizontal - scrollAdjust;
+        }
         private void AdminOrderHistoryForm_Load(object sender, EventArgs e)
         {
             // Add filter options to ComboBox
-            cmbFilter.Items.AddRange(new string[] { "All", "Confirmed", "Rejected", "Recent", "Last Month" });
+            cmbFilter.Items.Clear();
+            cmbFilter.Items.AddRange(new string[] { "All", "Done", "Rejected", "Recent", "Last Month" });
             cmbFilter.SelectedIndex = 0; // Default to All
 
             LoadOrders("All");
@@ -87,8 +95,8 @@ namespace DineEase
 
             switch (filter)
             {
-                case "Confirmed":
-                    query = "SELECT * FROM Orders WHERE OrderStatus = 'Confirmed'";
+                case "Done":
+                    query = "SELECT * FROM Orders WHERE OrderStatus = 'Done'";
                     break;
                 case "Rejected":
                     query = "SELECT * FROM Orders WHERE OrderStatus = 'Rejected'";
@@ -124,7 +132,7 @@ namespace DineEase
                         if (isFinished == 1)
                         {
                             // Calculate panel width based on form width
-                            int panelWidth = flowLayoutPanel1.ClientSize.Width - 30; // Account for padding
+                            int panelWidth = flowLayoutPanel2.ClientSize.Width - 30; // Account for padding
 
                             Panel orderPanel = new Panel
                             {
@@ -196,7 +204,7 @@ namespace DineEase
                             Button btnStatus = new Button
                             {
                                 Text = orderStatus,
-                                BackColor = orderStatus == "Confirmed" ? Color.FromArgb(75, 181, 67) :
+                                BackColor = orderStatus == "Done" ? Color.FromArgb(75, 181, 67) :
                                            orderStatus == "Rejected" ? Color.FromArgb(219, 82, 77) : Color.Gray,
                                 ForeColor = Color.White,
                                 FlatStyle = FlatStyle.Flat,
@@ -224,6 +232,17 @@ namespace DineEase
                         empty.Left = (flowLayoutPanel1.Width - empty.Width) / 2;
                         flowLayoutPanel2.Controls.Add(empty);
                     }
+                    // adjust width of all cards after loading
+                    int cardWidth = GetCardWidth(flowLayoutPanel2);
+                    foreach (Control c in flowLayoutPanel2.Controls)
+                    {
+                        c.Width = cardWidth;
+                    }
+
+                    // ✅ Fix: Refresh layout so panel updates correctly
+                    flowLayoutPanel2.PerformLayout();
+                    flowLayoutPanel2.Invalidate();
+                    flowLayoutPanel2.Update();
                 }
             }
         }
