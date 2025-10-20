@@ -311,6 +311,12 @@
     <Compile Include="view\UserViewOrders.Designer.cs">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\ViewUserHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ViewUserHistory.Designer.cs">
+      <DependentUpon>ViewUserHistory.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="view\AdminViewOrdersnew.resx">
       <DependentUpon>AdminViewOrdersnew.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\UserViewOrders.resx">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ViewUserHistory.resx">
+      <DependentUpon>ViewUserHistory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
