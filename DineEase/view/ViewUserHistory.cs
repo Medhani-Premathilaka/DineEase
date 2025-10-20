@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -9,7 +15,7 @@ namespace DineEase
     {
         private readonly int _userId;
 
-        //private readonly string _connectionString = @"Data Source=LAPTOP-M18U5G4F\SQLEXPRESS;Initial Catalog=DINEASE;Integrated Security=True;";
+        private readonly string _connectionString = @"Data Source=LAPTOP-M18U5G4F\SQLEXPRESS;Initial Catalog=DINEASE;Integrated Security=True;";
 
         public ViewUserHistory(int userId)
         {
@@ -199,5 +205,5 @@ namespace DineEase
         }
     }
 }
-
+    
 

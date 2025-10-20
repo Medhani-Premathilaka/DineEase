@@ -214,22 +214,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form2.cs">
+    <Compile Include="view\ViewUserHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserHistory.Designer.cs">
-      <DependentUpon>UserHistory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewUserHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewUserHistory.Designer.cs">
+    <Compile Include="view\ViewUserHistory.Designer.cs">
       <DependentUpon>ViewUserHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="view\AdminViewOrdersnew.cs">
@@ -329,7 +317,7 @@
     <Compile Include="view\UserViewOrders.Designer.cs">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ViewUserHistory.resx">
+    <EmbeddedResource Include="view\ViewUserHistory.resx">
       <DependentUpon>ViewUserHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminViewOrdersnew.resx">
