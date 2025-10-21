@@ -332,6 +332,9 @@
     <EmbeddedResource Include="view\AdminHomePagenew.resx">
       <DependentUpon>AdminHomePagenew.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\BlurForm.resx">
+      <DependentUpon>BlurForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\FoodDetails.resx">
       <DependentUpon>FoodDetails.cs</DependentUpon>
     </EmbeddedResource>

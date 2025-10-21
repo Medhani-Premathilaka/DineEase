@@ -150,12 +150,13 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 870);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 870);
             this.flowLayoutPanel1.TabIndex = 6;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
@@ -331,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 870);
+            this.ClientSize = new System.Drawing.Size(1200, 870);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "AdminViewOrdersnew";
@@ -339,6 +340,7 @@
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

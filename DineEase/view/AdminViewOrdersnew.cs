@@ -25,9 +25,9 @@ namespace DineEase.view
             //flowLayoutPanel1.WrapContents = false;
             //flowLayoutPanel1.AutoScroll = true;
             //InitializeComponent();
-            this.ControlBox = true;
-            this.MinimizeBox = true;
-            this.MaximizeBox = true;
+            //this.ControlBox = true;
+            //this.MinimizeBox = true;
+            //this.MaximizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             // Configure flow panel
@@ -500,13 +500,22 @@ namespace DineEase.view
         private void ShowInFlow(Form child)
         {
             flowLayoutPanel1.Controls.Clear();
+
             child.TopLevel = false;
             child.FormBorderStyle = FormBorderStyle.None;
-            child.Visible = true;
             child.Size = flowLayoutPanel1.ClientSize;
             flowLayoutPanel1.Controls.Add(child);
             child.Show();
+
+            // 👇 Update size automatically on resize
+            flowLayoutPanel1.Resize += (s, e) =>
+            {
+                child.Size = flowLayoutPanel1.ClientSize;
+            };
         }
+
+
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 

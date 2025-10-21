@@ -215,9 +215,28 @@ namespace DineEase.view
 
             editButton.Click += (s, e) =>
             {
+                // Create blur
+                BlurForm blur = new BlurForm();
+                blur.StartPosition = FormStartPosition.Manual;
+                blur.Size = this.Size;
+                blur.Location = this.Location;
+                blur.Owner = this;
+                blur.Show();
+
+                // Create update form
                 UpdateItemPage updatePage = new UpdateItemPage(productId);
-                updatePage.Show();
+                updatePage.StartPosition = FormStartPosition.CenterParent;
+
+                // Close blur when done
+                updatePage.FormClosed += (sender2, args2) =>
+                {
+                    blur.Close();
+                };
+
+                // Show update page modally so user can’t click behind
+                updatePage.ShowDialog();
             };
+
 
             Guna2Button deleteButton = new Guna2Button
             {
