@@ -73,6 +73,16 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gg_add {
+            get {
+                object obj = ResourceManager.GetObject("gg_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gg_profile__1_ {
             get {
                 object obj = ResourceManager.GetObject("gg_profile (1)", resourceCulture);
@@ -116,6 +126,26 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap material_symbols_draft_orders__1_ {
             get {
                 object obj = ResourceManager.GetObject("material-symbols_draft-orders (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap material_symbols_logout {
+            get {
+                object obj = ResourceManager.GetObject("material-symbols_logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap material_symbols_logout1 {
+            get {
+                object obj = ResourceManager.GetObject("material-symbols_logout1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

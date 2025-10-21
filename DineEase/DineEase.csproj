@@ -386,6 +386,9 @@
     <None Include="Resources\icon-park-outline_history %281%29.png" />
     <None Include="Resources\gg_profile %281%29.png" />
     <None Include="Resources\DineEase %281%29.png" />
+    <None Include="Resources\gg_add1.png" />
+    <None Include="Resources\material-symbols_logout1.png" />
+    <None Include="Resources\material-symbols_logout2.png" />
     <Content Include="Resources\user_admin_img.png" />
   </ItemGroup>
   <ItemGroup>

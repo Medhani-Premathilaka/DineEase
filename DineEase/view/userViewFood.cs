@@ -338,7 +338,10 @@ namespace DineEase
 
         private void guna2ImageButton5_Click_1(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Are You Sure? Do you want to log out");
+            this.Hide();
+            Form1 logintpg = new Form1();
+            logintpg.Show();
         }
 
         private void guna2ImageButton3_Click_1(object sender, EventArgs e)

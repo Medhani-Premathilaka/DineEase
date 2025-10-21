@@ -18,6 +18,9 @@ namespace DineEase.view
             InitializeComponent();
             this.Load += AdminViewOrder_Load; // Attach event handler
             this.Resize += AdminViewOrdersnew_Resize;
+
+            //this.ClientSize = new Size(this.ClientSize.Height, 900);
+
             //flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             //flowLayoutPanel1.WrapContents = false;
             //flowLayoutPanel1.AutoScroll = true;
@@ -558,6 +561,7 @@ namespace DineEase.view
                     settingBtn.Visible = true;
                     profileBtn.Visible = true;
                     logo.Visible = true;
+                    addbtn.Visible = true;
                     guna2ImageButton1.Image = Image.FromFile("Resources\\collaps.png");
 
                     AdjustControlPositions();
@@ -572,6 +576,7 @@ namespace DineEase.view
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
                 profileBtn.Visible = false;
+
                 guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
 
                 guna2Panel1.Width -= 10; // Decrease width step-by-step
@@ -637,6 +642,20 @@ namespace DineEase.view
             var adminOrderHistoryForm = new AdminOrderHistoryForm();
             //adminOrderHistoryForm.Show();
             ShowInFlow(adminOrderHistoryForm);
+        }
+
+        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        {
+            var addItemPage = new AddItemPage();
+            ShowInFlow(addItemPage);
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Are You Sure? Do you want to log out");
+            this.Hide();
+            Form1 logintpg = new Form1();
+            logintpg.Show();
         }
     }
 }
