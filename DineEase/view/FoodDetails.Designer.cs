@@ -32,7 +32,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblQuantity = new System.Windows.Forms.Label();
-            this.txtCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAddToOrder = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.reduceBtn = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -48,7 +47,7 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblPrice.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblPrice.Location = new System.Drawing.Point(71, 409);
+            this.lblPrice.Location = new System.Drawing.Point(145, 409);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(75, 58);
             this.lblPrice.TabIndex = 17;
@@ -62,7 +61,7 @@
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblName.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(71, 360);
+            this.lblName.Location = new System.Drawing.Point(141, 351);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(129, 58);
             this.lblName.TabIndex = 15;
@@ -101,26 +100,6 @@
             this.lblQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblQuantity.Click += new System.EventHandler(this.lblQuantity_Click);
             // 
-            // txtCustomer
-            // 
-            this.txtCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCustomer.DefaultText = "";
-            this.txtCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCustomer.Location = new System.Drawing.Point(207, 373);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCustomer.Name = "txtCustomer";
-            this.txtCustomer.PlaceholderText = "";
-            this.txtCustomer.SelectedText = "";
-            this.txtCustomer.Size = new System.Drawing.Size(147, 25);
-            this.txtCustomer.TabIndex = 19;
-            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
-            // 
             // btnAddToOrder
             // 
             this.btnAddToOrder.AutoRoundedCorners = true;
@@ -143,14 +122,13 @@
             // 
             // guna2ShadowPanel1
             // 
-            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Green;
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.Controls.Add(this.reduceBtn);
             this.guna2ShadowPanel1.Controls.Add(this.increaseBtn);
             this.guna2ShadowPanel1.Controls.Add(this.pictureBox1);
             this.guna2ShadowPanel1.Controls.Add(this.lblName);
             this.guna2ShadowPanel1.Controls.Add(this.lblPrice);
             this.guna2ShadowPanel1.Controls.Add(this.btnAddToOrder);
-            this.guna2ShadowPanel1.Controls.Add(this.txtCustomer);
             this.guna2ShadowPanel1.Controls.Add(this.lblQuantity);
             this.guna2ShadowPanel1.Controls.Add(this.lblDesc);
             this.guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -212,8 +190,8 @@
             this.lblDesc.AutoSize = true;
             this.lblDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblDesc.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblDesc.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblDesc.Location = new System.Drawing.Point(71, 467);
+            this.lblDesc.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblDesc.Location = new System.Drawing.Point(71, 457);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(68, 58);
             this.lblDesc.TabIndex = 16;
@@ -248,7 +226,6 @@
         private System.Windows.Forms.Label lblName;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox1;
         private System.Windows.Forms.Label lblQuantity;
-        private Guna.UI2.WinForms.Guna2TextBox txtCustomer;
         private Guna.UI2.WinForms.Guna2Button btnAddToOrder;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2CircleButton reduceBtn;

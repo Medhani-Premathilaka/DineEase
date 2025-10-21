@@ -39,8 +39,8 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnImportImage = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             this.pictureBoxItem.ImageRotate = 0F;
             this.pictureBoxItem.Location = new System.Drawing.Point(658, 94);
             this.pictureBoxItem.Name = "pictureBoxItem";
-            this.pictureBoxItem.Size = new System.Drawing.Size(222, 200);
+            this.pictureBoxItem.Size = new System.Drawing.Size(222, 222);
             this.pictureBoxItem.TabIndex = 12;
             this.pictureBoxItem.TabStop = false;
             this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click);
@@ -99,7 +99,7 @@
             this.guna2TextBoxPrice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBoxPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBoxPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBoxPrice.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
             this.guna2TextBoxPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPrice.Location = new System.Drawing.Point(18, 300);
             this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -120,7 +120,7 @@
             this.guna2TextBoxName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBoxName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBoxName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBoxName.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
             this.guna2TextBoxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxName.Location = new System.Drawing.Point(18, 108);
             this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -194,7 +194,7 @@
             this.guna2TextBoxDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBoxDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBoxDescription.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
             this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxDescription.Location = new System.Drawing.Point(18, 422);
             this.guna2TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -214,7 +214,7 @@
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 30;
             this.guna2ComboBox1.Location = new System.Drawing.Point(18, 204);
@@ -222,16 +222,6 @@
             this.guna2ComboBox1.Size = new System.Drawing.Size(518, 36);
             this.guna2ComboBox1.TabIndex = 24;
             this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
-            // 
-            // guna2HtmlLabel3
-            // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(18, 260);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(47, 60);
-            this.guna2HtmlLabel3.TabIndex = 2;
-            this.guna2HtmlLabel3.Text = "Price:";
             // 
             // btnImportImage
             // 
@@ -243,12 +233,22 @@
             this.btnImportImage.FillColor = System.Drawing.Color.MediumPurple;
             this.btnImportImage.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportImage.ForeColor = System.Drawing.Color.White;
-            this.btnImportImage.Location = new System.Drawing.Point(658, 300);
+            this.btnImportImage.Location = new System.Drawing.Point(658, 322);
             this.btnImportImage.Name = "btnImportImage";
             this.btnImportImage.Size = new System.Drawing.Size(222, 42);
             this.btnImportImage.TabIndex = 1;
             this.btnImportImage.Text = "Import";
             this.btnImportImage.Click += new System.EventHandler(this.btnImportImage_Click);
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(18, 260);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(47, 60);
+            this.guna2HtmlLabel3.TabIndex = 2;
+            this.guna2HtmlLabel3.Text = "Price:";
             // 
             // AddItemPage
             // 

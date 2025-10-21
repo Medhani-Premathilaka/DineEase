@@ -3,18 +3,24 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using DineEase.view;
 namespace DineEase
 {
     public partial class UpdateItemPage : Form
     {
         private string imagePath = null;
         //string connectionString = @"Server=dineease.chc86qwacnkf.eu-north-1.rds.amazonaws.com;Database=DineEase;User Id=admin;Password=DineEase;";
-        string originalName;
-        public UpdateItemPage(string name)
+        //string originalName;
+        int prodid;
+        public UpdateItemPage(int id)//string name
         {
             InitializeComponent();
-            originalName = name;
+            //originalName = name;
+            prodid = id;
+            this.ControlBox = true;
+            this.MinimizeBox = true;
+            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
+            this.TopMost = true;
 
             guna2ComboBox1.Items.AddRange(new string[] { "Breakfast", "Lunch", "Dinner", "Drinks", "Dessert" });
 
@@ -23,7 +29,9 @@ namespace DineEase
 
         private void LoadItemData()
         {
-            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductName = @name";
+            string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct WHERE ProductID = @prodid";
+
+
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
 
@@ -32,11 +40,11 @@ namespace DineEase
                 cnn.Open();
 
                 //SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.Parameters.AddWithValue("@name", originalName);
+                cmd.Parameters.AddWithValue("@prodid", prodid);
 
                 try
                 {
-                    cnn.Open();
+                    //cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
@@ -60,10 +68,12 @@ namespace DineEase
                             }
                         }
                     }
+                    // ✅ Add this before cnn.Close();
                     else
                     {
                         MessageBox.Show("Item not found.");
                     }
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
@@ -85,34 +95,10 @@ namespace DineEase
 
         }
 
-        //private void guna2ButtonImport_Click(object sender, EventArgs e)
-        //{
-        //    using (OpenFileDialog openFileDialog = new OpenFileDialog())
-        //    {
-        //        openFileDialog.Title = "Select an image";
-        //        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-        //        string selectedFilePath;
-
-        //        if (openFileDialog.ShowDialog() == DialogResult.OK)
-        //        {
-        //            selectedFilePath = openFileDialog.FileName;
-        //            Image selectedImage = Image.FromFile(selectedFilePath);
-        //            pictureBoxItem.Image = selectedImage;
-        //            imagePath = selectedFilePath; // store the path
-        //        }
-        //    }
-        //}
 
         private byte[] imageBytes = null;  // store current image bytes
 
-        //private byte[] ImageToByteArray(Image img)
-        //{
-        //    using (MemoryStream ms = new MemoryStream())
-        //    {
-        //        img.Save(ms, img.RawFormat);
-        //        return ms.ToArray();
-        //    }
-        //}
+
 
         private void pictureBoxItem_Click(object sender, EventArgs e)
         {
@@ -183,63 +169,62 @@ namespace DineEase
 
         }
 
+
+
         private void guna2ButtonUpdate_Click_1(object sender, EventArgs e)
         {
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
             {
-                cnn.Open();
-                string query = @"UPDATE FoodProducts 
-                SET ProductName = @name, Category = @addFor, Price = @price, Description = @description, Image = @imagePath 
-                WHERE name = @originalName";
+                string query = @"UPDATE FoodProduct 
+                         SET ProductName = @name, Category = @addFor, Price = @price, 
+                             Description = @description, Image = @image
+                         WHERE ProductID = @prodid";
 
-
-
-                SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.Parameters.AddWithValue("@name", guna2TextBoxName.Text);
-                cmd.Parameters.AddWithValue("@addFor", guna2ComboBox1.Text);
-                cmd.Parameters.AddWithValue("@price", guna2TextBoxPrice.Text);
-                cmd.Parameters.AddWithValue("@description", guna2TextBoxDescription.Text);
-                cmd.Parameters.AddWithValue("@originalName", originalName);
-
-                // Set image parameter
-                if (!string.IsNullOrEmpty(imagePath))
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
-                    byte[] imgBytes = File.ReadAllBytes(imagePath);
-                    cmd.Parameters.AddWithValue("@image", imgBytes);
-                }
-                else if (imageBytes != null)
-                {
-                    cmd.Parameters.AddWithValue("@image", imageBytes);
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@image", DBNull.Value);
-                }
+                    cmd.Parameters.AddWithValue("@name", guna2TextBoxName.Text);
+                    cmd.Parameters.AddWithValue("@addFor", guna2ComboBox1.Text);
+                    cmd.Parameters.AddWithValue("@price", guna2TextBoxPrice.Text);
+                    cmd.Parameters.AddWithValue("@description", guna2TextBoxDescription.Text);
+                    cmd.Parameters.AddWithValue("@prodid", prodid);
 
-                try
-                {
-                    cnn.Open();
-                    int rows = cmd.ExecuteNonQuery();
-                    if (rows > 0)
+                    if (!string.IsNullOrEmpty(imagePath))
                     {
-                        MessageBox.Show("Item updated successfully.");
-                        this.Close();
-                        new AdminHomePagenew().Show(); // Go back to admin
+                        byte[] imgBytes = File.ReadAllBytes(imagePath);
+                        cmd.Parameters.AddWithValue("@image", imgBytes);
+                    }
+                    else if (imageBytes != null)
+                    {
+                        cmd.Parameters.AddWithValue("@image", imageBytes);
                     }
                     else
                     {
-                        MessageBox.Show("Update failed. No rows affected.");
+                        cmd.Parameters.AddWithValue("@image", DBNull.Value);
                     }
-                    cnn.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error updating item: " + ex.Message);
+
+                    try
+                    {
+                        cnn.Open();
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Item updated successfully!");
+                            //this.Close();
+                            //new AdminHomePagenew().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching item found.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating item: " + ex.Message);
+                    }
                 }
             }
         }
-
 
         //string imagePath = "";
         private void guna2ButtonImport_Click(object sender, EventArgs e)

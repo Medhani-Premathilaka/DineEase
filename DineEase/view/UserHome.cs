@@ -37,12 +37,19 @@ namespace DineEase.view
             blur.Location = this.Location;
             blur.Owner = this;
             blur.Show();
+
             string userId = CurrentUser.UserId; // Example: static property or passed from login
 
             var foodDetailsForm = new FoodDetails(productId, userId);
             //FoodDetails detailsForm = new FoodDetails(UserId, productId);
             foodDetailsForm.StartPosition = FormStartPosition.CenterParent;
             foodDetailsForm.ShowDialog();
+
+            var updateItemPage = new UpdateItemPage(productId);
+            updateItemPage.StartPosition = FormStartPosition.CenterParent;
+            updateItemPage.ShowDialog();
+            blur.TopMost = false;
+            updateItemPage.TopMost = true;
 
             blur.Close();
         }

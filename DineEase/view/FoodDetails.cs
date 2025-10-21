@@ -121,7 +121,7 @@ namespace DineEase
                 {
 
 
-                    cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+                    cmd.Parameters.AddWithValue("@cust", CurrentUser.Username);
                     cmd.Parameters.AddWithValue("@name", productName);
                     cmd.Parameters.AddWithValue("@price", price * quantity);
                     cmd.Parameters.AddWithValue("@qty", quantity);
@@ -129,7 +129,6 @@ namespace DineEase
                     cmd.Parameters.AddWithValue("@status", "Pending");
                     cmd.Parameters.AddWithValue("@userId", userId);
                     cmd.Parameters.AddWithValue("@productId", productId);
-
                     cmd.ExecuteNonQuery();
                     //cnn.Close();
 
