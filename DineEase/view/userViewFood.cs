@@ -73,15 +73,16 @@ namespace DineEase
 
                     Label priceLable = new Label
                     {
+
                         Text = "Rs." + reader["Price"].ToString(),
                         Top = 199,
                         Left = 25,
                         Width = 130,
                         Height = 30,
-                        //BackColor = Color.FromArgb(106, 77, 126),
+                        BackColor = Color.FromArgb(106, 77, 126),
                         //BackColor = Color.FromArgb(213, 159, 252),
                         //BackColor = Color.FromArgb(147, 133, 227),
-                        BackColor = Color.FromArgb(159, 182, 252),
+                        //  BackColor = Color.FromArgb(159, 200, 252),
                         //(13,31,102)
                         Font = new Font("Verdana", 10, FontStyle.Bold),
                         ForeColor = Color.White,
