@@ -21,7 +21,7 @@ namespace DineEase
         public FoodDetails(int id, string userId)
         {
             InitializeComponent();
-            InitializeComponent();
+            //InitializeComponent();
             this.ControlBox = true;
             this.MinimizeBox = true;
             this.MaximizeBox = true;
@@ -110,13 +110,7 @@ namespace DineEase
             string userId = CurrentUser.UserId; // Example: static property or passed from login
 
             var foodDetailsForm = new FoodDetails(productId, userId);
-            //foodDetailsForm.ShowDialog();
 
-            //if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            //{
-            //    MessageBox.Show("Enter customer name.");
-            //    return;
-            //}
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
             {
@@ -187,6 +181,11 @@ namespace DineEase
         }
 
         private void lblQuantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

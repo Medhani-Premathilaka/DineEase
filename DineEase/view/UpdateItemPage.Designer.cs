@@ -40,10 +40,8 @@
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
-            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ButtonImport
@@ -119,7 +117,6 @@
             this.guna2TextBoxName.SelectedText = "";
             this.guna2TextBoxName.Size = new System.Drawing.Size(222, 24);
             this.guna2TextBoxName.TabIndex = 16;
-//            this.guna2TextBoxName.TextChanged += new System.EventHandler(this.guna2TextBoxName_TextChanged);
             // 
             // guna2HtmlLabel4
             // 
@@ -165,9 +162,9 @@
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel3);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel1);
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 38);
+            this.guna2Panel3.Location = new System.Drawing.Point(1, 0);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(800, 416);
+            this.guna2Panel3.Size = new System.Drawing.Size(931, 605);
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             // 
@@ -213,7 +210,7 @@
             // pictureBoxItem
             // 
             this.pictureBoxItem.ImageRotate = 0F;
-            this.pictureBoxItem.Location = new System.Drawing.Point(522, 27);
+            this.pictureBoxItem.Location = new System.Drawing.Point(658, 27);
             this.pictureBoxItem.Name = "pictureBoxItem";
             this.pictureBoxItem.Size = new System.Drawing.Size(222, 200);
             this.pictureBoxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,28 +228,19 @@
             this.guna2HtmlLabel1.TabIndex = 12;
             this.guna2HtmlLabel1.Text = "Item Name:";
             // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.Controls.Add(this.guna2Panel3);
-            this.guna2Panel1.Location = new System.Drawing.Point(0, -2);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(800, 454);
-            this.guna2Panel1.TabIndex = 4;
-//            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
-            // 
             // UpdateItemPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.guna2Panel1);
+            this.ClientSize = new System.Drawing.Size(932, 605);
+            this.Controls.Add(this.guna2Panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateItemPage";
             this.Text = "UpdateItem";
+            this.Load += new System.EventHandler(this.UpdateItemPage_Load);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -268,7 +256,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
     }

@@ -77,7 +77,7 @@
             this.pictureBox1.BorderRadius = 10;
             this.pictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.pictureBox1.ImageRotate = 0F;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 53);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 33);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(364, 289);
@@ -112,18 +112,19 @@
             this.txtCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCustomer.Location = new System.Drawing.Point(143, 75);
+            this.txtCustomer.Location = new System.Drawing.Point(207, 373);
             this.txtCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.PlaceholderText = "";
             this.txtCustomer.SelectedText = "";
-            this.txtCustomer.Size = new System.Drawing.Size(81, 25);
+            this.txtCustomer.Size = new System.Drawing.Size(147, 25);
             this.txtCustomer.TabIndex = 19;
             this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // btnAddToOrder
             // 
             this.btnAddToOrder.AutoRoundedCorners = true;
+            this.btnAddToOrder.BackColor = System.Drawing.Color.Transparent;
             this.btnAddToOrder.BorderRadius = 22;
             this.btnAddToOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddToOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -132,7 +133,7 @@
             this.btnAddToOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
-            this.btnAddToOrder.Location = new System.Drawing.Point(97, 616);
+            this.btnAddToOrder.Location = new System.Drawing.Point(93, 616);
             this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(219, 46);
@@ -142,7 +143,7 @@
             // 
             // guna2ShadowPanel1
             // 
-            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Green;
             this.guna2ShadowPanel1.Controls.Add(this.reduceBtn);
             this.guna2ShadowPanel1.Controls.Add(this.increaseBtn);
             this.guna2ShadowPanel1.Controls.Add(this.pictureBox1);
@@ -157,9 +158,10 @@
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(3, 2);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
-            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel1.ShadowColor = System.Drawing.SystemColors.Desktop;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(413, 702);
             this.guna2ShadowPanel1.TabIndex = 20;
+            this.guna2ShadowPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2ShadowPanel1_Paint);
             // 
             // reduceBtn
             // 
@@ -171,7 +173,7 @@
             this.reduceBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.reduceBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.reduceBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.reduceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
+            this.reduceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.reduceBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reduceBtn.ForeColor = System.Drawing.Color.White;
             this.reduceBtn.Location = new System.Drawing.Point(106, 561);
@@ -192,7 +194,7 @@
             this.increaseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.increaseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.increaseBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.increaseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
+            this.increaseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.increaseBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.increaseBtn.ForeColor = System.Drawing.Color.White;
             this.increaseBtn.Location = new System.Drawing.Point(242, 562);

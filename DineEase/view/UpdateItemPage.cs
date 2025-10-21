@@ -257,5 +257,10 @@ namespace DineEase
         {
 
         }
+
+        private void UpdateItemPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
