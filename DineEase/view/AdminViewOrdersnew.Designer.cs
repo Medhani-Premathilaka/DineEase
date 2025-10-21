@@ -65,7 +65,7 @@
             this.profileBtn.FillColor = System.Drawing.Color.Transparent;
             this.profileBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(124, 729);
+            this.profileBtn.Location = new System.Drawing.Point(125, 724);
             this.profileBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(121, 36);
@@ -101,7 +101,7 @@
             this.historyBtn.FillColor = System.Drawing.Color.Transparent;
             this.historyBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyBtn.ForeColor = System.Drawing.Color.White;
-            this.historyBtn.Location = new System.Drawing.Point(125, 432);
+            this.historyBtn.Location = new System.Drawing.Point(124, 455);
             this.historyBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historyBtn.Name = "historyBtn";
             this.historyBtn.Size = new System.Drawing.Size(121, 36);
@@ -120,7 +120,7 @@
             this.ordersBtn.FillColor = System.Drawing.Color.Transparent;
             this.ordersBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ordersBtn.ForeColor = System.Drawing.Color.White;
-            this.ordersBtn.Location = new System.Drawing.Point(124, 325);
+            this.ordersBtn.Location = new System.Drawing.Point(124, 293);
             this.ordersBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersBtn.Name = "ordersBtn";
             this.ordersBtn.Size = new System.Drawing.Size(121, 36);
@@ -194,7 +194,7 @@
             this.addbtn.FillColor = System.Drawing.Color.Transparent;
             this.addbtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbtn.ForeColor = System.Drawing.Color.White;
-            this.addbtn.Location = new System.Drawing.Point(124, 494);
+            this.addbtn.Location = new System.Drawing.Point(124, 525);
             this.addbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(121, 36);
@@ -211,7 +211,7 @@
             this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton7.ImageRotate = 0F;
             this.guna2ImageButton7.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton7.Location = new System.Drawing.Point(11, 494);
+            this.guna2ImageButton7.Location = new System.Drawing.Point(11, 525);
             this.guna2ImageButton7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton7.Name = "guna2ImageButton7";
             this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -239,7 +239,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(9, 729);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(10, 724);
             this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -271,7 +271,7 @@
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(9, 318);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(9, 286);
             this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -303,7 +303,7 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(10, 425);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(9, 448);
             this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
