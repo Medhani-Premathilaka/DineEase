@@ -30,27 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.profileBtn = new Guna.UI2.WinForms.Guna2Button();
             this.settingBtn = new Guna.UI2.WinForms.Guna2Button();
             this.historyBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ordersBtn = new Guna.UI2.WinForms.Guna2Button();
             this.homeBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.navTimer = new System.Windows.Forms.Timer(this.components);
-            this.logo = new System.Windows.Forms.PictureBox();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.navTimer = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.Green;
             this.guna2Panel1.Controls.Add(this.logo);
             this.guna2Panel1.Controls.Add(this.profileBtn);
             this.guna2Panel1.Controls.Add(this.settingBtn);
@@ -71,6 +71,18 @@
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // logo
+            // 
+            this.logo.Image = global::DineEase.Properties.Resources.DineEase__1_;
+            this.logo.Location = new System.Drawing.Point(87, 0);
+            this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(165, 51);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.logo.TabIndex = 12;
+            this.logo.TabStop = false;
+            this.logo.Visible = false;
+            // 
             // profileBtn
             // 
             this.profileBtn.AutoRoundedCorners = true;
@@ -81,7 +93,7 @@
             this.profileBtn.FillColor = System.Drawing.Color.Transparent;
             this.profileBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(126, 802);
+            this.profileBtn.Location = new System.Drawing.Point(126, 738);
             this.profileBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(121, 36);
@@ -100,12 +112,12 @@
             this.settingBtn.FillColor = System.Drawing.Color.Transparent;
             this.settingBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingBtn.ForeColor = System.Drawing.Color.White;
-            this.settingBtn.Location = new System.Drawing.Point(126, 738);
+            this.settingBtn.Location = new System.Drawing.Point(108, 806);
             this.settingBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingBtn.Name = "settingBtn";
-            this.settingBtn.Size = new System.Drawing.Size(121, 36);
+            this.settingBtn.Size = new System.Drawing.Size(138, 36);
             this.settingBtn.TabIndex = 10;
-            this.settingBtn.Text = "Setting";
+            this.settingBtn.Text = "Log Out";
             this.settingBtn.Visible = false;
             // 
             // historyBtn
@@ -137,7 +149,7 @@
             this.ordersBtn.FillColor = System.Drawing.Color.Transparent;
             this.ordersBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ordersBtn.ForeColor = System.Drawing.Color.White;
-            this.ordersBtn.Location = new System.Drawing.Point(126, 410);
+            this.ordersBtn.Location = new System.Drawing.Point(128, 397);
             this.ordersBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersBtn.Name = "ordersBtn";
             this.ordersBtn.Size = new System.Drawing.Size(121, 36);
@@ -156,7 +168,7 @@
             this.homeBtn.FillColor = System.Drawing.Color.Transparent;
             this.homeBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeBtn.ForeColor = System.Drawing.Color.White;
-            this.homeBtn.Location = new System.Drawing.Point(126, 339);
+            this.homeBtn.Location = new System.Drawing.Point(128, 321);
             this.homeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(121, 36);
@@ -164,33 +176,6 @@
             this.homeBtn.Text = "Home";
             this.homeBtn.Visible = false;
             this.homeBtn.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(602, 866);
-            this.flowLayoutPanel1.TabIndex = 3;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint_1);
-            // 
-            // navTimer
-            // 
-            this.navTimer.Interval = 10;
-            this.navTimer.Tick += new System.EventHandler(this.navTimer_Tick);
-            // 
-            // logo
-            // 
-            this.logo.Image = global::DineEase.Properties.Resources.DineEase__1_;
-            this.logo.Location = new System.Drawing.Point(87, -9);
-            this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(165, 51);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.logo.TabIndex = 12;
-            this.logo.TabStop = false;
-            this.logo.Visible = false;
             // 
             // guna2ImageButton6
             // 
@@ -200,7 +185,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(11, 802);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(11, 738);
             this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -211,11 +196,11 @@
             // 
             this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton5.Image = global::DineEase.Properties.Resources.Vector__1_;
+            this.guna2ImageButton5.Image = global::DineEase.Properties.Resources.material_symbols_logout1;
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(11, 738);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(10, 806);
             this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -227,11 +212,11 @@
             // 
             this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.material_symbols_draft_orders__1_;
+            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.hugeicons_waiters;
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(11, 403);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(13, 390);
             this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -247,7 +232,7 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(11, 332);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(13, 314);
             this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -285,6 +270,21 @@
             this.guna2ImageButton1.Size = new System.Drawing.Size(57, 46);
             this.guna2ImageButton1.TabIndex = 0;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(602, 866);
+            this.flowLayoutPanel1.TabIndex = 3;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint_1);
+            // 
+            // navTimer
+            // 
+            this.navTimer.Interval = 10;
+            this.navTimer.Tick += new System.EventHandler(this.navTimer_Tick);
             // 
             // userViewFood
             // 

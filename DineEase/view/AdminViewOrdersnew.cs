@@ -18,13 +18,16 @@ namespace DineEase.view
             InitializeComponent();
             this.Load += AdminViewOrder_Load; // Attach event handler
             this.Resize += AdminViewOrdersnew_Resize;
+
+            //this.ClientSize = new Size(this.ClientSize.Height, 900);
+
             //flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             //flowLayoutPanel1.WrapContents = false;
             //flowLayoutPanel1.AutoScroll = true;
             //InitializeComponent();
-            this.ControlBox = true;
-            this.MinimizeBox = true;
-            this.MaximizeBox = true;
+            //this.ControlBox = true;
+            //this.MinimizeBox = true;
+            //this.MaximizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             // Configure flow panel
@@ -497,13 +500,22 @@ namespace DineEase.view
         private void ShowInFlow(Form child)
         {
             flowLayoutPanel1.Controls.Clear();
+
             child.TopLevel = false;
             child.FormBorderStyle = FormBorderStyle.None;
-            child.Visible = true;
             child.Size = flowLayoutPanel1.ClientSize;
             flowLayoutPanel1.Controls.Add(child);
             child.Show();
+
+            // 👇 Update size automatically on resize
+            flowLayoutPanel1.Resize += (s, e) =>
+            {
+                child.Size = flowLayoutPanel1.ClientSize;
+            };
         }
+
+
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -522,19 +534,20 @@ namespace DineEase.view
         private void ordersBtn_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Orders button clicked!");
-            var adminHomePagenew = new AdminHomePagenew();
-            ShowInFlow(adminHomePagenew);
+
 
         }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-
+            LoadOrders();
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
-
+            var adminOrderHistoryForm = new AdminOrderHistoryForm();
+            //adminOrderHistoryForm.Show();
+            ShowInFlow(adminOrderHistoryForm);
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -558,6 +571,7 @@ namespace DineEase.view
                     settingBtn.Visible = true;
                     profileBtn.Visible = true;
                     logo.Visible = true;
+                    addbtn.Visible = true;
                     guna2ImageButton1.Image = Image.FromFile("Resources\\collaps.png");
 
                     AdjustControlPositions();
@@ -572,6 +586,7 @@ namespace DineEase.view
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
                 profileBtn.Visible = false;
+
                 guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
 
                 guna2Panel1.Width -= 10; // Decrease width step-by-step
@@ -629,10 +644,33 @@ namespace DineEase.view
 
         private void guna2ImageButton3_Click(object sender, EventArgs e)
         {
-            LoadOrders();
+
+            var adminHomePagenew = new AdminHomePagenew();
+            ShowInFlow(adminHomePagenew);
         }
 
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        {
+            var addItemPage = new AddItemPage();
+            ShowInFlow(addItemPage);
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Are You Sure? Do you want to log out");
+            this.Hide();
+            Form1 logintpg = new Form1();
+            logintpg.Show();
+        }
+
+        private void addbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -37,6 +37,8 @@
             this.homeBtn = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.addbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.logo = new System.Windows.Forms.PictureBox();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -63,7 +65,7 @@
             this.profileBtn.FillColor = System.Drawing.Color.Transparent;
             this.profileBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(126, 802);
+            this.profileBtn.Location = new System.Drawing.Point(125, 724);
             this.profileBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(121, 36);
@@ -81,12 +83,12 @@
             this.settingBtn.FillColor = System.Drawing.Color.Transparent;
             this.settingBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingBtn.ForeColor = System.Drawing.Color.White;
-            this.settingBtn.Location = new System.Drawing.Point(126, 738);
+            this.settingBtn.Location = new System.Drawing.Point(114, 786);
             this.settingBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingBtn.Name = "settingBtn";
-            this.settingBtn.Size = new System.Drawing.Size(121, 36);
+            this.settingBtn.Size = new System.Drawing.Size(138, 36);
             this.settingBtn.TabIndex = 10;
-            this.settingBtn.Text = "Setting";
+            this.settingBtn.Text = "Log Out";
             this.settingBtn.Visible = false;
             // 
             // historyBtn
@@ -99,13 +101,14 @@
             this.historyBtn.FillColor = System.Drawing.Color.Transparent;
             this.historyBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyBtn.ForeColor = System.Drawing.Color.White;
-            this.historyBtn.Location = new System.Drawing.Point(126, 484);
+            this.historyBtn.Location = new System.Drawing.Point(124, 455);
             this.historyBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historyBtn.Name = "historyBtn";
             this.historyBtn.Size = new System.Drawing.Size(121, 36);
             this.historyBtn.TabIndex = 9;
             this.historyBtn.Text = "History";
             this.historyBtn.Visible = false;
+            this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
             // ordersBtn
             // 
@@ -117,7 +120,7 @@
             this.ordersBtn.FillColor = System.Drawing.Color.Transparent;
             this.ordersBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ordersBtn.ForeColor = System.Drawing.Color.White;
-            this.ordersBtn.Location = new System.Drawing.Point(126, 410);
+            this.ordersBtn.Location = new System.Drawing.Point(124, 293);
             this.ordersBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersBtn.Name = "ordersBtn";
             this.ordersBtn.Size = new System.Drawing.Size(121, 36);
@@ -136,28 +139,32 @@
             this.homeBtn.FillColor = System.Drawing.Color.Transparent;
             this.homeBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeBtn.ForeColor = System.Drawing.Color.White;
-            this.homeBtn.Location = new System.Drawing.Point(126, 339);
+            this.homeBtn.Location = new System.Drawing.Point(124, 374);
             this.homeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(121, 36);
             this.homeBtn.TabIndex = 6;
-            this.homeBtn.Text = "Home";
+            this.homeBtn.Text = "Items";
             this.homeBtn.Visible = false;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 870);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 870);
             this.flowLayoutPanel1.TabIndex = 6;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
+            this.guna2Panel1.Controls.Add(this.addbtn);
+            this.guna2Panel1.Controls.Add(this.guna2ImageButton7);
             this.guna2Panel1.Controls.Add(this.logo);
             this.guna2Panel1.Controls.Add(this.profileBtn);
             this.guna2Panel1.Controls.Add(this.settingBtn);
@@ -177,6 +184,41 @@
             this.guna2Panel1.Size = new System.Drawing.Size(252, 870);
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // addbtn
+            // 
+            this.addbtn.AutoRoundedCorners = true;
+            this.addbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addbtn.FillColor = System.Drawing.Color.Transparent;
+            this.addbtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addbtn.ForeColor = System.Drawing.Color.White;
+            this.addbtn.Location = new System.Drawing.Point(124, 525);
+            this.addbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addbtn.Name = "addbtn";
+            this.addbtn.Size = new System.Drawing.Size(121, 36);
+            this.addbtn.TabIndex = 15;
+            this.addbtn.Text = "Add";
+            this.addbtn.Visible = false;
+            this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
+            // 
+            // guna2ImageButton7
+            // 
+            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2ImageButton7.Image = global::DineEase.Properties.Resources.gg_add;
+            this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton7.ImageRotate = 0F;
+            this.guna2ImageButton7.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton7.Location = new System.Drawing.Point(11, 525);
+            this.guna2ImageButton7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ImageButton7.Name = "guna2ImageButton7";
+            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.guna2ImageButton7.Size = new System.Drawing.Size(57, 43);
+            this.guna2ImageButton7.TabIndex = 14;
+            this.guna2ImageButton7.Click += new System.EventHandler(this.guna2ImageButton7_Click);
             // 
             // logo
             // 
@@ -198,7 +240,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(11, 802);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(10, 724);
             this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -210,26 +252,27 @@
             // 
             this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton5.Image = global::DineEase.Properties.Resources.Vector__1_;
+            this.guna2ImageButton5.Image = global::DineEase.Properties.Resources.material_symbols_logout;
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(11, 738);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(9, 786);
             this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton5.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton5.TabIndex = 4;
+            this.guna2ImageButton5.Click += new System.EventHandler(this.guna2ImageButton5_Click);
             // 
             // guna2ImageButton4
             // 
             this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.material_symbols_draft_orders__1_;
+            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.hugeicons_waiters;
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(11, 403);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(9, 286);
             this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -241,11 +284,11 @@
             // 
             this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton3.Image = global::DineEase.Properties.Resources.iconamoon_home_fill__1_;
+            this.guna2ImageButton3.Image = global::DineEase.Properties.Resources.uil_food;
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(11, 332);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(9, 367);
             this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -261,7 +304,7 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(11, 477);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(9, 448);
             this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -289,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 870);
+            this.ClientSize = new System.Drawing.Size(1200, 870);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "AdminViewOrdersnew";
@@ -297,6 +340,7 @@
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -317,5 +361,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
+        private Guna.UI2.WinForms.Guna2Button addbtn;
     }
 }

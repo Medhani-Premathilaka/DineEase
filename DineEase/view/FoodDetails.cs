@@ -21,7 +21,7 @@ namespace DineEase
         public FoodDetails(int id, string userId)
         {
             InitializeComponent();
-            InitializeComponent();
+            //InitializeComponent();
             this.ControlBox = true;
             this.MinimizeBox = true;
             this.MaximizeBox = true;
@@ -110,13 +110,7 @@ namespace DineEase
             string userId = CurrentUser.UserId; // Example: static property or passed from login
 
             var foodDetailsForm = new FoodDetails(productId, userId);
-            //foodDetailsForm.ShowDialog();
 
-            //if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            //{
-            //    MessageBox.Show("Enter customer name.");
-            //    return;
-            //}
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
             {
@@ -127,7 +121,7 @@ namespace DineEase
                 {
 
 
-                    cmd.Parameters.AddWithValue("@cust", txtCustomer.Text);
+                    cmd.Parameters.AddWithValue("@cust", CurrentUser.Username);
                     cmd.Parameters.AddWithValue("@name", productName);
                     cmd.Parameters.AddWithValue("@price", price * quantity);
                     cmd.Parameters.AddWithValue("@qty", quantity);
@@ -135,7 +129,6 @@ namespace DineEase
                     cmd.Parameters.AddWithValue("@status", "Pending");
                     cmd.Parameters.AddWithValue("@userId", userId);
                     cmd.Parameters.AddWithValue("@productId", productId);
-
                     cmd.ExecuteNonQuery();
                     //cnn.Close();
 
@@ -186,8 +179,14 @@ namespace DineEase
 
         }
 
+        private void lblQuantity_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

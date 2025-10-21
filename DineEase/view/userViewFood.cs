@@ -73,15 +73,16 @@ namespace DineEase
 
                     Label priceLable = new Label
                     {
+
                         Text = "Rs." + reader["Price"].ToString(),
                         Top = 199,
                         Left = 25,
                         Width = 130,
                         Height = 30,
-                        //BackColor = Color.FromArgb(106, 77, 126),
+                        BackColor = Color.FromArgb(106, 77, 126),
                         //BackColor = Color.FromArgb(213, 159, 252),
                         //BackColor = Color.FromArgb(147, 133, 227),
-                        BackColor = Color.FromArgb(159, 182, 252),
+                        //  BackColor = Color.FromArgb(159, 200, 252),
                         //(13,31,102)
                         Font = new Font("Verdana", 10, FontStyle.Bold),
                         ForeColor = Color.White,
@@ -331,12 +332,17 @@ namespace DineEase
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
-
+            string studentId = CurrentUser.UserId;
+            var viewUserHistory = new ViewUserHistory(studentId);
+            ShowInFlow(viewUserHistory);
         }
 
         private void guna2ImageButton5_Click_1(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Are You Sure? Do you want to log out");
+            this.Hide();
+            Form1 logintpg = new Form1();
+            logintpg.Show();
         }
 
         private void guna2ImageButton3_Click_1(object sender, EventArgs e)

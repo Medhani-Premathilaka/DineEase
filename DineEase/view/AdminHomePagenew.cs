@@ -28,6 +28,13 @@ namespace DineEase.view
             LoadMenuItemsAsCards();
             flowLayoutPanel1.Width = this.ClientSize.Width;
             flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.WrapContents = true;
+            flowLayoutPanel1.SuspendLayout();
+            // add all cards
+            flowLayoutPanel1.ResumeLayout();
+
             foreach (Control card in flowLayoutPanel1.Controls)
             {
                 card.Margin = new Padding(15); // 15px space between cards
@@ -42,7 +49,7 @@ namespace DineEase.view
                 cnn.Open();
 
 
-                string query = "SELECT ProductName, Category, Price, Description, Image FROM FoodProduct";
+                string query = "SELECT ProductName, Category, Price, Description, Image , ProductID FROM FoodProduct";
                 SqlCommand cmd = new SqlCommand(query, cnn);
 
                 try
@@ -60,7 +67,7 @@ namespace DineEase.view
                             itemsByCategory[category] = new List<Dictionary<string, object>>();
 
                         var item = new Dictionary<string, object>();
-                        foreach (var col in new[] { "ProductName", "Price", "Description", "Image", "Category" })
+                        foreach (var col in new[] { "ProductID", "ProductName", "Price", "Description", "Image", "Category" })
                             item[col] = reader[col];
 
                         itemsByCategory[category].Add(item);
@@ -98,12 +105,13 @@ namespace DineEase.view
                         foreach (var item in itemsByCategory[category])
                         {
                             string name = item["ProductName"].ToString();
+                            int productId = Convert.ToInt32(item["ProductID"]);
                             string addFor = item["Category"].ToString();
                             string price = item["Price"].ToString();
                             string description = item["Description"].ToString();
                             byte[] imageData = item["Image"] != DBNull.Value ? (byte[])item["Image"] : null;
 
-                            Guna2Panel card = CreateCard(name, addFor, price, description, imageData);
+                            Guna2Panel card = CreateCard(productId, name, addFor, price, description, imageData);
                             flowLayoutPanel1.Controls.Add(card);
                         }
                     }
@@ -115,7 +123,7 @@ namespace DineEase.view
                 cnn.Close();
             }
         }
-        private Guna2Panel CreateCard(string name, string addFor, string price, string description, byte[] imageData)
+        private Guna2Panel CreateCard(int productId, string name, string addFor, string price, string description, byte[] imageData)
         {
             Guna2Panel card = new Guna2Panel
             {
@@ -207,9 +215,28 @@ namespace DineEase.view
 
             editButton.Click += (s, e) =>
             {
-                UpdateItemPage updatePage = new UpdateItemPage(name);
-                updatePage.Show();
+                // Create blur
+                BlurForm blur = new BlurForm();
+                blur.StartPosition = FormStartPosition.Manual;
+                blur.Size = this.Size;
+                blur.Location = this.Location;
+                blur.Owner = this;
+                blur.Show();
+
+                // Create update form
+                UpdateItemPage updatePage = new UpdateItemPage(productId);
+                updatePage.StartPosition = FormStartPosition.CenterParent;
+
+                // Close blur when done
+                updatePage.FormClosed += (sender2, args2) =>
+                {
+                    blur.Close();
+                };
+
+                // Show update page modally so user can’t click behind
+                updatePage.ShowDialog();
             };
+
 
             Guna2Button deleteButton = new Guna2Button
             {
@@ -290,6 +317,33 @@ namespace DineEase.view
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void Card_Click(object sender, EventArgs e)
+        {
+            Control clicked = sender as Control;
+            Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
+            int productId = (int)panel.Tag;
+
+            // Create and show blur form
+            BlurForm blur = new BlurForm();
+            blur.StartPosition = FormStartPosition.Manual;
+            blur.Size = this.Size;
+            blur.Location = this.Location;
+            blur.Owner = this;
+            blur.Show();
+
+            // Create update form
+            UpdateItemPage updateItemPage = new UpdateItemPage(productId);
+            updateItemPage.StartPosition = FormStartPosition.CenterParent;
+
+            // When the update form closes, close the blur
+            updateItemPage.FormClosed += (s, args) =>
+            {
+                blur.Close();
+            };
+
+            // Show update form modally
+            updateItemPage.ShowDialog();
         }
 
         public void showPage()
