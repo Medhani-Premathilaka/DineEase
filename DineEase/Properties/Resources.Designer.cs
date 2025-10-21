@@ -73,6 +73,16 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap famicons_person_sharp {
+            get {
+                object obj = ResourceManager.GetObject("famicons_person-sharp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gg_add {
             get {
                 object obj = ResourceManager.GetObject("gg_add", resourceCulture);
