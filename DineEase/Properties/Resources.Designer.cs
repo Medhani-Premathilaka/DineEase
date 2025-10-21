@@ -93,6 +93,16 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hugeicons_waiters {
+            get {
+                object obj = ResourceManager.GetObject("hugeicons_waiters", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_park_outline_expand_left {
             get {
                 object obj = ResourceManager.GetObject("icon-park-outline_expand-left", resourceCulture);
@@ -146,6 +156,16 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap material_symbols_logout1 {
             get {
                 object obj = ResourceManager.GetObject("material-symbols_logout1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uil_food {
+            get {
+                object obj = ResourceManager.GetObject("uil_food", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

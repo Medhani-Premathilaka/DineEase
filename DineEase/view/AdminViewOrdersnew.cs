@@ -525,19 +525,20 @@ namespace DineEase.view
         private void ordersBtn_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Orders button clicked!");
-            var adminHomePagenew = new AdminHomePagenew();
-            ShowInFlow(adminHomePagenew);
+
 
         }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-
+            LoadOrders();
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
-
+            var adminOrderHistoryForm = new AdminOrderHistoryForm();
+            //adminOrderHistoryForm.Show();
+            ShowInFlow(adminOrderHistoryForm);
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -634,14 +635,14 @@ namespace DineEase.view
 
         private void guna2ImageButton3_Click(object sender, EventArgs e)
         {
-            LoadOrders();
+
+            var adminHomePagenew = new AdminHomePagenew();
+            ShowInFlow(adminHomePagenew);
         }
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
-            var adminOrderHistoryForm = new AdminOrderHistoryForm();
-            //adminOrderHistoryForm.Show();
-            ShowInFlow(adminOrderHistoryForm);
+
         }
 
         private void guna2ImageButton7_Click(object sender, EventArgs e)
@@ -656,6 +657,11 @@ namespace DineEase.view
             this.Hide();
             Form1 logintpg = new Form1();
             logintpg.Show();
+        }
+
+        private void addbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

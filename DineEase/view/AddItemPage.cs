@@ -123,11 +123,8 @@ namespace DineEase
                             guna2ComboBox1.Items.Clear();
                             guna2TextBoxPrice.Clear();
                             guna2TextBoxDescription.Clear();
+                            pictureBoxItem.Image = null;
 
-                            //// Show read form and load updated data
-                            //read readForm = new read();
-                            //readForm.Show();
-                            //readForm.LoadMenuData(); // Call method to populate the grid
                         }
                         else
                         {
@@ -149,6 +146,7 @@ namespace DineEase
             guna2ComboBox1.Items.Clear();
             guna2TextBoxPrice.Clear();
             guna2TextBoxDescription.Clear();
+            pictureBoxItem.Image = null;
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,6 +160,21 @@ namespace DineEase
         }
 
         private void AddItemPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBoxPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -389,6 +389,8 @@
     <None Include="Resources\gg_add1.png" />
     <None Include="Resources\material-symbols_logout1.png" />
     <None Include="Resources\material-symbols_logout2.png" />
+    <Content Include="Resources\hugeicons_waiters.png" />
+    <Content Include="Resources\uil_food.png" />
     <Content Include="Resources\user_admin_img.png" />
   </ItemGroup>
   <ItemGroup>

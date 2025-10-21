@@ -37,6 +37,7 @@
             this.homeBtn = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.addbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.logo = new System.Windows.Forms.PictureBox();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -45,7 +46,6 @@
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.addbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -83,10 +83,10 @@
             this.settingBtn.FillColor = System.Drawing.Color.Transparent;
             this.settingBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingBtn.ForeColor = System.Drawing.Color.White;
-            this.settingBtn.Location = new System.Drawing.Point(124, 786);
+            this.settingBtn.Location = new System.Drawing.Point(114, 786);
             this.settingBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingBtn.Name = "settingBtn";
-            this.settingBtn.Size = new System.Drawing.Size(121, 36);
+            this.settingBtn.Size = new System.Drawing.Size(138, 36);
             this.settingBtn.TabIndex = 10;
             this.settingBtn.Text = "Log Out";
             this.settingBtn.Visible = false;
@@ -120,7 +120,7 @@
             this.ordersBtn.FillColor = System.Drawing.Color.Transparent;
             this.ordersBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ordersBtn.ForeColor = System.Drawing.Color.White;
-            this.ordersBtn.Location = new System.Drawing.Point(125, 358);
+            this.ordersBtn.Location = new System.Drawing.Point(124, 325);
             this.ordersBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersBtn.Name = "ordersBtn";
             this.ordersBtn.Size = new System.Drawing.Size(121, 36);
@@ -139,12 +139,12 @@
             this.homeBtn.FillColor = System.Drawing.Color.Transparent;
             this.homeBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeBtn.ForeColor = System.Drawing.Color.White;
-            this.homeBtn.Location = new System.Drawing.Point(125, 287);
+            this.homeBtn.Location = new System.Drawing.Point(124, 374);
             this.homeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(121, 36);
             this.homeBtn.TabIndex = 6;
-            this.homeBtn.Text = "Home";
+            this.homeBtn.Text = "Items";
             this.homeBtn.Visible = false;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
@@ -183,6 +183,25 @@
             this.guna2Panel1.Size = new System.Drawing.Size(252, 870);
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // addbtn
+            // 
+            this.addbtn.AutoRoundedCorners = true;
+            this.addbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addbtn.FillColor = System.Drawing.Color.Transparent;
+            this.addbtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addbtn.ForeColor = System.Drawing.Color.White;
+            this.addbtn.Location = new System.Drawing.Point(124, 494);
+            this.addbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addbtn.Name = "addbtn";
+            this.addbtn.Size = new System.Drawing.Size(121, 36);
+            this.addbtn.TabIndex = 15;
+            this.addbtn.Text = "Add";
+            this.addbtn.Visible = false;
+            this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
             // 
             // guna2ImageButton7
             // 
@@ -248,11 +267,11 @@
             // 
             this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.material_symbols_draft_orders__1_;
+            this.guna2ImageButton4.Image = global::DineEase.Properties.Resources.hugeicons_waiters;
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(10, 351);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(9, 318);
             this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -264,11 +283,11 @@
             // 
             this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton3.Image = global::DineEase.Properties.Resources.iconamoon_home_fill__1_;
+            this.guna2ImageButton3.Image = global::DineEase.Properties.Resources.uil_food;
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(10, 280);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(9, 367);
             this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -307,24 +326,6 @@
             this.guna2ImageButton1.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton1.TabIndex = 0;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
-            // 
-            // addbtn
-            // 
-            this.addbtn.AutoRoundedCorners = true;
-            this.addbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addbtn.FillColor = System.Drawing.Color.Transparent;
-            this.addbtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addbtn.ForeColor = System.Drawing.Color.White;
-            this.addbtn.Location = new System.Drawing.Point(124, 494);
-            this.addbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.addbtn.Name = "addbtn";
-            this.addbtn.Size = new System.Drawing.Size(121, 36);
-            this.addbtn.TabIndex = 15;
-            this.addbtn.Text = "Add";
-            this.addbtn.Visible = false;
             // 
             // AdminViewOrdersnew
             // 
