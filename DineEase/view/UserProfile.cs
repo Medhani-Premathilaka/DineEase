@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using DineEase.view;
 
 namespace DineEase
 {
@@ -14,45 +14,55 @@ namespace DineEase
 
         public UserProfile(string studentId)
         {
-            //Console.WriteLine($"Profile loading for: {studentId}"); // Debug
-            InitializeComponent();
-            InitializeComponent();
+            InitializeComponent(); // only once
             this.ControlBox = true;
             this.MinimizeBox = true;
             this.MaximizeBox = true;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // or FormBorderStyle.Sizable
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.userId = studentId;
-            guna2TextBox5.PasswordChar = '●'; // Confirm password
-            guna2TextBox6.PasswordChar = '●';
+
+
 
             LoadUserProfile();
-
         }
 
         private void LoadUserProfile()
         {
-            var db = dao.DBConnection.getInstance();
-            using (SqlConnection cnn = db.GetConnection())
+            try
             {
-                cnn.Open();
-                string query = "SELECT Name, UserId FROM Users WHERE UserId = @StudentId";
-                SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.Parameters.AddWithValue("@StudentId", userId);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                var db = dao.DBConnection.getInstance();
+                using (SqlConnection cnn = db.GetConnection())
                 {
-                    username.Text = reader["Name"].ToString(); // Name field
-                    password.Text = reader["UserId"].ToString(); // UserID field (disabled)
-                    guna2TextBox2.Enabled = false;
+                    cnn.Open();
+                    string query = "SELECT * FROM Users WHERE UserId = @StudentId";
+                    using (SqlCommand cmd = new SqlCommand(query, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@StudentId", userId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // make sure these match your control names!
+                                username.Text = reader["Name"].ToString();
+                                studentid.Text = reader["UserId"].ToString();
+                                guna2TextBox6.Text = reader["Email"].ToString();
+                                guna2TextBox5.Text = reader["Role"].ToString();
+                                guna2TextBox5.ReadOnly = true;
+                                studentid.ReadOnly = true;
+                                // guna2TextBox2.Enabled = false;
+                                MessageBox.Show("User ID received: " + userId);
 
+                            }
+                        }
+                    }
                 }
-                //reader.Close();
-                cnn.Close();
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading profile: " + ex.Message);
+            }
         }
+
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
@@ -86,12 +96,12 @@ namespace DineEase
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
-            guna2TextBox6.Visible = false;
-            guna2TextBox5.Visible = false;
-            update.Visible = false;
-            guna2HtmlLabel4.Visible = false;
-            guna2HtmlLabel3.Visible = false;
-            lblError.Visible = false;
+            //guna2TextBox6.Visible = false;
+            //guna2TextBox5.Visible = false;
+            //update.Visible = false;
+            //guna2HtmlLabel4.Visible = false;
+            //guna2HtmlLabel3.Visible = false;
+            //lblError.Visible = false;
         }
 
 
@@ -114,57 +124,13 @@ namespace DineEase
 
         private void moreinfo_Click(object sender, EventArgs e)
         {
-
-            guna2TextBox6.Visible = true;
-            guna2TextBox5.Visible = true;
-            update.Visible = true;
-            guna2HtmlLabel4.Visible = true;
-            guna2HtmlLabel3.Visible = true;
-
+            var changePasswordForm = new DineEase.view.ChangePassword(CurrentUser.UserId);
+            changePasswordForm.ShowDialog();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string newpassword = guna2TextBox6.Text.Trim();
-            string confrimpassword = guna2TextBox5.Text.Trim();
-            string strongPasswordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
-            if (string.IsNullOrWhiteSpace(newpassword) || string.IsNullOrWhiteSpace(confrimpassword))
-            {
-                lblError.Text = "Required both feilds";
-                lblError.Visible = true;
 
-                return;
-            }
-            if (!Regex.IsMatch(newpassword, strongPasswordPattern))
-            {
-                lblError.Text = "Password must be at least 8 characters and include uppercase, lowercase, digit, and special character.";
-                lblError.Visible = true;
-                return;
-            }
-            if (newpassword == confrimpassword)
-            {
-                Security security = new Security();
-                string hashedpassword = security.HashPassword(newpassword);
-
-                var db = dao.DBConnection.getInstance();
-                using (SqlConnection cnn = db.GetConnection())
-                {
-                    cnn.Open();
-                    string update = "UPDATE Users set Password = @password where UserId = @StudentId";
-                    SqlCommand cmd = new SqlCommand(update, cnn);
-                    cmd.Parameters.AddWithValue("@password", hashedpassword);
-                    cmd.Parameters.AddWithValue("@StudentId", userId);
-                    int rows = cmd.ExecuteNonQuery();
-                    MessageBox.Show(rows > 0 ? "Profile updated successfully!" : "Update failed.");
-
-                    cnn.Close();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Passwords do not match!");
-                return;
-            }
 
         }
 
@@ -174,6 +140,16 @@ namespace DineEase
         }
 
         private void guna2HtmlLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
         }

@@ -83,6 +83,26 @@ namespace DineEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap famicons_person_sharp1 {
+            get {
+                object obj = ResourceManager.GetObject("famicons_person-sharp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap famicons_person_sharp2 {
+            get {
+                object obj = ResourceManager.GetObject("famicons_person-sharp2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gg_add {
             get {
                 object obj = ResourceManager.GetObject("gg_add", resourceCulture);
@@ -96,6 +116,16 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap gg_profile__1_ {
             get {
                 object obj = ResourceManager.GetObject("gg_profile (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gg_profile__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("gg_profile (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +166,16 @@ namespace DineEase.Properties {
         internal static System.Drawing.Bitmap iconamoon_home_fill__1_ {
             get {
                 object obj = ResourceManager.GetObject("iconamoon_home-fill (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconamoon_profile_fill {
+            get {
+                object obj = ResourceManager.GetObject("iconamoon_profile-fill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

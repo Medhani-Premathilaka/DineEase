@@ -270,13 +270,12 @@
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Image = global::DineEase.Properties.Resources.famicons_person_sharp;
-            this.guna2PictureBox1.ImageLocation = "C:\\Users\\USER\\Desktop\\c#\\DineEase\\images\\signup.png";
+            this.guna2PictureBox1.Image = global::DineEase.Properties.Resources.famicons_person_sharp2;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(186, 26);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(198, 22);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(51, 50);
-            this.guna2PictureBox1.TabIndex = 2;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(53, 51);
+            this.guna2PictureBox1.TabIndex = 17;
             this.guna2PictureBox1.TabStop = false;
             // 
             // Signup
@@ -285,6 +284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(434, 765);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.lblError1);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.guna2Button1);
@@ -299,7 +299,6 @@
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.name);
             this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "Signup";
             this.Text = "Signup";
@@ -313,7 +312,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2TextBox name;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2TextBox username;
@@ -328,5 +326,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblError;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblError1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }
