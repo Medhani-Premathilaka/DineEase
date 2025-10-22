@@ -141,7 +141,7 @@ namespace DineEase
             FoodDetails detailsForm = new FoodDetails(productId, userId);
             //ShowFoodDetails(productId);
 
-            BlurForm blur = new BlurForm();
+            BlurForm blur = new BlurForm(this);
             blur.Size = this.Size;
             blur.Location = this.Location;
             blur.Owner = this;
@@ -284,23 +284,6 @@ namespace DineEase
         }
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
-            string studentId = CurrentUser.UserId;
-
-            try
-            {
-                UserProfile prf = new UserProfile(studentId);
-                //prf.TopLevel = false;
-                //prf.FormBorderStyle = FormBorderStyle.None;
-                //prf.Dock = DockStyle.Fill;
-
-                //flowLayoutPanel1.Controls.Add(prf);
-                prf.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying profile: " + ex.Message);
-            }
 
 
         }
@@ -368,6 +351,43 @@ namespace DineEase
             //MessageBox.Show("Orders button clicked!");
             var ordersView = new UserViewOrders();
             ShowInFlow(ordersView);
+        }
+
+        private void guna2ImageButton6_Click_1(object sender, EventArgs e)
+        {
+
+
+            string studentId = CurrentUser.UserId;
+
+            try
+            {
+                BlurForm blur = new BlurForm(this)
+                {
+                    StartPosition = FormStartPosition.Manual,
+                    Size = this.Size,
+                    Location = this.Location,
+                    Owner = this
+                };
+                blur.Show();
+
+                UserProfile userProfile = new UserProfile(studentId)
+                {
+                    StartPosition = FormStartPosition.CenterParent
+                };
+
+                userProfile.FormClosed += (s2, e2) => blur.Close();
+                userProfile.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying profile: " + ex.Message);
+            }
+        }
+
+
+        private void guna2ImageButton2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

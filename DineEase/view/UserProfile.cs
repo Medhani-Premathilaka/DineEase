@@ -24,6 +24,7 @@ namespace DineEase
             this.userId = studentId;
             guna2TextBox5.PasswordChar = '●'; // Confirm password
             guna2TextBox6.PasswordChar = '●';
+
             LoadUserProfile();
 
         }
@@ -168,6 +169,11 @@ namespace DineEase
         }
 
         private void guna2TextBox6_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
         {
 
         }

@@ -80,7 +80,7 @@
             this.username.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.username.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.username.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.username.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username.Location = new System.Drawing.Point(83, 183);
             this.username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -109,13 +109,14 @@
             this.password.SelectedText = "";
             this.password.Size = new System.Drawing.Size(267, 38);
             this.password.TabIndex = 4;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Sans Serif Collection", 12F);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(83, 247);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(83, 228);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(150, 75);
             this.guna2HtmlLabel3.TabIndex = 3;
@@ -129,13 +130,13 @@
             this.signin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.signin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.signin.FillColor = System.Drawing.Color.RoyalBlue;
-            this.signin.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signin.ForeColor = System.Drawing.Color.White;
             this.signin.Location = new System.Drawing.Point(83, 375);
             this.signin.Name = "signin";
             this.signin.Size = new System.Drawing.Size(266, 41);
             this.signin.TabIndex = 5;
-            this.signin.Text = "SIGN IN";
+            this.signin.Text = "Sign In";
             this.signin.Click += new System.EventHandler(this.signin_Click_1);
             // 
             // guna2Button1
@@ -146,13 +147,13 @@
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.RoyalBlue;
-            this.guna2Button1.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(83, 431);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(266, 41);
             this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "SIGN UP";
+            this.guna2Button1.Text = "Sign Up";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // linkLabel1
