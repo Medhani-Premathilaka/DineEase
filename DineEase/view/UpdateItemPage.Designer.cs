@@ -38,8 +38,8 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.SuspendLayout();
@@ -90,7 +90,7 @@
             this.guna2TextBoxPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxPrice.Location = new System.Drawing.Point(60, 272);
+            this.guna2TextBoxPrice.Location = new System.Drawing.Point(60, 283);
             this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBoxPrice.Name = "guna2TextBoxPrice";
             this.guna2TextBoxPrice.PlaceholderText = "";
@@ -120,34 +120,37 @@
             // 
             // guna2HtmlLabel4
             // 
+            this.guna2HtmlLabel4.AutoSize = false;
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(60, 317);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(141, 60);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(199, 60);
             this.guna2HtmlLabel4.TabIndex = 15;
             this.guna2HtmlLabel4.Text = "Food Description:";
             // 
             // guna2HtmlLabel3
             // 
+            this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(60, 229);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(60, 241);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(47, 60);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(76, 60);
             this.guna2HtmlLabel3.TabIndex = 14;
             this.guna2HtmlLabel3.Text = "Price:";
             // 
             // guna2HtmlLabel2
             // 
+            this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(60, 162);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(60, 147);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(69, 60);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(91, 60);
             this.guna2HtmlLabel2.TabIndex = 13;
             this.guna2HtmlLabel2.Text = "Add For:";
-            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel3
             // 
@@ -202,11 +205,22 @@
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(60, 196);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(60, 199);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.Size = new System.Drawing.Size(518, 36);
             this.guna2ComboBox1.TabIndex = 23;
             this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.AutoSize = false;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(60, 81);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(141, 60);
+            this.guna2HtmlLabel1.TabIndex = 12;
+            this.guna2HtmlLabel1.Text = "Item Name:";
             // 
             // pictureBoxItem
             // 
@@ -219,16 +233,6 @@
             this.pictureBoxItem.TabStop = false;
             this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click_1);
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(60, 81);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(99, 60);
-            this.guna2HtmlLabel1.TabIndex = 12;
-            this.guna2HtmlLabel1.Text = "Item Name:";
-            // 
             // UpdateItemPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -240,7 +244,6 @@
             this.Text = "UpdateItem";
             this.Load += new System.EventHandler(this.UpdateItemPage_Load);
             this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).EndInit();
             this.ResumeLayout(false);
 

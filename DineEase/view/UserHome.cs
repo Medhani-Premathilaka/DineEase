@@ -32,7 +32,7 @@ namespace DineEase.view
             Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
             int productId = (int)panel.Tag;
 
-            BlurForm blur = new BlurForm();
+            BlurForm blur = new BlurForm(this);
             blur.Size = this.Size;
             blur.Location = this.Location;
             blur.Owner = this;

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DineEase
@@ -8,214 +8,199 @@ namespace DineEase
     public partial class ViewUserHistory : Form
     {
         private readonly string _userId;
+        private FlowLayoutPanel flowOrders;
+        private ComboBox cmbFilter;
 
         public ViewUserHistory(string userId)
         {
             InitializeComponent();
             _userId = userId;
-            InitializeFilterCombo();
-            dgvOrders.AutoGenerateColumns = false;
-            SetupDataGridViewColumns();
+
+            InitializeLayout();
+
         }
 
-        private void ViewUserHistory_Load(object sender, EventArgs e)
+        private void InitializeLayout()
         {
-            LoadOrders();
-        }
+            // Header panel
+            Panel headerPanel = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 60,
+                BackColor = Color.WhiteSmoke,
+                Padding = new Padding(10)
+            };
 
-        private void InitializeFilterCombo()
-        {
-            cmbFilter.Items.Clear();
-            cmbFilter.Items.Add("All");
-            cmbFilter.Items.Add("Confirmed");
-            cmbFilter.Items.Add("Cancelled");
-            cmbFilter.Items.Add("Recent");      // last 7 days
-            cmbFilter.Items.Add("Last Month");  // last 30 days
+            //Label lblTitle = new Label
+            //{
+            //    Text = "My Orders",
+            //    Font = new Font("Segoe UI", 14, FontStyle.Bold),
+            //    AutoSize = true,
+            //    Location = new Point(550, 15)
+            //};
+            //headerPanel.Controls.Add(lblTitle);
+
+            cmbFilter = new ComboBox
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(600, 15),
+                Width = 150
+            };
+            cmbFilter.Items.AddRange(new string[] { "All", "Confirmed", "Cancelled", "Recent", "Last Month" });
             cmbFilter.SelectedIndex = 0;
             cmbFilter.SelectedIndexChanged += (s, e) => LoadOrders();
-        }
+            headerPanel.Controls.Add(cmbFilter);
 
-        private void SetupDataGridViewColumns()
-        {
-            dgvOrders.Columns.Clear();
+            Controls.Add(headerPanel);
 
-            // OrderID (hidden)
-            var colId = new DataGridViewTextBoxColumn
+            // Flow layout for cards
+            flowOrders = new FlowLayoutPanel
             {
-                DataPropertyName = "OrderID",
-                Name = "OrderID",
-                Visible = false
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                Padding = new Padding(15),
+                BackColor = Color.FromArgb(245, 245, 250)
             };
-            dgvOrders.Columns.Add(colId);
+            Controls.Add(flowOrders);
 
-            // OrderDate
-            var colDate = new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "OrderDate",
-                HeaderText = "Order Date",
-                Name = "OrderDate",
-                ReadOnly = true
-            };
-            dgvOrders.Columns.Add(colDate);
-
-            // Total
-            var colTotal = new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Total",
-                HeaderText = "Total (LKR)",
-                Name = "Total",
-                ReadOnly = true
-            };
-            dgvOrders.Columns.Add(colTotal);
-
-            // Status
-            var colStatus = new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Status",
-                HeaderText = "Status",
-                Name = "Status",
-                ReadOnly = true
-            };
-            dgvOrders.Columns.Add(colStatus);
-
-            // Items (short)
-            var colItems = new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Items",
-                HeaderText = "Items",
-                Name = "Items",
-                ReadOnly = true
-            };
-            dgvOrders.Columns.Add(colItems);
-
-            // Action button (Details)
-            var btnCol = new DataGridViewButtonColumn
-            {
-                HeaderText = "Action",
-                Name = "Action",
-                Text = "Details",
-                UseColumnTextForButtonValue = true
-            };
-            dgvOrders.Columns.Add(btnCol);
-
-            dgvOrders.CellClick += DgvOrders_CellClick;
-            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvOrders.AllowUserToAddRows = false;
-            dgvOrders.ReadOnly = false; // keep as-is for button column behavior
-        }
-
-        private void DgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            if (dgvOrders.Columns[e.ColumnIndex].Name == "Action")
-            {
-                var row = dgvOrders.Rows[e.RowIndex];
-                var orderId = row.Cells["OrderID"].Value;
-                var orderDate = row.Cells["OrderDate"].Value;
-                var total = row.Cells["Total"].Value;
-                var status = row.Cells["Status"].Value?.ToString() ?? "";
-                var items = row.Cells["Items"].Value?.ToString() ?? "";
-
-                string msg = $"Order ID: {orderId}\nDate: {orderDate}\nTotal: {total}\nStatus: {status}\n\nItems:\n{items}";
-                MessageBox.Show(msg, "Order Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            LoadOrders();
+            this.Load += (s, e) => LoadOrders();
         }
 
         private void LoadOrders()
         {
-            string selectedFilter = cmbFilter.SelectedItem?.ToString() ?? "All";
+            flowOrders.Controls.Clear();
+
+            string filter = cmbFilter.SelectedItem?.ToString() ?? "All";
+            string query = @"SELECT OrderID, OrderDate, Price, Quantity, OrderStatus
+                             FROM dbo.Orders WHERE UserId = @UserId";
+
+            if (filter == "Confirmed")
+                query += " AND OrderStatus = 'Confirmed'";
+            else if (filter == "Cancelled")
+                query += " AND OrderStatus = 'Cancelled'";
+            else if (filter == "Recent")
+                query += " AND OrderDate >= DATEADD(DAY, -7, GETDATE())";
+            else if (filter == "Last Month")
+                query += " AND OrderDate >= DATEADD(DAY, -30, GETDATE())";
+
+            query += " ORDER BY OrderDate DESC";
 
             var db = dao.DBConnection.getInstance();
             using (SqlConnection con = db.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, con))
             {
+                cmd.Parameters.AddWithValue("@UserId", _userId);
                 con.Open();
 
-                using (var cmd = con.CreateCommand())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    cmd.CommandType = CommandType.Text;
-
-                    // Base query: filter by user id always
-                    string sql = "SELECT OrderID, OrderDate, Price, OrderStatus, Quantity FROM dbo.Orders WHERE UserId = @UserID AND OrderStatus IN ('Confirmed', 'Cancelled')";
-
-                    // Apply filter (use OrderStatus consistently)
-                    if (selectedFilter == "Confirmed")
+                    bool hasData = false;
+                    while (reader.Read())
                     {
-                        sql += " AND OrderStatus = 'Confirmed'";
-                    }
-                    else if (selectedFilter == "Cancelled")
-                    {
-                        sql += " AND OrderStatus = 'Cancelled'";
-                    }
-                    else if (selectedFilter == "Recent")
-                    {
-                        sql += " AND OrderDate >= DATEADD(day, -7, GETDATE())";
-                    }
-                    else if (selectedFilter == "Last Month")
-                    {
-                        sql += " AND OrderDate >= DATEADD(day, -30, GETDATE())";
+                        hasData = true;
+                        CreateOrderCard(reader);
                     }
 
-                    sql += " ORDER BY OrderDate DESC";
-
-                    cmd.CommandText = sql;
-                    cmd.Parameters.AddWithValue("@UserID", _userId);
-
-                    var adapter = new SqlDataAdapter(cmd);
-                    var dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Format OrderDate column as readable string before bind
-                    if (!dt.Columns.Contains("OrderDateFormatted"))
+                    if (!hasData)
                     {
-                        dt.Columns.Add("OrderDateFormatted", typeof(string));
+                        var lblEmpty = new Label
+                        {
+                            Text = "No orders found.",
+                            Font = new Font("Segoe UI", 12, FontStyle.Italic),
+                            ForeColor = Color.DimGray,
+                            AutoSize = true,
+                            Margin = new Padding(10, 30, 10, 10)
+                        };
+                        flowOrders.Controls.Add(lblEmpty);
                     }
-                    foreach (DataRow r in dt.Rows)
-                    {
-                        var dtValue = Convert.ToDateTime(r["OrderDate"]);
-                        r["OrderDateFormatted"] = dtValue.ToString("yyyy-MM-dd HH:mm");
-                    }
-
-                    // Display table with friendly columns
-                    var dtDisplay = new DataTable();
-                    dtDisplay.Columns.Add("OrderID", typeof(int));
-                    dtDisplay.Columns.Add("OrderDate", typeof(string));
-                    dtDisplay.Columns.Add("Total", typeof(decimal));
-                    dtDisplay.Columns.Add("Status", typeof(string));
-                    dtDisplay.Columns.Add("Items", typeof(string));
-
-                    foreach (DataRow r in dt.Rows)
-                    {
-                        var price = r["Price"] == DBNull.Value ? 0m : Convert.ToDecimal(r["Price"]);
-                        var qty = r["Quantity"] == DBNull.Value ? 0m : Convert.ToDecimal(r["Quantity"]);
-                        var total = price * qty;
-
-                        // Items: left empty until product names are fetched via a join or separate query
-                        dtDisplay.Rows.Add(
-                            r["OrderID"],
-                            r["OrderDateFormatted"],
-                            total,
-                            r["OrderStatus"],
-                            string.Empty
-                        );
-                    }
-
-                    dgvOrders.DataSource = dtDisplay;
                 }
             }
         }
 
-        private void btnRefresh_Click_1(object sender, EventArgs e)
+        private void CreateOrderCard(SqlDataReader reader)
         {
+            int orderId = Convert.ToInt32(reader["OrderID"]);
+            decimal price = Convert.ToDecimal(reader["Price"]);
+            decimal qty = Convert.ToDecimal(reader["Quantity"]);
+            decimal total = price * qty;
+            string status = reader["OrderStatus"].ToString();
+            DateTime orderDate = Convert.ToDateTime(reader["OrderDate"]);
 
+            // Create the card panel
+            Panel card = new Panel
+            {
+                Size = new Size(560, 140), // fixed size, not tied to panel width
+                BackColor = Color.White,
+                Margin = new Padding(5, 5, 5, 15),
+                BorderStyle = BorderStyle.None
+            };
+
+            // Draw border shadow
+            card.Paint += (s, e) =>
+            {
+                Rectangle rect = new Rectangle(0, 0, card.Width - 1, card.Height - 1);
+                ControlPaint.DrawBorder(e.Graphics, rect, Color.LightGray, ButtonBorderStyle.Solid);
+            };
+
+            // Order ID
+            Label lblId = new Label
+            {
+                Text = $"Order #{orderId}",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Location = new Point(15, 15),
+                AutoSize = true
+            };
+            card.Controls.Add(lblId);
+
+            // Order Date
+            Label lblDate = new Label
+            {
+                Text = orderDate.ToString("f"),
+                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                ForeColor = Color.Gray,
+                Location = new Point(15, 40),
+                AutoSize = true
+            };
+            card.Controls.Add(lblDate);
+
+            // Quantity and Total
+            Label lblTotal = new Label
+            {
+                Text = $"Qty: {qty}   |   Total: Rs. {total:N2}",
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(15, 70),
+                AutoSize = true
+            };
+            card.Controls.Add(lblTotal);
+
+            // Status button
+            Button btnStatus = new Button
+            {
+                Text = status,
+                Size = new Size(100, 30),
+                Location = new Point(card.Width - 120, 40),
+                FlatStyle = FlatStyle.Flat,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 9, FontStyle.Bold)
+            };
+            btnStatus.FlatAppearance.BorderSize = 0;
+            btnStatus.BackColor = status == "Confirmed"
+                ? Color.FromArgb(75, 181, 67)
+                : status == "Cancelled"
+                    ? Color.FromArgb(219, 82, 77)
+                    : Color.Gray;
+            card.Controls.Add(btnStatus);
+
+            // Adjust when resizing
+            card.Resize += (s, e) => btnStatus.Left = card.Width - 120;
+
+            flowOrders.Controls.Add(card);
         }
 
-        private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        private void ViewUserHistory_Load(object sender, EventArgs e)
         {
 
         }

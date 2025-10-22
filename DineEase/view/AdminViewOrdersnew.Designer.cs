@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.navTimer = new System.Windows.Forms.Timer(this.components);
-            this.profileBtn = new Guna.UI2.WinForms.Guna2Button();
             this.settingBtn = new Guna.UI2.WinForms.Guna2Button();
             this.historyBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ordersBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -40,7 +39,6 @@
             this.addbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -54,24 +52,6 @@
             // 
             this.navTimer.Interval = 10;
             this.navTimer.Tick += new System.EventHandler(this.navTimer_Tick_1);
-            // 
-            // profileBtn
-            // 
-            this.profileBtn.AutoRoundedCorners = true;
-            this.profileBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.profileBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.profileBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.profileBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.profileBtn.FillColor = System.Drawing.Color.Transparent;
-            this.profileBtn.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(125, 724);
-            this.profileBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(121, 36);
-            this.profileBtn.TabIndex = 11;
-            this.profileBtn.Text = "Profile";
-            this.profileBtn.Visible = false;
             // 
             // settingBtn
             // 
@@ -166,12 +146,10 @@
             this.guna2Panel1.Controls.Add(this.addbtn);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton7);
             this.guna2Panel1.Controls.Add(this.logo);
-            this.guna2Panel1.Controls.Add(this.profileBtn);
             this.guna2Panel1.Controls.Add(this.settingBtn);
             this.guna2Panel1.Controls.Add(this.historyBtn);
             this.guna2Panel1.Controls.Add(this.ordersBtn);
             this.guna2Panel1.Controls.Add(this.homeBtn);
-            this.guna2Panel1.Controls.Add(this.guna2ImageButton6);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton5);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton4);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton3);
@@ -231,22 +209,6 @@
             this.logo.TabIndex = 12;
             this.logo.TabStop = false;
             this.logo.Visible = false;
-            // 
-            // guna2ImageButton6
-            // 
-            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton6.Image = global::DineEase.Properties.Resources.gg_profile__1_;
-            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton6.ImageRotate = 0F;
-            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(10, 724);
-            this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2ImageButton6.Name = "guna2ImageButton6";
-            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton6.Size = new System.Drawing.Size(57, 43);
-            this.guna2ImageButton6.TabIndex = 5;
-            this.guna2ImageButton6.Click += new System.EventHandler(this.guna2ImageButton6_Click);
             // 
             // guna2ImageButton5
             // 
@@ -348,12 +310,10 @@
 
         private System.Windows.Forms.Timer navTimer;
         private System.Windows.Forms.PictureBox logo;
-        private Guna.UI2.WinForms.Guna2Button profileBtn;
         private Guna.UI2.WinForms.Guna2Button settingBtn;
         private Guna.UI2.WinForms.Guna2Button historyBtn;
         private Guna.UI2.WinForms.Guna2Button ordersBtn;
         private Guna.UI2.WinForms.Guna2Button homeBtn;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;

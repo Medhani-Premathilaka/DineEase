@@ -191,6 +191,7 @@
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton6.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton6.TabIndex = 5;
+            this.guna2ImageButton6.Click += new System.EventHandler(this.guna2ImageButton6_Click_1);
             // 
             // guna2ImageButton5
             // 
@@ -254,6 +255,7 @@
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton2.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton2.TabIndex = 1;
+            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click_1);
             // 
             // guna2ImageButton1
             // 
@@ -274,6 +276,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(252, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -309,7 +312,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button userViewOrders;
+       // private Guna.UI2.WinForms.Guna2Button userViewOrders;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;

@@ -569,7 +569,7 @@ namespace DineEase.view
                     ordersBtn.Visible = true;
                     historyBtn.Visible = true;
                     settingBtn.Visible = true;
-                    profileBtn.Visible = true;
+                    //profileBtn.Visible = true;
                     logo.Visible = true;
                     addbtn.Visible = true;
                     guna2ImageButton1.Image = Image.FromFile("Resources\\collaps.png");
@@ -585,7 +585,7 @@ namespace DineEase.view
                 ordersBtn.Visible = false;
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
-                profileBtn.Visible = false;
+                //profileBtn.Visible = false;
 
                 guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
 

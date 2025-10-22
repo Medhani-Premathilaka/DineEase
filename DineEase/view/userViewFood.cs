@@ -17,6 +17,8 @@ namespace DineEase
             this.MinimizeBox = true;
             this.MaximizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            flowLayoutPanel1.Padding = new Padding(10, 15, 10, 15);
+            flowLayoutPanel1.AutoScrollMargin = new Size(0, 20);
             //ordersBtn.Click += ordersBtn_Click;// or FormBorderStyle.Sizable
             // profileBtn.Click += profileBtn_Click;
         }
@@ -32,6 +34,7 @@ namespace DineEase
         private void LoadFoodItems()
         {
             flowLayoutPanel1.Controls.Clear();
+
 
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             var db = dao.DBConnection.getInstance();
@@ -141,7 +144,7 @@ namespace DineEase
             FoodDetails detailsForm = new FoodDetails(productId, userId);
             //ShowFoodDetails(productId);
 
-            BlurForm blur = new BlurForm();
+            BlurForm blur = new BlurForm(this);
             blur.Size = this.Size;
             blur.Location = this.Location;
             blur.Owner = this;
@@ -191,8 +194,9 @@ namespace DineEase
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            //var userOrdersView = new UserViewOrders();
-            //userOrdersView.LoadOrders();
+            //MessageBox.Show("Orders button clicked!");
+            var ordersView = new UserViewOrders();
+            ShowInFlow(ordersView);
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -263,7 +267,7 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            LoadFoodItems();
+
 
 
         }
@@ -280,27 +284,15 @@ namespace DineEase
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
+            flowLayoutPanel1.Padding = new Padding(0, 20, 0, 20);
+            foreach (Control card in flowLayoutPanel1.Controls)
+            {
+                card.Margin = new Padding(15); // 15px space between cards
+            }
 
         }
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
-            string studentId = CurrentUser.UserId;
-
-            try
-            {
-                UserProfile prf = new UserProfile(studentId);
-                //prf.TopLevel = false;
-                //prf.FormBorderStyle = FormBorderStyle.None;
-                //prf.Dock = DockStyle.Fill;
-
-                //flowLayoutPanel1.Controls.Add(prf);
-                prf.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying profile: " + ex.Message);
-            }
 
 
         }
@@ -332,9 +324,7 @@ namespace DineEase
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
-            string studentId = CurrentUser.UserId;
-            var viewUserHistory = new ViewUserHistory(studentId);
-            ShowInFlow(viewUserHistory);
+
         }
 
         private void guna2ImageButton5_Click_1(object sender, EventArgs e)
@@ -347,7 +337,7 @@ namespace DineEase
 
         private void guna2ImageButton3_Click_1(object sender, EventArgs e)
         {
-
+            LoadFoodItems();
         }
         private void ShowInFlow(Form child)
         {
@@ -355,6 +345,8 @@ namespace DineEase
             child.TopLevel = false;
             child.FormBorderStyle = FormBorderStyle.None;
             child.Visible = true;
+            //flowLayoutPanel1.Padding = new Padding(10, 15, 10, 15);
+            //flowLayoutPanel1.AutoScrollMargin = new Size(0, 20);
             child.Size = flowLayoutPanel1.ClientSize;
             flowLayoutPanel1.Controls.Add(child);
             child.Show();
@@ -365,9 +357,46 @@ namespace DineEase
 
         private void ordersBtn_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Orders button clicked!");
-            var ordersView = new UserViewOrders();
-            ShowInFlow(ordersView);
+
+        }
+
+        private void guna2ImageButton6_Click_1(object sender, EventArgs e)
+        {
+
+
+            string studentId = CurrentUser.UserId;
+
+            try
+            {
+                BlurForm blur = new BlurForm(this)
+                {
+                    StartPosition = FormStartPosition.Manual,
+                    Size = this.Size,
+                    Location = this.Location,
+                    Owner = this
+                };
+                blur.Show();
+
+                UserProfile userProfile = new UserProfile(studentId)
+                {
+                    StartPosition = FormStartPosition.CenterParent
+                };
+
+                userProfile.FormClosed += (s2, e2) => blur.Close();
+                userProfile.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying profile: " + ex.Message);
+            }
+        }
+
+
+        private void guna2ImageButton2_Click_1(object sender, EventArgs e)
+        {
+            string studentId = CurrentUser.UserId;
+            var viewUserHistory = new ViewUserHistory(studentId);
+            ShowInFlow(viewUserHistory);
         }
     }
 }

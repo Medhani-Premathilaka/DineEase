@@ -216,7 +216,7 @@ namespace DineEase.view
             editButton.Click += (s, e) =>
             {
                 // Create blur
-                BlurForm blur = new BlurForm();
+                BlurForm blur = new BlurForm(this);
                 blur.StartPosition = FormStartPosition.Manual;
                 blur.Size = this.Size;
                 blur.Location = this.Location;
@@ -325,7 +325,7 @@ namespace DineEase.view
             int productId = (int)panel.Tag;
 
             // Create and show blur form
-            BlurForm blur = new BlurForm();
+            BlurForm blur = new BlurForm(this);
             blur.StartPosition = FormStartPosition.Manual;
             blur.Size = this.Size;
             blur.Location = this.Location;

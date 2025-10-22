@@ -72,7 +72,7 @@ namespace DineEase
                 {
                     cnn.Open();
                     //conn.Open();
-                    string query = "SELECT TOP 1 * FROM Admin"; // adjust WHERE clause as needed
+                    string query = "SELECT  * FROM  Users WHERE Role = 'ADMIN'"; // adjust WHERE clause as needed
                     SqlCommand cmd = new SqlCommand(query, cnn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
