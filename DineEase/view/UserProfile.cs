@@ -64,10 +64,7 @@ namespace DineEase
         }
 
 
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -96,16 +93,8 @@ namespace DineEase
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
-            //guna2TextBox6.Visible = false;
-            //guna2TextBox5.Visible = false;
-            //update.Visible = false;
-            //guna2HtmlLabel4.Visible = false;
-            //guna2HtmlLabel3.Visible = false;
-            //lblError.Visible = false;
+
         }
-
-
-
 
         private void guna2HtmlLabel2_Click_1(object sender, EventArgs e)
         {
@@ -152,6 +141,31 @@ namespace DineEase
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            {
+                cnn.Open();
+                string query = "UPDATE Users SET Name = @Name, Email = @Email WHERE UserId = @StudentId";
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@Name", username.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Email", guna2TextBox6.Text.Trim());
+                    cmd.Parameters.AddWithValue("@StudentId", userId);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Profile updated successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No changes were made.");
+                    }
+                }
+            }
         }
     }
 }

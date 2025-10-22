@@ -191,8 +191,9 @@ namespace DineEase
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            //var userOrdersView = new UserViewOrders();
-            //userOrdersView.LoadOrders();
+            //MessageBox.Show("Orders button clicked!");
+            var ordersView = new UserViewOrders();
+            ShowInFlow(ordersView);
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -263,7 +264,7 @@ namespace DineEase
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            LoadFoodItems();
+
 
 
         }
@@ -315,9 +316,7 @@ namespace DineEase
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
-            string studentId = CurrentUser.UserId;
-            var viewUserHistory = new ViewUserHistory(studentId);
-            ShowInFlow(viewUserHistory);
+
         }
 
         private void guna2ImageButton5_Click_1(object sender, EventArgs e)
@@ -330,7 +329,7 @@ namespace DineEase
 
         private void guna2ImageButton3_Click_1(object sender, EventArgs e)
         {
-
+            LoadFoodItems();
         }
         private void ShowInFlow(Form child)
         {
@@ -348,9 +347,7 @@ namespace DineEase
 
         private void ordersBtn_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Orders button clicked!");
-            var ordersView = new UserViewOrders();
-            ShowInFlow(ordersView);
+
         }
 
         private void guna2ImageButton6_Click_1(object sender, EventArgs e)
@@ -387,7 +384,9 @@ namespace DineEase
 
         private void guna2ImageButton2_Click_1(object sender, EventArgs e)
         {
-
+            string studentId = CurrentUser.UserId;
+            var viewUserHistory = new ViewUserHistory(studentId);
+            ShowInFlow(viewUserHistory);
         }
     }
 }
