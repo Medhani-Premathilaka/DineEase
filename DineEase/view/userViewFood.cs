@@ -17,6 +17,8 @@ namespace DineEase
             this.MinimizeBox = true;
             this.MaximizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            flowLayoutPanel1.Padding = new Padding(10, 15, 10, 15);
+            flowLayoutPanel1.AutoScrollMargin = new Size(0, 20);
             //ordersBtn.Click += ordersBtn_Click;// or FormBorderStyle.Sizable
             // profileBtn.Click += profileBtn_Click;
         }
@@ -32,6 +34,7 @@ namespace DineEase
         private void LoadFoodItems()
         {
             flowLayoutPanel1.Controls.Clear();
+
 
             string query = "SELECT * FROM DineEase.dbo.FoodProduct";
             var db = dao.DBConnection.getInstance();
@@ -281,6 +284,11 @@ namespace DineEase
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
+            flowLayoutPanel1.Padding = new Padding(0, 20, 0, 20);
+            foreach (Control card in flowLayoutPanel1.Controls)
+            {
+                card.Margin = new Padding(15); // 15px space between cards
+            }
 
         }
         private void profileBtn_Click(object sender, EventArgs e)
@@ -337,6 +345,8 @@ namespace DineEase
             child.TopLevel = false;
             child.FormBorderStyle = FormBorderStyle.None;
             child.Visible = true;
+            //flowLayoutPanel1.Padding = new Padding(10, 15, 10, 15);
+            //flowLayoutPanel1.AutoScrollMargin = new Size(0, 20);
             child.Size = flowLayoutPanel1.ClientSize;
             flowLayoutPanel1.Controls.Add(child);
             child.Show();

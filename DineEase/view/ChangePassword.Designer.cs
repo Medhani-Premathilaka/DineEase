@@ -55,7 +55,7 @@
             this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(170, 325);
+            this.lblError.Location = new System.Drawing.Point(203, 325);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(121, 22);
             this.lblError.TabIndex = 24;
@@ -121,21 +121,23 @@
             // 
             // guna2HtmlLabel3
             // 
+            this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Sans Serif Collection", 12F);
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(170, 230);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(185, 70);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(202, 70);
             this.guna2HtmlLabel3.TabIndex = 20;
             this.guna2HtmlLabel3.Text = "Confrim Password :";
             // 
             // guna2HtmlLabel4
             // 
+            this.guna2HtmlLabel4.AutoSize = false;
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Sans Serif Collection", 12F);
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(173, 154);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(151, 70);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(174, 70);
             this.guna2HtmlLabel4.TabIndex = 19;
             this.guna2HtmlLabel4.Text = "New Password :";
             // 

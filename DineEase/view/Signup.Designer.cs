@@ -252,7 +252,7 @@
             // 
             this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(101, 599);
+            this.lblError.Location = new System.Drawing.Point(126, 610);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(108, 18);
             this.lblError.TabIndex = 15;
@@ -262,7 +262,7 @@
             // 
             this.lblError1.BackColor = System.Drawing.Color.Transparent;
             this.lblError1.ForeColor = System.Drawing.Color.Red;
-            this.lblError1.Location = new System.Drawing.Point(165, 599);
+            this.lblError1.Location = new System.Drawing.Point(183, 610);
             this.lblError1.Name = "lblError1";
             this.lblError1.Size = new System.Drawing.Size(108, 18);
             this.lblError1.TabIndex = 16;

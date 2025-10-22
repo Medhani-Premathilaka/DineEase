@@ -8,11 +8,12 @@ namespace DineEase.view
     public partial class ChangePassword : Form
     {
         string userId = CurrentUser.UserId; // set this from login or pass via constructor
-
+        //string userId = "sc12394";
         public ChangePassword(string studentId)
         {
             //this.userId = studentId;
             InitializeComponent();
+
             guna2TextBox5.PasswordChar = '●';
             guna2TextBox6.PasswordChar = '●';
         }
@@ -71,7 +72,8 @@ namespace DineEase.view
 
         private void ChangePassword_Load(object sender, EventArgs e)
         {
-
+            //  guna2HtmlLabel5.Visible = false;
+            lblError.Visible = false;
         }
 
         private void guna2HtmlLabel5_Click(object sender, EventArgs e)

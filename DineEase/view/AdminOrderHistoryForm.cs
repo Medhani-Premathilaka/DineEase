@@ -247,32 +247,9 @@ namespace DineEase
             }
         }
 
-        private void ShowInFlow(Form child)
-        {
-            flowLayoutPanel1.Controls.Clear();
-            child.TopLevel = false;
-            child.FormBorderStyle = FormBorderStyle.None;
-            child.Visible = true;
-            child.Size = flowLayoutPanel1.ClientSize;
-            flowLayoutPanel1.Controls.Add(child);
-            child.Show();
-        }
 
-        private void UpdateOrderStatus(int orderId, string newStatus)
-        {
-            string query = "UPDATE Orders SET OrderStatus = @status WHERE OrderID = @id";
 
-            var db = dao.DBConnection.getInstance();
-            using (SqlConnection cnn = db.GetConnection())
-            using (SqlCommand cmd = new SqlCommand(query, cnn))
-            {
-                cmd.Parameters.AddWithValue("@status", newStatus);
-                cmd.Parameters.AddWithValue("@id", orderId);
-                cnn.Open();
-                cmd.ExecuteNonQuery();
-                cnn.Close();
-            }
-        }
+
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
