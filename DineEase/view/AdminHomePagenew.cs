@@ -216,34 +216,28 @@ namespace DineEase.view
 
             editButton.Click += (s, e) =>
             {
+                // Step 1: Create the blur overlay
+                BlurForm blur = new BlurForm(this);   // 'this' = your main or parent form
+                blur.Show();
+                blur.BringToFront(); // make sure blur stays above everything
+
                 try
                 {
-                    // Create and show blur overlay
-                    BlurForm blur = new BlurForm(this);
-                    blur.Show();
-                    blur.BringToFront();
-
-                    // Create update form
-                    UpdateItemPage updatePage = new UpdateItemPage(productId)
+                    // Step 2: Create and show your update dialog
+                    using (UpdateItemPage updatePage = new UpdateItemPage(productId))
                     {
-                        StartPosition = FormStartPosition.CenterParent,
-                        Owner = this
-                    };
-
-                    // When the update form closes, close the blur
-                    updatePage.FormClosed += (s2, e2) =>
-                    {
-                        blur.Close();
-                    };
-
-                    // Show popup modally (blocks interaction with main form)
-                    updatePage.ShowDialog(this);
+                        updatePage.StartPosition = FormStartPosition.CenterParent;
+                        updatePage.ShowDialog(blur);  // blur is the owner, so dialog is above the blur
+                    }
                 }
-                catch (Exception ex)
+                finally
                 {
-                    MessageBox.Show("Error opening edit page: " + ex.Message);
+                    // Step 3: Close blur no matter what
+                    blur.Close();
+                    blur.Dispose();
                 }
             };
+
 
 
 
@@ -329,12 +323,8 @@ namespace DineEase.view
         }
         private void Card_Click(object sender, EventArgs e)
         {
-            //Control clicked = sender as Control;
-            //Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
-            //int productId = (int)panel.Tag;
 
-            UpdateItemPage updatePage = new UpdateItemPage(productId);
-            updatePage.ShowDialog();
+
 
         }
 

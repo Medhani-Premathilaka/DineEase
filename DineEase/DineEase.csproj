@@ -250,12 +250,6 @@
     <Compile Include="view\FoodDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\AdminProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\AdminProfile.Designer.cs">
-      <DependentUpon>AdminProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="dao\DBConnection.cs" />
     <Compile Include="dao\CurrentUser.cs" />
     <Compile Include="view\BlurForm.cs">
@@ -331,9 +325,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\AddItemPage.resx">
       <DependentUpon>AddItemPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\AdminProfile.resx">
-      <DependentUpon>AdminProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminHomePagenew.resx">
       <DependentUpon>AdminHomePagenew.cs</DependentUpon>

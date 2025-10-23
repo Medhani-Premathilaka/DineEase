@@ -37,11 +37,11 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnImportImage = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
@@ -189,6 +189,17 @@
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.AutoSize = false;
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Sans Serif Collection", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(209, 15);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(434, 99);
+            this.guna2HtmlLabel5.TabIndex = 28;
+            this.guna2HtmlLabel5.Text = "Update Item";
+            // 
             // guna2TextBoxDescription
             // 
             this.guna2TextBoxDescription.BorderRadius = 10;
@@ -230,12 +241,13 @@
             // 
             // btnImportImage
             // 
+            this.btnImportImage.BackColor = System.Drawing.Color.Transparent;
             this.btnImportImage.BorderRadius = 10;
             this.btnImportImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnImportImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnImportImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnImportImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnImportImage.FillColor = System.Drawing.Color.MediumPurple;
+            this.btnImportImage.FillColor = System.Drawing.Color.BlueViolet;
             this.btnImportImage.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportImage.ForeColor = System.Drawing.Color.White;
             this.btnImportImage.Location = new System.Drawing.Point(658, 368);
@@ -256,21 +268,11 @@
             this.guna2HtmlLabel3.TabIndex = 2;
             this.guna2HtmlLabel3.Text = "Price:";
             // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.AutoSize = false;
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Sans Serif Collection", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(212, 0);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(434, 99);
-            this.guna2HtmlLabel5.TabIndex = 28;
-            this.guna2HtmlLabel5.Text = "Update Image";
-            // 
             // AddItemPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1115, 746);
             this.Controls.Add(this.guna2Panel3);
             this.Name = "AddItemPage";
