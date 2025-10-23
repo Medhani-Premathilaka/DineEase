@@ -19,15 +19,6 @@ namespace DineEase.view
             this.Load += AdminViewOrder_Load; // Attach event handler
             this.Resize += AdminViewOrdersnew_Resize;
 
-            //this.ClientSize = new Size(this.ClientSize.Height, 900);
-
-            //flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            //flowLayoutPanel1.WrapContents = false;
-            //flowLayoutPanel1.AutoScroll = true;
-            //InitializeComponent();
-            //this.ControlBox = true;
-            //this.MinimizeBox = true;
-            //this.MaximizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             // Configure flow panel
@@ -35,6 +26,9 @@ namespace DineEase.view
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Padding = new Padding(10);
+
+
+
             flowLayoutPanel1.BackColor = Color.FromArgb(240, 240, 240); // Light gray background
 
             LoadOrders();
@@ -45,16 +39,7 @@ namespace DineEase.view
             guna2Panel1.Width = panelCollapsedWidth; // ensure collapsed at start
             LoadOrders();
         }
-        //private void PositionTxtNone()
-        //{
-        //    int left = Math.Max(0, (flowLayoutPanel1.ClientSize.Width - txtnone.Width) / 2);
-        //    txtnone.Margin = new Padding(left, 20, 0, 0); // adjust top as needed
-        //}
-        //private void FlowLayoutPanel1_SizeChanged(object sender, EventArgs e)
-        //{
-        //    if (txtnone.Visible && flowLayoutPanel1.Controls.Contains(txtnone))
-        //        PositionTxtNone();
-        //}
+
         private void LoadOrders()
         {
             flowLayoutPanel1.Controls.Clear(); // Clear existing cards
@@ -102,24 +87,7 @@ namespace DineEase.view
 
 
 
-                        // Prepare formatted date safely
-                        //string formattedDate = "";
-                        //if (!(reader["OrderDate"] is DBNull))
-                        //{
-                        //    DateTime orderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                        //    formattedDate = (orderDateTime.Date == DateTime.Today)
-                        //        ? "Today " + orderDateTime.ToString("h.mm tt").ToLower()
-                        //        : orderDateTime.ToString("dd MMM yyyy h.mm tt").ToLower();
-                        //}
-                        //var lblDate = new Label
-                        //{
 
-                        //    Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
-                        //    AutoSize = true,
-                        //    Left = 10,
-                        //    Top = 35,
-                        //    ForeColor = Color.Gray
-                        //};
 
 
                         if (orderStatus.ToLower() == "done")
@@ -158,15 +126,7 @@ namespace DineEase.view
                                         int rowsAffected = deleteCmd.ExecuteNonQuery();
                                         deleteConn.Close();
 
-                                        //if (rowsAffected > 0)
-                                        //{
-                                        //    flowLayoutPanel1.Controls.Remove(orderPanel);
-                                        //    MessageBox.Show("Order removed.");
-                                        //}
-                                        //else
-                                        //{
-                                        //    MessageBox.Show("Failed to remove order.");
-                                        //}
+
                                     }
                                 };
 
@@ -500,18 +460,14 @@ namespace DineEase.view
         private void ShowInFlow(Form child)
         {
             flowLayoutPanel1.Controls.Clear();
-
             child.TopLevel = false;
             child.FormBorderStyle = FormBorderStyle.None;
+            child.Visible = true;
             child.Size = flowLayoutPanel1.ClientSize;
             flowLayoutPanel1.Controls.Add(child);
+
             child.Show();
 
-            // 👇 Update size automatically on resize
-            flowLayoutPanel1.Resize += (s, e) =>
-            {
-                child.Size = flowLayoutPanel1.ClientSize;
-            };
         }
 
 
@@ -585,6 +541,7 @@ namespace DineEase.view
                 ordersBtn.Visible = false;
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
+                addbtn.Visible = false;
                 //profileBtn.Visible = false;
 
                 guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
@@ -616,26 +573,6 @@ namespace DineEase.view
             }
         }
 
-        private void guna2ImageButton6_Click(object sender, EventArgs e)
-        {
-            flowLayoutPanel1.Controls.Clear();
-            string adminId = CurrentUser.UserId;
-
-            try
-            {
-                AdminProfile prf = new AdminProfile(adminId);
-                //prf.TopLevel = false;
-                //prf.FormBorderStyle = FormBorderStyle.None;
-                //prf.Dock = DockStyle.Fill;
-
-                //flowLayoutPanel1.Controls.Add(prf);
-                prf.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying profile: " + ex.Message);
-            }
-        }
 
         private void homeBtn_Click(object sender, EventArgs e)
         {
@@ -662,14 +599,38 @@ namespace DineEase.view
 
         private void guna2ImageButton5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are You Sure? Do you want to log out");
-            this.Hide();
-            Form1 logintpg = new Form1();
-            logintpg.Show();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?",
+                                       "Logout Confirmation",
+                                       MessageBoxButtons.YesNo,
+                                       MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                Form1 loginPage = new Form1();
+                loginPage.Show();
+            }
+            else
+            {
+                // do nothing, stay on the current form
+            }
+
         }
 
         private void addbtn_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void AdminViewOrdersnew_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // fixed border, no resizing
+            this.MaximizeBox = false;                           // disable maximize
+            this.MinimizeBox = true;                            // optional: keep minimize
+
+            this.Width = 1300;   // your fixed width
+            this.Height = 800;   // your fixed height
+            this.StartPosition = FormStartPosition.CenterScreen; // center on screen
 
         }
     }

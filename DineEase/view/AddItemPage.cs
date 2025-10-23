@@ -28,11 +28,6 @@ namespace DineEase
             guna2ComboBox1.SelectedIndex = 0;
         }
 
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2TextBox4_TextChanged(object sender, EventArgs e)
         {
 
@@ -175,6 +170,11 @@ namespace DineEase
         }
 
         private void guna2HtmlLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel5_Click_1(object sender, EventArgs e)
         {
 
         }

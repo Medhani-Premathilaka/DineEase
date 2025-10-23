@@ -10,6 +10,7 @@ namespace DineEase.view
 {
     public partial class AdminHomePagenew : Form, ShowPage
     {
+        int productId;
         public AdminHomePagenew()
         {
             InitializeComponent();
@@ -90,7 +91,7 @@ namespace DineEase.view
                             ForeColor = Color.White, // White text stands out on dark purple
                             BackColor = Color.FromArgb(102, 51, 153), // Dark purple background
                             AutoSize = false,
-                            Width = flowLayoutPanel1.Width - 30,
+                            Width = 800,
                             Height = 45,
                             TextAlign = ContentAlignment.MiddleCenter, // Center align text
                             Margin = new Padding(10, 20, 10, 5),
@@ -105,7 +106,7 @@ namespace DineEase.view
                         foreach (var item in itemsByCategory[category])
                         {
                             string name = item["ProductName"].ToString();
-                            int productId = Convert.ToInt32(item["ProductID"]);
+                            productId = Convert.ToInt32(item["ProductID"]);
                             string addFor = item["Category"].ToString();
                             string price = item["Price"].ToString();
                             string description = item["Description"].ToString();
@@ -215,27 +216,29 @@ namespace DineEase.view
 
             editButton.Click += (s, e) =>
             {
-                // Create blur
-                BlurForm blur = new BlurForm(this);
-                blur.StartPosition = FormStartPosition.Manual;
-                blur.Size = this.Size;
-                blur.Location = this.Location;
-                blur.Owner = this;
+                // Step 1: Create the blur overlay
+                BlurForm blur = new BlurForm(this);   // 'this' = your main or parent form
                 blur.Show();
+                blur.BringToFront(); // make sure blur stays above everything
 
-                // Create update form
-                UpdateItemPage updatePage = new UpdateItemPage(productId);
-                updatePage.StartPosition = FormStartPosition.CenterParent;
-
-                // Close blur when done
-                updatePage.FormClosed += (sender2, args2) =>
+                try
                 {
+                    // Step 2: Create and show your update dialog
+                    using (UpdateItemPage updatePage = new UpdateItemPage(productId))
+                    {
+                        updatePage.StartPosition = FormStartPosition.CenterParent;
+                        updatePage.ShowDialog(blur);  // blur is the owner, so dialog is above the blur
+                    }
+                }
+                finally
+                {
+                    // Step 3: Close blur no matter what
                     blur.Close();
-                };
-
-                // Show update page modally so user can’t click behind
-                updatePage.ShowDialog();
+                    blur.Dispose();
+                }
             };
+
+
 
 
             Guna2Button deleteButton = new Guna2Button
@@ -320,30 +323,9 @@ namespace DineEase.view
         }
         private void Card_Click(object sender, EventArgs e)
         {
-            Control clicked = sender as Control;
-            Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
-            int productId = (int)panel.Tag;
 
-            // Create and show blur form
-            BlurForm blur = new BlurForm(this);
-            blur.StartPosition = FormStartPosition.Manual;
-            blur.Size = this.Size;
-            blur.Location = this.Location;
-            blur.Owner = this;
-            blur.Show();
 
-            // Create update form
-            UpdateItemPage updateItemPage = new UpdateItemPage(productId);
-            updateItemPage.StartPosition = FormStartPosition.CenterParent;
 
-            // When the update form closes, close the blur
-            updateItemPage.FormClosed += (s, args) =>
-            {
-                blur.Close();
-            };
-
-            // Show update form modally
-            updateItemPage.ShowDialog();
         }
 
         public void showPage()
