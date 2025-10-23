@@ -91,7 +91,7 @@ namespace DineEase.view
                             ForeColor = Color.White, // White text stands out on dark purple
                             BackColor = Color.FromArgb(102, 51, 153), // Dark purple background
                             AutoSize = false,
-                            Width = ,
+                            Width = 800,
                             Height = 45,
                             TextAlign = ContentAlignment.MiddleCenter, // Center align text
                             Margin = new Padding(10, 20, 10, 5),
