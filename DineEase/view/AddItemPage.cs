@@ -173,6 +173,11 @@ namespace DineEase
         {
 
         }
+
+        private void guna2HtmlLabel5_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

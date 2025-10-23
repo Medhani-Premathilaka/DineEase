@@ -299,6 +299,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "AdminViewOrdersnew";
             this.Text = "AdminViewOrdersnew";
+            this.Load += new System.EventHandler(this.AdminViewOrdersnew_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);

@@ -38,8 +38,9 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBoxDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBoxItem = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.SuspendLayout();
@@ -155,6 +156,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel5);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
             this.guna2Panel3.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel3.Controls.Add(this.pictureBoxItem);
@@ -211,6 +213,17 @@
             this.guna2ComboBox1.TabIndex = 23;
             this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
+            // pictureBoxItem
+            // 
+            this.pictureBoxItem.ImageRotate = 0F;
+            this.pictureBoxItem.Location = new System.Drawing.Point(658, 99);
+            this.pictureBoxItem.Name = "pictureBoxItem";
+            this.pictureBoxItem.Size = new System.Drawing.Size(222, 222);
+            this.pictureBoxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxItem.TabIndex = 22;
+            this.pictureBoxItem.TabStop = false;
+            this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click_1);
+            // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.AutoSize = false;
@@ -222,16 +235,16 @@
             this.guna2HtmlLabel1.TabIndex = 12;
             this.guna2HtmlLabel1.Text = "Item Name:";
             // 
-            // pictureBoxItem
+            // guna2HtmlLabel5
             // 
-            this.pictureBoxItem.ImageRotate = 0F;
-            this.pictureBoxItem.Location = new System.Drawing.Point(658, 99);
-            this.pictureBoxItem.Name = "pictureBoxItem";
-            this.pictureBoxItem.Size = new System.Drawing.Size(222, 222);
-            this.pictureBoxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxItem.TabIndex = 22;
-            this.pictureBoxItem.TabStop = false;
-            this.pictureBoxItem.Click += new System.EventHandler(this.pictureBoxItem_Click_1);
+            this.guna2HtmlLabel5.AutoSize = false;
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Sans Serif Collection", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(311, -11);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(366, 91);
+            this.guna2HtmlLabel5.TabIndex = 29;
+            this.guna2HtmlLabel5.Text = "Update Item";
             // 
             // UpdateItemPage
             // 
@@ -262,5 +275,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }

@@ -194,11 +194,12 @@
             this.guna2HtmlLabel5.AutoSize = false;
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Sans Serif Collection", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(209, 15);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(275, 15);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(434, 99);
             this.guna2HtmlLabel5.TabIndex = 28;
-            this.guna2HtmlLabel5.Text = "Update Item";
+            this.guna2HtmlLabel5.Text = "Add Item";
+            this.guna2HtmlLabel5.Click += new System.EventHandler(this.guna2HtmlLabel5_Click_1);
             // 
             // guna2TextBoxDescription
             // 
