@@ -305,11 +305,11 @@
     <Compile Include="view\UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\userViewFood.cs">
+    <Compile Include="view\userViewFoodnew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\userViewFood.Designer.cs">
-      <DependentUpon>userViewFood.cs</DependentUpon>
+    <Compile Include="view\userViewFoodnew.Designer.cs">
+      <DependentUpon>userViewFoodnew.cs</DependentUpon>
     </Compile>
     <Compile Include="view\UserViewOrders.cs">
       <SubType>Form</SubType>
@@ -367,8 +367,8 @@
     <EmbeddedResource Include="view\UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\userViewFood.resx">
-      <DependentUpon>userViewFood.cs</DependentUpon>
+    <EmbeddedResource Include="view\userViewFoodnew.resx">
+      <DependentUpon>userViewFoodnew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\UserViewOrders.resx">
       <DependentUpon>UserViewOrders.cs</DependentUpon>
