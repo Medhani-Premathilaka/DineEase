@@ -10,6 +10,7 @@ namespace DineEase.view
 {
     public partial class AdminHomePagenew : Form, ShowPage
     {
+        int productId;
         public AdminHomePagenew()
         {
             InitializeComponent();
@@ -105,7 +106,7 @@ namespace DineEase.view
                         foreach (var item in itemsByCategory[category])
                         {
                             string name = item["ProductName"].ToString();
-                            int productId = Convert.ToInt32(item["ProductID"]);
+                            productId = Convert.ToInt32(item["ProductID"]);
                             string addFor = item["Category"].ToString();
                             string price = item["Price"].ToString();
                             string description = item["Description"].ToString();
@@ -215,27 +216,35 @@ namespace DineEase.view
 
             editButton.Click += (s, e) =>
             {
-                // Create blur
-                BlurForm blur = new BlurForm(this);
-                blur.StartPosition = FormStartPosition.Manual;
-                blur.Size = this.Size;
-                blur.Location = this.Location;
-                blur.Owner = this;
-                blur.Show();
-
-                // Create update form
-                UpdateItemPage updatePage = new UpdateItemPage(productId);
-                updatePage.StartPosition = FormStartPosition.CenterParent;
-
-                // Close blur when done
-                updatePage.FormClosed += (sender2, args2) =>
+                try
                 {
-                    blur.Close();
-                };
+                    // Create and show blur overlay
+                    BlurForm blur = new BlurForm(this);
+                    blur.Show();
+                    blur.BringToFront();
 
-                // Show update page modally so user can’t click behind
-                updatePage.ShowDialog();
+                    // Create update form
+                    UpdateItemPage updatePage = new UpdateItemPage(productId)
+                    {
+                        StartPosition = FormStartPosition.CenterParent,
+                        Owner = this
+                    };
+
+                    // When the update form closes, close the blur
+                    updatePage.FormClosed += (s2, e2) =>
+                    {
+                        blur.Close();
+                    };
+
+                    // Show popup modally (blocks interaction with main form)
+                    updatePage.ShowDialog(this);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error opening edit page: " + ex.Message);
+                }
             };
+
 
 
             Guna2Button deleteButton = new Guna2Button
@@ -320,30 +329,13 @@ namespace DineEase.view
         }
         private void Card_Click(object sender, EventArgs e)
         {
-            Control clicked = sender as Control;
-            Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
-            int productId = (int)panel.Tag;
+            //Control clicked = sender as Control;
+            //Panel panel = clicked is Panel ? (Panel)clicked : (Panel)clicked.Parent;
+            //int productId = (int)panel.Tag;
 
-            // Create and show blur form
-            BlurForm blur = new BlurForm(this);
-            blur.StartPosition = FormStartPosition.Manual;
-            blur.Size = this.Size;
-            blur.Location = this.Location;
-            blur.Owner = this;
-            blur.Show();
+            UpdateItemPage updatePage = new UpdateItemPage(productId);
+            updatePage.ShowDialog();
 
-            // Create update form
-            UpdateItemPage updateItemPage = new UpdateItemPage(productId);
-            updateItemPage.StartPosition = FormStartPosition.CenterParent;
-
-            // When the update form closes, close the blur
-            updateItemPage.FormClosed += (s, args) =>
-            {
-                blur.Close();
-            };
-
-            // Show update form modally
-            updateItemPage.ShowDialog();
         }
 
         public void showPage()

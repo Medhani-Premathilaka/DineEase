@@ -500,18 +500,14 @@ namespace DineEase.view
         private void ShowInFlow(Form child)
         {
             flowLayoutPanel1.Controls.Clear();
-
             child.TopLevel = false;
             child.FormBorderStyle = FormBorderStyle.None;
+            child.Visible = true;
             child.Size = flowLayoutPanel1.ClientSize;
             flowLayoutPanel1.Controls.Add(child);
+
             child.Show();
 
-            // 👇 Update size automatically on resize
-            flowLayoutPanel1.Resize += (s, e) =>
-            {
-                child.Size = flowLayoutPanel1.ClientSize;
-            };
         }
 
 
@@ -585,6 +581,7 @@ namespace DineEase.view
                 ordersBtn.Visible = false;
                 historyBtn.Visible = false;
                 settingBtn.Visible = false;
+                addbtn.Visible = false;
                 //profileBtn.Visible = false;
 
                 guna2ImageButton1.Image = Image.FromFile("Resources\\expand.png");
@@ -662,10 +659,22 @@ namespace DineEase.view
 
         private void guna2ImageButton5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are You Sure? Do you want to log out");
-            this.Hide();
-            Form1 logintpg = new Form1();
-            logintpg.Show();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?",
+                                       "Logout Confirmation",
+                                       MessageBoxButtons.YesNo,
+                                       MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                Form1 loginPage = new Form1();
+                loginPage.Show();
+            }
+            else
+            {
+                // do nothing, stay on the current form
+            }
+
         }
 
         private void addbtn_Click(object sender, EventArgs e)

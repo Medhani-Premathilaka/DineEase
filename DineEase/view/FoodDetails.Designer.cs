@@ -47,7 +47,7 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblPrice.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblPrice.Location = new System.Drawing.Point(145, 409);
+            this.lblPrice.Location = new System.Drawing.Point(13, 399);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(75, 58);
             this.lblPrice.TabIndex = 17;
@@ -61,7 +61,7 @@
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblName.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(141, 351);
+            this.lblName.Location = new System.Drawing.Point(13, 351);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(129, 58);
             this.lblName.TabIndex = 15;
@@ -191,7 +191,7 @@
             this.lblDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblDesc.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblDesc.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblDesc.Location = new System.Drawing.Point(71, 457);
+            this.lblDesc.Location = new System.Drawing.Point(20, 457);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(68, 58);
             this.lblDesc.TabIndex = 16;
@@ -203,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(117)))), ((int)(((byte)(187)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(419, 706);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

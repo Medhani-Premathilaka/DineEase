@@ -41,6 +41,7 @@
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnImportImage = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxItem)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // pictureBoxItem
             // 
             this.pictureBoxItem.ImageRotate = 0F;
-            this.pictureBoxItem.Location = new System.Drawing.Point(658, 94);
+            this.pictureBoxItem.Location = new System.Drawing.Point(658, 140);
             this.pictureBoxItem.Name = "pictureBoxItem";
             this.pictureBoxItem.Size = new System.Drawing.Size(222, 222);
             this.pictureBoxItem.TabIndex = 12;
@@ -65,7 +66,7 @@
             this.createbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.createbtn.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createbtn.ForeColor = System.Drawing.Color.White;
-            this.createbtn.Location = new System.Drawing.Point(612, 548);
+            this.createbtn.Location = new System.Drawing.Point(612, 594);
             this.createbtn.Name = "createbtn";
             this.createbtn.Size = new System.Drawing.Size(125, 41);
             this.createbtn.TabIndex = 11;
@@ -82,7 +83,7 @@
             this.resetbtn.FillColor = System.Drawing.Color.Red;
             this.resetbtn.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
             this.resetbtn.ForeColor = System.Drawing.Color.White;
-            this.resetbtn.Location = new System.Drawing.Point(755, 548);
+            this.resetbtn.Location = new System.Drawing.Point(755, 594);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(125, 41);
             this.resetbtn.TabIndex = 10;
@@ -101,7 +102,7 @@
             this.guna2TextBoxPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxPrice.Location = new System.Drawing.Point(18, 300);
+            this.guna2TextBoxPrice.Location = new System.Drawing.Point(18, 346);
             this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBoxPrice.Name = "guna2TextBoxPrice";
             this.guna2TextBoxPrice.PlaceholderText = "";
@@ -122,7 +123,7 @@
             this.guna2TextBoxName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TextBoxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxName.Location = new System.Drawing.Point(18, 108);
+            this.guna2TextBoxName.Location = new System.Drawing.Point(18, 154);
             this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBoxName.Name = "guna2TextBoxName";
             this.guna2TextBoxName.PlaceholderText = "";
@@ -135,7 +136,7 @@
             this.guna2HtmlLabel4.AutoSize = false;
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(18, 381);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(18, 427);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(216, 60);
             this.guna2HtmlLabel4.TabIndex = 3;
@@ -146,7 +147,7 @@
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(18, 153);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(18, 199);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(111, 60);
             this.guna2HtmlLabel2.TabIndex = 1;
@@ -159,7 +160,7 @@
             this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 70);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 116);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(141, 60);
             this.guna2HtmlLabel1.TabIndex = 0;
@@ -168,6 +169,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel5);
             this.guna2Panel3.Controls.Add(this.guna2TextBoxDescription);
             this.guna2Panel3.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel3.Controls.Add(this.pictureBoxItem);
@@ -183,7 +185,7 @@
             this.guna2Panel3.Font = new System.Drawing.Font("MT Extra", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.guna2Panel3.Location = new System.Drawing.Point(108, 30);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(932, 605);
+            this.guna2Panel3.Size = new System.Drawing.Size(932, 710);
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             // 
@@ -199,7 +201,7 @@
             this.guna2TextBoxDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBoxDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDescription.Location = new System.Drawing.Point(18, 422);
+            this.guna2TextBoxDescription.Location = new System.Drawing.Point(18, 468);
             this.guna2TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBoxDescription.Multiline = true;
             this.guna2TextBoxDescription.Name = "guna2TextBoxDescription";
@@ -220,7 +222,7 @@
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(18, 204);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(18, 250);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.Size = new System.Drawing.Size(518, 36);
             this.guna2ComboBox1.TabIndex = 24;
@@ -236,7 +238,7 @@
             this.btnImportImage.FillColor = System.Drawing.Color.MediumPurple;
             this.btnImportImage.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportImage.ForeColor = System.Drawing.Color.White;
-            this.btnImportImage.Location = new System.Drawing.Point(658, 322);
+            this.btnImportImage.Location = new System.Drawing.Point(658, 368);
             this.btnImportImage.Name = "btnImportImage";
             this.btnImportImage.Size = new System.Drawing.Size(222, 42);
             this.btnImportImage.TabIndex = 1;
@@ -248,17 +250,28 @@
             this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Sans Serif Collection", 10.2F);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(18, 260);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(18, 306);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(86, 60);
             this.guna2HtmlLabel3.TabIndex = 2;
             this.guna2HtmlLabel3.Text = "Price:";
             // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.AutoSize = false;
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Sans Serif Collection", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(212, 0);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(434, 99);
+            this.guna2HtmlLabel5.TabIndex = 28;
+            this.guna2HtmlLabel5.Text = "Update Image";
+            // 
             // AddItemPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 657);
+            this.ClientSize = new System.Drawing.Size(1115, 746);
             this.Controls.Add(this.guna2Panel3);
             this.Name = "AddItemPage";
             this.Text = "AddItem";
@@ -283,5 +296,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDescription;
         private Guna.UI2.WinForms.Guna2Button btnImportImage;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }
