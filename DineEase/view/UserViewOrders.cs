@@ -7,6 +7,9 @@ namespace DineEase.view
 {
     public partial class UserViewOrders : Form
     {
+        private FlowLayoutPanel flowOrders;
+        private ComboBox cmbFilter;
+
         public UserViewOrders()
         {
             InitializeComponent();
@@ -16,179 +19,210 @@ namespace DineEase.view
             this.TopMost = false;
             this.ShowInTaskbar = false;
 
-            // Make flow panel behave like a page
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.WrapContents = false;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Padding = new Padding(10);
-            flowLayoutPanel1.Resize += (s, e) => FitChildPanels();
-
-            LoadOrders();
+            InitializeLayout();
         }
 
-        public void LoadOrders()
+        private void InitializeLayout()
         {
-            flowLayoutPanel1.SuspendLayout();
-            try
+            // Header panel
+            // Flow layout for cards
+            flowOrders = new FlowLayoutPanel
             {
-                flowLayoutPanel1.Controls.Clear();
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                Padding = new Padding(15),
+                BackColor = Color.FromArgb(245, 245, 250)
+            };
 
-                var db = dao.DBConnection.getInstance();
-                using (SqlConnection cnn = db.GetConnection())
+            // Important: add flowOrders first
+            Controls.Add(flowOrders);
+
+            // Header panel (added after to stay on top)
+            Panel headerPanel = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 60,
+                BackColor = Color.WhiteSmoke,
+                Padding = new Padding(10)
+            };
+
+            cmbFilter = new ComboBox
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(600, 15),
+                Width = 150
+            };
+            cmbFilter.Items.AddRange(new string[] { "All", "Done", "Rejected", "Cancelled", "Recent", "Last Month" });
+            cmbFilter.SelectedIndex = 0;
+            cmbFilter.SelectedIndexChanged += (s, e) => LoadOrders();
+            headerPanel.Controls.Add(cmbFilter);
+
+            // Add header after flowOrders so it stays on top
+            Controls.Add(headerPanel);
+
+
+
+            this.Load += (s, e) => LoadOrders();
+        }
+
+        private void LoadOrders()
+        {
+            flowOrders.Controls.Clear();
+
+            string filter = cmbFilter.SelectedItem?.ToString() ?? "All";
+            string query = @"
+                SELECT OrderId, ProductName, Quantity, OrderDate, OrderStatus 
+                FROM Orders
+                WHERE UserId = @userId";
+
+            if (filter == "Pending")
+                query += " AND OrderStatus = 'Pending'";
+            else if (filter == "Confirmed")
+                query += " AND OrderStatus = 'Confirmed'";
+
+            query += " ORDER BY OrderDate DESC";
+
+            var db = dao.DBConnection.getInstance();
+            using (SqlConnection cnn = db.GetConnection())
+            {
+                cnn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
-                    cnn.Open();
-                    string query = @"
-                        SELECT OrderId, ProductName, Quantity, OrderDate, OrderStatus 
-                        FROM Orders
-                        WHERE UserId = @userId AND OrderStatus IN ('Pending', 'Confirmed')
-                        ORDER BY OrderDate DESC";
+                    cmd.Parameters.AddWithValue("@userId", CurrentUser.UserId ?? string.Empty);
 
-                    using (SqlCommand cmd = new SqlCommand(query, cnn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@userId", CurrentUser.UserId ?? string.Empty);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        bool any = false;
+                        while (reader.Read())
                         {
-                            bool any = false;
+                            any = true;
+                            CreateOrderCard(reader);
+                        }
 
-                            while (reader.Read())
+                        if (!any)
+                        {
+                            var lblEmpty = new Label
                             {
-                                any = true;
-
-                                Panel row = new Panel
-                                {
-                                    Width = 700, // Make panel stretch across
-                                    Height = 90,
-                                    BackColor = Color.White,
-                                    BorderStyle = BorderStyle.FixedSingle,
-                                    Margin = new Padding(10)
-                                };
-
-
-
-                                var lblItems = new Label
-                                {
-                                    Text = $"{reader["ProductName"]}: {reader["Quantity"]}",
-                                    AutoSize = true,
-                                    Font = new Font("Segoe UI", 10),
-                                    Left = 10,
-                                    Top = 10
-                                };
-
-                                var lblDate = new Label
-                                {
-
-                                    Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
-                                    AutoSize = true,
-                                    Left = 10,
-                                    Top = 35,
-                                    ForeColor = Color.Gray
-                                };
-                                var lblnewDate = new Label
-                                {
-
-                                    Text = Convert.ToDateTime(reader["OrderDate"]).AddMinutes(30).ToString("f"),
-                                    AutoSize = true,
-                                    Left = 10,
-                                    Top = 35,
-                                    ForeColor = Color.Gray
-                                };
-                                var btnStatus = new Button
-                                {
-                                    Text = reader["OrderStatus"].ToString(),
-                                    BackColor = reader["OrderStatus"].ToString() == "Pending" ? Color.Gold : Color.LightGreen,
-                                    ForeColor = Color.Black,
-                                    Width = 90,
-                                    Height = 28,
-                                    Top = 26,
-                                    Anchor = AnchorStyles.Top | AnchorStyles.Right
-                                };
-
-                                // Inside while (reader.Read()) just after creating btnStatus
-                                if (reader["OrderStatus"].ToString() == "Pending")
-                                {
-                                    int orderId = Convert.ToInt32(reader["OrderId"]);
-                                    Button btnCancel = new Button
-                                    {
-                                        Text = "Cancel",
-                                        BackColor = Color.IndianRed,
-                                        ForeColor = Color.White,
-                                        Width = 90,
-                                        Height = 28,
-                                        Top = 26
-                                    };
-
-                                    // Fixed: Properly wire up the click event with orderId and panel reference
-                                    btnCancel.Click += (s, e) => CancelOrder(orderId, row);
-
-                                    // Add content first so the button isn't hidden under labels
-                                    row.Controls.Add(lblItems);
-                                    row.Controls.Add(lblDate);
-                                    row.Controls.Add(btnStatus);
-                                    row.Controls.Add(btnCancel);
-                                    btnCancel.BringToFront();
-
-                                    // Position buttons now and on resize
-                                    Action position = () =>
-                                    {
-                                        btnCancel.Left = row.ClientSize.Width - btnCancel.Width - 10;
-                                        btnStatus.Left = btnCancel.Left - btnStatus.Width - 10;
-                                    };
-                                    row.Resize += (s, e) => position();
-                                    position();
-                                }
-                                else
-                                {
-                                    row.Controls.Add(lblItems);
-                                    row.Controls.Add(lblDate);
-                                    row.Controls.Add(btnStatus);
-                                    row.Resize += (s, e) =>
-                                    {
-                                        btnStatus.Left = row.ClientSize.Width - btnStatus.Width - 10;
-                                    };
-                                }
-
-                                flowLayoutPanel1.Controls.Add(row);
-                                FitRowWidth(row);
-                            }
-
-                            if (!any)
-                            {
-                                var empty = new Label
-                                {
-                                    Text = "No active orders.",
-                                    AutoSize = true,
-                                    Font = new Font("Segoe UI", 10, FontStyle.Italic),
-                                    ForeColor = Color.DimGray,
-                                    Margin = new Padding(10, 20, 10, 0)
-                                };
-                                flowLayoutPanel1.Controls.Add(empty);
-                            }
+                                Text = "No active orders.",
+                                Font = new Font("Segoe UI", 12, FontStyle.Italic),
+                                ForeColor = Color.DimGray,
+                                AutoSize = true,
+                                Margin = new Padding(10, 30, 10, 10)
+                            };
+                            flowOrders.Controls.Add(lblEmpty);
                         }
                     }
                 }
             }
-            finally
-            {
-                flowLayoutPanel1.ResumeLayout();
-            }
         }
 
-        private void FitChildPanels()
+        private void CreateOrderCard(SqlDataReader reader)
         {
-            foreach (Control c in flowLayoutPanel1.Controls)
+            int orderId = Convert.ToInt32(reader["OrderId"]);
+            string product = reader["ProductName"].ToString();
+            int qty = Convert.ToInt32(reader["Quantity"]);
+            string status = reader["OrderStatus"].ToString();
+            DateTime orderDate = Convert.ToDateTime(reader["OrderDate"]);
+
+            // Create card
+            Panel card = new Panel
             {
-                if (c is Panel p) FitRowWidth(p);
+                Size = new Size(560, 140),
+                BackColor = Color.White,
+                Margin = new Padding(5, 5, 5, 15),
+                BorderStyle = BorderStyle.None
+            };
+
+            card.Paint += (s, e) =>
+            {
+                Rectangle rect = new Rectangle(0, 0, card.Width - 1, card.Height - 1);
+                ControlPaint.DrawBorder(e.Graphics, rect, Color.LightGray, ButtonBorderStyle.Solid);
+            };
+            Label lblId = new Label
+            {
+                Text = $"Order #{orderId}",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Location = new Point(15, 15),
+                AutoSize = true
+            };
+            card.Controls.Add(lblId);
+            // Order title
+            Label lblTitle = new Label
+            {
+                Text = $"{product}  (x{qty})",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+
+                Location = new Point(15, 40),
+                AutoSize = true
+            };
+            card.Controls.Add(lblTitle);
+
+            // Date
+            Label lblDate = new Label
+            {
+                Text = orderDate.ToString("f"),
+                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                ForeColor = Color.Gray,
+                Location = new Point(15, 70),
+                AutoSize = true
+            };
+            card.Controls.Add(lblDate);
+
+            // Status button
+            Button btnStatus = new Button
+            {
+                Text = status,
+                Size = new Size(100, 30),
+                Location = new Point(card.Width - 120, 40),
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                ForeColor = Color.Black,
+                BackColor = status == "Pending" ? Color.Gold : Color.LightGreen,
+                Enabled = true,
+
+            };
+            btnStatus.FlatAppearance.BorderSize = 0;
+            card.Controls.Add(btnStatus);
+
+            // Cancel button (only for Pending)
+            if (status == "Pending")
+            {
+                Button btnCancel = new Button
+                {
+                    Text = "Cancel",
+                    Size = new Size(100, 30),
+                    FlatStyle = FlatStyle.Flat,
+                    Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                    ForeColor = Color.White,
+                    BackColor = Color.IndianRed
+                };
+                btnCancel.FlatAppearance.BorderSize = 0;
+
+                card.Controls.Add(btnCancel);
+
+                Action positionButtons = () =>
+                {
+                    btnCancel.Left = card.Width - btnCancel.Width - 15;
+                    btnStatus.Left = btnCancel.Left - btnStatus.Width - 10;
+                    btnCancel.Top = btnStatus.Top = 40;
+                };
+                card.Resize += (s, e) => positionButtons();
+                positionButtons();
+
+                btnCancel.Click += (s, e) => CancelOrder(orderId, card);
             }
-        }
+            else
+            {
+                card.Resize += (s, e) =>
+                {
+                    btnStatus.Left = card.Width - btnStatus.Width - 15;
+                };
+            }
 
-        private void FitRowWidth(Panel row)
-        {
-            // Keep rows full-width inside the flow panel
-            int scrollbar = SystemInformation.VerticalScrollBarWidth;
-            int target = Math.Max(200,
-                flowLayoutPanel1.ClientSize.Width - flowLayoutPanel1.Padding.Horizontal - 4);
-
-            row.Width = target;
+            flowOrders.Controls.Add(card);
         }
 
         private void CancelOrder(int orderId, Panel panel)
@@ -196,7 +230,6 @@ namespace DineEase.view
             var result = MessageBox.Show("Do you really want to cancel this order?",
                 "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Fixed: Changed condition to check for Yes instead of No
             if (result == DialogResult.Yes)
             {
                 try
@@ -235,7 +268,6 @@ namespace DineEase.view
 
         private void StartFadeOut(Panel row)
         {
-            // Smooth collapse animation (works reliably in WinForms)
             row.Enabled = false;
             EnableDoubleBuffering(row);
 
@@ -253,7 +285,7 @@ namespace DineEase.view
                 else
                 {
                     t.Stop();
-                    flowLayoutPanel1.Controls.Remove(row);
+                    flowOrders.Controls.Remove(row);
                     row.Dispose();
                     t.Dispose();
                 }
@@ -269,7 +301,14 @@ namespace DineEase.view
             prop?.SetValue(panel, true, null);
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
-        private void UserViewOrders_Load(object sender, EventArgs e) { }
+        private void UserViewOrders_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserViewOrders_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

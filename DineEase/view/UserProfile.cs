@@ -50,7 +50,7 @@ namespace DineEase
                                 guna2TextBox5.ReadOnly = true;
                                 studentid.ReadOnly = true;
                                 // guna2TextBox2.Enabled = false;
-                                MessageBox.Show("User ID received: " + userId);
+                                // MessageBox.Show("User ID received: " + userId);
 
                             }
                         }

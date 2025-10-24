@@ -31,14 +31,6 @@ namespace DineEase
                 Padding = new Padding(10)
             };
 
-            //Label lblTitle = new Label
-            //{
-            //    Text = "My Orders",
-            //    Font = new Font("Segoe UI", 14, FontStyle.Bold),
-            //    AutoSize = true,
-            //    Location = new Point(550, 15)
-            //};
-            //headerPanel.Controls.Add(lblTitle);
 
             cmbFilter = new ComboBox
             {
@@ -47,12 +39,12 @@ namespace DineEase
                 Location = new Point(600, 15),
                 Width = 150
             };
-            cmbFilter.Items.AddRange(new string[] { "All", "Confirmed", "Cancelled", "Recent", "Last Month" });
+            cmbFilter.Items.AddRange(new string[] { "All", "Done", "Rejected", "Cancelled", "Recent", "Last Month" });
             cmbFilter.SelectedIndex = 0;
             cmbFilter.SelectedIndexChanged += (s, e) => LoadOrders();
             headerPanel.Controls.Add(cmbFilter);
 
-            Controls.Add(headerPanel);
+            //Controls.Add(headerPanel);
 
             // Flow layout for cards
             flowOrders = new FlowLayoutPanel
@@ -65,6 +57,8 @@ namespace DineEase
                 BackColor = Color.FromArgb(245, 245, 250)
             };
             Controls.Add(flowOrders);
+            Controls.Add(headerPanel);
+
 
             this.Load += (s, e) => LoadOrders();
         }
@@ -75,10 +69,10 @@ namespace DineEase
 
             string filter = cmbFilter.SelectedItem?.ToString() ?? "All";
             string query = @"SELECT OrderID, OrderDate, Price, Quantity, OrderStatus
-                             FROM dbo.Orders WHERE UserId = @UserId";
+                             FROM dbo.Orders WHERE UserId = @UserId AND Finished = 1 ";
 
-            if (filter == "Confirmed")
-                query += " AND OrderStatus = 'Confirmed'";
+            if (filter == "Done")
+                query += " AND OrderStatus = 'Done'";
             else if (filter == "Cancelled")
                 query += " AND OrderStatus = 'Cancelled'";
             else if (filter == "Recent")
@@ -187,7 +181,7 @@ namespace DineEase
                 Font = new Font("Segoe UI", 9, FontStyle.Bold)
             };
             btnStatus.FlatAppearance.BorderSize = 0;
-            btnStatus.BackColor = status == "Confirmed"
+            btnStatus.BackColor = status == "Done"
                 ? Color.FromArgb(75, 181, 67)
                 : status == "Cancelled"
                     ? Color.FromArgb(219, 82, 77)
