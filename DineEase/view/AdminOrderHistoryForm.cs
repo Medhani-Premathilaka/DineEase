@@ -7,17 +7,18 @@ namespace DineEase
 {
     public partial class AdminOrderHistoryForm : Form
     {
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowOrders;
+        private ComboBox cmbFilter;
 
         public AdminOrderHistoryForm()
         {
             InitializeComponent();
+            InitializeLayout();
+        }
 
-            // Set form dimensions
-            this.Size = new Size(800, 600);
-            this.MinimumSize = new Size(750, 500);
-
-            // Create header panel for filter controls
+        private void InitializeLayout()
+        {
+            // --- Header Panel ---
             Panel headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -26,232 +27,188 @@ namespace DineEase
                 Padding = new Padding(10)
             };
 
+            Label lblTitle = new Label
+            {
+                Text = "Admin Order History",
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                AutoSize = true,
+                Location = new Point(10, 15)
+            };
+            headerPanel.Controls.Add(lblTitle);
+
+            cmbFilter = new ComboBox
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(600, 15),
+                Width = 150
+            };
+            cmbFilter.Items.AddRange(new string[] { "All", "Done", "Rejected", "Recent", "Last Month" });
+            cmbFilter.SelectedIndex = 0;
+            cmbFilter.SelectedIndexChanged += (s, e) => LoadOrders();
+            headerPanel.Controls.Add(cmbFilter);
 
 
-            this.Controls.Add(headerPanel);
 
-
-
-            flowLayoutPanel1 = new FlowLayoutPanel
+            // --- Flow Layout for Cards ---
+            flowOrders = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
+                AutoScroll = true,
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
-                AutoScroll = true,
-                Padding = new Padding(15, 10, 15, 10),
+                Padding = new Padding(15),
                 BackColor = Color.FromArgb(245, 245, 250)
             };
-            this.Controls.Add(flowLayoutPanel1);
-
-            this.ControlBox = true;
-            this.MinimizeBox = true;
-            this.MaximizeBox = true;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.Text = "Order History";
-            this.Load += AdminOrderHistoryForm_Load;
-
-            cmbFilter.SelectedIndexChanged += cmbFilter_SelectedIndexChanged;
-
-            flowLayoutPanel2.BackColor = Color.White; // light bluish shade
-            flowLayoutPanel2.AutoSize = true;
-            //flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            //flowLayoutPanel2.WrapContents = true;          // vertical list
-            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-
-            flowLayoutPanel1.Resize += (s, e) =>
-            {
-                int w = GetCardWidth(flowLayoutPanel2);
-                foreach (Control c in flowLayoutPanel2.Controls)
-                {
-                    c.Width = w;
-                }
-            };
-        }
-        private static int GetCardWidth(FlowLayoutPanel host)
-        {
-            int scrollAdjust = host.VerticalScroll.Visible ? SystemInformation.VerticalScrollBarWidth : 0;
-            return host.ClientSize.Width - host.Padding.Horizontal - scrollAdjust;
-        }
-        private void AdminOrderHistoryForm_Load(object sender, EventArgs e)
-        {
-            // Add filter options to ComboBox
-            cmbFilter.Items.Clear();
-            cmbFilter.Items.AddRange(new string[] { "All", "Done", "Rejected", "Recent", "Last Month" });
-            cmbFilter.SelectedIndex = 0; // Default to All
-
-            LoadOrders("All");
+            Controls.Add(flowOrders);
+            Controls.Add(headerPanel);
+            // --- Form Properties ---
+            this.Size = new Size(900, 650);
+            this.MinimumSize = new Size(800, 550);
+            this.Text = "Admin Order History";
+            this.Load += (s, e) => LoadOrders();
         }
 
-        private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadOrders()
         {
-            string selected = cmbFilter.SelectedItem.ToString();
-            LoadOrders(selected);
-        }
+            flowOrders.Controls.Clear();
+            string filter = cmbFilter.SelectedItem?.ToString() ?? "All";
 
-        private void LoadOrders(string filter)
-        {
-            flowLayoutPanel2.Controls.Clear();
-            string query = "";
+            string query = @"SELECT OrderID, UserId, CustomerName, ProductName, Quantity, Price, OrderStatus, OrderDate
+                             FROM dbo.Orders
+                             WHERE Finished = 1 ";
 
-            switch (filter)
-            {
-                case "Done":
-                    query = "SELECT * FROM Orders WHERE OrderStatus = 'Done'";
-                    break;
-                case "Rejected":
-                    query = "SELECT * FROM Orders WHERE OrderStatus = 'Rejected'";
-                    break;
-                case "Recent":
-                    query = "SELECT * FROM Orders WHERE OrderDate >= DATEADD(DAY, -7, GETDATE())";
-                    break;
-                case "Last Month":
-                    query = @"SELECT * FROM Orders 
-                              WHERE MONTH(OrderDate) = MONTH(DATEADD(MONTH, -1, GETDATE()))
-                              AND YEAR(OrderDate) = YEAR(DATEADD(MONTH, -1, GETDATE()))";
-                    break;
-                default:
-                    query = "SELECT * FROM Orders";
-                    break;
-            }
+            if (filter == "Done")
+                query += " AND OrderStatus = 'Done'";
+            else if (filter == "Rejected")
+                query += " AND OrderStatus = 'Rejected'";
+            else if (filter == "Recent")
+                query += " AND OrderDate >= DATEADD(DAY, -7, GETDATE())";
+            else if (filter == "Last Month")
+                query += " AND OrderDate >= DATEADD(DAY, -30, GETDATE())";
+
+            query += " ORDER BY OrderDate DESC";
 
             var db = dao.DBConnection.getInstance();
-            using (SqlConnection cnn = db.GetConnection())
+            using (SqlConnection con = db.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                con.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    bool any = false;
-
+                    bool hasData = false;
                     while (reader.Read())
                     {
-                        any = true;
-                        int isFinished = Convert.ToInt32(reader["Finished"]);
-                        int orderId = Convert.ToInt32(reader["OrderID"]);
-
-                        if (isFinished == 1)
-                        {
-                            // Calculate panel width based on form width
-                            int panelWidth = flowLayoutPanel2.ClientSize.Width - 30; // Account for padding
-
-                            Panel orderPanel = new Panel
-                            {
-                                Width = panelWidth,
-                                Height = 100,
-                                BackColor = Color.White,
-                                BorderStyle = BorderStyle.None,
-                                Margin = new Padding(0, 0, 0, 10)
-                            };
-
-                            // Add shadow effect
-                            orderPanel.Paint += (s, e) =>
-                            {
-                                Rectangle rect = new Rectangle(0, 0, orderPanel.Width, orderPanel.Height);
-                                using (Brush brush = new SolidBrush(Color.White))
-                                {
-                                    e.Graphics.FillRectangle(brush, rect);
-                                }
-                                ControlPaint.DrawBorder(e.Graphics, rect, Color.LightGray, ButtonBorderStyle.Solid);
-                            };
-
-                            Label lblNumber = new Label
-                            {
-                                Text = orderId.ToString() + ".",
-                                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                                Location = new Point(15, 15),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblNumber);
-
-                            Label lblDetails = new Label
-                            {
-                                Text = reader["ProductName"] + " : " + reader["Quantity"],
-                                Font = new Font("Segoe UI", 10),
-                                Location = new Point(45, 15),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblDetails);
-
-                            Label lblPrice = new Label
-                            {
-                                Text = "Price: Rs. " + reader["Price"],
-                                Font = new Font("Segoe UI", 9),
-                                Location = new Point(300, 35),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblPrice);
-
-                            Label innerLblTime = new Label
-                            {
-                                Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
-                                Font = new Font("Segoe UI", 9, FontStyle.Italic),
-                                ForeColor = Color.Gray,
-                                AutoSize = true,
-                                Location = new Point(45, 40)
-                            };
-                            orderPanel.Controls.Add(innerLblTime);
-
-                            Label lblCustomer = new Label
-                            {
-                                Text = "Customer: " + reader["UserId"].ToString() + " - " + reader["CustomerName"].ToString(),
-                                Font = new Font("Segoe UI", 9),
-                                Location = new Point(45, 65),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblCustomer);
-
-                            string orderStatus = Convert.ToString(reader["OrderStatus"]);
-                            Button btnStatus = new Button
-                            {
-                                Text = orderStatus,
-                                BackColor = orderStatus == "Done" ? Color.FromArgb(75, 181, 67) :
-                                           orderStatus == "Rejected" ? Color.FromArgb(219, 82, 77) : Color.Gray,
-                                ForeColor = Color.White,
-                                FlatStyle = FlatStyle.Flat,
-                                Size = new Size(90, 30),
-                                Location = new Point(panelWidth - 110, 35)
-                            };
-                            btnStatus.FlatAppearance.BorderSize = 0;
-                            orderPanel.Controls.Add(btnStatus);
-
-                            flowLayoutPanel2.Controls.Add(orderPanel);
-                        }
+                        hasData = true;
+                        CreateOrderCard(reader);
                     }
 
-                    if (!any)
+                    if (!hasData)
                     {
-                        var empty = new Label
+                        var lblEmpty = new Label
                         {
-                            Text = "No active orders.",
-                            AutoSize = true,
+                            Text = "No orders found.",
                             Font = new Font("Segoe UI", 12, FontStyle.Italic),
                             ForeColor = Color.DimGray,
-                            Margin = new Padding(0, 50, 0, 0)
+                            AutoSize = true,
+                            Margin = new Padding(10, 30, 10, 10)
                         };
-                        // Center the label
-                        empty.Left = (flowLayoutPanel1.Width - empty.Width) / 2;
-                        flowLayoutPanel2.Controls.Add(empty);
+                        flowOrders.Controls.Add(lblEmpty);
                     }
-                    // adjust width of all cards after loading
-                    int cardWidth = GetCardWidth(flowLayoutPanel2);
-                    foreach (Control c in flowLayoutPanel2.Controls)
-                    {
-                        c.Width = cardWidth;
-                    }
-
-                    // ✅ Fix: Refresh layout so panel updates correctly
-                    flowLayoutPanel2.PerformLayout();
-                    flowLayoutPanel2.Invalidate();
-                    flowLayoutPanel2.Update();
                 }
             }
         }
 
+        private void CreateOrderCard(SqlDataReader reader)
+        {
+            int orderId = Convert.ToInt32(reader["OrderID"]);
+            string userId = reader["UserId"].ToString();
+            string customer = reader["CustomerName"].ToString();
+            string product = reader["ProductName"].ToString();
+            decimal qty = Convert.ToDecimal(reader["Quantity"]);
+            decimal price = Convert.ToDecimal(reader["Price"]);
+            decimal total = qty * price;
+            string status = reader["OrderStatus"].ToString();
+            DateTime orderDate = Convert.ToDateTime(reader["OrderDate"]);
 
+            // --- Card Panel ---
+            Panel card = new Panel
+            {
+                Size = new Size(700, 150),
+                BackColor = Color.White,
+                Margin = new Padding(5, 5, 5, 15),
+                BorderStyle = BorderStyle.None
+            };
 
+            card.Paint += (s, e) =>
+            {
+                Rectangle rect = new Rectangle(0, 0, card.Width - 1, card.Height - 1);
+                ControlPaint.DrawBorder(e.Graphics, rect, Color.LightGray, ButtonBorderStyle.Solid);
+            };
 
+            // --- Labels ---
+            Label lblId = new Label
+            {
+                Text = $"Order #{orderId}",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Location = new Point(15, 15),
+                AutoSize = true
+            };
+            card.Controls.Add(lblId);
 
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+            Label lblDate = new Label
+            {
+                Text = orderDate.ToString("f"),
+                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                ForeColor = Color.Gray,
+                Location = new Point(15, 40),
+                AutoSize = true
+            };
+            card.Controls.Add(lblDate);
+
+            Label lblCustomer = new Label
+            {
+                Text = $"Customer: {customer} ({userId})",
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(15, 70),
+                AutoSize = true
+            };
+            card.Controls.Add(lblCustomer);
+
+            Label lblDetails = new Label
+            {
+                Text = $"Product: {product} | Qty: {qty} | Total: Rs. {total:N2}",
+                Font = new Font("Segoe UI", 10),
+                Location = new Point(15, 95),
+                AutoSize = true
+            };
+            card.Controls.Add(lblDetails);
+
+            // --- Status Button ---
+            Button btnStatus = new Button
+            {
+                Text = status,
+                Size = new Size(100, 30),
+                Location = new Point(card.Width - 120, 50),
+                FlatStyle = FlatStyle.Flat,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 9, FontStyle.Bold)
+            };
+            btnStatus.FlatAppearance.BorderSize = 0;
+            btnStatus.BackColor = status == "Done"
+                ? Color.FromArgb(75, 181, 67)
+                : status == "Rejected"
+                    ? Color.FromArgb(219, 82, 77)
+                    : Color.Gray;
+            card.Controls.Add(btnStatus);
+
+            // --- Adjust on resize ---
+            card.Resize += (s, e) => btnStatus.Left = card.Width - 120;
+
+            flowOrders.Controls.Add(card);
+        }
+
+        private void AdminOrderHistoryForm_Load(object sender, EventArgs e)
         {
 
         }

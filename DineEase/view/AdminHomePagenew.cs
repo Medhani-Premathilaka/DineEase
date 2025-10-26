@@ -76,7 +76,7 @@ namespace DineEase.view
                     reader.Close();
 
                     // Your desired display order:
-                    string[] displayOrder = { "Breakfast", "Lunch", "Dinner", "Drinks", "Desserts" };
+                    string[] displayOrder = { "Breakfast", "Lunch", "Dinner", "Breverages", "Desserts" };
 
                     foreach (string category in displayOrder)
                     {
@@ -87,9 +87,9 @@ namespace DineEase.view
                         Label categoryLabel = new Label
                         {
                             Text = category,
-                            Font = new Font("Segoe UI Semibold", 16, FontStyle.Bold),
-                            ForeColor = Color.White, // White text stands out on dark purple
-                            BackColor = Color.FromArgb(102, 51, 153), // Dark purple background
+                            Font = new Font("Segoe UI", 16, FontStyle.Bold),
+                            ForeColor = Color.Black, // White text stands out on dark purple
+                            //BackColor = Color.FromArgb(102, 51, 153), // Dark purple background
                             AutoSize = false,
                             Width = 800,
                             Height = 45,

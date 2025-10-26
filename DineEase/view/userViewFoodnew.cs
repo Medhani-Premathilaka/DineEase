@@ -37,7 +37,7 @@ namespace DineEase.view
 
             this.ControlBox = true;
             this.MinimizeBox = true;
-            this.MaximizeBox = true;
+            this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             LoadFoodItems();
@@ -297,6 +297,11 @@ namespace DineEase.view
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
             navTimer.Start();
+        }
+
+        private void userViewFoodnew_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

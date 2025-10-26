@@ -51,7 +51,7 @@
             // navTimer
             // 
             this.navTimer.Interval = 10;
-            this.navTimer.Tick += new System.EventHandler(this.navTimer_Tick_1);
+            this.navTimer.Tick += new System.EventHandler(this.navTimer_Tick);
             // 
             // settingBtn
             // 
@@ -88,7 +88,6 @@
             this.historyBtn.TabIndex = 9;
             this.historyBtn.Text = "History";
             this.historyBtn.Visible = false;
-            this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
             // ordersBtn
             // 
@@ -107,7 +106,6 @@
             this.ordersBtn.TabIndex = 7;
             this.ordersBtn.Text = "Orders";
             this.ordersBtn.Visible = false;
-            this.ordersBtn.Click += new System.EventHandler(this.ordersBtn_Click);
             // 
             // homeBtn
             // 
@@ -126,7 +124,6 @@
             this.homeBtn.TabIndex = 6;
             this.homeBtn.Text = "Items";
             this.homeBtn.Visible = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -138,7 +135,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 870);
             this.flowLayoutPanel1.TabIndex = 6;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint_1);
             // 
             // guna2Panel1
             // 
@@ -161,7 +158,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(252, 870);
             this.guna2Panel1.TabIndex = 1;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint_1);
             // 
             // addbtn
             // 
@@ -180,7 +177,6 @@
             this.addbtn.TabIndex = 15;
             this.addbtn.Text = "Add";
             this.addbtn.Visible = false;
-            this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
             // 
             // guna2ImageButton7
             // 
@@ -196,7 +192,7 @@
             this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton7.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton7.TabIndex = 14;
-            this.guna2ImageButton7.Click += new System.EventHandler(this.guna2ImageButton7_Click);
+            this.guna2ImageButton7.Click += new System.EventHandler(this.guna2ImageButton7_Click_1);
             // 
             // logo
             // 
@@ -224,7 +220,7 @@
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton5.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton5.TabIndex = 4;
-            this.guna2ImageButton5.Click += new System.EventHandler(this.guna2ImageButton5_Click);
+            this.guna2ImageButton5.Click += new System.EventHandler(this.guna2ImageButton5_Click_1);
             // 
             // guna2ImageButton4
             // 
@@ -240,7 +236,7 @@
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton4.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton4.TabIndex = 3;
-            this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton4_Click);
+            this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton4_Click_1);
             // 
             // guna2ImageButton3
             // 
@@ -256,7 +252,7 @@
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton3.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton3.TabIndex = 2;
-            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton3_Click);
+            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton3_Click_1);
             // 
             // guna2ImageButton2
             // 
@@ -272,7 +268,7 @@
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton2.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton2.TabIndex = 1;
-            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click_1);
             // 
             // guna2ImageButton1
             // 
@@ -288,7 +284,7 @@
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
             this.guna2ImageButton1.Size = new System.Drawing.Size(57, 43);
             this.guna2ImageButton1.TabIndex = 0;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click_1);
             // 
             // AdminViewOrdersnew
             // 
@@ -297,9 +293,9 @@
             this.ClientSize = new System.Drawing.Size(1200, 870);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2Panel1);
+            this.MaximizeBox = false;
             this.Name = "AdminViewOrdersnew";
             this.Text = "AdminViewOrdersnew";
-            this.Load += new System.EventHandler(this.AdminViewOrdersnew_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
