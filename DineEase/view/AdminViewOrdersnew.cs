@@ -30,6 +30,9 @@ namespace DineEase.view
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Padding = new Padding(50);
+            flowLayoutPanel1.AutoScrollMinSize = new Size(0, 500);
+            flowLayoutPanel1.AutoScrollMinSize = Size.Empty;
+            // flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
             flowLayoutPanel1.BackColor = Color.FromArgb(240, 240, 240); // Light gray background
 
             LoadOrders();
@@ -57,16 +60,7 @@ namespace DineEase.view
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    //if (!reader.HasRows)
-                    //{
-                    //    if (!flowLayoutPanel1.Controls.Contains(txtnone))
-                    //        flowLayoutPanel1.Controls.Add(txtnone);
 
-                    //    txtnone.AutoSize = true; // let FlowLayoutPanel size around it
-                    //    PositionTxtNone();       // set margin for placement
-                    //    txtnone.Visible = true;
-                    //    return;
-                    //}
 
                     int orderNumber = 1;
 
@@ -431,19 +425,6 @@ namespace DineEase.view
         }
         private void AdminViewOrdersnew_Resize(object sender, EventArgs e)
         {
-            // Resize the flowLayoutPanel to fill the form's client area
-            // You may need to adjust margins/paddings as needed
-            // flowLayoutPanel1.Width = this.ClientSize.Width - flowLayoutPanel1.Left - 20;
-            //flowLayoutPanel1.Height = this.ClientSize.Height - flowLayoutPanel1.Top - 20;
-
-            // Resize any child form that's in the flowLayoutPanel
-            //foreach (Control control in flowLayoutPanel1.Controls)
-            //{
-            //    if (control is Form)
-            //    {
-            //        control.Size = flowLayoutPanel1.ClientSize;
-            //    }
-            //}
         }
         private void ShowInFlow(Form child)
         {

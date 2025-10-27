@@ -115,7 +115,6 @@
             this.guna2TextBoxName.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2TextBoxName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBoxName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2TextBoxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxName.Location = new System.Drawing.Point(60, 117);
             this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
