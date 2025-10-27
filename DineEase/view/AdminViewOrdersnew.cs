@@ -29,7 +29,7 @@ namespace DineEase.view
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.Padding = new Padding(50);
             flowLayoutPanel1.BackColor = Color.FromArgb(240, 240, 240); // Light gray background
 
             LoadOrders();
@@ -86,8 +86,8 @@ namespace DineEase.view
                             Margin = new Padding(10)
                         };
 
-                        orderPanel.AutoSize = true;
-                        orderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                        // orderPanel.AutoSize = true;
+                        //orderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         Label lblId = new Label
                         {
                             Text = $"Order #{orderId}",
@@ -433,17 +433,17 @@ namespace DineEase.view
         {
             // Resize the flowLayoutPanel to fill the form's client area
             // You may need to adjust margins/paddings as needed
-            flowLayoutPanel1.Width = this.ClientSize.Width - flowLayoutPanel1.Left - 20;
-            flowLayoutPanel1.Height = this.ClientSize.Height - flowLayoutPanel1.Top - 20;
+            // flowLayoutPanel1.Width = this.ClientSize.Width - flowLayoutPanel1.Left - 20;
+            //flowLayoutPanel1.Height = this.ClientSize.Height - flowLayoutPanel1.Top - 20;
 
             // Resize any child form that's in the flowLayoutPanel
-            foreach (Control control in flowLayoutPanel1.Controls)
-            {
-                if (control is Form)
-                {
-                    control.Size = flowLayoutPanel1.ClientSize;
-                }
-            }
+            //foreach (Control control in flowLayoutPanel1.Controls)
+            //{
+            //    if (control is Form)
+            //    {
+            //        control.Size = flowLayoutPanel1.ClientSize;
+            //    }
+            //}
         }
         private void ShowInFlow(Form child)
         {
