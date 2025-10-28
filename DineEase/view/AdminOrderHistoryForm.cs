@@ -14,6 +14,7 @@ namespace DineEase
         {
             InitializeComponent();
             InitializeLayout();
+
         }
 
         private void InitializeLayout()
@@ -23,6 +24,7 @@ namespace DineEase
             {
                 Dock = DockStyle.Top,
                 Height = 60,
+                //Margin = new Padding(0, 0, 0, 20),
                 BackColor = Color.WhiteSmoke,
                 Padding = new Padding(10)
             };

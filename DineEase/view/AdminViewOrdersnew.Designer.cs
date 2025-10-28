@@ -296,6 +296,7 @@
             this.MaximizeBox = false;
             this.Name = "AdminViewOrdersnew";
             this.Text = "AdminViewOrdersnew";
+            this.Load += new System.EventHandler(this.AdminViewOrdersnew_Load_1);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);

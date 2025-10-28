@@ -32,7 +32,7 @@ namespace DineEase.view
             flowLayoutPanel1.Padding = new Padding(50);
             flowLayoutPanel1.AutoScrollMinSize = new Size(0, 500);
             flowLayoutPanel1.AutoScrollMinSize = Size.Empty;
-            // flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+
             flowLayoutPanel1.BackColor = Color.FromArgb(240, 240, 240); // Light gray background
 
             LoadOrders();
@@ -639,6 +639,11 @@ namespace DineEase.view
             {
                 // do nothing, stay on the current form
             }
+        }
+
+        private void AdminViewOrdersnew_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

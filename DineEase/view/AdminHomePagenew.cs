@@ -27,7 +27,7 @@ namespace DineEase.view
         {
             LoadMenuItemsAsCards();
             flowLayoutPanel1.Width = this.ClientSize.Width;
-            flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.Padding = new Padding(10, 10, 10, 20);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.WrapContents = true;
@@ -306,7 +306,7 @@ namespace DineEase.view
 
                     try
                     {
-                        cnn.Open();
+                        //cnn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)

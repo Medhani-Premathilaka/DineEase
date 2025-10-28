@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using DineEase.view;
 namespace DineEase
 {
     internal static class Program
@@ -17,7 +16,7 @@ namespace DineEase
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new AdminViewOrdersnew());
+            Application.Run(new Form1());
         }
     }
 }
