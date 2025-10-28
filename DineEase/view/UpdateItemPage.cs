@@ -209,9 +209,20 @@ namespace DineEase
                         int rows = cmd.ExecuteNonQuery();
                         if (rows > 0)
                         {
-                            MessageBox.Show("Item updated successfully!");
-                            //this.Close();
-                            //new AdminHomePagenew().Show();
+                            DialogResult result = MessageBox.Show("Are you sure you want to Update Item?",
+                                       "Item Update Confirmation",
+                                       MessageBoxButtons.YesNo,
+                                       MessageBoxIcon.Question);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                this.Hide();
+                                MessageBox.Show("Updated Successfully!");
+                            }
+                            else
+                            {
+                                // do nothing, stay on the current form
+                            }
                         }
                         else
                         {

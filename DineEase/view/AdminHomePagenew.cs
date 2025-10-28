@@ -21,21 +21,18 @@ namespace DineEase.view
 
             this.Load += AdminHomePagenew_Load;
 
-            //timer1.Tick += timer_Tick_1;
-            //timer1.Interval = 10;
+
         }
         private void AdminHomePagenew_Load(object sender, EventArgs e)
         {
             LoadMenuItemsAsCards();
             flowLayoutPanel1.Width = this.ClientSize.Width;
-            flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.Padding = new Padding(10, 10, 10, 20);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.WrapContents = true;
-            flowLayoutPanel1.SuspendLayout();
-            // add all cards
-            flowLayoutPanel1.ResumeLayout();
-
+            flowLayoutPanel1.Size = new Size(1000, 600);
+            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
             foreach (Control card in flowLayoutPanel1.Controls)
             {
                 card.Margin = new Padding(15); // 15px space between cards
@@ -43,6 +40,7 @@ namespace DineEase.view
         }
         private void LoadMenuItemsAsCards()
         {
+            flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.Controls.Clear();
             var db = dao.DBConnection.getInstance();
             using (SqlConnection cnn = db.GetConnection())
@@ -76,7 +74,7 @@ namespace DineEase.view
                     reader.Close();
 
                     // Your desired display order:
-                    string[] displayOrder = { "Breakfast", "Lunch", "Dinner", "Drinks", "Desserts" };
+                    string[] displayOrder = { "Breakfast", "Lunch", "Dinner", "Breverages", "Desserts" };
 
                     foreach (string category in displayOrder)
                     {
@@ -87,9 +85,8 @@ namespace DineEase.view
                         Label categoryLabel = new Label
                         {
                             Text = category,
-                            Font = new Font("Segoe UI Semibold", 16, FontStyle.Bold),
-                            ForeColor = Color.White, // White text stands out on dark purple
-                            BackColor = Color.FromArgb(102, 51, 153), // Dark purple background
+                            Font = new Font("Segoe UI", 16, FontStyle.Bold),
+                            ForeColor = Color.Black,
                             AutoSize = false,
                             Width = 800,
                             Height = 45,
@@ -123,7 +120,11 @@ namespace DineEase.view
                 }
                 cnn.Close();
             }
+            flowLayoutPanel1.ResumeLayout();
+            flowLayoutPanel1.Invalidate();
+            // flowLayoutPanel1.PerformLayout();
         }
+
         private Guna2Panel CreateCard(int productId, string name, string addFor, string price, string description, byte[] imageData)
         {
             Guna2Panel card = new Guna2Panel
@@ -219,7 +220,8 @@ namespace DineEase.view
                 // Step 1: Create the blur overlay
                 BlurForm blur = new BlurForm(this);   // 'this' = your main or parent form
                 blur.Show();
-                blur.BringToFront(); // make sure blur stays above everything
+                blur.BringToFront();
+                // make sure blur stays above everything
 
                 try
                 {
@@ -227,7 +229,10 @@ namespace DineEase.view
                     using (UpdateItemPage updatePage = new UpdateItemPage(productId))
                     {
                         updatePage.StartPosition = FormStartPosition.CenterParent;
-                        updatePage.ShowDialog(blur);  // blur is the owner, so dialog is above the blur
+
+                        updatePage.ShowDialog(blur);
+                        // blur is the owner, so dialog is above the blur
+                        LoadMenuItemsAsCards();
                     }
                 }
                 finally
@@ -273,6 +278,11 @@ namespace DineEase.view
 
             return card;
         }
+        private void AdminHomePagenew_Resize(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Size = new Size(this.ClientSize.Width - 250, this.ClientSize.Height - 150);
+        }
+
         private void DeleteMenuItem(string itemName)
         {
             DialogResult dialogResult = MessageBox.Show(
@@ -296,7 +306,7 @@ namespace DineEase.view
 
                     try
                     {
-                        cnn.Open();
+                        //cnn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)

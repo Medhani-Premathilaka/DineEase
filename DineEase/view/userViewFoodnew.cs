@@ -29,15 +29,18 @@ namespace DineEase.view
             profileBtn.Visible = false;
             logo.Visible = false;
 
-            flowLayoutPanel1.WrapContents = false; // don't wrap to next line
-            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight; // left to right flow
-            flowLayoutPanel1.AutoScroll = true; // allow scrolling
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.WrapContents = true; // allows wrapping to next row
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+
+            //flowLayoutPanel1.AutoScroll = true; // allow scrolling
 
             AdjustControlPositions();
 
             this.ControlBox = true;
             this.MinimizeBox = true;
-            this.MaximizeBox = true;
+            this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             LoadFoodItems();
@@ -297,6 +300,11 @@ namespace DineEase.view
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
             navTimer.Start();
+        }
+
+        private void userViewFoodnew_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,13 +21,17 @@ namespace DineEase.view
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            // Ensure layout fills available space
+            guna2Panel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+
             // Configure flow panel
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Padding = new Padding(10);
-
-
+            flowLayoutPanel1.Padding = new Padding(50);
+            flowLayoutPanel1.AutoScrollMinSize = new Size(0, 500);
+            flowLayoutPanel1.AutoScrollMinSize = Size.Empty;
 
             flowLayoutPanel1.BackColor = Color.FromArgb(240, 240, 240); // Light gray background
 
@@ -56,16 +60,7 @@ namespace DineEase.view
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    //if (!reader.HasRows)
-                    //{
-                    //    if (!flowLayoutPanel1.Controls.Contains(txtnone))
-                    //        flowLayoutPanel1.Controls.Add(txtnone);
 
-                    //    txtnone.AutoSize = true; // let FlowLayoutPanel size around it
-                    //    PositionTxtNone();       // set margin for placement
-                    //    txtnone.Visible = true;
-                    //    return;
-                    //}
 
                     int orderNumber = 1;
 
@@ -79,14 +74,22 @@ namespace DineEase.view
                         Panel orderPanel = new Panel
                         {
                             Width = 700, // Make panel stretch across
-                            Height = 90,
+                            Height = 120,
                             BackColor = Color.White,
                             BorderStyle = BorderStyle.FixedSingle,
                             Margin = new Padding(10)
                         };
 
-
-
+                        // orderPanel.AutoSize = true;
+                        //orderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                        Label lblId = new Label
+                        {
+                            Text = $"Order #{orderId}",
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                            Location = new Point(15, 15),
+                            AutoSize = true
+                        };
+                        orderPanel.Controls.Add(lblId);
 
 
 
@@ -145,21 +148,14 @@ namespace DineEase.view
                         else if (orderStatus.ToLower() == "ongoing" || orderStatus.ToLower() == "confirmed")
 
                         {
-                            Label lblNumber = new Label
-                            {
-                                Text = orderNumber.ToString() + ".",
-                                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                                Location = new Point(10, 10),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblNumber);
+
 
                             Label lblDetails = new Label
                             {
                                 Text = reader["ProductName"] + " : " + reader["Quantity"],
 
                                 Font = new Font("Segoe UI", 10),
-                                Location = new Point(40, 10),
+                                Location = new Point(15, 40),
                                 AutoSize = true
                             };
 
@@ -169,7 +165,7 @@ namespace DineEase.view
                             {
                                 Text = "Customer: " + reader["UserId"].ToString() + " - " + reader["CustomerName"].ToString(),
                                 Font = new Font("Segoe UI", 9),
-                                Location = new Point(40, 55), // Below the date
+                                Location = new Point(15, 70), // Below the date
 
                                 AutoSize = true
                             };
@@ -185,20 +181,14 @@ namespace DineEase.view
                             };
                             orderPanel.Controls.Add(lblPrice);
 
-                            // Date formatting logic
-                            //DateTime innerOrderDateTime = Convert.ToDateTime(reader["OrderDate"]);
-                            //string innerFormattedDate = (innerOrderDateTime.Date == DateTime.Today)
-                            //    ? "Today " + innerOrderDateTime.ToString("h:mm tt")
-                            //    : innerOrderDateTime.ToString("dd MMM yyyy h:mm tt");
 
-                            // Date label
                             Label innerLblTime = new Label
                             {
                                 Text = Convert.ToDateTime(reader["OrderDate"]).ToString("f"),
                                 Font = new Font("Segoe UI", 9, FontStyle.Italic),
                                 ForeColor = Color.Gray,
                                 AutoSize = true,
-                                Location = new Point(40, 35) // adjust Y if needed
+                                Location = new Point(15, 100) // adjust Y if needed
                             };
                             orderPanel.Controls.Add(innerLblTime);
 
@@ -256,21 +246,13 @@ namespace DineEase.view
 
                         else
                         {
-                            // Existing Accept/Reject logic
-                            Label lblNumber = new Label
-                            {
-                                Text = orderNumber.ToString() + ".",
-                                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                                Location = new Point(10, 10),
-                                AutoSize = true
-                            };
-                            orderPanel.Controls.Add(lblNumber);
+
 
                             Label lblDetails = new Label
                             {
                                 Text = reader["ProductName"] + " : " + reader["Quantity"],
                                 Font = new Font("Segoe UI", 10),
-                                Location = new Point(40, 10),
+                                Location = new Point(15, 40),
                                 AutoSize = true
                             };
                             orderPanel.Controls.Add(lblDetails);
@@ -279,7 +261,7 @@ namespace DineEase.view
                             {
                                 Text = "Customer: " + reader["UserId"].ToString() + " - " + reader["CustomerName"].ToString(),
                                 Font = new Font("Segoe UI", 9),
-                                Location = new Point(40, 55), // Below the date
+                                Location = new Point(15, 70), // Below the date
                                 AutoSize = true
                             };
                             orderPanel.Controls.Add(lblCustomer);
@@ -302,7 +284,7 @@ namespace DineEase.view
                                 Font = new Font("Segoe UI", 9, FontStyle.Italic),
                                 ForeColor = Color.Gray,
                                 AutoSize = true,
-                                Location = new Point(40, 35) // adjust Y if needed
+                                Location = new Point(15, 100) // adjust Y if needed
                             };
                             orderPanel.Controls.Add(innerLblTime);
 
@@ -443,19 +425,6 @@ namespace DineEase.view
         }
         private void AdminViewOrdersnew_Resize(object sender, EventArgs e)
         {
-            // Resize the flowLayoutPanel to fill the form's client area
-            // You may need to adjust margins/paddings as needed
-            flowLayoutPanel1.Width = this.ClientSize.Width - flowLayoutPanel1.Left - 20;
-            flowLayoutPanel1.Height = this.ClientSize.Height - flowLayoutPanel1.Top - 20;
-
-            // Resize any child form that's in the flowLayoutPanel
-            foreach (Control control in flowLayoutPanel1.Controls)
-            {
-                if (control is Form)
-                {
-                    control.Size = flowLayoutPanel1.ClientSize;
-                }
-            }
         }
         private void ShowInFlow(Form child)
         {
@@ -496,21 +465,83 @@ namespace DineEase.view
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            LoadOrders();
+
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
-            var adminOrderHistoryForm = new AdminOrderHistoryForm();
-            //adminOrderHistoryForm.Show();
-            ShowInFlow(adminOrderHistoryForm);
+
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
+
+
+        private void AdjustControlPositions()
         {
-            navTimer.Start();
+            foreach (Control ctrl in guna2Panel1.Controls)
+            {
+                if (ctrl is Guna2ImageButton)
+                {
+                    if (isCollapsed)
+                        ctrl.Location = new Point(10, ctrl.Location.Y);
+                    else
+                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
+                }
+                else if (!isCollapsed)
+                {
+                    ctrl.Location = new Point(10, ctrl.Location.Y);
+                }
+            }
         }
-        private void navTimer_Tick_1(object sender, EventArgs e)
+
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void addbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminViewOrdersnew_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // fixed border, no resizing
+            this.MaximizeBox = false;                           // disable maximize
+            this.MinimizeBox = true;                            // optional: keep minimize
+
+
+            this.StartPosition = FormStartPosition.CenterScreen; // center on screen
+
+        }
+
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void navTimer_Tick(object sender, EventArgs e)
         {
             if (isCollapsed)
             {
@@ -555,49 +586,43 @@ namespace DineEase.view
                 }
             }
         }
-        private void AdjustControlPositions()
+
+        private void guna2ImageButton1_Click_1(object sender, EventArgs e)
         {
-            foreach (Control ctrl in guna2Panel1.Controls)
-            {
-                if (ctrl is Guna2ImageButton)
-                {
-                    if (isCollapsed)
-                        ctrl.Location = new Point(10, ctrl.Location.Y);
-                    else
-                        ctrl.Location = new Point(guna2Panel1.Width - ctrl.Width - 10, ctrl.Location.Y);
-                }
-                else if (!isCollapsed)
-                {
-                    ctrl.Location = new Point(10, ctrl.Location.Y);
-                }
-            }
+            navTimer.Start();
         }
 
+        private void guna2ImageButton4_Click_1(object sender, EventArgs e)
+        {
+            LoadOrders();
+        }
 
-        private void homeBtn_Click(object sender, EventArgs e)
+        private void guna2ImageButton2_Click_1(object sender, EventArgs e)
+        {
+            var adminOrderHistoryForm = new AdminOrderHistoryForm();
+            //adminOrderHistoryForm.Show();
+            ShowInFlow(adminOrderHistoryForm);
+        }
+
+        private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        private void guna2ImageButton3_Click_1(object sender, EventArgs e)
         {
 
             var adminHomePagenew = new AdminHomePagenew();
             ShowInFlow(adminHomePagenew);
         }
 
-        private void historyBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        private void guna2ImageButton7_Click_1(object sender, EventArgs e)
         {
             var addItemPage = new AddItemPage();
             ShowInFlow(addItemPage);
         }
 
-        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        private void guna2ImageButton5_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to log out?",
                                        "Logout Confirmation",
@@ -614,23 +639,10 @@ namespace DineEase.view
             {
                 // do nothing, stay on the current form
             }
-
         }
 
-        private void addbtn_Click(object sender, EventArgs e)
+        private void AdminViewOrdersnew_Load_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void AdminViewOrdersnew_Load(object sender, EventArgs e)
-        {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // fixed border, no resizing
-            this.MaximizeBox = false;                           // disable maximize
-            this.MinimizeBox = true;                            // optional: keep minimize
-
-            this.Width = 1300;   // your fixed width
-            this.Height = 800;   // your fixed height
-            this.StartPosition = FormStartPosition.CenterScreen; // center on screen
 
         }
     }

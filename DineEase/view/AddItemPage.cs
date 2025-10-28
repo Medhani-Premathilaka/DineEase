@@ -21,7 +21,7 @@ namespace DineEase
                 "Breakfast",
                 "Lunch",
                 "Dinner",
-                "Drinks",
+                "Breverages",
                 "Dessert"
             });
 
