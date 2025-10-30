@@ -171,6 +171,7 @@
             this.password.SelectedText = "";
             this.password.Size = new System.Drawing.Size(267, 38);
             this.password.TabIndex = 10;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // guna2HtmlLabel5
             // 
@@ -274,7 +275,7 @@
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(198, 22);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(53, 51);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(93, 51);
             this.guna2PictureBox1.TabIndex = 17;
             this.guna2PictureBox1.TabStop = false;
             // 
