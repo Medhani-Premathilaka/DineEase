@@ -65,7 +65,26 @@ namespace DineEase
                 return false;
             }
         }
+        // Add inside class `Signup`, e.g., below IsValidEmail(...)
+        private bool IsStrongPassword(string pwd)
+        {
+            if (string.IsNullOrEmpty(pwd)) return false;
+            if (pwd.Length < 8) return false;
 
+            bool hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false, hasWhitespace = false;
+
+            foreach (char c in pwd)
+            {
+                if (char.IsWhiteSpace(c)) { hasWhitespace = true; break; }
+                if (char.IsUpper(c)) hasUpper = true;
+                else if (char.IsLower(c)) hasLower = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else hasSpecial = true; // any non-letter/digit/non-space
+            }
+
+            if (hasWhitespace) return false;
+            return hasUpper && hasLower && hasDigit && hasSpecial;
+        }
         private void register_Click(object sender, EventArgs e)
         {
             string enteredUsername = username.Text.Trim();
@@ -92,6 +111,13 @@ namespace DineEase
                 lblError.Visible = true;
                 return;
             }
+            if (!IsStrongPassword(enteredPassword))
+            {
+                lblError.Text = "Enter a Strong password";
+                lblError.Visible = true;
+                return;
+            }
+
             if (enteredPassword == confirmPassword)
             {
                 Security security = new Security();
@@ -168,7 +194,9 @@ namespace DineEase
 
         }
 
+        private void password_TextChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

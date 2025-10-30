@@ -76,7 +76,7 @@ namespace DineEase.view
             string query = @"
                 SELECT OrderId, ProductName, Quantity, OrderDate, OrderStatus 
                 FROM Orders
-                WHERE UserId = @userId";
+                WHERE UserId = @userId AND Finished = 0";
 
             if (filter == "Pending")
                 query += " AND OrderStatus = 'Pending'";
